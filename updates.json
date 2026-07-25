@@ -1,14 +1,17 @@
 {
   "meta": {
-    "generatedAt": "2026-07-25T14:20:13+02:00",
+    "generatedAt": "2026-07-25T21:36:46+02:00",
     "source": "Zonebourse / Laurent Polsinelli",
     "previousPositionsGeneratedAt": "2026-07-24T13:50:00+02:00",
     "latestPublishedAt": "2026-07-24T13:56:00+02:00",
-    "newArticleCount": 1,
+    "newArticleCount": 3,
     "backfilledPositionCount": 6,
-    "resurfacedArticleCount": 1
+    "resurfacedArticleCount": 1,
+    "missedArticleCount": 2
   },
   "updates": [
+    {"id":"20260725-backfill-article-cac40-20260724-1123","detectedAt":"2026-07-25T21:36:46+02:00","type":"article_backfilled","publishedAt":"2026-07-24T11:23:00+02:00","title":"CAC 40: L'Europe reprend un peu de couleurs","url":"https://www.zonebourse.com/actualite-bourse/l-europe-reprend-un-peu-de-couleurs-ce7f51dfda8af42c","positionId":null,"summary":"Analyse de marché du 24 juillet absente du précédent état de déduplication ; aucune position associée."},
+    {"id":"20260725-backfill-article-cac40-20260724-0800","detectedAt":"2026-07-25T21:36:46+02:00","type":"article_backfilled","publishedAt":"2026-07-24T08:00:00+02:00","title":"CAC 40: Chahuté par le pétrole et les publications trimestrielles","url":"https://www.zonebourse.com/actualite-bourse/chahute-par-le-petrole-et-les-publications-trimestrielles-ce7f51dedf81ff20","positionId":null,"summary":"Analyse de marché du 24 juillet absente du précédent état de déduplication ; aucune position associée."},
     {"id":"20260725-new-article-sp500-20260724-1356","detectedAt":"2026-07-25T14:20:13+02:00","type":"new_article","publishedAt":"2026-07-24T13:56:00+02:00","title":"S&P 500: En légère hausse pour terminer la semaine","url":"https://www.zonebourse.com/actualite-bourse/en-legere-hausse-pour-terminer-la-semaine-ce7f51dfdc89f42d","positionId":null,"summary":"Nouvelle analyse publiée six minutes après la génération précédente ; aucune nouvelle position associée."},
     {"id":"20260725-resurfaced-sap-db83v","detectedAt":"2026-07-25T14:20:13+02:00","type":"article_resurfaced","publishedAt":"2026-06-17T17:50:00+02:00","title":"Désactivation du mini future Long DB83V (-91,4 %)","url":"https://www.zonebourse.com/actualite-bourse/desactivation-du-mini-future-long-db83v-91-4--ce7f51dfdb8ff423","positionId":"sap-db83v-20260317","summary":"Ancien article de clôture réapparu dans le flux récent ; les données de la position étaient déjà correctes."},
     {"id":"20260725-backfill-safran-7gp7b-20260623","detectedAt":"2026-07-25T14:20:13+02:00","type":"position_backfilled","publishedAt":"2026-07-21","asset":"Safran","mnemo":"7GP7B","positionId":"safran-7gp7b-20260623","status":"closed","url":"https://www.zonebourse.com/actualite-bourse/prises-de-benefices-sur-le-turbo-put-bnp-paribas-7gp7b-20-37--ce7f51d8db8ff624","summary":"Position clôturée le 21 juillet à +20,37 %."},
