@@ -1,4 +1,21 @@
 {
-  "meta": {},
-  "updates": []
+  "meta": {
+    "generatedAt": "2026-07-25T14:20:13+02:00",
+    "source": "Zonebourse / Laurent Polsinelli",
+    "previousPositionsGeneratedAt": "2026-07-24T13:50:00+02:00",
+    "latestPublishedAt": "2026-07-24T13:56:00+02:00",
+    "newArticleCount": 1,
+    "backfilledPositionCount": 6,
+    "resurfacedArticleCount": 1
+  },
+  "updates": [
+    {"id":"20260725-new-article-sp500-20260724-1356","detectedAt":"2026-07-25T14:20:13+02:00","type":"new_article","publishedAt":"2026-07-24T13:56:00+02:00","title":"S&P 500: En légère hausse pour terminer la semaine","url":"https://www.zonebourse.com/actualite-bourse/en-legere-hausse-pour-terminer-la-semaine-ce7f51dfdc89f42d","positionId":null,"summary":"Nouvelle analyse publiée six minutes après la génération précédente ; aucune nouvelle position associée."},
+    {"id":"20260725-resurfaced-sap-db83v","detectedAt":"2026-07-25T14:20:13+02:00","type":"article_resurfaced","publishedAt":"2026-06-17T17:50:00+02:00","title":"Désactivation du mini future Long DB83V (-91,4 %)","url":"https://www.zonebourse.com/actualite-bourse/desactivation-du-mini-future-long-db83v-91-4--ce7f51dfdb8ff423","positionId":"sap-db83v-20260317","summary":"Ancien article de clôture réapparu dans le flux récent ; les données de la position étaient déjà correctes."},
+    {"id":"20260725-backfill-safran-7gp7b-20260623","detectedAt":"2026-07-25T14:20:13+02:00","type":"position_backfilled","publishedAt":"2026-07-21","asset":"Safran","mnemo":"7GP7B","positionId":"safran-7gp7b-20260623","status":"closed","url":"https://www.zonebourse.com/actualite-bourse/prises-de-benefices-sur-le-turbo-put-bnp-paribas-7gp7b-20-37--ce7f51d8db8ff624","summary":"Position clôturée le 21 juillet à +20,37 %."},
+    {"id":"20260725-backfill-accor-4wl3b-20260617","detectedAt":"2026-07-25T14:20:13+02:00","type":"position_backfilled","publishedAt":"2026-07-21","asset":"Accor","mnemo":"4WL3B","positionId":"accor-4wl3b-20260617","status":"closed","url":"https://www.zonebourse.com/actualite-bourse/vente-du-turbo-put-bnp-paribas-4wl3b-20-10--ce7f51dbd188f524","summary":"Position clôturée le 21 juillet à +20,10 %."},
+    {"id":"20260725-backfill-allianz-qa95v-20260716","detectedAt":"2026-07-25T14:20:13+02:00","type":"position_backfilled","publishedAt":"2026-07-16","asset":"Allianz","mnemo":"QA95V","positionId":"allianz-qa95v-20260716","status":"open","url":"https://www.zonebourse.com/actualite-bourse/une-correction-technique-en-formation-ce7f5ed2de8ef427","summary":"Position baissière absente du fichier initial, toujours sans publication de sortie repérée."},
+    {"id":"20260725-backfill-nexans-325ks-20260715","detectedAt":"2026-07-25T14:20:13+02:00","type":"position_backfilled","publishedAt":"2026-07-15","asset":"Nexans","mnemo":"325KS","positionId":"nexans-325ks-20260715","status":"open","url":"https://www.zonebourse.com/actualite-bourse/une-opportunite-a-court-terme-ce7f5eddd181f022","summary":"Position haussière absente du fichier initial, toujours sans publication de sortie repérée."},
+    {"id":"20260725-backfill-legrand-3f7tb-20260715","detectedAt":"2026-07-25T14:20:13+02:00","type":"position_backfilled","publishedAt":"2026-07-15","asset":"Legrand","mnemo":"3F7TB","positionId":"legrand-3f7tb-20260715","status":"open","url":"https://www.zonebourse.com/actualite-bourse/achat-du-warrant-call-bnp-paribas-3f7tb-ce7f5eddde81f72d","summary":"Warrant CALL absent du fichier initial, toujours sans publication de sortie repérée."},
+    {"id":"20260725-backfill-ipsen-7mv8b-20260708","detectedAt":"2026-07-25T14:20:13+02:00","type":"position_backfilled","publishedAt":"2026-07-14","asset":"Ipsen","mnemo":"7MV8B","positionId":"ipsen-7mv8b-20260708","status":"closed","url":"https://www.zonebourse.com/actualite-bourse/prises-de-benefices-sur-le-turbo-put-bnp-paribas-7mv8b-31-09--ce7f5edcdf8bfe22","summary":"Position clôturée le 14 juillet à +31,09 %."}
+  ]
 }
