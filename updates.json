@@ -1,15 +1,21 @@
 {
   "meta": {
-    "generatedAt": "2026-07-25T21:36:46+02:00",
+    "generatedAt": "2026-07-26T01:35:07+02:00",
     "source": "Zonebourse / Laurent Polsinelli",
     "previousPositionsGeneratedAt": "2026-07-24T13:50:00+02:00",
     "latestPublishedAt": "2026-07-24T13:56:00+02:00",
     "newArticleCount": 3,
     "backfilledPositionCount": 6,
     "resurfacedArticleCount": 1,
-    "missedArticleCount": 2
+    "missedArticleCount": 8
   },
   "updates": [
+    {"id":"20260726-backfill-article-sp500-20260723-1402","detectedAt":"2026-07-26T01:35:07+02:00","type":"article_backfilled","publishedAt":"2026-07-23T14:02:00+02:00","title":"S&P 500: En baisse de 0.5% à l'ouverture","url":"https://www.zonebourse.com/actualite-bourse/en-baisse-de-0-5-a-l-ouverture-ce7f51dedb89f524","positionId":null,"summary":"Analyse de marché du 23 juillet absente de l'état de déduplication ; aucune position associée."},
+    {"id":"20260726-backfill-article-cac40-20260723-1111","detectedAt":"2026-07-26T01:35:07+02:00","type":"article_backfilled","publishedAt":"2026-07-23T11:11:00+02:00","title":"CAC 40: La lourdeur l'emporte en attendant la BCE","url":"https://www.zonebourse.com/actualite-bourse/la-lourdeur-l-emporte-en-attendant-la-bce-ce7f51ded880f52c","positionId":null,"summary":"Analyse de marché du 23 juillet absente de l'état de déduplication ; aucune position associée."},
+    {"id":"20260726-backfill-article-cac40-20260723-0800","detectedAt":"2026-07-26T01:35:07+02:00","type":"article_backfilled","publishedAt":"2026-07-23T08:00:00+02:00","title":"CAC 40: En situation d'attente avant la BCE","url":"https://www.zonebourse.com/actualite-bourse/en-situation-d-attente-avant-la-bce-ce7f51d9d08ef326","positionId":null,"summary":"Analyse de marché du 23 juillet absente de l'état de déduplication ; aucune position associée."},
+    {"id":"20260726-backfill-article-sp500-20260722-1442","detectedAt":"2026-07-26T01:35:07+02:00","type":"article_backfilled","publishedAt":"2026-07-22T14:42:00+02:00","title":"S&P 500: En baisse avant les résultats","url":"https://www.zonebourse.com/actualite-bourse/en-baisse-avant-les-resultats-ce7f51d9da8bf725","positionId":null,"summary":"Analyse de marché du 22 juillet absente de l'état de déduplication ; aucune position associée."},
+    {"id":"20260726-backfill-article-cac40-20260722-1117","detectedAt":"2026-07-26T01:35:07+02:00","type":"article_backfilled","publishedAt":"2026-07-22T11:17:00+02:00","title":"CAC 40: L'Europe accentue ses gains","url":"https://www.zonebourse.com/actualite-bourse/l-europe-accentue-ses-gains-ce7f51d9d98cfe21","positionId":null,"summary":"Analyse de marché du 22 juillet absente de l'état de déduplication ; aucune position associée."},
+    {"id":"20260726-backfill-article-cac40-20260722-0800","detectedAt":"2026-07-26T01:35:07+02:00","type":"article_backfilled","publishedAt":"2026-07-22T08:00:00+02:00","title":"CAC 40: La tech en soutien","url":"https://www.zonebourse.com/actualite-bourse/la-tech-en-soutien-ce7f51d8da8ef524","positionId":null,"summary":"Analyse de marché du 22 juillet absente de l'état de déduplication ; aucune position associée."},
     {"id":"20260725-backfill-article-cac40-20260724-1123","detectedAt":"2026-07-25T21:36:46+02:00","type":"article_backfilled","publishedAt":"2026-07-24T11:23:00+02:00","title":"CAC 40: L'Europe reprend un peu de couleurs","url":"https://www.zonebourse.com/actualite-bourse/l-europe-reprend-un-peu-de-couleurs-ce7f51dfda8af42c","positionId":null,"summary":"Analyse de marché du 24 juillet absente du précédent état de déduplication ; aucune position associée."},
     {"id":"20260725-backfill-article-cac40-20260724-0800","detectedAt":"2026-07-25T21:36:46+02:00","type":"article_backfilled","publishedAt":"2026-07-24T08:00:00+02:00","title":"CAC 40: Chahuté par le pétrole et les publications trimestrielles","url":"https://www.zonebourse.com/actualite-bourse/chahute-par-le-petrole-et-les-publications-trimestrielles-ce7f51dedf81ff20","positionId":null,"summary":"Analyse de marché du 24 juillet absente du précédent état de déduplication ; aucune position associée."},
     {"id":"20260725-new-article-sp500-20260724-1356","detectedAt":"2026-07-25T14:20:13+02:00","type":"new_article","publishedAt":"2026-07-24T13:56:00+02:00","title":"S&P 500: En légère hausse pour terminer la semaine","url":"https://www.zonebourse.com/actualite-bourse/en-legere-hausse-pour-terminer-la-semaine-ce7f51dfdc89f42d","positionId":null,"summary":"Nouvelle analyse publiée six minutes après la génération précédente ; aucune nouvelle position associée."},
