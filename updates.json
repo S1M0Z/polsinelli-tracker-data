@@ -1,15 +1,16 @@
 {
   "meta": {
-    "generatedAt": "2026-07-26T01:35:07+02:00",
+    "generatedAt": "2026-07-27T09:06:48+02:00",
     "source": "Zonebourse / Laurent Polsinelli",
     "previousPositionsGeneratedAt": "2026-07-24T13:50:00+02:00",
-    "latestPublishedAt": "2026-07-24T13:56:00+02:00",
-    "newArticleCount": 3,
+    "latestPublishedAt": "2026-07-27T08:00:00+02:00",
+    "newArticleCount": 4,
     "backfilledPositionCount": 6,
     "resurfacedArticleCount": 1,
     "missedArticleCount": 8
   },
   "updates": [
+    {"id":"20260727-new-article-cac40-20260727-0800","detectedAt":"2026-07-27T09:06:48+02:00","type":"new_article","publishedAt":"2026-07-27T08:00:00+02:00","title":"CAC 40: Dans le vert avec le reflux des cours pétroliers","url":"https://www.zonebourse.com/actualite-bourse/dans-le-vert-avec-le-reflux-des-cours-petroliers-ce7f51dcdb8bf222","positionId":null,"summary":"Nouvelle analyse matinale du CAC 40 ; aucune position sur produit dérivé associée."},
     {"id":"20260726-backfill-article-sp500-20260723-1402","detectedAt":"2026-07-26T01:35:07+02:00","type":"article_backfilled","publishedAt":"2026-07-23T14:02:00+02:00","title":"S&P 500: En baisse de 0.5% à l'ouverture","url":"https://www.zonebourse.com/actualite-bourse/en-baisse-de-0-5-a-l-ouverture-ce7f51dedb89f524","positionId":null,"summary":"Analyse de marché du 23 juillet absente de l'état de déduplication ; aucune position associée."},
     {"id":"20260726-backfill-article-cac40-20260723-1111","detectedAt":"2026-07-26T01:35:07+02:00","type":"article_backfilled","publishedAt":"2026-07-23T11:11:00+02:00","title":"CAC 40: La lourdeur l'emporte en attendant la BCE","url":"https://www.zonebourse.com/actualite-bourse/la-lourdeur-l-emporte-en-attendant-la-bce-ce7f51ded880f52c","positionId":null,"summary":"Analyse de marché du 23 juillet absente de l'état de déduplication ; aucune position associée."},
     {"id":"20260726-backfill-article-cac40-20260723-0800","detectedAt":"2026-07-26T01:35:07+02:00","type":"article_backfilled","publishedAt":"2026-07-23T08:00:00+02:00","title":"CAC 40: En situation d'attente avant la BCE","url":"https://www.zonebourse.com/actualite-bourse/en-situation-d-attente-avant-la-bce-ce7f51d9d08ef326","positionId":null,"summary":"Analyse de marché du 23 juillet absente de l'état de déduplication ; aucune position associée."},
