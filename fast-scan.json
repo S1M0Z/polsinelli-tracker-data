@@ -1,146 +1,17 @@
 {
   "meta": {
     "createdAt": "2026-07-30T14:35:34+02:00",
-    "updatedAt": "2026-07-30T18:24:03+02:00",
+    "updatedAt": "2026-07-30T18:35:07+02:00",
     "source": "https://www.zonebourse.com/auteur/laurent-polsinelli",
     "scanIntervalMinutes": 5,
-    "description": "Détection rapide. Une position reste PENDING_DATA jusqu'à confirmation du produit, de la cotation et du risque."
+    "description": "Détection stricte des liens datés présents dans la liste auteur. Une position reste PENDING_DATA jusqu'à confirmation du produit, de la cotation et du risque."
   },
   "latest": {
     "url": "https://www.zonebourse.com/actualite-bourse/peu-d-iniatives-en-attendant-la-fed-ce7f51dddc8cf124",
     "title": "S&P 500: Peu d'initiatives en attendant la Fed",
     "publishedAt": "2026-07-28T13:45+02:00",
     "kind": "market_analysis",
-    "seenAt": "2026-07-30T18:24:03+02:00"
+    "seenAt": "2026-07-30T18:35:07+02:00"
   },
-  "alerts": [
-    {
-      "url": "https://www.zonebourse.com/actualite-bourse/renault-solide-performance-au-s1-superieure-aux-attentes-en-termes-de-chiffre-d-affaires-et-de-mar-ce7f50dade8bf522",
-      "title": "RENAULT : Solide performance au S1 supérieure aux attentes en termes de chiffre d'affaires et de marge, objectifs confirmés malgré la pression sur les prix",
-      "publishedAt": null,
-      "kind": "other",
-      "detectedAt": "2026-07-30T18:24:03+02:00",
-      "status": "detected"
-    },
-    {
-      "url": "https://www.zonebourse.com/actualite-bourse/bae-systems-premier-semestre-2026-une-performance-generalisee-qui-releve-les-objectifs-ce7f50dade88fe21",
-      "title": "BAE SYSTEMS : premier semestre 2026, une performance généralisée qui relève les objectifs",
-      "publishedAt": null,
-      "kind": "other",
-      "detectedAt": "2026-07-30T18:24:03+02:00",
-      "status": "detected"
-    },
-    {
-      "url": "https://www.zonebourse.com/actualite-bourse/acs-acs-releve-ses-objectifs-pour-2026-ce7f50dadf81f620",
-      "title": "ACS : ACS relève ses objectifs pour 2026",
-      "publishedAt": null,
-      "kind": "other",
-      "detectedAt": "2026-07-30T18:24:03+02:00",
-      "status": "detected"
-    },
-    {
-      "url": "https://www.zonebourse.com/actualite-bourse/groupe-atos-la-croissance-reste-insaisissable-ce7f50dadf8cfe20",
-      "title": "GROUPE ATOS : la croissance reste insaisissable",
-      "publishedAt": null,
-      "kind": "other",
-      "detectedAt": "2026-07-30T18:24:03+02:00",
-      "status": "detected"
-    },
-    {
-      "url": "https://www.zonebourse.com/actualite-bourse/microsoft-accelere-la-ou-ca-compte-et-enregistre-une-progression-historique-ce7f50dadf8cf420",
-      "title": "Microsoft accélère là où ça compte et enregistre une progression historique",
-      "publishedAt": null,
-      "kind": "other",
-      "detectedAt": "2026-07-30T18:24:03+02:00",
-      "status": "detected"
-    },
-    {
-      "url": "https://www.zonebourse.com/actualite-bourse/verbund-s1-2026-la-faiblesse-de-l-hydraulique-pese-a-nouveau-les-objectifs-revus-a-la-baisse-ce7f50dadf8df623",
-      "title": "VERBUND : S1 2026 : La faiblesse de l'hydraulique pèse à nouveau, les objectifs revus à la baisse",
-      "publishedAt": null,
-      "kind": "other",
-      "detectedAt": "2026-07-30T18:24:03+02:00",
-      "status": "detected"
-    },
-    {
-      "url": "https://www.zonebourse.com/actualite-bourse/le-nasdaq-se-fait-corriger-ce7f51d3d18af52c",
-      "title": "Le Nasdaq se fait corriger",
-      "publishedAt": null,
-      "kind": "other",
-      "detectedAt": "2026-07-30T18:24:03+02:00",
-      "status": "detected"
-    },
-    {
-      "url": "https://www.zonebourse.com/actualite-bourse/avis-d-analystes-du-jour-du-nouveau-sur-airbus-galderma-et-sopra-steria-ce7f51d3d08bf320",
-      "title": "Avis d'analystes du jour : du nouveau sur Airbus, Galderma et Sopra Steria",
-      "publishedAt": null,
-      "kind": "other",
-      "detectedAt": "2026-07-30T18:24:03+02:00",
-      "status": "detected"
-    },
-    {
-      "url": "https://www.zonebourse.com/actualite-bourse/sanofi-lourdement-sanctionne-malgre-de-bons-resultats-et-un-objectif-releve-ce7f50dadd8dff2d",
-      "title": "Sanofi lourdement sanctionné malgré de bons résultats et un objectif relevé",
-      "publishedAt": null,
-      "kind": "other",
-      "detectedAt": "2026-07-30T18:24:03+02:00",
-      "status": "detected"
-    },
-    {
-      "url": "https://www.zonebourse.com/actualite-bourse/bourse-schneider-se-rebiffe-adidas-sombre-ce7f51d3d08ef323",
-      "title": "Bourse : Schneider se rebiffe, Adidas sombre",
-      "publishedAt": null,
-      "kind": "other",
-      "detectedAt": "2026-07-30T18:24:03+02:00",
-      "status": "detected"
-    },
-    {
-      "url": "https://www.zonebourse.com/actualite-bourse/le-marche-punit-wavestone-apres-une-nouvelle-deception-ce7f50dad98bf726",
-      "title": "Le marché punit Wavestone après une nouvelle déception",
-      "publishedAt": null,
-      "kind": "other",
-      "detectedAt": "2026-07-30T18:24:03+02:00",
-      "status": "detected"
-    },
-    {
-      "url": "https://www.zonebourse.com/actualite-bourse/du-vert-attendu-a-wall-street-dans-le-sillage-de-microsoft-ce7f50dadd8cf027",
-      "title": "Du vert attendu à Wall Street dans le sillage de Microsoft",
-      "publishedAt": null,
-      "kind": "other",
-      "detectedAt": "2026-07-30T18:24:03+02:00",
-      "status": "detected"
-    },
-    {
-      "url": "https://www.zonebourse.com/actualite-bourse/le-thread-de-la-semaine-quand-le-raffinage-vaut-plus-que-le-brut-ce7f50dad989f421",
-      "title": "Le Thread de la Semaine : Quand le raffinage vaut plus que le brut",
-      "publishedAt": null,
-      "kind": "other",
-      "detectedAt": "2026-07-30T18:24:03+02:00",
-      "status": "detected"
-    },
-    {
-      "url": "https://www.zonebourse.com/actualite-bourse/le-pari-digital-de-fdj-tarde-a-payer-ce7f50dad88bf027",
-      "title": "Le pari digital de FDJ tarde à payer",
-      "publishedAt": null,
-      "kind": "other",
-      "detectedAt": "2026-07-30T18:24:03+02:00",
-      "status": "detected"
-    },
-    {
-      "url": "https://www.zonebourse.com/actualite-bourse/schneider-electrise-la-cote-adidas-perd-ses-appuis-ce7f50dad98bf325",
-      "title": "Schneider électrise la cote, Adidas perd ses appuis",
-      "publishedAt": null,
-      "kind": "other",
-      "detectedAt": "2026-07-30T18:24:03+02:00",
-      "status": "detected"
-    },
-    {
-      "url": "https://www.zonebourse.com/actualite-bourse/resultats-toujours-survoltes-chez-schneider-electric-ce7f50dada88f426",
-      "title": "Résultats toujours survoltés chez Schneider Electric",
-      "publishedAt": null,
-      "kind": "other",
-      "detectedAt": "2026-07-30T18:24:03+02:00",
-      "status": "detected"
-    }
-  ]
+  "alerts": []
 }
