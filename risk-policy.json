@@ -1,0 +1,20 @@
+{
+  "meta": {
+    "version": 1,
+    "purpose": "Conservative simulation defaults. Replace modelCapitalEur with the capital base you actually want to model.",
+    "updatedAt": "2026-07-30T13:52:00+02:00"
+  },
+  "policy": {
+    "modelCapitalEur": 10000,
+    "fixedStakeEur": 100,
+    "maxQuoteAgeMinutes": 30,
+    "maxPriceDriftPct": 5,
+    "maxSpreadPct": 4,
+    "minRewardRiskRatio": 1.5,
+    "maxDetectionLatencySeconds": 300,
+    "maxRiskPerTradePct": 0.5,
+    "maxTotalLeveragedExposurePct": 5,
+    "maxOpenPositions": 3,
+    "assumeFullPremiumAtRisk": true
+  }
+}
