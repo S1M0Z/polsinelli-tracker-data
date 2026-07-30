@@ -1,12 +1,28 @@
 {
   "meta": {
     "createdAt": "2026-07-30T08:55:00+02:00",
-    "updatedAt": "2026-07-30T17:30:47+02:00",
+    "updatedAt": "2026-07-30T18:35:07+02:00",
     "source": "Zonebourse / Laurent Polsinelli",
     "maxEntries": 200,
     "description": "Journal des exécutions de la veille Zonebourse. Les entrées les plus récentes sont placées en premier."
   },
   "scans": [
+    {
+      "runAt": "2026-07-30T18:35:07+02:00",
+      "status": "updated",
+      "newArticles": 0,
+      "modifiedArticles": 0,
+      "resurfacedArticles": 0,
+      "positionsChanged": 0,
+      "filesChanged": [
+        "scripts/fast_zonebourse_scan_v2.py",
+        ".github/workflows/fast-zonebourse-scan.yml",
+        "fast-scan.json",
+        "scan-log.json"
+      ],
+      "commitSha": "0c6b39cbe0c6d6fc9acf6f3fd20478cd0403341a",
+      "note": "Aucune nouvelle publication Polsinelli confirmée. Le scanner capturait encore 16 articles génériques Zonebourse sans date auteur ; un scanner strict exigeant une date de publication dans la carte auteur a été activé et la file a été nettoyée."
+    },
     {
       "runAt": "2026-07-30T17:30:47+02:00",
       "status": "updated",
