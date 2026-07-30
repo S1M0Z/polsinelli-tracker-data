@@ -1,0 +1,9 @@
+{
+  "meta": {
+    "version": 1,
+    "updatedAt": "2026-07-30T13:52:00+02:00",
+    "description": "Append-only quote snapshots for open positions. Store bid, ask, price, underlyingPrice and quoteAt when available.",
+    "maxQuotesPerPosition": 500
+  },
+  "quotes": []
+}
