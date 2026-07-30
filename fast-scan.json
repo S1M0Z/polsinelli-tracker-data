@@ -1,11 +1,426 @@
 {
   "meta": {
     "createdAt": "2026-07-30T14:35:34+02:00",
-    "updatedAt": "2026-07-30T14:35:34+02:00",
+    "updatedAt": "2026-07-30T16:52:35+02:00",
     "source": "https://www.zonebourse.com/auteur/laurent-polsinelli",
     "scanIntervalMinutes": 5,
     "description": "Détection rapide. Une position reste PENDING_DATA jusqu'à confirmation du produit, de la cotation et du risque."
   },
-  "latest": null,
-  "alerts": []
+  "latest": {
+    "url": "https://www.zonebourse.com/actualite-bourse/indices/",
+    "title": "Actualités sur les Indices",
+    "publishedAt": null,
+    "kind": "other",
+    "seenAt": "2026-07-30T16:52:35+02:00"
+  },
+  "alerts": [
+    {
+      "url": "https://www.zonebourse.com/actualite-bourse/indices/",
+      "title": "Actualités sur les Indices",
+      "publishedAt": null,
+      "kind": "other",
+      "detectedAt": "2026-07-30T16:52:35+02:00",
+      "status": "detected"
+    },
+    {
+      "url": "https://www.zonebourse.com/actualite-bourse/devises/",
+      "title": "Actualités sur les Devises",
+      "publishedAt": null,
+      "kind": "other",
+      "detectedAt": "2026-07-30T16:52:35+02:00",
+      "status": "detected"
+    },
+    {
+      "url": "https://www.zonebourse.com/actualite-bourse/cryptomonnaies/",
+      "title": "Actualités",
+      "publishedAt": null,
+      "kind": "other",
+      "detectedAt": "2026-07-30T16:52:35+02:00",
+      "status": "detected"
+    },
+    {
+      "url": "https://www.zonebourse.com/actualite-bourse/ETF/",
+      "title": "Actualités",
+      "publishedAt": null,
+      "kind": "other",
+      "detectedAt": "2026-07-30T16:52:35+02:00",
+      "status": "detected"
+    },
+    {
+      "url": "https://www.zonebourse.com/actualite-bourse/",
+      "title": "Actualités",
+      "publishedAt": null,
+      "kind": "other",
+      "detectedAt": "2026-07-30T16:52:35+02:00",
+      "status": "detected"
+    },
+    {
+      "url": "https://www.zonebourse.com/actualite-bourse/thematiques/economie/",
+      "title": "Macroéconomie",
+      "publishedAt": null,
+      "kind": "other",
+      "detectedAt": "2026-07-30T16:52:35+02:00",
+      "status": "detected"
+    },
+    {
+      "url": "https://www.zonebourse.com/actualite-bourse/thematiques/politique/",
+      "title": "Politique",
+      "publishedAt": null,
+      "kind": "other",
+      "detectedAt": "2026-07-30T16:52:35+02:00",
+      "status": "detected"
+    },
+    {
+      "url": "https://www.zonebourse.com/actualite-bourse/thematiques/geopolitique/",
+      "title": "Géopolitique",
+      "publishedAt": null,
+      "kind": "other",
+      "detectedAt": "2026-07-30T16:52:35+02:00",
+      "status": "detected"
+    },
+    {
+      "url": "https://www.zonebourse.com/actualite-bourse/thematiques/technologie/",
+      "title": "Technologie",
+      "publishedAt": null,
+      "kind": "other",
+      "detectedAt": "2026-07-30T16:52:35+02:00",
+      "status": "detected"
+    },
+    {
+      "url": "https://www.zonebourse.com/actualite-bourse/thematiques/commerce-international/",
+      "title": "Commerce International",
+      "publishedAt": null,
+      "kind": "other",
+      "detectedAt": "2026-07-30T16:52:35+02:00",
+      "status": "detected"
+    },
+    {
+      "url": "https://www.zonebourse.com/actualite-bourse/thematiques/conflits/",
+      "title": "Conflits militaires",
+      "publishedAt": null,
+      "kind": "other",
+      "detectedAt": "2026-07-30T16:52:35+02:00",
+      "status": "detected"
+    },
+    {
+      "url": "https://www.zonebourse.com/actualite-bourse/thematiques/fiscalite/",
+      "title": "Fiscalité",
+      "publishedAt": null,
+      "kind": "other",
+      "detectedAt": "2026-07-30T16:52:35+02:00",
+      "status": "detected"
+    },
+    {
+      "url": "https://www.zonebourse.com/actualite-bourse/thematiques/developpement-durable/",
+      "title": "Développement durable",
+      "publishedAt": null,
+      "kind": "other",
+      "detectedAt": "2026-07-30T16:52:35+02:00",
+      "status": "detected"
+    },
+    {
+      "url": "https://www.zonebourse.com/actualite-bourse/thematiques/legal/",
+      "title": "Légal, Régulation et criminalité",
+      "publishedAt": null,
+      "kind": "other",
+      "detectedAt": "2026-07-30T16:52:35+02:00",
+      "status": "detected"
+    },
+    {
+      "url": "https://www.zonebourse.com/actualite-bourse/societes/",
+      "title": "Sociétés",
+      "publishedAt": null,
+      "kind": "other",
+      "detectedAt": "2026-07-30T16:52:35+02:00",
+      "status": "detected"
+    },
+    {
+      "url": "https://www.zonebourse.com/actualite-bourse/societes/resultats-financiers/",
+      "title": "Résultats Financiers",
+      "publishedAt": null,
+      "kind": "other",
+      "detectedAt": "2026-07-30T16:52:35+02:00",
+      "status": "detected"
+    },
+    {
+      "url": "https://www.zonebourse.com/actualite-bourse/societes/recommandations/",
+      "title": "Recommandations Analystes",
+      "publishedAt": null,
+      "kind": "other",
+      "detectedAt": "2026-07-30T16:52:35+02:00",
+      "status": "detected"
+    },
+    {
+      "url": "https://www.zonebourse.com/actualite-bourse/societes/call-transcripts/",
+      "title": "Transcripts",
+      "publishedAt": null,
+      "kind": "other",
+      "detectedAt": "2026-07-30T16:52:35+02:00",
+      "status": "detected"
+    },
+    {
+      "url": "https://www.zonebourse.com/actualite-bourse/societes/communiques/",
+      "title": "Communiqués de presse",
+      "publishedAt": null,
+      "kind": "other",
+      "detectedAt": "2026-07-30T16:52:35+02:00",
+      "status": "detected"
+    },
+    {
+      "url": "https://www.zonebourse.com/actualite-bourse/societes/transactions-inities/",
+      "title": "Transaction d'initiés",
+      "publishedAt": null,
+      "kind": "other",
+      "detectedAt": "2026-07-30T16:52:35+02:00",
+      "status": "detected"
+    },
+    {
+      "url": "https://www.zonebourse.com/actualite-bourse/societes/controverses/",
+      "title": "Controverses",
+      "publishedAt": null,
+      "kind": "other",
+      "detectedAt": "2026-07-30T16:52:35+02:00",
+      "status": "detected"
+    },
+    {
+      "url": "https://www.zonebourse.com/actualite-bourse/societes/innovations-expansions/",
+      "title": "Innovations et expansions",
+      "publishedAt": null,
+      "kind": "other",
+      "detectedAt": "2026-07-30T16:52:35+02:00",
+      "status": "detected"
+    },
+    {
+      "url": "https://www.zonebourse.com/actualite-bourse/societes/introductions/",
+      "title": "Introductions en bourse",
+      "publishedAt": null,
+      "kind": "other",
+      "detectedAt": "2026-07-30T16:52:35+02:00",
+      "status": "detected"
+    },
+    {
+      "url": "https://www.zonebourse.com/actualite-bourse/societes/rumeur/",
+      "title": "Rumeurs",
+      "publishedAt": null,
+      "kind": "other",
+      "detectedAt": "2026-07-30T16:52:35+02:00",
+      "status": "detected"
+    },
+    {
+      "url": "https://www.zonebourse.com/actualite-bourse/societes/activisme/",
+      "title": "Activisme",
+      "publishedAt": null,
+      "kind": "other",
+      "detectedAt": "2026-07-30T16:52:35+02:00",
+      "status": "detected"
+    },
+    {
+      "url": "https://www.zonebourse.com/actualite-bourse/societes/negatives/",
+      "title": "Surprises négatives",
+      "publishedAt": null,
+      "kind": "other",
+      "detectedAt": "2026-07-30T16:52:35+02:00",
+      "status": "detected"
+    },
+    {
+      "url": "https://www.zonebourse.com/actualite-bourse/societes/positives/",
+      "title": "Surprises positives",
+      "publishedAt": null,
+      "kind": "other",
+      "detectedAt": "2026-07-30T16:52:35+02:00",
+      "status": "detected"
+    },
+    {
+      "url": "https://www.zonebourse.com/actualite-bourse/societes/nouveaux-contrats/",
+      "title": "Nouveaux Contrats",
+      "publishedAt": null,
+      "kind": "other",
+      "detectedAt": "2026-07-30T16:52:35+02:00",
+      "status": "detected"
+    },
+    {
+      "url": "https://www.zonebourse.com/actualite-bourse/matieres-premieres/",
+      "title": "Matières Premières",
+      "publishedAt": null,
+      "kind": "other",
+      "detectedAt": "2026-07-30T16:52:35+02:00",
+      "status": "detected"
+    },
+    {
+      "url": "https://www.zonebourse.com/actualite-bourse/taux/",
+      "title": "Taux",
+      "publishedAt": null,
+      "kind": "other",
+      "detectedAt": "2026-07-30T16:52:35+02:00",
+      "status": "detected"
+    },
+    {
+      "url": "https://www.zonebourse.com/actualite-bourse/fonds/",
+      "title": "Fonds",
+      "publishedAt": null,
+      "kind": "other",
+      "detectedAt": "2026-07-30T16:52:35+02:00",
+      "status": "detected"
+    },
+    {
+      "url": "https://www.zonebourse.com/actualite-bourse/economie/",
+      "title": "Économie",
+      "publishedAt": null,
+      "kind": "other",
+      "detectedAt": "2026-07-30T16:52:35+02:00",
+      "status": "detected"
+    },
+    {
+      "url": "https://www.zonebourse.com/actualite-bourse/secteurs/",
+      "title": "Secteurs",
+      "publishedAt": null,
+      "kind": "other",
+      "detectedAt": "2026-07-30T16:52:35+02:00",
+      "status": "detected"
+    },
+    {
+      "url": "https://www.zonebourse.com/actualite-bourse/zonebourse/",
+      "title": "Tous nos articles",
+      "publishedAt": null,
+      "kind": "other",
+      "detectedAt": "2026-07-30T16:52:35+02:00",
+      "status": "detected"
+    },
+    {
+      "url": "https://www.zonebourse.com/actualite-bourse/actualites-plus-lues/",
+      "title": "Actualités les plus lues",
+      "publishedAt": null,
+      "kind": "other",
+      "detectedAt": "2026-07-30T16:52:35+02:00",
+      "status": "detected"
+    },
+    {
+      "url": "https://www.zonebourse.com/actualite-bourse/schneider-electric-la-croissance-portee-par-les-centres-de-donnees-permet-un-nouveau-relevement-de-ce7f50dadc8cf624",
+      "title": "SCHNEIDER ELECTRIC : la croissance portée par les centres de données permet un nouveau relèvement des objectifs ; Schneider reste relativement mieux positionné",
+      "publishedAt": null,
+      "kind": "other",
+      "detectedAt": "2026-07-30T16:52:35+02:00",
+      "status": "detected"
+    },
+    {
+      "url": "https://www.zonebourse.com/actualite-bourse/groupe-adp-premier-semestre-le-cadre-tarifaire-soutient-la-valorisation-ce7f50dadc8df42c",
+      "title": "GROUPE ADP : premier semestre : le cadre tarifaire soutient la valorisation",
+      "publishedAt": null,
+      "kind": "other",
+      "detectedAt": "2026-07-30T16:52:35+02:00",
+      "status": "detected"
+    },
+    {
+      "url": "https://www.zonebourse.com/actualite-bourse/record-pour-prysmian-pas-d-accord-pour-les-analystes-ce7f50dadc8af12d",
+      "title": "Record pour Prysmian, pas d'accord pour les analystes",
+      "publishedAt": null,
+      "kind": "other",
+      "detectedAt": "2026-07-30T16:52:35+02:00",
+      "status": "detected"
+    },
+    {
+      "url": "https://www.zonebourse.com/actualite-bourse/mtu-aero-engines-flux-de-tresorerie-superieurs-aux-attentes-mix-decevant-ce7f50dadc88f220",
+      "title": "MTU AERO ENGINES : flux de trésorerie supérieurs aux attentes, mix décevant",
+      "publishedAt": null,
+      "kind": "other",
+      "detectedAt": "2026-07-30T16:52:35+02:00",
+      "status": "detected"
+    },
+    {
+      "url": "https://www.zonebourse.com/actualite-bourse/bic-nouveau-depassement-des-attentes-cap-sur-la-journee-investisseurs-ce7f50dadc88f324",
+      "title": "BIC : nouveau dépassement des attentes ; cap sur la journée investisseurs",
+      "publishedAt": null,
+      "kind": "other",
+      "detectedAt": "2026-07-30T16:52:35+02:00",
+      "status": "detected"
+    },
+    {
+      "url": "https://www.zonebourse.com/actualite-bourse/air-france-klm-une-forte-recuperation-du-cout-du-carburant-et-une-discipline-tarifaire-soutiennent-ce7f50dadd81f620",
+      "title": "AIR FRANCE-KLM : Une forte récupération du coût du carburant et une discipline tarifaire soutiennent un trimestre résilient",
+      "publishedAt": null,
+      "kind": "other",
+      "detectedAt": "2026-07-30T16:52:35+02:00",
+      "status": "detected"
+    },
+    {
+      "url": "https://www.zonebourse.com/actualite-bourse/le-nasdaq-se-fait-corriger-ce7f51d3d18af52c",
+      "title": "Le Nasdaq se fait corriger",
+      "publishedAt": null,
+      "kind": "other",
+      "detectedAt": "2026-07-30T16:52:35+02:00",
+      "status": "detected"
+    },
+    {
+      "url": "https://www.zonebourse.com/actualite-bourse/avis-d-analystes-du-jour-du-nouveau-sur-airbus-galderma-et-sopra-steria-ce7f51d3d08bf320",
+      "title": "Avis d'analystes du jour : du nouveau sur Airbus, Galderma et Sopra Steria",
+      "publishedAt": null,
+      "kind": "other",
+      "detectedAt": "2026-07-30T16:52:35+02:00",
+      "status": "detected"
+    },
+    {
+      "url": "https://www.zonebourse.com/actualite-bourse/bourse-schneider-se-rebiffe-adidas-sombre-ce7f51d3d08ef323",
+      "title": "Bourse : Schneider se rebiffe, Adidas sombre",
+      "publishedAt": null,
+      "kind": "other",
+      "detectedAt": "2026-07-30T16:52:35+02:00",
+      "status": "detected"
+    },
+    {
+      "url": "https://www.zonebourse.com/actualite-bourse/le-marche-punit-wavestone-apres-une-nouvelle-deception-ce7f50dad98bf726",
+      "title": "Le marché punit Wavestone après une nouvelle déception",
+      "publishedAt": null,
+      "kind": "other",
+      "detectedAt": "2026-07-30T16:52:35+02:00",
+      "status": "detected"
+    },
+    {
+      "url": "https://www.zonebourse.com/actualite-bourse/le-thread-de-la-semaine-quand-le-raffinage-vaut-plus-que-le-brut-ce7f50dad989f421",
+      "title": "Le Thread de la Semaine : Quand le raffinage vaut plus que le brut",
+      "publishedAt": null,
+      "kind": "other",
+      "detectedAt": "2026-07-30T16:52:35+02:00",
+      "status": "detected"
+    },
+    {
+      "url": "https://www.zonebourse.com/actualite-bourse/sanofi-lourdement-sanctionne-malgre-de-bons-resultats-et-un-objectif-releve-ce7f50dadd8dff2d",
+      "title": "Sanofi lourdement sanctionné malgré de bons résultats et un objectif relevé",
+      "publishedAt": null,
+      "kind": "other",
+      "detectedAt": "2026-07-30T16:52:35+02:00",
+      "status": "detected"
+    },
+    {
+      "url": "https://www.zonebourse.com/actualite-bourse/schneider-electrise-la-cote-adidas-perd-ses-appuis-ce7f50dad98bf325",
+      "title": "Schneider électrise la cote, Adidas perd ses appuis",
+      "publishedAt": null,
+      "kind": "other",
+      "detectedAt": "2026-07-30T16:52:35+02:00",
+      "status": "detected"
+    },
+    {
+      "url": "https://www.zonebourse.com/actualite-bourse/le-pari-digital-de-fdj-tarde-a-payer-ce7f50dad88bf027",
+      "title": "Le pari digital de FDJ tarde à payer",
+      "publishedAt": null,
+      "kind": "other",
+      "detectedAt": "2026-07-30T16:52:35+02:00",
+      "status": "detected"
+    },
+    {
+      "url": "https://www.zonebourse.com/actualite-bourse/technip-energies-reajuste-ses-objectifs-de-marge-par-segment-pour-2026-ce7f51d3d089f124",
+      "title": "Technip Energies réajuste ses objectifs de marge par segment pour 2026",
+      "publishedAt": null,
+      "kind": "other",
+      "detectedAt": "2026-07-30T16:52:35+02:00",
+      "status": "detected"
+    },
+    {
+      "url": "https://www.zonebourse.com/actualite-bourse/face-a-une-actualite-chargee-les-indices-europeens-connaissent-des-fortunes-diverses-ce7f50dad88aff21",
+      "title": "Face à une actualité chargée, les indices européens connaissent des fortunes diverses",
+      "publishedAt": null,
+      "kind": "other",
+      "detectedAt": "2026-07-30T16:52:35+02:00",
+      "status": "detected"
+    }
+  ]
 }
