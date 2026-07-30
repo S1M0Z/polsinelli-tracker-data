@@ -24,6 +24,8 @@ Le scraping de pages web n'est plus utilisé pour produire les cours. `scripts/q
 
 Le premier fournisseur implémenté est **Saxo OpenAPI Info Prices**. La recherche part du mnémonique ou de l'ISIN. En cas d'ambiguïté, renseigne manuellement `uic` et `assetType` dans `market-data-config.json`.
 
+### Token temporaire
+
 ```bash
 cp .env.example .env
 export SAXO_ACCESS_TOKEN="..."
@@ -32,6 +34,20 @@ python scripts/quote_collector.py --session manual
 python scripts/investment_engine.py
 python scripts/validate_data.py
 ```
+
+### Connexion OAuth Saxo locale
+
+L'App Key et l'App Secret ne sont pas des jetons de marché à eux seuls. Une connexion Saxo initiale doit produire un access token et un refresh token. Le helper local capture le callback sur `localhost`, échange le code et écrit le bundle dans `.runtime/saxo-token.json`, fichier ignoré par Git.
+
+```bash
+export SAXO_ENV=sim
+export SAXO_APP_KEY="..."
+export SAXO_APP_SECRET="..."
+python scripts/saxo_oauth_login.py
+python scripts/quote_collector_oauth.py --session manual
+```
+
+Lorsqu'il expire, `quote_collector_oauth.py` renouvelle automatiquement l'access token à partir du refresh token et remplace atomiquement le bundle local, conformément à la rotation imposée par Saxo. Aucun token ni secret n'est imprimé.
 
 L'accès temps réel dépend des droits de marché associés au compte et au jeton Saxo. Le collecteur conserve `delayedByMinutes` et abaisse la confiance lorsque la donnée est différée. Il n'invente jamais un prix à partir du seul sous-jacent.
 
@@ -45,7 +61,7 @@ Configurer dans **Settings → Secrets and variables → Actions** :
 - secret facultatif `SAXO_ACCOUNT_KEY`
 - variable `SAXO_ENV` avec `sim` ou `live`
 
-Les jetons OAuth Saxo ont une durée de vie limitée. Pour un service réellement permanent, exécute le même collecteur sur un VPS ou un runner auto-hébergé doté d'un mécanisme OAuth de renouvellement sécurisé. Le dépôt ne stocke jamais de secret ou de refresh token.
+Un simple App Key/App Secret ne suffit pas sur un runner GitHub éphémère : le refresh token Saxo tourne à chaque renouvellement. Pour une exécution permanente, utiliser le collecteur OAuth sur un VPS, un PC allumé ou un runner auto-hébergé qui conserve `.runtime/saxo-token.json`. Le dépôt ne stocke jamais le token en clair.
 
 ## Moteur de décision
 
