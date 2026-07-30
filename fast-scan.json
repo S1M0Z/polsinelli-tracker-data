@@ -1,0 +1,11 @@
+{
+  "meta": {
+    "createdAt": "2026-07-30T14:35:34+02:00",
+    "updatedAt": "2026-07-30T14:35:34+02:00",
+    "source": "https://www.zonebourse.com/auteur/laurent-polsinelli",
+    "scanIntervalMinutes": 5,
+    "description": "Détection rapide. Une position reste PENDING_DATA jusqu'à confirmation du produit, de la cotation et du risque."
+  },
+  "latest": null,
+  "alerts": []
+}
