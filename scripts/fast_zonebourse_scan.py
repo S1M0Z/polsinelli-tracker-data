@@ -44,6 +44,7 @@ DATE_RE = re.compile(
     r"\bLe\s+(\d{1,2})\s+([A-Za-zÀ-ÿ]+)\s+(\d{4})\s+à\s+(\d{2}):(\d{2})\b",
     re.IGNORECASE,
 )
+ARTICLE_PATH_RE = re.compile(r"^/actualite-bourse/[^/]+-ce[0-9a-f]+/?$", re.IGNORECASE)
 POSITION_KEYWORDS = (
     "TURBO",
     "WARRANT",
@@ -140,6 +141,12 @@ def classify(title: str) -> str:
     return "other"
 
 
+def is_article_detail_url(url: str) -> bool:
+    """Exclut les menus/catégories et conserve uniquement les pages d'article."""
+    parsed = urlparse(url)
+    return bool(ARTICLE_PATH_RE.match(parsed.path))
+
+
 def parse_articles(html: str) -> list[Article]:
     parser = ArticleLinkParser()
     parser.feed(html)
@@ -150,6 +157,8 @@ def parse_articles(html: str) -> list[Article]:
         url = urljoin(AUTHOR_URL, href).split("#", 1)[0]
         parsed = urlparse(url)
         if parsed.netloc not in {"www.zonebourse.com", "zonebourse.com"}:
+            continue
+        if not is_article_detail_url(url):
             continue
         if url in seen:
             continue
