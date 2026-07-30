@@ -1,12 +1,25 @@
 {
   "meta": {
     "createdAt": "2026-07-30T08:55:00+02:00",
-    "updatedAt": "2026-07-30T10:40:03+02:00",
+    "updatedAt": "2026-07-30T11:34:10+02:00",
     "source": "Zonebourse / Laurent Polsinelli",
     "maxEntries": 200,
     "description": "Journal des exécutions de la veille Zonebourse. Les entrées les plus récentes sont placées en premier."
   },
   "scans": [
+    {
+      "runAt": "2026-07-30T11:34:10+02:00",
+      "status": "no_change",
+      "newArticles": 0,
+      "modifiedArticles": 0,
+      "resurfacedArticles": 0,
+      "positionsChanged": 0,
+      "filesChanged": [
+        "scan-log.json"
+      ],
+      "commitSha": null,
+      "note": "Aucune publication nouvelle, modifiée ou remise en avant confirmée par rapport à l'état courant du dépôt."
+    },
     {
       "runAt": "2026-07-30T10:40:03+02:00",
       "status": "no_change",
