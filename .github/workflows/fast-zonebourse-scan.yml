@@ -1,0 +1,77 @@
+name: Fast Zonebourse scan
+
+on:
+  schedule:
+    - cron: "*/5 7-19 * * 1-5"
+      timezone: "Europe/Paris"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  issues: write
+
+concurrency:
+  group: fast-zonebourse-scan
+  cancel-in-progress: true
+
+jobs:
+  scan:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Detect new publications
+        id: scan
+        run: python scripts/fast_zonebourse_scan.py
+
+      - name: Validate scanner tests
+        if: steps.scan.outputs.changed == 'true'
+        run: python -m unittest tests.test_fast_zonebourse_scan -v
+
+      - name: Commit fast detection state
+        if: steps.scan.outputs.changed == 'true'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add fast-scan.json
+          git commit -m "Détecte de nouvelles publications Polsinelli"
+          git pull --rebase origin main
+          git push origin HEAD:main
+
+      - name: Open GitHub alert for position candidates
+        if: steps.scan.outputs.position_count != '0'
+        uses: actions/github-script@v7
+        env:
+          POSITION_URLS: ${{ steps.scan.outputs.position_urls }}
+          POSITION_TITLES: ${{ steps.scan.outputs.position_titles }}
+          POSITION_PUBLISHED: ${{ steps.scan.outputs.position_published }}
+        with:
+          script: |
+            const urls = JSON.parse(process.env.POSITION_URLS || '[]');
+            const titles = JSON.parse(process.env.POSITION_TITLES || '[]');
+            const published = JSON.parse(process.env.POSITION_PUBLISHED || '[]');
+            for (let index = 0; index < urls.length; index += 1) {
+              const title = titles[index] || 'Nouvelle position potentielle';
+              const body = [
+                'Détection rapide automatique sur la page auteur de Laurent Polsinelli.',
+                '',
+                `- Publication : ${published[index] || 'heure non extraite'}`,
+                `- Article : ${urls[index]}`,
+                '- Statut : **PENDING_DATA**',
+                '',
+                "Ne pas acheter sur cette seule alerte : le produit, le bid/ask, le sous-jacent et le ratio rendement/risque doivent encore être confirmés."
+              ].join('\n');
+              await github.rest.issues.create({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                title: `[ALERTE POLSINELLI] ${title}`.slice(0, 240),
+                body,
+                assignees: [context.repo.owner]
+              });
+            }
