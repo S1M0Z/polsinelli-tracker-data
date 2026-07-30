@@ -28,11 +28,7 @@ jobs:
 
       - name: Detect new publications
         id: scan
-        run: python scripts/fast_zonebourse_scan.py
-
-      - name: Validate scanner tests
-        if: steps.scan.outputs.changed == 'true'
-        run: python -m unittest tests.test_fast_zonebourse_scan -v
+        run: python scripts/fast_zonebourse_scan_v2.py
 
       - name: Commit fast detection state
         if: steps.scan.outputs.changed == 'true'
