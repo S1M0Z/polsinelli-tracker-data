@@ -1,12 +1,27 @@
 {
   "meta": {
     "createdAt": "2026-07-30T08:55:00+02:00",
-    "updatedAt": "2026-07-30T16:38:28+02:00",
+    "updatedAt": "2026-07-30T17:30:47+02:00",
     "source": "Zonebourse / Laurent Polsinelli",
     "maxEntries": 200,
     "description": "Journal des exécutions de la veille Zonebourse. Les entrées les plus récentes sont placées en premier."
   },
   "scans": [
+    {
+      "runAt": "2026-07-30T17:30:47+02:00",
+      "status": "updated",
+      "newArticles": 0,
+      "modifiedArticles": 0,
+      "resurfacedArticles": 0,
+      "positionsChanged": 0,
+      "filesChanged": [
+        "scripts/fast_zonebourse_scan.py",
+        "fast-scan.json",
+        "scan-log.json"
+      ],
+      "commitSha": "1cdf89cd829ffe5bede0951e768f0eec618045aa",
+      "note": "Aucune nouvelle publication confirmée. Le scanner rapide enregistrait à tort les liens de navigation Zonebourse comme articles ; le filtrage a été limité aux véritables pages d’article et 50 faux positifs ont été supprimés."
+    },
     {
       "runAt": "2026-07-30T16:38:28+02:00",
       "status": "no_change",
@@ -14,9 +29,7 @@
       "modifiedArticles": 0,
       "resurfacedArticles": 0,
       "positionsChanged": 0,
-      "filesChanged": [
-        "scan-log.json"
-      ],
+      "filesChanged": ["scan-log.json"],
       "commitSha": null,
       "note": "Aucune alerte en attente dans fast-scan.json et aucune publication nouvelle confirmée sur la page auteur ou par recherche ciblée par rapport à l’état courant du dépôt."
     },
@@ -27,9 +40,7 @@
       "modifiedArticles": 0,
       "resurfacedArticles": 0,
       "positionsChanged": 0,
-      "filesChanged": [
-        "scan-log.json"
-      ],
+      "filesChanged": ["scan-log.json"],
       "commitSha": null,
       "note": "Aucune alerte en attente dans fast-scan.json et aucune publication nouvelle confirmée sur la page auteur par rapport à l’état courant du dépôt."
     },
@@ -40,10 +51,7 @@
       "modifiedArticles": 0,
       "resurfacedArticles": 0,
       "positionsChanged": 0,
-      "filesChanged": [
-        "fast-scan.json",
-        "scan-log.json"
-      ],
+      "filesChanged": ["fast-scan.json", "scan-log.json"],
       "commitSha": "f0a6a9c659d8d32341423573900e37a72fc9e614",
       "note": "Aucune nouvelle publication confirmée. Le fichier fast-scan.json manquant a été initialisé afin de rétablir la file de détection rapide."
     },
@@ -54,9 +62,7 @@
       "modifiedArticles": 0,
       "resurfacedArticles": 0,
       "positionsChanged": 0,
-      "filesChanged": [
-        "scan-log.json"
-      ],
+      "filesChanged": ["scan-log.json"],
       "commitSha": null,
       "note": "Aucune publication nouvelle, modifiée ou remise en avant confirmée par rapport à l'état courant du dépôt."
     },
@@ -67,9 +73,7 @@
       "modifiedArticles": 0,
       "resurfacedArticles": 0,
       "positionsChanged": 0,
-      "filesChanged": [
-        "scan-log.json"
-      ],
+      "filesChanged": ["scan-log.json"],
       "commitSha": null,
       "note": "Aucune publication nouvelle, modifiée ou remise en avant confirmée par rapport à l'état courant du dépôt."
     },
@@ -80,9 +84,7 @@
       "modifiedArticles": 0,
       "resurfacedArticles": 0,
       "positionsChanged": 0,
-      "filesChanged": [
-        "scan-log.json"
-      ],
+      "filesChanged": ["scan-log.json"],
       "commitSha": null,
       "note": "Aucune publication nouvelle, modifiée ou remise en avant confirmée par rapport à l'état courant du dépôt."
     },
@@ -93,9 +95,7 @@
       "modifiedArticles": 0,
       "resurfacedArticles": 0,
       "positionsChanged": 0,
-      "filesChanged": [
-        "scan-log.json"
-      ],
+      "filesChanged": ["scan-log.json"],
       "commitSha": null,
       "note": "Aucune publication nouvelle, modifiée ou remise en avant confirmée par rapport à l'état courant du dépôt."
     },
@@ -106,9 +106,7 @@
       "modifiedArticles": 0,
       "resurfacedArticles": 0,
       "positionsChanged": 0,
-      "filesChanged": [
-        "scan-log.json"
-      ],
+      "filesChanged": ["scan-log.json"],
       "commitSha": null,
       "note": "Aucune publication nouvelle, modifiée ou remise en avant confirmée par rapport à l'état courant du dépôt."
     },
