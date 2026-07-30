@@ -1,0 +1,13 @@
+{
+  "meta": {
+    "version": 1,
+    "updatedAt": "2026-07-30T20:53:00+02:00",
+    "description": "Market-data provider configuration. Credentials are supplied only through environment variables or GitHub Actions secrets."
+  },
+  "provider": "saxo",
+  "saxo": {
+    "environment": "sim",
+    "accountKey": null,
+    "instrumentMappings": {}
+  }
+}
