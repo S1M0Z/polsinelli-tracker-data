@@ -5,6 +5,11 @@ on:
     - cron: "*/5 7-19 * * 1-5"
       timezone: "Europe/Paris"
   workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - "scripts/fast_zonebourse_scan_v2.py"
+      - ".github/workflows/fast-zonebourse-scan.yml"
 
 permissions:
   contents: write
@@ -17,6 +22,7 @@ concurrency:
 jobs:
   scan:
     runs-on: ubuntu-latest
+    timeout-minutes: 4
     steps:
       - uses: actions/checkout@v4
         with:
@@ -30,6 +36,60 @@ jobs:
         id: scan
         run: python scripts/fast_zonebourse_scan_v2.py
 
+      - name: Report temporary source degradation
+        if: steps.scan.outputs.source_status == 'degraded'
+        continue-on-error: true
+        uses: actions/github-script@v7
+        env:
+          SOURCE_ERROR: ${{ steps.scan.outputs.source_error }}
+        with:
+          script: |
+            const title = '[SCANNER POLSINELLI] Source Zonebourse indisponible';
+            const { data: issues } = await github.rest.issues.listForRepo({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              state: 'open',
+              per_page: 100
+            });
+            if (!issues.some(issue => issue.title === title)) {
+              await github.rest.issues.create({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                title,
+                body: `Le scanner rapide n'a pu exploiter aucune source. L'état du tracker n'a pas été modifié.\n\nDiagnostic : ${process.env.SOURCE_ERROR || 'non disponible'}`
+              });
+            }
+
+      - name: Close recovered source alert
+        if: steps.scan.outputs.source_status == 'ok'
+        continue-on-error: true
+        uses: actions/github-script@v7
+        env:
+          SOURCE_USED: ${{ steps.scan.outputs.source_used }}
+        with:
+          script: |
+            const title = '[SCANNER POLSINELLI] Source Zonebourse indisponible';
+            const { data: issues } = await github.rest.issues.listForRepo({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              state: 'open',
+              per_page: 100
+            });
+            for (const issue of issues.filter(item => item.title === title)) {
+              await github.rest.issues.createComment({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                issue_number: issue.number,
+                body: `Source rétablie via ${process.env.SOURCE_USED || 'une source de secours'} ; le scanner fonctionne de nouveau.`
+              });
+              await github.rest.issues.update({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                issue_number: issue.number,
+                state: 'closed'
+              });
+            }
+
       - name: Commit fast detection state
         if: steps.scan.outputs.changed == 'true'
         run: |
@@ -42,6 +102,7 @@ jobs:
 
       - name: Open GitHub alert for position candidates
         if: steps.scan.outputs.position_count != '0'
+        continue-on-error: true
         uses: actions/github-script@v7
         env:
           POSITION_URLS: ${{ steps.scan.outputs.position_urls }}
