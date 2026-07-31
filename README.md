@@ -13,64 +13,45 @@ Données, scanner de publications et moteur de décision conservateur pour le su
 - `risk-policy.json` : seuils de fraîcheur, spread, dérive de prix et risque
 - `investment-view.json` : vue calculée pour la prise de décision et le dashboard
 
-## Cotations structurées par API
+## Cotations structurées
 
-Le scraping de pages web n'est plus utilisé pour produire les cours. `scripts/quote_collector.py` interroge un fournisseur structuré, normalise chaque snapshot puis met à jour :
+Le collecteur actif utilise **Euronext Live** pour les warrants, turbos et certificats. Il identifie chaque produit par son ISIN et son MIC, récupère le dernier cours ainsi que le meilleur bid/ask du carnet public, puis met à jour :
 
-1. `quote-history.json` avec le prix, le bid, l'ask, les tailles, le délai et les horodatages ;
+1. `quote-history.json` avec le prix, le bid, l'ask, les tailles et les horodatages ;
 2. `positions.json` uniquement lorsqu'une cotation plus récente est disponible ;
-3. `market-data-config.json` lorsqu'un mnémonique est résolu vers un identifiant fournisseur ;
+3. `market-data-config.json` lorsqu'un symbole Euronext est résolu ;
 4. `investment-view.json` après passage du moteur de décision.
 
-Le premier fournisseur implémenté est **Saxo OpenAPI Info Prices**. La recherche part du mnémonique ou de l'ISIN. En cas d'ambiguïté, renseigne manuellement `uic` et `assetType` dans `market-data-config.json`.
-
-### Token temporaire
+Aucune clé n'est nécessaire pour le fournisseur Euronext actif.
 
 ```bash
-cp .env.example .env
-export SAXO_ACCESS_TOKEN="..."
-export SAXO_ENV="sim"  # ou live
-python scripts/quote_collector.py --session manual
-python scripts/investment_engine.py
-python scripts/validate_data.py
+export MARKET_DATA_PROVIDER=euronext
+export EURONEXT_DEFAULT_MIC=XMLI
+python3 scripts/quote_collector.py --session manual
+python3 scripts/investment_engine.py
+python3 scripts/validate_data.py
 ```
 
-### Connexion OAuth Saxo locale
-
-L'App Key et l'App Secret ne sont pas des jetons de marché à eux seuls. Une connexion Saxo initiale doit produire un access token et un refresh token. Le helper local capture le callback sur `localhost`, échange le code et écrit le bundle dans `.runtime/saxo-token.json`, fichier ignoré par Git.
-
-```bash
-export SAXO_ENV=sim
-export SAXO_APP_KEY="..."
-export SAXO_APP_SECRET="..."
-python scripts/saxo_oauth_login.py
-python scripts/quote_collector_oauth.py --session manual
-```
-
-Lorsqu'il expire, `quote_collector_oauth.py` renouvelle automatiquement l'access token à partir du refresh token et remplace atomiquement le bundle local, conformément à la rotation imposée par Saxo. Aucun token ni secret n'est imprimé.
-
-L'accès temps réel dépend des droits de marché associés au compte et au jeton Saxo. Le collecteur conserve `delayedByMinutes` et abaisse la confiance lorsque la donnée est différée. Il n'invente jamais un prix à partir du seul sous-jacent.
+Le provider essaie successivement les places configurées dans `market-data-config.json`, avec `XMLI`, `XPAR` et `SEDX` par défaut. Une erreur sur un produit ne provoque jamais l'invention d'un prix.
 
 ### GitHub Actions
 
-`.github/workflows/collect-market-quotes.yml` interroge l'API toutes les cinq minutes pendant la plage européenne, recalcule la vue et pousse un commit uniquement si les données changent.
+`.github/workflows/collect-market-quotes.yml` interroge Euronext toutes les cinq minutes pendant la plage européenne, recalcule la vue et pousse un commit uniquement si les données changent. Aucun secret Saxo n'est requis pour ce workflow.
 
-Configurer dans **Settings → Secrets and variables → Actions** :
+Les pages publiques Euronext ne constituent pas un flux garanti par contrat. Pour un service avec SLA et droits formels de redistribution, il faudra remplacer ce provider par Euronext Web Services ou un autre flux licencié. Le provider Saxo et son support OAuth restent présents comme solution facultative, mais Saxo SIM ne référençait pas les produits suivis lors des tests.
 
-- secret `SAXO_ACCESS_TOKEN`
-- secret facultatif `SAXO_ACCOUNT_KEY`
-- variable `SAXO_ENV` avec `sim` ou `live`
+## OAuth Saxo facultatif
 
-Un simple App Key/App Secret ne suffit pas sur un runner GitHub éphémère : le refresh token Saxo tourne à chaque renouvellement. Pour une exécution permanente, utiliser le collecteur OAuth sur un VPS, un PC allumé ou un runner auto-hébergé qui conserve `.runtime/saxo-token.json`. Le dépôt ne stocke jamais le token en clair.
+Le script `scripts/saxo_oauth_login.py` effectue la connexion initiale sur `http://localhost:8765/callback`. `scripts/quote_collector_oauth.py` renouvelle ensuite les jetons tournants dans `.runtime/saxo-token.json`, fichier exclu de Git. Cette voie n'est pas utilisée par le workflow Euronext actif.
 
 ## Moteur de décision
 
 Le moteur refuse par défaut toute entrée lorsque la cotation est ancienne, que le bid/ask manque, que le spread est trop large, que la détection est trop lente, que le prix a trop dérivé ou que le ratio rendement/risque est insuffisant.
 
 ```bash
-python scripts/investment_engine.py
-python scripts/validate_data.py
-python -m unittest discover -s tests -v
+python3 scripts/investment_engine.py
+python3 scripts/validate_data.py
+python3 -m unittest discover -s tests -v
 ```
 
 Les seuils par défaut utilisent un capital de simulation de 10 000 € et supposent que la totalité de la prime d'un produit à effet de levier peut être perdue. Modifie `risk-policy.json` pour adapter la simulation à ton capital et à ta tolérance au risque.
