@@ -11,7 +11,6 @@ from __future__ import annotations
 import argparse
 import json
 import os
-import sys
 from dataclasses import dataclass
 from pathlib import Path
 from typing import Any
@@ -23,6 +22,7 @@ from market_data.base import (
     parse_iso_datetime,
     utc_now_iso,
 )
+from market_data.euronext import EuronextProvider
 from market_data.saxo import SaxoProvider
 
 
@@ -58,17 +58,42 @@ def write_json(path: Path, document: dict[str, Any]) -> None:
 
 
 def build_provider(config: dict[str, Any]):
-    provider_name = os.getenv("MARKET_DATA_PROVIDER") or config.get("provider", "saxo")
-    if provider_name != "saxo":
-        raise ProviderConfigurationError(
-            f"Unsupported MARKET_DATA_PROVIDER={provider_name!r}; supported: saxo"
+    provider_name = str(
+        os.getenv("MARKET_DATA_PROVIDER") or config.get("provider", "euronext")
+    ).lower()
+
+    if provider_name == "euronext":
+        provider_config = config.get("euronext", {})
+        if not isinstance(provider_config, dict):
+            provider_config = {}
+        candidates = provider_config.get("micCandidates")
+        if not isinstance(candidates, list):
+            candidates = None
+        return EuronextProvider(
+            default_mic=(
+                os.getenv("EURONEXT_DEFAULT_MIC")
+                or provider_config.get("defaultMic")
+                or "XMLI"
+            ),
+            mic_candidates=candidates,
+            locale=(
+                os.getenv("EURONEXT_LOCALE")
+                or provider_config.get("locale")
+                or "en"
+            ),
         )
-    saxo_config = config.get("saxo", {})
-    if not isinstance(saxo_config, dict):
-        saxo_config = {}
-    return SaxoProvider(
-        environment=os.getenv("SAXO_ENV") or saxo_config.get("environment"),
-        account_key=os.getenv("SAXO_ACCOUNT_KEY") or saxo_config.get("accountKey"),
+
+    if provider_name == "saxo":
+        provider_config = config.get("saxo", {})
+        if not isinstance(provider_config, dict):
+            provider_config = {}
+        return SaxoProvider(
+            environment=os.getenv("SAXO_ENV") or provider_config.get("environment"),
+            account_key=os.getenv("SAXO_ACCOUNT_KEY") or provider_config.get("accountKey"),
+        )
+
+    raise ProviderConfigurationError(
+        f"Unsupported MARKET_DATA_PROVIDER={provider_name!r}; supported: euronext, saxo"
     )
 
 
@@ -85,7 +110,6 @@ def _snapshot_key(item: dict[str, Any]) -> tuple[Any, ...]:
 
 def _normalize_snapshot(snapshot: QuoteSnapshot) -> dict[str, Any]:
     raw = snapshot.as_document()
-    # Preserve the camelCase format used by the existing data files.
     rename = {
         "position_id": "positionId",
         "quote_at": "quoteAt",
@@ -126,11 +150,16 @@ def collect_documents(
     if not isinstance(quotes, list):
         raise ValueError("quote-history.json must contain a quotes array")
 
-    config_document.setdefault("provider", "saxo")
-    saxo_config = config_document.setdefault("saxo", {})
-    if not isinstance(saxo_config, dict):
-        raise ValueError("market-data-config.json saxo must be an object")
-    mappings = saxo_config.setdefault("instrumentMappings", {})
+    provider_name = str(
+        getattr(provider, "name", None)
+        or config_document.get("provider")
+        or "unknown"
+    )
+    config_document["provider"] = provider_name
+    provider_config = config_document.setdefault(provider_name, {})
+    if not isinstance(provider_config, dict):
+        raise ValueError(f"market-data-config.json {provider_name} must be an object")
+    mappings = provider_config.setdefault("instrumentMappings", {})
     if not isinstance(mappings, dict):
         raise ValueError("instrumentMappings must be an object")
 
@@ -156,11 +185,14 @@ def collect_documents(
             instrument = provider.resolve_instrument(position, mapping)
             resolved_mapping = {
                 **mapping,
-                "uic": instrument.uic,
                 "assetType": instrument.asset_type,
             }
+            if instrument.uic is not None:
+                resolved_mapping["uic"] = instrument.uic
             if instrument.symbol:
                 resolved_mapping["symbol"] = instrument.symbol
+                if provider_name == "euronext" and "-" in instrument.symbol:
+                    resolved_mapping["mic"] = instrument.symbol.rsplit("-", 1)[1]
             if instrument.description:
                 resolved_mapping["description"] = instrument.description
             if resolved_mapping != mapping:
