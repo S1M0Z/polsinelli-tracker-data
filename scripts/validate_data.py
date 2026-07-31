@@ -2,6 +2,7 @@
 from __future__ import annotations
 
 import json
+import re
 from datetime import datetime
 from pathlib import Path
 from typing import Any
@@ -37,6 +38,46 @@ def parse_timestamp(value: Any, label: str) -> datetime:
     if parsed.tzinfo is None:
         raise ValueError(f"{label} timestamp needs a timezone")
     return parsed
+
+
+def validate_market_data_config(config: dict[str, Any], position_ids: set[str]) -> None:
+    provider = config.get("provider")
+    if provider not in {"saxo", "euronext"}:
+        raise ValueError("market-data-config.json provider must be saxo or euronext")
+    provider_config = config.get(provider, {})
+    if not isinstance(provider_config, dict):
+        raise ValueError(f"market-data-config.json {provider} must be an object")
+    mappings = provider_config.get("instrumentMappings", {})
+    if not isinstance(mappings, dict):
+        raise ValueError("market-data-config.json instrumentMappings must be an object")
+
+    for position_id, mapping in mappings.items():
+        if position_id not in position_ids:
+            raise ValueError(f"market-data mapping references unknown position {position_id}")
+        if not isinstance(mapping, dict):
+            raise ValueError(f"market-data mapping for {position_id} must be an object")
+        asset_type = mapping.get("assetType")
+        if asset_type is not None and not isinstance(asset_type, str):
+            raise ValueError(f"market-data mapping for {position_id} has invalid assetType")
+
+        if provider == "saxo":
+            uic = mapping.get("uic")
+            if uic is not None and (not isinstance(uic, int) or uic <= 0):
+                raise ValueError(f"market-data mapping for {position_id} has invalid uic")
+            if uic is not None and not isinstance(asset_type, str):
+                raise ValueError(f"market-data mapping for {position_id} needs assetType")
+        else:
+            mic = mapping.get("mic")
+            symbol = mapping.get("symbol")
+            if mic is not None and (
+                not isinstance(mic, str) or not re.fullmatch(r"[A-Z0-9]{4}", mic)
+            ):
+                raise ValueError(f"market-data mapping for {position_id} has invalid mic")
+            if symbol is not None and (
+                not isinstance(symbol, str)
+                or not re.fullmatch(r"[A-Z]{2}[A-Z0-9]{9}\d-[A-Z0-9]{4}", symbol)
+            ):
+                raise ValueError(f"market-data mapping for {position_id} has invalid Euronext symbol")
 
 
 def main() -> int:
@@ -100,24 +141,7 @@ def main() -> int:
     if any(count > max_quotes for count in quote_counts.values()):
         raise ValueError("quote-history.json exceeds maxQuotesPerPosition")
 
-    config = documents["market-data-config.json"]
-    provider = config.get("provider")
-    if provider not in {"saxo"}:
-        raise ValueError("market-data-config.json provider must be saxo")
-    mappings = config.get("saxo", {}).get("instrumentMappings", {})
-    if not isinstance(mappings, dict):
-        raise ValueError("market-data-config.json instrumentMappings must be an object")
-    for position_id, mapping in mappings.items():
-        if position_id not in position_ids:
-            raise ValueError(f"market-data mapping references unknown position {position_id}")
-        if not isinstance(mapping, dict):
-            raise ValueError(f"market-data mapping for {position_id} must be an object")
-        uic = mapping.get("uic")
-        asset_type = mapping.get("assetType")
-        if uic is not None and (not isinstance(uic, int) or uic <= 0):
-            raise ValueError(f"market-data mapping for {position_id} has invalid uic")
-        if uic is not None and not isinstance(asset_type, str):
-            raise ValueError(f"market-data mapping for {position_id} needs assetType")
+    validate_market_data_config(documents["market-data-config.json"], position_ids)
 
     open_ids = {position["id"] for position in positions if position.get("status") == "open"}
     view_open_ids = {
