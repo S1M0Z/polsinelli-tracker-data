@@ -1,0 +1,20 @@
+[Unit]
+Description=Polsinelli Euronext quote collector
+Wants=network-online.target
+After=network-online.target docker.service
+Requires=docker.service
+
+[Service]
+Type=oneshot
+User=ubuntu
+Group=ubuntu
+WorkingDirectory=/home/ubuntu/polsinelli-tracker-data
+Environment=POLSINELLI_REPO_ROOT=/home/ubuntu/polsinelli-tracker-data
+ExecStart=/usr/bin/bash /home/ubuntu/polsinelli-tracker-data/deploy/run-collector.sh
+TimeoutStartSec=300
+Nice=10
+IOSchedulingClass=best-effort
+IOSchedulingPriority=7
+
+[Install]
+WantedBy=multi-user.target
