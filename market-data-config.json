@@ -1,7 +1,7 @@
 {
   "meta": {
     "version": 2,
-    "updatedAt": "2026-07-31T14:05:00+02:00",
+    "updatedAt": "2026-07-31T13:05:20+00:00",
     "description": "Market-data provider configuration. Euronext Live is active; Saxo remains available as an optional fallback."
   },
   "provider": "euronext",
@@ -18,37 +18,43 @@
         "mic": "XMLI",
         "symbol": "DE000VY0NFK5-XMLI",
         "assetType": "StructuredProduct",
-        "description": "TotalEnergies warrant put LT07V"
+        "description": "TotalEnergies Warrant",
+        "resolvedAt": "2026-07-31T13:05:20+00:00"
       },
       "vinci-wc25v-20260723": {
         "mic": "XMLI",
         "symbol": "DE000VY88TJ7-XMLI",
         "assetType": "StructuredProduct",
-        "description": "Vinci warrant call WC25V"
+        "description": "Vinci Warrant",
+        "resolvedAt": "2026-07-31T13:05:20+00:00"
       },
       "apple-oz97v-20260721": {
         "mic": "XMLI",
         "symbol": "DE000VY3GDC5-XMLI",
         "assetType": "StructuredProduct",
-        "description": "Apple warrant put OZ97V"
+        "description": "Apple Warrant",
+        "resolvedAt": "2026-07-31T13:05:20+00:00"
       },
       "allianz-qa95v-20260716": {
         "mic": "XMLI",
         "symbol": "DE000VY3Z5D1-XMLI",
         "assetType": "StructuredProduct",
-        "description": "Allianz turbo put QA95V"
+        "description": "Allianz Turbo",
+        "resolvedAt": "2026-07-31T13:05:20+00:00"
       },
       "nexans-325ks-20260715": {
         "mic": "XMLI",
         "symbol": "DE000FE3FPS1-XMLI",
         "assetType": "StructuredProduct",
-        "description": "Nexans turbo call 325KS"
+        "description": "Nexans Turbo",
+        "resolvedAt": "2026-07-31T13:05:20+00:00"
       },
       "legrand-3f7tb-20260715": {
         "mic": "XMLI",
         "symbol": "NLBNPFR2CD04-XMLI",
         "assetType": "StructuredProduct",
-        "description": "Legrand warrant call 3F7TB"
+        "description": "Legrand Warrant",
+        "resolvedAt": "2026-07-31T13:05:20+00:00"
       }
     }
   },

@@ -1,6 +1,6 @@
 {
   "meta": {
-    "generatedAt": "2026-07-30T13:52:00+02:00",
+    "generatedAt": "2026-07-31T13:20:22.980982+00:00",
     "engineVersion": "1.0.0",
     "sourceGeneratedAt": "2026-07-28T10:31:34+02:00",
     "purpose": "Conservative decision support; not an automated order system."
@@ -12,7 +12,7 @@
     "maxPriceDriftPct": 5.0,
     "maxSpreadPct": 4.0,
     "minRewardRiskRatio": 1.5,
-    "maxDetectionLatencySeconds": 300,
+    "maxDetectionLatencySeconds": 600,
     "maxRiskPerTradePct": 0.5,
     "maxTotalLeveragedExposurePct": 5.0,
     "maxOpenPositions": 3,
@@ -25,7 +25,7 @@
     "closedCount": 13,
     "actionableCount": 0,
     "decisionCounts": {
-      "STALE_QUOTE": 6
+      "DATA_INCOMPLETE": 6
     },
     "systemVerdict": "NO_ACTIONABLE_POSITION"
   },
@@ -37,11 +37,29 @@
       "direction": "PUT",
       "mnemo": "LT07V",
       "entryPrice": 0.87,
-      "market": {"currentPrice": 0.915, "quoteAt": "2026-07-24T11:26:20+02:00", "bid": null, "ask": null, "underlyingPrice": null, "publicationPrice": 0.87, "detectedAt": null, "publishedAt": null},
-      "markToMarketReturnPct": 5.1724,
-      "decision": "STALE_QUOTE",
-      "reasons": ["stale_quote", "missing_bid_ask", "price_drift_too_high", "missing_detection_timestamps", "missing_risk_levels"],
-      "diagnostics": {"quoteAgeMinutes": 8785.67, "spreadPct": null, "priceDriftPct": 5.1724, "detectionLatencySeconds": null, "rewardRiskRatio": null},
+      "market": {
+        "currentPrice": 0.835,
+        "quoteAt": "2026-07-31T12:52:00+00:00",
+        "bid": 0.83,
+        "ask": 0.84,
+        "underlyingPrice": null,
+        "publicationPrice": 0.87,
+        "detectedAt": null,
+        "publishedAt": null
+      },
+      "markToMarketReturnPct": -4.023,
+      "decision": "DATA_INCOMPLETE",
+      "reasons": [
+        "missing_detection_timestamps",
+        "missing_risk_levels"
+      ],
+      "diagnostics": {
+        "quoteAgeMinutes": 28.38,
+        "spreadPct": 1.1976,
+        "priceDriftPct": -3.4483,
+        "detectionLatencySeconds": null,
+        "rewardRiskRatio": null
+      },
       "maxModelStakeEur": 50.0,
       "sourceUrl": "https://www.zonebourse.com/actualite-bourse/correction-technique-en-vue-ce7f51dfda8df125"
     },
@@ -52,11 +70,30 @@
       "direction": "CALL",
       "mnemo": "WC25V",
       "entryPrice": 1.12,
-      "market": {"currentPrice": 1.15, "quoteAt": "2026-07-23T18:35:00+02:00", "bid": null, "ask": null, "underlyingPrice": null, "publicationPrice": 1.12, "detectedAt": null, "publishedAt": null},
-      "markToMarketReturnPct": 2.6786,
-      "decision": "STALE_QUOTE",
-      "reasons": ["stale_quote", "missing_bid_ask", "missing_detection_timestamps", "missing_risk_levels"],
-      "diagnostics": {"quoteAgeMinutes": 9797.0, "spreadPct": null, "priceDriftPct": 2.6786, "detectionLatencySeconds": null, "rewardRiskRatio": null},
+      "market": {
+        "currentPrice": 1.305,
+        "quoteAt": "2026-07-31T12:52:00+00:00",
+        "bid": 1.3,
+        "ask": 1.31,
+        "underlyingPrice": null,
+        "publicationPrice": 1.12,
+        "detectedAt": null,
+        "publishedAt": null
+      },
+      "markToMarketReturnPct": 16.5179,
+      "decision": "DATA_INCOMPLETE",
+      "reasons": [
+        "price_drift_too_high",
+        "missing_detection_timestamps",
+        "missing_risk_levels"
+      ],
+      "diagnostics": {
+        "quoteAgeMinutes": 28.38,
+        "spreadPct": 0.7663,
+        "priceDriftPct": 16.9643,
+        "detectionLatencySeconds": null,
+        "rewardRiskRatio": null
+      },
       "maxModelStakeEur": 50.0,
       "sourceUrl": "https://www.zonebourse.com/actualite-bourse/de-retour-sur-un-niveau-important-ce7f51ded88ff422"
     },
@@ -67,11 +104,30 @@
       "direction": "PUT",
       "mnemo": "OZ97V",
       "entryPrice": 1.24,
-      "market": {"currentPrice": 1.295, "quoteAt": "2026-07-23T18:35:00+02:00", "bid": null, "ask": null, "underlyingPrice": null, "publicationPrice": 1.24, "detectedAt": null, "publishedAt": null},
-      "markToMarketReturnPct": 4.4355,
-      "decision": "STALE_QUOTE",
-      "reasons": ["stale_quote", "missing_bid_ask", "missing_detection_timestamps", "missing_risk_levels"],
-      "diagnostics": {"quoteAgeMinutes": 9797.0, "spreadPct": null, "priceDriftPct": 4.4355, "detectionLatencySeconds": null, "rewardRiskRatio": null},
+      "market": {
+        "currentPrice": 1.495,
+        "quoteAt": "2026-07-31T13:02:00+00:00",
+        "bid": 1.49,
+        "ask": 1.5,
+        "underlyingPrice": null,
+        "publicationPrice": 1.24,
+        "detectedAt": null,
+        "publishedAt": null
+      },
+      "markToMarketReturnPct": 20.5645,
+      "decision": "DATA_INCOMPLETE",
+      "reasons": [
+        "price_drift_too_high",
+        "missing_detection_timestamps",
+        "missing_risk_levels"
+      ],
+      "diagnostics": {
+        "quoteAgeMinutes": 18.38,
+        "spreadPct": 0.6689,
+        "priceDriftPct": 20.9677,
+        "detectionLatencySeconds": null,
+        "rewardRiskRatio": null
+      },
       "maxModelStakeEur": 50.0,
       "sourceUrl": "https://www.zonebourse.com/actualite-bourse/besoin-de-souffler-ce7f51d8d88eff21"
     },
@@ -82,11 +138,29 @@
       "direction": "PUT",
       "mnemo": "QA95V",
       "entryPrice": 3.86,
-      "market": {"currentPrice": 3.47, "quoteAt": "2026-07-17T18:35:00+02:00", "bid": null, "ask": null, "underlyingPrice": null, "publicationPrice": 3.86, "detectedAt": null, "publishedAt": null},
-      "markToMarketReturnPct": -10.1036,
-      "decision": "STALE_QUOTE",
-      "reasons": ["stale_quote", "missing_bid_ask", "missing_detection_timestamps", "missing_risk_levels"],
-      "diagnostics": {"quoteAgeMinutes": 18437.0, "spreadPct": null, "priceDriftPct": -10.1036, "detectionLatencySeconds": null, "rewardRiskRatio": null},
+      "market": {
+        "currentPrice": 2.965,
+        "quoteAt": "2026-07-31T12:57:00+00:00",
+        "bid": 2.96,
+        "ask": 2.97,
+        "underlyingPrice": null,
+        "publicationPrice": 3.86,
+        "detectedAt": null,
+        "publishedAt": null
+      },
+      "markToMarketReturnPct": -23.1865,
+      "decision": "DATA_INCOMPLETE",
+      "reasons": [
+        "missing_detection_timestamps",
+        "missing_risk_levels"
+      ],
+      "diagnostics": {
+        "quoteAgeMinutes": 23.38,
+        "spreadPct": 0.3373,
+        "priceDriftPct": -23.057,
+        "detectionLatencySeconds": null,
+        "rewardRiskRatio": null
+      },
       "maxModelStakeEur": 50.0,
       "sourceUrl": "https://www.zonebourse.com/actualite-bourse/une-correction-technique-en-formation-ce7f5ed2de8ef427"
     },
@@ -97,11 +171,29 @@
       "direction": "CALL",
       "mnemo": "325KS",
       "entryPrice": 1.68,
-      "market": {"currentPrice": 1.665, "quoteAt": "2026-07-17T18:18:08+02:00", "bid": null, "ask": null, "underlyingPrice": null, "publicationPrice": 1.68, "detectedAt": null, "publishedAt": null},
-      "markToMarketReturnPct": -0.8929,
-      "decision": "STALE_QUOTE",
-      "reasons": ["stale_quote", "missing_bid_ask", "missing_detection_timestamps", "missing_risk_levels"],
-      "diagnostics": {"quoteAgeMinutes": 18453.87, "spreadPct": null, "priceDriftPct": -0.8929, "detectionLatencySeconds": null, "rewardRiskRatio": null},
+      "market": {
+        "currentPrice": 1.525,
+        "quoteAt": "2026-07-31T13:02:00+00:00",
+        "bid": 1.52,
+        "ask": 1.53,
+        "underlyingPrice": null,
+        "publicationPrice": 1.68,
+        "detectedAt": null,
+        "publishedAt": null
+      },
+      "markToMarketReturnPct": -9.2262,
+      "decision": "DATA_INCOMPLETE",
+      "reasons": [
+        "missing_detection_timestamps",
+        "missing_risk_levels"
+      ],
+      "diagnostics": {
+        "quoteAgeMinutes": 18.38,
+        "spreadPct": 0.6557,
+        "priceDriftPct": -8.9286,
+        "detectionLatencySeconds": null,
+        "rewardRiskRatio": null
+      },
       "maxModelStakeEur": 50.0,
       "sourceUrl": "https://www.zonebourse.com/actualite-bourse/une-opportunite-a-court-terme-ce7f5eddd181f022"
     },
@@ -112,11 +204,29 @@
       "direction": "CALL",
       "mnemo": "3F7TB",
       "entryPrice": 3.06,
-      "market": {"currentPrice": 2.195, "quoteAt": "2026-07-17T10:33:19+02:00", "bid": null, "ask": null, "underlyingPrice": null, "publicationPrice": 3.06, "detectedAt": null, "publishedAt": null},
-      "markToMarketReturnPct": -28.268,
-      "decision": "STALE_QUOTE",
-      "reasons": ["stale_quote", "missing_bid_ask", "missing_detection_timestamps", "missing_risk_levels"],
-      "diagnostics": {"quoteAgeMinutes": 18918.68, "spreadPct": null, "priceDriftPct": -28.268, "detectionLatencySeconds": null, "rewardRiskRatio": null},
+      "market": {
+        "currentPrice": 1.8849999999999998,
+        "quoteAt": "2026-07-31T12:57:00+00:00",
+        "bid": 1.88,
+        "ask": 1.89,
+        "underlyingPrice": null,
+        "publicationPrice": 3.06,
+        "detectedAt": null,
+        "publishedAt": null
+      },
+      "markToMarketReturnPct": -38.3987,
+      "decision": "DATA_INCOMPLETE",
+      "reasons": [
+        "missing_detection_timestamps",
+        "missing_risk_levels"
+      ],
+      "diagnostics": {
+        "quoteAgeMinutes": 23.38,
+        "spreadPct": 0.5305,
+        "priceDriftPct": -38.2353,
+        "detectionLatencySeconds": null,
+        "rewardRiskRatio": null
+      },
       "maxModelStakeEur": 50.0,
       "sourceUrl": "https://www.zonebourse.com/actualite-bourse/achat-du-warrant-call-bnp-paribas-3f7tb-ce7f5eddde81f72d"
     }
@@ -134,19 +244,110 @@
     "fixedStakeTotalPnlEur": 203.59,
     "profitFactor": 3.2268,
     "trades": [
-      {"positionId":"sap-db83v-20260317","asset":"SAP SE","returnPct":-91.4286,"fixedStakePnlEur":-91.43,"entryDate":"2026-03-17","exitDate":"2026-06-17"},
-      {"positionId":"renault-tj97v-20260630","asset":"Renault","returnPct":41.6667,"fixedStakePnlEur":41.67,"entryDate":"2026-06-30","exitDate":"2026-07-07"},
-      {"positionId":"ipsen-7mv8b-20260708","asset":"Ipsen","returnPct":31.0924,"fixedStakePnlEur":31.09,"entryDate":"2026-07-08","exitDate":"2026-07-14"},
-      {"positionId":"total-ui72v-202607","asset":"TotalEnergies","returnPct":31.1377,"fixedStakePnlEur":31.14,"entryDate":"2026-07-08","exitDate":"2026-07-14"},
-      {"positionId":"stm-rs84v-202607","asset":"STMicroelectronics","returnPct":15.6051,"fixedStakePnlEur":15.61,"entryDate":"2026-07-13","exitDate":"2026-07-17"},
-      {"positionId":"accor-4wl3b-20260617","asset":"Accor","returnPct":20.1031,"fixedStakePnlEur":20.1,"entryDate":"2026-06-17","exitDate":"2026-07-21"},
-      {"positionId":"safran-7gp7b-20260623","asset":"Safran","returnPct":20.3655,"fixedStakePnlEur":20.37,"entryDate":"2026-06-23","exitDate":"2026-07-21"},
-      {"positionId":"technip-557es-20260716","asset":"Technip Energies","returnPct":18.9189,"fixedStakePnlEur":18.92,"entryDate":"2026-07-16","exitDate":"2026-07-22"},
-      {"positionId":"vallourec-2rrub-20260706","asset":"Vallourec","returnPct":21.1538,"fixedStakePnlEur":21.15,"entryDate":"2026-07-06","exitDate":"2026-07-22"},
-      {"positionId":"loreal-5s0vb-20260717","asset":"L'Oréal","returnPct":18.0905,"fixedStakePnlEur":18.09,"entryDate":"2026-07-17","exitDate":"2026-07-23"},
-      {"positionId":"thales-pl04v-20260715","asset":"Thales","returnPct":25.4167,"fixedStakePnlEur":25.42,"entryDate":"2026-07-15","exitDate":"2026-07-23"},
-      {"positionId":"adidas-ug66v-20260721","asset":"Adidas","returnPct":30.7782,"fixedStakePnlEur":30.78,"entryDate":"2026-07-21","exitDate":"2026-07-24"},
-      {"positionId":"renault-tj97v-20260720","asset":"Renault","returnPct":20.6897,"fixedStakePnlEur":20.69,"entryDate":"2026-07-20","exitDate":"2026-07-28"}
+      {
+        "positionId": "sap-db83v-20260317",
+        "asset": "SAP SE",
+        "returnPct": -91.4286,
+        "fixedStakePnlEur": -91.43,
+        "entryDate": "2026-03-17",
+        "exitDate": "2026-06-17"
+      },
+      {
+        "positionId": "renault-tj97v-20260630",
+        "asset": "Renault",
+        "returnPct": 41.6667,
+        "fixedStakePnlEur": 41.67,
+        "entryDate": "2026-06-30",
+        "exitDate": "2026-07-07"
+      },
+      {
+        "positionId": "ipsen-7mv8b-20260708",
+        "asset": "Ipsen",
+        "returnPct": 31.0924,
+        "fixedStakePnlEur": 31.09,
+        "entryDate": "2026-07-08",
+        "exitDate": "2026-07-14"
+      },
+      {
+        "positionId": "total-ui72v-202607",
+        "asset": "TotalEnergies",
+        "returnPct": 31.1377,
+        "fixedStakePnlEur": 31.14,
+        "entryDate": "2026-07-08",
+        "exitDate": "2026-07-14"
+      },
+      {
+        "positionId": "stm-rs84v-202607",
+        "asset": "STMicroelectronics",
+        "returnPct": 15.6051,
+        "fixedStakePnlEur": 15.61,
+        "entryDate": "2026-07-13",
+        "exitDate": "2026-07-17"
+      },
+      {
+        "positionId": "accor-4wl3b-20260617",
+        "asset": "Accor",
+        "returnPct": 20.1031,
+        "fixedStakePnlEur": 20.1,
+        "entryDate": "2026-06-17",
+        "exitDate": "2026-07-21"
+      },
+      {
+        "positionId": "safran-7gp7b-20260623",
+        "asset": "Safran",
+        "returnPct": 20.3655,
+        "fixedStakePnlEur": 20.37,
+        "entryDate": "2026-06-23",
+        "exitDate": "2026-07-21"
+      },
+      {
+        "positionId": "technip-557es-20260716",
+        "asset": "Technip Energies",
+        "returnPct": 18.9189,
+        "fixedStakePnlEur": 18.92,
+        "entryDate": "2026-07-16",
+        "exitDate": "2026-07-22"
+      },
+      {
+        "positionId": "vallourec-2rrub-20260706",
+        "asset": "Vallourec",
+        "returnPct": 21.1538,
+        "fixedStakePnlEur": 21.15,
+        "entryDate": "2026-07-06",
+        "exitDate": "2026-07-22"
+      },
+      {
+        "positionId": "loreal-5s0vb-20260717",
+        "asset": "L'Oréal",
+        "returnPct": 18.0905,
+        "fixedStakePnlEur": 18.09,
+        "entryDate": "2026-07-17",
+        "exitDate": "2026-07-23"
+      },
+      {
+        "positionId": "thales-pl04v-20260715",
+        "asset": "Thales",
+        "returnPct": 25.4167,
+        "fixedStakePnlEur": 25.42,
+        "entryDate": "2026-07-15",
+        "exitDate": "2026-07-23"
+      },
+      {
+        "positionId": "adidas-ug66v-20260721",
+        "asset": "Adidas",
+        "returnPct": 30.7782,
+        "fixedStakePnlEur": 30.78,
+        "entryDate": "2026-07-21",
+        "exitDate": "2026-07-24"
+      },
+      {
+        "positionId": "renault-tj97v-20260720",
+        "asset": "Renault",
+        "returnPct": 20.6897,
+        "fixedStakePnlEur": 20.69,
+        "entryDate": "2026-07-20",
+        "exitDate": "2026-07-28"
+      }
     ],
     "limitations": [
       "Returns use stated entry and exit prices, not necessarily executable prices.",
