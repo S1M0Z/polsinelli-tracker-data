@@ -30,7 +30,13 @@ SUPPORTED_LEVERAGED_ASSET_TYPES = (
     "WarrantOpenEndKnockOut",
     "WarrantOtherLeverageWithKnockOut",
     "WarrantOtherLeverageWithoutKnockOut",
+    "WarrantDoubleKnockOut",
+    "WarrantSpread",
+    "InlineWarrant",
     "MiniFuture",
+    "CertificateConstantLeverage",
+    "CertificateOtherConstantLeverage",
+    "CertificateTracker",
 )
 
 
@@ -69,12 +75,14 @@ class SaxoProvider:
         product_type = str(position.get("productType", "")).lower()
         if "mini" in product_type:
             return ("MiniFuture",)
-        if "turbo" in product_type:
+        if "turbo" in product_type or "certificat" in product_type:
             return (
                 "MiniFuture",
                 "WarrantKnockOut",
                 "WarrantOpenEndKnockOut",
                 "WarrantOtherLeverageWithKnockOut",
+                "CertificateConstantLeverage",
+                "CertificateOtherConstantLeverage",
             )
         return SUPPORTED_LEVERAGED_ASSET_TYPES
 
@@ -83,27 +91,58 @@ class SaxoProvider:
         candidate: dict[str, Any],
         *,
         mnemo: str,
+        isin: str,
         asset: str,
         allowed_asset_types: tuple[str, ...],
     ) -> int:
-        symbol = str(candidate.get("Symbol", "")).upper()
+        symbol = str(candidate.get("Symbol", "")).upper().replace(" ", "")
         description = str(candidate.get("Description", "")).upper()
         asset_type = str(candidate.get("AssetType", ""))
         tradable_as = candidate.get("TradableAs") or []
+        matched_keywords = set(candidate.get("_matchedKeywords") or [])
         score = 0
+        if isin and isin in matched_keywords:
+            score += 120
         if mnemo and symbol == mnemo:
-            score += 100
+            score += 110
         elif mnemo and mnemo in symbol:
-            score += 70
+            score += 90
+        if mnemo and mnemo in matched_keywords:
+            score += 25
         if asset and asset.upper() in description:
             score += 20
         if asset_type in allowed_asset_types:
             score += 10
         elif any(item in allowed_asset_types for item in tradable_as):
             score += 5
+        if candidate.get("IsKeywordMatch"):
+            score += 3
         if candidate.get("SummaryType") == "Instrument":
             score += 2
         return score
+
+    def _search_instruments(
+        self, keyword: str, asset_types: tuple[str, ...] | None
+    ) -> list[dict[str, Any]]:
+        params: dict[str, Any] = {
+            "Keywords": keyword,
+            "IncludeNonTradable": "true",
+            "$top": 100,
+            "AccountKey": self.account_key,
+        }
+        if asset_types:
+            params["AssetTypes"] = ",".join(asset_types)
+        payload, _ = self._get("/ref/v1/instruments", params)
+        data = payload.get("Data", [])
+        results: list[dict[str, Any]] = []
+        if isinstance(data, list):
+            for item in data:
+                if not isinstance(item, dict):
+                    continue
+                copied = dict(item)
+                copied["_matchedKeywords"] = [keyword]
+                results.append(copied)
+        return results
 
     def resolve_instrument(
         self,
@@ -129,18 +168,14 @@ class SaxoProvider:
         allowed = self._candidate_asset_types(position)
         candidates: list[dict[str, Any]] = []
         for keyword in keywords:
-            payload, _ = self._get(
-                "/ref/v1/instruments",
-                {
-                    "Keywords": keyword,
-                    "AssetTypes": ",".join(allowed),
-                    "IncludeNonTradable": "true",
-                    "$top": 30,
-                },
-            )
-            data = payload.get("Data", [])
-            if isinstance(data, list):
-                candidates.extend(item for item in data if isinstance(item, dict))
+            candidates.extend(self._search_instruments(keyword, allowed))
+
+        # Some structured products are classified differently across Saxo setups.
+        # A second pass without AssetTypes is safe because the candidate still has
+        # to match the mnemonic or the exact ISIN search before it is accepted.
+        if not candidates:
+            for keyword in keywords:
+                candidates.extend(self._search_instruments(keyword, None))
 
         unique: dict[tuple[int, str], dict[str, Any]] = {}
         for candidate in candidates:
@@ -148,30 +183,57 @@ class SaxoProvider:
             asset_type = candidate.get("AssetType")
             if not isinstance(identifier, int) or not isinstance(asset_type, str):
                 continue
-            unique[(identifier, asset_type)] = candidate
+            key = (identifier, asset_type)
+            if key in unique:
+                matched = set(unique[key].get("_matchedKeywords") or [])
+                matched.update(candidate.get("_matchedKeywords") or [])
+                unique[key]["_matchedKeywords"] = sorted(matched)
+            else:
+                unique[key] = candidate
 
         ranked = sorted(
             unique.values(),
             key=lambda item: self._score_candidate(
-                item, mnemo=mnemo, asset=asset, allowed_asset_types=allowed
+                item,
+                mnemo=mnemo,
+                isin=isin,
+                asset=asset,
+                allowed_asset_types=allowed,
             ),
             reverse=True,
         )
         if not ranked:
-            raise ProviderError(f"{position.get('id')}: instrument not found on Saxo")
+            raise ProviderError(
+                f"{position.get('id')}: instrument absent from Saxo "
+                f"{self.environment.upper()} catalogue/access rights after searches "
+                f"for {mnemo or 'no mnemo'} and {isin or 'no ISIN'}; OAuth is working"
+            )
+
         best_score = self._score_candidate(
-            ranked[0], mnemo=mnemo, asset=asset, allowed_asset_types=allowed
+            ranked[0],
+            mnemo=mnemo,
+            isin=isin,
+            asset=asset,
+            allowed_asset_types=allowed,
         )
         second_score = (
             self._score_candidate(
-                ranked[1], mnemo=mnemo, asset=asset, allowed_asset_types=allowed
+                ranked[1],
+                mnemo=mnemo,
+                isin=isin,
+                asset=asset,
+                allowed_asset_types=allowed,
             )
             if len(ranked) > 1
             else -1
         )
         if best_score < 50 or best_score == second_score:
+            sample = ", ".join(
+                f"{item.get('Symbol', '?')} [{item.get('AssetType', '?')}]"
+                for item in ranked[:5]
+            )
             raise ProviderError(
-                f"{position.get('id')}: ambiguous Saxo instrument mapping; "
+                f"{position.get('id')}: ambiguous Saxo instrument mapping ({sample}); "
                 "set uic and assetType in market-data-config.json"
             )
 
@@ -217,8 +279,6 @@ class SaxoProvider:
         delayed = quote.get("DelayedByMinutes", 0)
         delayed_minutes = int(delayed) if isinstance(delayed, (int, float)) and delayed >= 0 else 0
         if quote_time is None:
-            # The API sometimes omits LastUpdated on polling responses. A quote is still
-            # timestamped by retrieval time, adjusted by the provider-declared delay.
             quote_time = datetime.now(timezone.utc) - timedelta(minutes=delayed_minutes)
         quote_at = quote_time.isoformat(timespec="seconds")
 
@@ -237,8 +297,12 @@ class SaxoProvider:
             source_url=source_url,
             source_confidence=confidence,
             delayed_by_minutes=delayed_minutes,
-            bid_size=float(details["BidSize"]) if isinstance(details.get("BidSize"), (int, float)) else None,
-            ask_size=float(details["AskSize"]) if isinstance(details.get("AskSize"), (int, float)) else None,
+            bid_size=float(details["BidSize"])
+            if isinstance(details.get("BidSize"), (int, float))
+            else None,
+            ask_size=float(details["AskSize"])
+            if isinstance(details.get("AskSize"), (int, float))
+            else None,
             underlying_price=underlying_price,
             instrument_uic=instrument.uic,
             instrument_asset_type=instrument.asset_type,
