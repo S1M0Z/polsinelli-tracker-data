@@ -1,4 +1,4 @@
-name: Collect market quotes
+name: Test market quote collection
 
 on:
   workflow_dispatch:
@@ -7,10 +7,6 @@ on:
         description: Quote session label
         required: false
         default: manual
-  schedule:
-    # GitHub cron uses UTC. Poll every five minutes during the broad European
-    # structured-products trading window.
-    - cron: "*/5 7-18 * * 1-5"
 
 permissions:
   contents: write
@@ -33,11 +29,16 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
-      - name: Collect Euronext structured-product quotes
+      - name: Install Chromium collector
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install -r requirements-browser.txt
+          python -m playwright install --with-deps chromium
+      - name: Collect browser-rendered Euronext quotes
         id: collect
         run: |
-          SESSION="${{ github.event.inputs.session || 'intraday' }}"
-          python scripts/quote_collector.py \
+          SESSION="${{ github.event.inputs.session || 'manual' }}"
+          python scripts/quote_collector_browser.py \
             --session "$SESSION" \
             --changed-flag /tmp/quote-data-changed
           if [ -f /tmp/quote-data-changed ]; then
@@ -60,5 +61,5 @@ jobs:
           if git diff --cached --quiet; then
             exit 0
           fi
-          git commit -m "Actualise les cotations via Euronext"
+          git commit -m "Actualise les cotations via Euronext rendu"
           git push origin HEAD:main
