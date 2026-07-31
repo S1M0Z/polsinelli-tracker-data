@@ -15,34 +15,47 @@ Données, scanner de publications et moteur de décision conservateur pour le su
 
 ## Cotations structurées
 
-Le collecteur actif utilise **Euronext Live** pour les warrants, turbos et certificats. Il identifie chaque produit par son ISIN et son MIC, récupère le dernier cours ainsi que le meilleur bid/ask du carnet public, puis met à jour :
+Les fiches publiques Euronext identifient correctement les produits suivis, mais leurs cotations sont injectées en JavaScript. Le collecteur opérationnel utilise donc Chromium via Playwright pour charger la page comme un navigateur, attendre le DOM final et extraire le dernier cours ainsi que le bid/ask.
+
+Il met à jour :
 
 1. `quote-history.json` avec le prix, le bid, l'ask, les tailles et les horodatages ;
 2. `positions.json` uniquement lorsqu'une cotation plus récente est disponible ;
 3. `market-data-config.json` lorsqu'un symbole Euronext est résolu ;
 4. `investment-view.json` après passage du moteur de décision.
 
-Aucune clé n'est nécessaire pour le fournisseur Euronext actif.
+Aucune clé n'est nécessaire.
+
+### Installation locale ou serveur
 
 ```bash
+python3 -m pip install -r requirements-browser.txt
+python3 -m playwright install chromium
+
 export MARKET_DATA_PROVIDER=euronext
 export EURONEXT_DEFAULT_MIC=XMLI
-python3 scripts/quote_collector.py --session manual
+python3 scripts/quote_collector_browser.py --session manual
 python3 scripts/investment_engine.py
 python3 scripts/validate_data.py
+```
+
+Sur un serveur Linux, utiliser lors de la première installation :
+
+```bash
+python3 -m playwright install --with-deps chromium
 ```
 
 Le provider essaie successivement les places configurées dans `market-data-config.json`, avec `XMLI`, `XPAR` et `SEDX` par défaut. Une erreur sur un produit ne provoque jamais l'invention d'un prix.
 
 ### GitHub Actions
 
-`.github/workflows/collect-market-quotes.yml` interroge Euronext toutes les cinq minutes pendant la plage européenne, recalcule la vue et pousse un commit uniquement si les données changent. Aucun secret Saxo n'est requis pour ce workflow.
+Le workflow `.github/workflows/collect-market-quotes.yml` est volontairement limité au lancement manuel pendant la validation du rendu Chromium. La collecte permanente sera installée sur le serveur, où Chromium reste présent entre les passages au lieu d'être retéléchargé par un runner GitHub éphémère.
 
 Les pages publiques Euronext ne constituent pas un flux garanti par contrat. Pour un service avec SLA et droits formels de redistribution, il faudra remplacer ce provider par Euronext Web Services ou un autre flux licencié. Le provider Saxo et son support OAuth restent présents comme solution facultative, mais Saxo SIM ne référençait pas les produits suivis lors des tests.
 
 ## OAuth Saxo facultatif
 
-Le script `scripts/saxo_oauth_login.py` effectue la connexion initiale sur `http://localhost:8765/callback`. `scripts/quote_collector_oauth.py` renouvelle ensuite les jetons tournants dans `.runtime/saxo-token.json`, fichier exclu de Git. Cette voie n'est pas utilisée par le workflow Euronext actif.
+Le script `scripts/saxo_oauth_login.py` effectue la connexion initiale sur `http://localhost:8765/callback`. `scripts/quote_collector_oauth.py` renouvelle ensuite les jetons tournants dans `.runtime/saxo-token.json`, fichier exclu de Git. Cette voie n'est pas utilisée par le collecteur Euronext actif.
 
 ## Moteur de décision
 
