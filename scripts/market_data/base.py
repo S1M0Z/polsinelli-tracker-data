@@ -21,7 +21,7 @@ class ProviderConfigurationError(ProviderError):
 
 @dataclass(frozen=True)
 class InstrumentRef:
-    uic: int
+    uic: int | None
     asset_type: str
     symbol: str | None = None
     description: str | None = None
