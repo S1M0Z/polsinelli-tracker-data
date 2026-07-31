@@ -1,0 +1,14 @@
+FROM mcr.microsoft.com/playwright/python:v1.60.0-noble
+
+WORKDIR /app
+
+COPY requirements-browser.txt /tmp/requirements-browser.txt
+RUN python -m pip install --no-cache-dir -r /tmp/requirements-browser.txt
+
+ENV PYTHONUNBUFFERED=1 \
+    PYTHONDONTWRITEBYTECODE=1 \
+    MARKET_DATA_PROVIDER=euronext \
+    EURONEXT_DEFAULT_MIC=XMLI \
+    EURONEXT_LOCALE=en
+
+CMD ["python", "scripts/quote_collector_browser.py", "--session", "server"]
