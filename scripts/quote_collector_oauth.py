@@ -26,6 +26,7 @@ def main() -> int:
         app_secret=os.getenv("SAXO_APP_SECRET"),
         redirect_uri=os.getenv("SAXO_REDIRECT_URI", DEFAULT_REDIRECT_URI),
     )
+    os.environ["MARKET_DATA_PROVIDER"] = "saxo"
     os.environ["SAXO_ACCESS_TOKEN"] = access_token
     return collector_main()
 
