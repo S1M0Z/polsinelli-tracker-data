@@ -1,10 +1,57 @@
 {
   "meta": {
-    "version": 1,
-    "updatedAt": "2026-07-30T20:53:00+02:00",
-    "description": "Market-data provider configuration. Credentials are supplied only through environment variables or GitHub Actions secrets."
+    "version": 2,
+    "updatedAt": "2026-07-31T14:05:00+02:00",
+    "description": "Market-data provider configuration. Euronext Live is active; Saxo remains available as an optional fallback."
   },
-  "provider": "saxo",
+  "provider": "euronext",
+  "euronext": {
+    "locale": "en",
+    "defaultMic": "XMLI",
+    "micCandidates": [
+      "XMLI",
+      "XPAR",
+      "SEDX"
+    ],
+    "instrumentMappings": {
+      "totalenergies-lt07v-20260724": {
+        "mic": "XMLI",
+        "symbol": "DE000VY0NFK5-XMLI",
+        "assetType": "StructuredProduct",
+        "description": "TotalEnergies warrant put LT07V"
+      },
+      "vinci-wc25v-20260723": {
+        "mic": "XMLI",
+        "symbol": "DE000VY88TJ7-XMLI",
+        "assetType": "StructuredProduct",
+        "description": "Vinci warrant call WC25V"
+      },
+      "apple-oz97v-20260721": {
+        "mic": "XMLI",
+        "symbol": "DE000VY3GDC5-XMLI",
+        "assetType": "StructuredProduct",
+        "description": "Apple warrant put OZ97V"
+      },
+      "allianz-qa95v-20260716": {
+        "mic": "XMLI",
+        "symbol": "DE000VY3Z5D1-XMLI",
+        "assetType": "StructuredProduct",
+        "description": "Allianz turbo put QA95V"
+      },
+      "nexans-325ks-20260715": {
+        "mic": "XMLI",
+        "symbol": "DE000FE3FPS1-XMLI",
+        "assetType": "StructuredProduct",
+        "description": "Nexans turbo call 325KS"
+      },
+      "legrand-3f7tb-20260715": {
+        "mic": "XMLI",
+        "symbol": "NLBNPFR2CD04-XMLI",
+        "assetType": "StructuredProduct",
+        "description": "Legrand warrant call 3F7TB"
+      }
+    }
+  },
   "saxo": {
     "environment": "sim",
     "accountKey": null,
