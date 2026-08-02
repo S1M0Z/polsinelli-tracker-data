@@ -6,7 +6,29 @@
     "mode": "scanned",
     "lastPublicationCheckedAt": "2026-07-28T09:32:00+02:00",
     "warning": "Cours indicatifs issus des dernières cotations publiques récupérées. Les articles anciens modifiés ou remis en avant sont également contrôlés.",
-    "marketDataUpdatedAt": "2026-07-31T13:05:20+00:00"
+    "marketDataUpdatedAt": "2026-07-31T13:05:20+00:00",
+    "analysts": [
+      {
+        "id": "laurent-polsinelli",
+        "name": "Laurent Polsinelli",
+        "source": "Zonebourse",
+        "status": "active",
+        "profileUrl": "https://www.zonebourse.com/auteur/laurent-polsinelli"
+      },
+      {
+        "id": "marc-dagher",
+        "name": "Marc Dagher",
+        "source": "DT Expert",
+        "status": "pending_authorized_feed",
+        "profileUrl": "https://dtexpert.com/a-propos/"
+      }
+    ],
+    "confidenceMethod": {
+      "version": "1.0.0",
+      "minimumCoveragePct": 60,
+      "missingDataLabel": "Données insuffisantes",
+      "principle": "Aucun score n'est publié sans une couverture suffisante et des sources traçables."
+    }
   },
   "positions": [
     {
