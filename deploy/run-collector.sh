@@ -4,6 +4,8 @@ set -Eeuo pipefail
 REPO_ROOT="${POLSINELLI_REPO_ROOT:-$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)}"
 IMAGE="${POLSINELLI_IMAGE:-polsinelli-tracker-browser:1.60.0}"
 LOCK_FILE="${POLSINELLI_LOCK_FILE:-/tmp/polsinelli-collector.lock}"
+RUNTIME_DIR="${POLSINELLI_RUNTIME_DIR:-/home/ubuntu/.local/share/polsinelli-collector}"
+SITE_DATA_DIR="${POLSINELLI_SITE_DATA_DIR:-/var/www/polsinelli-tracker-v3/data}"
 
 exec 9>"$LOCK_FILE"
 if ! flock -n 9; then
@@ -33,6 +35,17 @@ fi
 git fetch origin main
 git pull --ff-only origin main
 
+# Runtime market data lives outside Git. positions.json is refreshed from the
+# publication source before every pass, while quote history and mappings persist
+# locally between collections.
+mkdir -p "$RUNTIME_DIR"
+cp positions.json "$RUNTIME_DIR/positions.json"
+for file in quote-history.json market-data-config.json investment-view.json; do
+  if [[ ! -f "$RUNTIME_DIR/$file" ]]; then
+    cp "$file" "$RUNTIME_DIR/$file"
+  fi
+done
+
 sudo -n docker run --rm --init --ipc=host \
   --memory=700m --memory-swap=1536m \
   --user "$(id -u):$(id -g)" \
@@ -41,6 +54,10 @@ sudo -n docker run --rm --init --ipc=host \
   --env EURONEXT_DEFAULT_MIC=XMLI \
   --env EURONEXT_LOCALE=en \
   --volume "$REPO_ROOT:/app" \
+  --volume "$RUNTIME_DIR/positions.json:/app/positions.json" \
+  --volume "$RUNTIME_DIR/quote-history.json:/app/quote-history.json" \
+  --volume "$RUNTIME_DIR/market-data-config.json:/app/market-data-config.json" \
+  --volume "$RUNTIME_DIR/investment-view.json:/app/investment-view.json" \
   --workdir /app \
   "$IMAGE" \
   bash -lc '
@@ -49,16 +66,13 @@ sudo -n docker run --rm --init --ipc=host \
     python scripts/validate_data.py
   '
 
-git add positions.json quote-history.json market-data-config.json investment-view.json
-if git diff --cached --quiet; then
-  echo "No market-data changes to publish."
-  exit 0
-fi
+# Publish the validated runtime snapshot directly to Nginx. GitHub is no longer
+# used as a five-minute transport for quotes.
+sudo -n install \
+  -o ubuntu \
+  -g www-data \
+  -m 0644 \
+  "$RUNTIME_DIR/positions.json" \
+  "$SITE_DATA_DIR/positions.json"
 
-git config user.name "polsinelli-server-bot"
-git config user.email "server-bot@users.noreply.github.com"
-git commit -m "Actualise les cotations Euronext depuis le serveur"
-
-# Incorporate any publication scan committed while Chromium was running.
-git pull --rebase origin main
-git push origin main
+echo "Market quotes refreshed locally; no Git commit or push performed."
