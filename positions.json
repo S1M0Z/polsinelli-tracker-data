@@ -6,7 +6,7 @@
     "mode": "scanned",
     "lastPublicationCheckedAt": "2026-07-28T09:32:00+02:00",
     "warning": "Cours indicatifs issus des dernières cotations publiques récupérées. Les articles anciens modifiés ou remis en avant sont également contrôlés.",
-    "marketDataUpdatedAt": "2026-08-03T10:03:29+00:00",
+    "marketDataUpdatedAt": "2026-08-03T10:08:43+00:00",
     "analysts": [
       {
         "id": "laurent-polsinelli",
@@ -65,7 +65,7 @@
       "exitPrice": null,
       "entryDate": "2026-07-24",
       "exitDate": null,
-      "quoteAt": "2026-08-03T09:37:00+00:00",
+      "quoteAt": "2026-08-03T10:04:00+00:00",
       "target": 70,
       "stop": 79.2,
       "underlyingThreshold": 75.94,
@@ -77,8 +77,8 @@
       "ask": 0.8,
       "marketDataProvider": "euronext",
       "marketDataSourceUrl": "https://live.euronext.com/en/product/structured-products/DE000VY0NFK5-XMLI",
-      "marketDataRetrievedAt": "2026-08-03T09:53:36+00:00",
-      "marketDataDelayMinutes": 16
+      "marketDataRetrievedAt": "2026-08-03T10:08:58+00:00",
+      "marketDataDelayMinutes": 4
     },
     {
       "id": "vinci-wc25v-20260723",
@@ -93,7 +93,7 @@
       "exitPrice": null,
       "entryDate": "2026-07-23",
       "exitDate": null,
-      "quoteAt": "2026-08-03T09:59:00+00:00",
+      "quoteAt": "2026-08-03T10:04:00+00:00",
       "target": 132,
       "stop": 111,
       "underlyingThreshold": 119.05,
@@ -105,7 +105,7 @@
       "ask": 1.4,
       "marketDataProvider": "euronext",
       "marketDataSourceUrl": "https://live.euronext.com/en/product/structured-products/DE000VY88TJ7-XMLI",
-      "marketDataRetrievedAt": "2026-08-03T10:04:02+00:00",
+      "marketDataRetrievedAt": "2026-08-03T10:09:11+00:00",
       "marketDataDelayMinutes": 5
     },
     {
@@ -237,7 +237,7 @@
       "exitPrice": null,
       "entryDate": "2026-07-21",
       "exitDate": null,
-      "quoteAt": "2026-08-03T09:59:00+00:00",
+      "quoteAt": "2026-08-03T10:04:00+00:00",
       "target": 290,
       "stop": 342,
       "underlyingThreshold": 326.59,
@@ -249,7 +249,7 @@
       "ask": 1.37,
       "marketDataProvider": "euronext",
       "marketDataSourceUrl": "https://live.euronext.com/en/product/structured-products/DE000VY3GDC5-XMLI",
-      "marketDataRetrievedAt": "2026-08-03T10:04:15+00:00",
+      "marketDataRetrievedAt": "2026-08-03T10:09:25+00:00",
       "marketDataDelayMinutes": 5
     },
     {
@@ -301,11 +301,11 @@
       "isin": "DE000VY3Z5D1",
       "status": "open",
       "entryPrice": 3.86,
-      "currentPrice": 2.8449999999999998,
+      "currentPrice": 2.875,
       "exitPrice": null,
       "entryDate": "2026-07-16",
       "exitDate": null,
-      "quoteAt": "2026-08-03T09:54:00+00:00",
+      "quoteAt": "2026-08-03T10:04:00+00:00",
       "target": 395,
       "stop": 430,
       "underlyingThreshold": 416.4,
@@ -313,11 +313,11 @@
       "url": "https://www.zonebourse.com/actualite-bourse/une-correction-technique-en-formation-ce7f5ed2de8ef427",
       "note": "Scénario baissier. L'intitulé et le scénario classent le produit en PUT malgré une incohérence de sens dans la fiche statique Zonebourse.",
       "sourceConfidence": "high",
-      "bid": 2.84,
-      "ask": 2.85,
+      "bid": 2.87,
+      "ask": 2.88,
       "marketDataProvider": "euronext",
       "marketDataSourceUrl": "https://live.euronext.com/en/product/structured-products/DE000VY3Z5D1-XMLI",
-      "marketDataRetrievedAt": "2026-08-03T09:59:21+00:00",
+      "marketDataRetrievedAt": "2026-08-03T10:09:35+00:00",
       "marketDataDelayMinutes": 5
     },
     {
@@ -357,11 +357,11 @@
       "isin": "NLBNPFR2CD04",
       "status": "open",
       "entryPrice": 3.06,
-      "currentPrice": 1.735,
+      "currentPrice": 1.7349999999999999,
       "exitPrice": null,
       "entryDate": "2026-07-15",
       "exitDate": null,
-      "quoteAt": "2026-08-03T10:00:00+00:00",
+      "quoteAt": "2026-08-03T10:05:00+00:00",
       "target": 160.1,
       "stop": 132,
       "underlyingThreshold": 141.05,
@@ -373,7 +373,7 @@
       "ask": 1.74,
       "marketDataProvider": "euronext",
       "marketDataSourceUrl": "https://live.euronext.com/en/product/structured-products/NLBNPFR2CD04-XMLI",
-      "marketDataRetrievedAt": "2026-08-03T10:04:53+00:00",
+      "marketDataRetrievedAt": "2026-08-03T10:09:58+00:00",
       "marketDataDelayMinutes": 4
     },
     {
