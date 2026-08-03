@@ -1,11 +1,62 @@
 {
   "meta": {
     "version": 1,
-    "updatedAt": "2026-08-03T09:12:12+00:00",
+    "updatedAt": "2026-08-03T09:17:21+00:00",
     "description": "Append-only quote snapshots for open positions. Store bid, ask, price, underlyingPrice and quoteAt when available.",
     "maxQuotesPerPosition": 500
   },
   "quotes": [
+    {
+      "positionId": "legrand-3f7tb-20260715",
+      "provider": "euronext",
+      "session": "server",
+      "price": 1.775,
+      "bid": 1.77,
+      "ask": 1.78,
+      "quoteAt": "2026-08-03T09:15:00+00:00",
+      "retrievedAt": "2026-08-03T09:18:40+00:00",
+      "sourceUrl": "https://live.euronext.com/en/product/structured-products/NLBNPFR2CD04-XMLI",
+      "sourceConfidence": "medium",
+      "delayedByMinutes": 3,
+      "bidSize": 20.0,
+      "askSize": 20.0,
+      "instrumentAssetType": "StructuredProduct",
+      "instrumentSymbol": "NLBNPFR2CD04-XMLI"
+    },
+    {
+      "positionId": "nexans-325ks-20260715",
+      "provider": "euronext",
+      "session": "server",
+      "price": 1.285,
+      "bid": 1.28,
+      "ask": 1.29,
+      "quoteAt": "2026-08-03T09:14:00+00:00",
+      "retrievedAt": "2026-08-03T09:18:29+00:00",
+      "sourceUrl": "https://live.euronext.com/en/product/structured-products/DE000FE3FPS1-XMLI",
+      "sourceConfidence": "medium",
+      "delayedByMinutes": 4,
+      "bidSize": 7.0,
+      "askSize": 7.0,
+      "instrumentAssetType": "StructuredProduct",
+      "instrumentSymbol": "DE000FE3FPS1-XMLI"
+    },
+    {
+      "positionId": "totalenergies-lt07v-20260724",
+      "provider": "euronext",
+      "session": "server",
+      "price": 0.795,
+      "bid": 0.79,
+      "ask": 0.8,
+      "quoteAt": "2026-08-03T09:14:00+00:00",
+      "retrievedAt": "2026-08-03T09:17:37+00:00",
+      "sourceUrl": "https://live.euronext.com/en/product/structured-products/DE000VY0NFK5-XMLI",
+      "sourceConfidence": "medium",
+      "delayedByMinutes": 3,
+      "bidSize": 50.0,
+      "askSize": 50.0,
+      "instrumentAssetType": "StructuredProduct",
+      "instrumentSymbol": "DE000VY0NFK5-XMLI"
+    },
     {
       "positionId": "legrand-3f7tb-20260715",
       "provider": "euronext",
@@ -41,6 +92,23 @@
       "instrumentSymbol": "DE000VY88TJ7-XMLI"
     },
     {
+      "positionId": "vinci-wc25v-20260723",
+      "provider": "euronext",
+      "session": "server",
+      "price": 1.3849999999999998,
+      "bid": 1.38,
+      "ask": 1.39,
+      "quoteAt": "2026-08-03T09:09:00+00:00",
+      "retrievedAt": "2026-08-03T09:17:51+00:00",
+      "sourceUrl": "https://live.euronext.com/en/product/structured-products/DE000VY88TJ7-XMLI",
+      "sourceConfidence": "medium",
+      "delayedByMinutes": 8,
+      "bidSize": 30.0,
+      "askSize": 30.0,
+      "instrumentAssetType": "StructuredProduct",
+      "instrumentSymbol": "DE000VY88TJ7-XMLI"
+    },
+    {
       "positionId": "allianz-qa95v-20260716",
       "provider": "euronext",
       "session": "server",
@@ -52,6 +120,23 @@
       "sourceUrl": "https://live.euronext.com/en/product/structured-products/DE000VY3Z5D1-XMLI",
       "sourceConfidence": "medium",
       "delayedByMinutes": 4,
+      "bidSize": 25.0,
+      "askSize": 25.0,
+      "instrumentAssetType": "StructuredProduct",
+      "instrumentSymbol": "DE000VY3Z5D1-XMLI"
+    },
+    {
+      "positionId": "allianz-qa95v-20260716",
+      "provider": "euronext",
+      "session": "server",
+      "price": 2.875,
+      "bid": 2.87,
+      "ask": 2.88,
+      "quoteAt": "2026-08-03T09:09:00+00:00",
+      "retrievedAt": "2026-08-03T09:18:16+00:00",
+      "sourceUrl": "https://live.euronext.com/en/product/structured-products/DE000VY3Z5D1-XMLI",
+      "sourceConfidence": "medium",
+      "delayedByMinutes": 9,
       "bidSize": 25.0,
       "askSize": 25.0,
       "instrumentAssetType": "StructuredProduct",
@@ -92,23 +177,6 @@
       "instrumentSymbol": "NLBNPFR2CD04-XMLI"
     },
     {
-      "positionId": "totalenergies-lt07v-20260724",
-      "provider": "euronext",
-      "session": "server",
-      "price": 0.785,
-      "bid": 0.78,
-      "ask": 0.79,
-      "quoteAt": "2026-08-03T09:04:00+00:00",
-      "retrievedAt": "2026-08-03T09:07:15+00:00",
-      "sourceUrl": "https://live.euronext.com/en/product/structured-products/DE000VY0NFK5-XMLI",
-      "sourceConfidence": "medium",
-      "delayedByMinutes": 3,
-      "bidSize": 50.0,
-      "askSize": 50.0,
-      "instrumentAssetType": "StructuredProduct",
-      "instrumentSymbol": "DE000VY0NFK5-XMLI"
-    },
-    {
       "positionId": "vinci-wc25v-20260723",
       "provider": "euronext",
       "session": "server",
@@ -143,6 +211,23 @@
       "instrumentSymbol": "DE000VY3Z5D1-XMLI"
     },
     {
+      "positionId": "totalenergies-lt07v-20260724",
+      "provider": "euronext",
+      "session": "server",
+      "price": 0.785,
+      "bid": 0.78,
+      "ask": 0.79,
+      "quoteAt": "2026-08-03T09:04:00+00:00",
+      "retrievedAt": "2026-08-03T09:07:15+00:00",
+      "sourceUrl": "https://live.euronext.com/en/product/structured-products/DE000VY0NFK5-XMLI",
+      "sourceConfidence": "medium",
+      "delayedByMinutes": 3,
+      "bidSize": 50.0,
+      "askSize": 50.0,
+      "instrumentAssetType": "StructuredProduct",
+      "instrumentSymbol": "DE000VY0NFK5-XMLI"
+    },
+    {
       "positionId": "legrand-3f7tb-20260715",
       "provider": "euronext",
       "session": "server",
@@ -158,6 +243,23 @@
       "askSize": 20.0,
       "instrumentAssetType": "StructuredProduct",
       "instrumentSymbol": "NLBNPFR2CD04-XMLI"
+    },
+    {
+      "positionId": "apple-oz97v-20260721",
+      "provider": "euronext",
+      "session": "server",
+      "price": 1.365,
+      "bid": 1.36,
+      "ask": 1.37,
+      "quoteAt": "2026-08-03T08:59:35+00:00",
+      "retrievedAt": "2026-08-03T09:18:04+00:00",
+      "sourceUrl": "https://live.euronext.com/en/product/structured-products/DE000VY3GDC5-XMLI",
+      "sourceConfidence": "medium",
+      "delayedByMinutes": 18,
+      "bidSize": 50.0,
+      "askSize": 50.0,
+      "instrumentAssetType": "StructuredProduct",
+      "instrumentSymbol": "DE000VY3GDC5-XMLI"
     },
     {
       "positionId": "totalenergies-lt07v-20260724",
@@ -228,23 +330,6 @@
       "instrumentSymbol": "NLBNPFR2CD04-XMLI"
     },
     {
-      "positionId": "totalenergies-lt07v-20260724",
-      "provider": "euronext",
-      "session": "server",
-      "price": 0.795,
-      "bid": 0.79,
-      "ask": 0.8,
-      "quoteAt": "2026-08-03T08:54:00+00:00",
-      "retrievedAt": "2026-08-03T08:56:49+00:00",
-      "sourceUrl": "https://live.euronext.com/en/product/structured-products/DE000VY0NFK5-XMLI",
-      "sourceConfidence": "high",
-      "delayedByMinutes": 2,
-      "bidSize": 50.0,
-      "askSize": 50.0,
-      "instrumentAssetType": "StructuredProduct",
-      "instrumentSymbol": "DE000VY0NFK5-XMLI"
-    },
-    {
       "positionId": "vinci-wc25v-20260723",
       "provider": "euronext",
       "session": "server",
@@ -277,23 +362,6 @@
       "askSize": 30.0,
       "instrumentAssetType": "StructuredProduct",
       "instrumentSymbol": "DE000VY88TJ7-XMLI"
-    },
-    {
-      "positionId": "apple-oz97v-20260721",
-      "provider": "euronext",
-      "session": "server",
-      "price": 1.3650000000000002,
-      "bid": 1.36,
-      "ask": 1.37,
-      "quoteAt": "2026-08-03T08:54:00+00:00",
-      "retrievedAt": "2026-08-03T08:57:13+00:00",
-      "sourceUrl": "https://live.euronext.com/en/product/structured-products/DE000VY3GDC5-XMLI",
-      "sourceConfidence": "medium",
-      "delayedByMinutes": 3,
-      "bidSize": 50.0,
-      "askSize": 50.0,
-      "instrumentAssetType": "StructuredProduct",
-      "instrumentSymbol": "DE000VY3GDC5-XMLI"
     },
     {
       "positionId": "nexans-325ks-20260715",
@@ -345,6 +413,40 @@
       "askSize": 7.0,
       "instrumentAssetType": "StructuredProduct",
       "instrumentSymbol": "DE000FE3FPS1-XMLI"
+    },
+    {
+      "positionId": "totalenergies-lt07v-20260724",
+      "provider": "euronext",
+      "session": "server",
+      "price": 0.795,
+      "bid": 0.79,
+      "ask": 0.8,
+      "quoteAt": "2026-08-03T08:54:00+00:00",
+      "retrievedAt": "2026-08-03T08:56:49+00:00",
+      "sourceUrl": "https://live.euronext.com/en/product/structured-products/DE000VY0NFK5-XMLI",
+      "sourceConfidence": "high",
+      "delayedByMinutes": 2,
+      "bidSize": 50.0,
+      "askSize": 50.0,
+      "instrumentAssetType": "StructuredProduct",
+      "instrumentSymbol": "DE000VY0NFK5-XMLI"
+    },
+    {
+      "positionId": "apple-oz97v-20260721",
+      "provider": "euronext",
+      "session": "server",
+      "price": 1.3650000000000002,
+      "bid": 1.36,
+      "ask": 1.37,
+      "quoteAt": "2026-08-03T08:54:00+00:00",
+      "retrievedAt": "2026-08-03T08:57:13+00:00",
+      "sourceUrl": "https://live.euronext.com/en/product/structured-products/DE000VY3GDC5-XMLI",
+      "sourceConfidence": "medium",
+      "delayedByMinutes": 3,
+      "bidSize": 50.0,
+      "askSize": 50.0,
+      "instrumentAssetType": "StructuredProduct",
+      "instrumentSymbol": "DE000VY3GDC5-XMLI"
     },
     {
       "positionId": "allianz-qa95v-20260716",
@@ -483,6 +585,23 @@
       "instrumentSymbol": "DE000VY3Z5D1-XMLI"
     },
     {
+      "positionId": "nexans-325ks-20260715",
+      "provider": "euronext",
+      "session": "server",
+      "price": 1.295,
+      "bid": 1.29,
+      "ask": 1.3,
+      "quoteAt": "2026-08-03T08:39:00+00:00",
+      "retrievedAt": "2026-08-03T08:42:19+00:00",
+      "sourceUrl": "https://live.euronext.com/en/product/structured-products/DE000FE3FPS1-XMLI",
+      "sourceConfidence": "medium",
+      "delayedByMinutes": 3,
+      "bidSize": 7.0,
+      "askSize": 7.0,
+      "instrumentAssetType": "StructuredProduct",
+      "instrumentSymbol": "DE000FE3FPS1-XMLI"
+    },
+    {
       "positionId": "totalenergies-lt07v-20260724",
       "provider": "euronext",
       "session": "server",
@@ -515,23 +634,6 @@
       "askSize": 50.0,
       "instrumentAssetType": "StructuredProduct",
       "instrumentSymbol": "DE000VY0NFK5-XMLI"
-    },
-    {
-      "positionId": "nexans-325ks-20260715",
-      "provider": "euronext",
-      "session": "server",
-      "price": 1.295,
-      "bid": 1.29,
-      "ask": 1.3,
-      "quoteAt": "2026-08-03T08:39:00+00:00",
-      "retrievedAt": "2026-08-03T08:42:19+00:00",
-      "sourceUrl": "https://live.euronext.com/en/product/structured-products/DE000FE3FPS1-XMLI",
-      "sourceConfidence": "medium",
-      "delayedByMinutes": 3,
-      "bidSize": 7.0,
-      "askSize": 7.0,
-      "instrumentAssetType": "StructuredProduct",
-      "instrumentSymbol": "DE000FE3FPS1-XMLI"
     },
     {
       "positionId": "apple-oz97v-20260721",
@@ -670,6 +772,23 @@
       "instrumentSymbol": "DE000VY88TJ7-XMLI"
     },
     {
+      "positionId": "nexans-325ks-20260715",
+      "provider": "euronext",
+      "session": "server",
+      "price": 1.315,
+      "bid": 1.31,
+      "ask": 1.32,
+      "quoteAt": "2026-08-03T08:29:00+00:00",
+      "retrievedAt": "2026-08-03T08:32:01+00:00",
+      "sourceUrl": "https://live.euronext.com/en/product/structured-products/DE000FE3FPS1-XMLI",
+      "sourceConfidence": "medium",
+      "delayedByMinutes": 3,
+      "bidSize": 7.0,
+      "askSize": 7.0,
+      "instrumentAssetType": "StructuredProduct",
+      "instrumentSymbol": "DE000FE3FPS1-XMLI"
+    },
+    {
       "positionId": "apple-oz97v-20260721",
       "provider": "euronext",
       "session": "server",
@@ -719,23 +838,6 @@
       "askSize": 50.0,
       "instrumentAssetType": "StructuredProduct",
       "instrumentSymbol": "DE000VY3GDC5-XMLI"
-    },
-    {
-      "positionId": "nexans-325ks-20260715",
-      "provider": "euronext",
-      "session": "server",
-      "price": 1.315,
-      "bid": 1.31,
-      "ask": 1.32,
-      "quoteAt": "2026-08-03T08:29:00+00:00",
-      "retrievedAt": "2026-08-03T08:32:01+00:00",
-      "sourceUrl": "https://live.euronext.com/en/product/structured-products/DE000FE3FPS1-XMLI",
-      "sourceConfidence": "medium",
-      "delayedByMinutes": 3,
-      "bidSize": 7.0,
-      "askSize": 7.0,
-      "instrumentAssetType": "StructuredProduct",
-      "instrumentSymbol": "DE000FE3FPS1-XMLI"
     },
     {
       "positionId": "allianz-qa95v-20260716",
@@ -891,23 +993,6 @@
       "instrumentSymbol": "DE000VY0NFK5-XMLI"
     },
     {
-      "positionId": "totalenergies-lt07v-20260724",
-      "provider": "euronext",
-      "session": "server",
-      "price": 0.815,
-      "bid": 0.81,
-      "ask": 0.82,
-      "quoteAt": "2026-08-03T08:19:00+00:00",
-      "retrievedAt": "2026-08-03T08:21:13+00:00",
-      "sourceUrl": "https://live.euronext.com/en/product/structured-products/DE000VY0NFK5-XMLI",
-      "sourceConfidence": "high",
-      "delayedByMinutes": 2,
-      "bidSize": 50.0,
-      "askSize": 50.0,
-      "instrumentAssetType": "StructuredProduct",
-      "instrumentSymbol": "DE000VY0NFK5-XMLI"
-    },
-    {
       "positionId": "vinci-wc25v-20260723",
       "provider": "euronext",
       "session": "server",
@@ -959,6 +1044,23 @@
       "instrumentSymbol": "DE000FE3FPS1-XMLI"
     },
     {
+      "positionId": "totalenergies-lt07v-20260724",
+      "provider": "euronext",
+      "session": "server",
+      "price": 0.815,
+      "bid": 0.81,
+      "ask": 0.82,
+      "quoteAt": "2026-08-03T08:19:00+00:00",
+      "retrievedAt": "2026-08-03T08:21:13+00:00",
+      "sourceUrl": "https://live.euronext.com/en/product/structured-products/DE000VY0NFK5-XMLI",
+      "sourceConfidence": "high",
+      "delayedByMinutes": 2,
+      "bidSize": 50.0,
+      "askSize": 50.0,
+      "instrumentAssetType": "StructuredProduct",
+      "instrumentSymbol": "DE000VY0NFK5-XMLI"
+    },
+    {
       "positionId": "legrand-3f7tb-20260715",
       "provider": "euronext",
       "session": "server",
@@ -976,23 +1078,6 @@
       "instrumentSymbol": "NLBNPFR2CD04-XMLI"
     },
     {
-      "positionId": "totalenergies-lt07v-20260724",
-      "provider": "euronext",
-      "session": "server",
-      "price": 0.815,
-      "bid": 0.81,
-      "ask": 0.82,
-      "quoteAt": "2026-08-03T08:14:00+00:00",
-      "retrievedAt": "2026-08-03T08:16:10+00:00",
-      "sourceUrl": "https://live.euronext.com/en/product/structured-products/DE000VY0NFK5-XMLI",
-      "sourceConfidence": "high",
-      "delayedByMinutes": 2,
-      "bidSize": 50.0,
-      "askSize": 50.0,
-      "instrumentAssetType": "StructuredProduct",
-      "instrumentSymbol": "DE000VY0NFK5-XMLI"
-    },
-    {
       "positionId": "allianz-qa95v-20260716",
       "provider": "euronext",
       "session": "server",
@@ -1008,6 +1093,23 @@
       "askSize": 25.0,
       "instrumentAssetType": "StructuredProduct",
       "instrumentSymbol": "DE000VY3Z5D1-XMLI"
+    },
+    {
+      "positionId": "totalenergies-lt07v-20260724",
+      "provider": "euronext",
+      "session": "server",
+      "price": 0.815,
+      "bid": 0.81,
+      "ask": 0.82,
+      "quoteAt": "2026-08-03T08:14:00+00:00",
+      "retrievedAt": "2026-08-03T08:16:10+00:00",
+      "sourceUrl": "https://live.euronext.com/en/product/structured-products/DE000VY0NFK5-XMLI",
+      "sourceConfidence": "high",
+      "delayedByMinutes": 2,
+      "bidSize": 50.0,
+      "askSize": 50.0,
+      "instrumentAssetType": "StructuredProduct",
+      "instrumentSymbol": "DE000VY0NFK5-XMLI"
     },
     {
       "positionId": "apple-oz97v-20260721",
@@ -1095,23 +1197,6 @@
       "instrumentSymbol": "NLBNPFR2CD04-XMLI"
     },
     {
-      "positionId": "totalenergies-lt07v-20260724",
-      "provider": "euronext",
-      "session": "server",
-      "price": 0.825,
-      "bid": 0.82,
-      "ask": 0.83,
-      "quoteAt": "2026-08-03T08:09:00+00:00",
-      "retrievedAt": "2026-08-03T08:10:48+00:00",
-      "sourceUrl": "https://live.euronext.com/en/product/structured-products/DE000VY0NFK5-XMLI",
-      "sourceConfidence": "high",
-      "delayedByMinutes": 1,
-      "bidSize": 50.0,
-      "askSize": 50.0,
-      "instrumentAssetType": "StructuredProduct",
-      "instrumentSymbol": "DE000VY0NFK5-XMLI"
-    },
-    {
       "positionId": "vinci-wc25v-20260723",
       "provider": "euronext",
       "session": "server",
@@ -1163,6 +1248,23 @@
       "instrumentSymbol": "DE000VY3Z5D1-XMLI"
     },
     {
+      "positionId": "totalenergies-lt07v-20260724",
+      "provider": "euronext",
+      "session": "server",
+      "price": 0.825,
+      "bid": 0.82,
+      "ask": 0.83,
+      "quoteAt": "2026-08-03T08:09:00+00:00",
+      "retrievedAt": "2026-08-03T08:10:48+00:00",
+      "sourceUrl": "https://live.euronext.com/en/product/structured-products/DE000VY0NFK5-XMLI",
+      "sourceConfidence": "high",
+      "delayedByMinutes": 1,
+      "bidSize": 50.0,
+      "askSize": 50.0,
+      "instrumentAssetType": "StructuredProduct",
+      "instrumentSymbol": "DE000VY0NFK5-XMLI"
+    },
+    {
       "positionId": "nexans-325ks-20260715",
       "provider": "euronext",
       "session": "server",
@@ -1195,23 +1297,6 @@
       "askSize": 20.0,
       "instrumentAssetType": "StructuredProduct",
       "instrumentSymbol": "NLBNPFR2CD04-XMLI"
-    },
-    {
-      "positionId": "totalenergies-lt07v-20260724",
-      "provider": "euronext",
-      "session": "server",
-      "price": 0.825,
-      "bid": 0.82,
-      "ask": 0.83,
-      "quoteAt": "2026-08-03T08:04:00+00:00",
-      "retrievedAt": "2026-08-03T08:05:32+00:00",
-      "sourceUrl": "https://live.euronext.com/en/product/structured-products/DE000VY0NFK5-XMLI",
-      "sourceConfidence": "high",
-      "delayedByMinutes": 1,
-      "bidSize": 50.0,
-      "askSize": 50.0,
-      "instrumentAssetType": "StructuredProduct",
-      "instrumentSymbol": "DE000VY0NFK5-XMLI"
     },
     {
       "positionId": "vinci-wc25v-20260723",
@@ -1248,6 +1333,23 @@
       "instrumentSymbol": "DE000VY3Z5D1-XMLI"
     },
     {
+      "positionId": "totalenergies-lt07v-20260724",
+      "provider": "euronext",
+      "session": "server",
+      "price": 0.825,
+      "bid": 0.82,
+      "ask": 0.83,
+      "quoteAt": "2026-08-03T08:04:00+00:00",
+      "retrievedAt": "2026-08-03T08:05:32+00:00",
+      "sourceUrl": "https://live.euronext.com/en/product/structured-products/DE000VY0NFK5-XMLI",
+      "sourceConfidence": "high",
+      "delayedByMinutes": 1,
+      "bidSize": 50.0,
+      "askSize": 50.0,
+      "instrumentAssetType": "StructuredProduct",
+      "instrumentSymbol": "DE000VY0NFK5-XMLI"
+    },
+    {
       "positionId": "apple-oz97v-20260721",
       "provider": "euronext",
       "session": "server",
@@ -1280,23 +1382,6 @@
       "askSize": 7.0,
       "instrumentAssetType": "StructuredProduct",
       "instrumentSymbol": "DE000FE3FPS1-XMLI"
-    },
-    {
-      "positionId": "totalenergies-lt07v-20260724",
-      "provider": "euronext",
-      "session": "server",
-      "price": 0.835,
-      "bid": 0.83,
-      "ask": 0.84,
-      "quoteAt": "2026-08-03T07:59:00+00:00",
-      "retrievedAt": "2026-08-03T08:00:32+00:00",
-      "sourceUrl": "https://live.euronext.com/en/product/structured-products/DE000VY0NFK5-XMLI",
-      "sourceConfidence": "high",
-      "delayedByMinutes": 1,
-      "bidSize": 50.0,
-      "askSize": 50.0,
-      "instrumentAssetType": "StructuredProduct",
-      "instrumentSymbol": "DE000VY0NFK5-XMLI"
     },
     {
       "positionId": "vinci-wc25v-20260723",
@@ -1333,6 +1418,23 @@
       "instrumentSymbol": "DE000VY3Z5D1-XMLI"
     },
     {
+      "positionId": "totalenergies-lt07v-20260724",
+      "provider": "euronext",
+      "session": "server",
+      "price": 0.835,
+      "bid": 0.83,
+      "ask": 0.84,
+      "quoteAt": "2026-08-03T07:59:00+00:00",
+      "retrievedAt": "2026-08-03T08:00:32+00:00",
+      "sourceUrl": "https://live.euronext.com/en/product/structured-products/DE000VY0NFK5-XMLI",
+      "sourceConfidence": "high",
+      "delayedByMinutes": 1,
+      "bidSize": 50.0,
+      "askSize": 50.0,
+      "instrumentAssetType": "StructuredProduct",
+      "instrumentSymbol": "DE000VY0NFK5-XMLI"
+    },
+    {
       "positionId": "legrand-3f7tb-20260715",
       "provider": "euronext",
       "session": "server",
@@ -1350,23 +1452,6 @@
       "instrumentSymbol": "NLBNPFR2CD04-XMLI"
     },
     {
-      "positionId": "totalenergies-lt07v-20260724",
-      "provider": "euronext",
-      "session": "server",
-      "price": 0.845,
-      "bid": 0.84,
-      "ask": 0.85,
-      "quoteAt": "2026-08-03T07:54:00+00:00",
-      "retrievedAt": "2026-08-03T07:55:21+00:00",
-      "sourceUrl": "https://live.euronext.com/en/product/structured-products/DE000VY0NFK5-XMLI",
-      "sourceConfidence": "high",
-      "delayedByMinutes": 1,
-      "bidSize": 50.0,
-      "askSize": 50.0,
-      "instrumentAssetType": "StructuredProduct",
-      "instrumentSymbol": "DE000VY0NFK5-XMLI"
-    },
-    {
       "positionId": "allianz-qa95v-20260716",
       "provider": "euronext",
       "session": "server",
@@ -1382,6 +1467,23 @@
       "askSize": 25.0,
       "instrumentAssetType": "StructuredProduct",
       "instrumentSymbol": "DE000VY3Z5D1-XMLI"
+    },
+    {
+      "positionId": "totalenergies-lt07v-20260724",
+      "provider": "euronext",
+      "session": "server",
+      "price": 0.845,
+      "bid": 0.84,
+      "ask": 0.85,
+      "quoteAt": "2026-08-03T07:54:00+00:00",
+      "retrievedAt": "2026-08-03T07:55:21+00:00",
+      "sourceUrl": "https://live.euronext.com/en/product/structured-products/DE000VY0NFK5-XMLI",
+      "sourceConfidence": "high",
+      "delayedByMinutes": 1,
+      "bidSize": 50.0,
+      "askSize": 50.0,
+      "instrumentAssetType": "StructuredProduct",
+      "instrumentSymbol": "DE000VY0NFK5-XMLI"
     },
     {
       "positionId": "nexans-325ks-20260715",
@@ -1452,23 +1554,6 @@
       "instrumentSymbol": "NLBNPFR2CD04-XMLI"
     },
     {
-      "positionId": "totalenergies-lt07v-20260724",
-      "provider": "euronext",
-      "session": "server",
-      "price": 0.855,
-      "bid": 0.85,
-      "ask": 0.86,
-      "quoteAt": "2026-08-03T07:49:00+00:00",
-      "retrievedAt": "2026-08-03T07:49:58+00:00",
-      "sourceUrl": "https://live.euronext.com/en/product/structured-products/DE000VY0NFK5-XMLI",
-      "sourceConfidence": "high",
-      "delayedByMinutes": 0,
-      "bidSize": 50.0,
-      "askSize": 50.0,
-      "instrumentAssetType": "StructuredProduct",
-      "instrumentSymbol": "DE000VY0NFK5-XMLI"
-    },
-    {
       "positionId": "vinci-wc25v-20260723",
       "provider": "euronext",
       "session": "server",
@@ -1520,6 +1605,23 @@
       "instrumentSymbol": "DE000VY3Z5D1-XMLI"
     },
     {
+      "positionId": "totalenergies-lt07v-20260724",
+      "provider": "euronext",
+      "session": "server",
+      "price": 0.855,
+      "bid": 0.85,
+      "ask": 0.86,
+      "quoteAt": "2026-08-03T07:49:00+00:00",
+      "retrievedAt": "2026-08-03T07:49:58+00:00",
+      "sourceUrl": "https://live.euronext.com/en/product/structured-products/DE000VY0NFK5-XMLI",
+      "sourceConfidence": "high",
+      "delayedByMinutes": 0,
+      "bidSize": 50.0,
+      "askSize": 50.0,
+      "instrumentAssetType": "StructuredProduct",
+      "instrumentSymbol": "DE000VY0NFK5-XMLI"
+    },
+    {
       "positionId": "nexans-325ks-20260715",
       "provider": "euronext",
       "session": "server",
@@ -1537,23 +1639,6 @@
       "instrumentSymbol": "DE000FE3FPS1-XMLI"
     },
     {
-      "positionId": "totalenergies-lt07v-20260724",
-      "provider": "euronext",
-      "session": "server",
-      "price": 0.855,
-      "bid": 0.85,
-      "ask": 0.86,
-      "quoteAt": "2026-08-03T07:44:00+00:00",
-      "retrievedAt": "2026-08-03T07:45:00+00:00",
-      "sourceUrl": "https://live.euronext.com/en/product/structured-products/DE000VY0NFK5-XMLI",
-      "sourceConfidence": "high",
-      "delayedByMinutes": 1,
-      "bidSize": 50.0,
-      "askSize": 50.0,
-      "instrumentAssetType": "StructuredProduct",
-      "instrumentSymbol": "DE000VY0NFK5-XMLI"
-    },
-    {
       "positionId": "allianz-qa95v-20260716",
       "provider": "euronext",
       "session": "server",
@@ -1569,6 +1654,23 @@
       "askSize": 25.0,
       "instrumentAssetType": "StructuredProduct",
       "instrumentSymbol": "DE000VY3Z5D1-XMLI"
+    },
+    {
+      "positionId": "totalenergies-lt07v-20260724",
+      "provider": "euronext",
+      "session": "server",
+      "price": 0.855,
+      "bid": 0.85,
+      "ask": 0.86,
+      "quoteAt": "2026-08-03T07:44:00+00:00",
+      "retrievedAt": "2026-08-03T07:45:00+00:00",
+      "sourceUrl": "https://live.euronext.com/en/product/structured-products/DE000VY0NFK5-XMLI",
+      "sourceConfidence": "high",
+      "delayedByMinutes": 1,
+      "bidSize": 50.0,
+      "askSize": 50.0,
+      "instrumentAssetType": "StructuredProduct",
+      "instrumentSymbol": "DE000VY0NFK5-XMLI"
     },
     {
       "positionId": "nexans-325ks-20260715",
@@ -1622,23 +1724,6 @@
       "instrumentSymbol": "NLBNPFR2CD04-XMLI"
     },
     {
-      "positionId": "totalenergies-lt07v-20260724",
-      "provider": "euronext",
-      "session": "server",
-      "price": 0.865,
-      "bid": 0.86,
-      "ask": 0.87,
-      "quoteAt": "2026-08-03T07:39:00+00:00",
-      "retrievedAt": "2026-08-03T07:39:55+00:00",
-      "sourceUrl": "https://live.euronext.com/en/product/structured-products/DE000VY0NFK5-XMLI",
-      "sourceConfidence": "high",
-      "delayedByMinutes": 0,
-      "bidSize": 50.0,
-      "askSize": 50.0,
-      "instrumentAssetType": "StructuredProduct",
-      "instrumentSymbol": "DE000VY0NFK5-XMLI"
-    },
-    {
       "positionId": "allianz-qa95v-20260716",
       "provider": "euronext",
       "session": "server",
@@ -1654,6 +1739,23 @@
       "askSize": 25.0,
       "instrumentAssetType": "StructuredProduct",
       "instrumentSymbol": "DE000VY3Z5D1-XMLI"
+    },
+    {
+      "positionId": "totalenergies-lt07v-20260724",
+      "provider": "euronext",
+      "session": "server",
+      "price": 0.865,
+      "bid": 0.86,
+      "ask": 0.87,
+      "quoteAt": "2026-08-03T07:39:00+00:00",
+      "retrievedAt": "2026-08-03T07:39:55+00:00",
+      "sourceUrl": "https://live.euronext.com/en/product/structured-products/DE000VY0NFK5-XMLI",
+      "sourceConfidence": "high",
+      "delayedByMinutes": 0,
+      "bidSize": 50.0,
+      "askSize": 50.0,
+      "instrumentAssetType": "StructuredProduct",
+      "instrumentSymbol": "DE000VY0NFK5-XMLI"
     },
     {
       "positionId": "nexans-325ks-20260715",
@@ -1792,23 +1894,6 @@
       "instrumentSymbol": "NLBNPFR2CD04-XMLI"
     },
     {
-      "positionId": "totalenergies-lt07v-20260724",
-      "provider": "euronext",
-      "session": "server",
-      "price": 0.865,
-      "bid": 0.86,
-      "ask": 0.87,
-      "quoteAt": "2026-08-03T07:29:00+00:00",
-      "retrievedAt": "2026-08-03T07:29:38+00:00",
-      "sourceUrl": "https://live.euronext.com/en/product/structured-products/DE000VY0NFK5-XMLI",
-      "sourceConfidence": "high",
-      "delayedByMinutes": 0,
-      "bidSize": 50.0,
-      "askSize": 50.0,
-      "instrumentAssetType": "StructuredProduct",
-      "instrumentSymbol": "DE000VY0NFK5-XMLI"
-    },
-    {
       "positionId": "allianz-qa95v-20260716",
       "provider": "euronext",
       "session": "server",
@@ -1824,6 +1909,23 @@
       "askSize": 25.0,
       "instrumentAssetType": "StructuredProduct",
       "instrumentSymbol": "DE000VY3Z5D1-XMLI"
+    },
+    {
+      "positionId": "totalenergies-lt07v-20260724",
+      "provider": "euronext",
+      "session": "server",
+      "price": 0.865,
+      "bid": 0.86,
+      "ask": 0.87,
+      "quoteAt": "2026-08-03T07:29:00+00:00",
+      "retrievedAt": "2026-08-03T07:29:38+00:00",
+      "sourceUrl": "https://live.euronext.com/en/product/structured-products/DE000VY0NFK5-XMLI",
+      "sourceConfidence": "high",
+      "delayedByMinutes": 0,
+      "bidSize": 50.0,
+      "askSize": 50.0,
+      "instrumentAssetType": "StructuredProduct",
+      "instrumentSymbol": "DE000VY0NFK5-XMLI"
     },
     {
       "positionId": "vinci-wc25v-20260723",
@@ -1894,23 +1996,6 @@
       "instrumentSymbol": "NLBNPFR2CD04-XMLI"
     },
     {
-      "positionId": "totalenergies-lt07v-20260724",
-      "provider": "euronext",
-      "session": "server",
-      "price": 0.895,
-      "bid": 0.89,
-      "ask": 0.9,
-      "quoteAt": "2026-08-03T07:19:00+00:00",
-      "retrievedAt": "2026-08-03T07:24:36+00:00",
-      "sourceUrl": "https://live.euronext.com/en/product/structured-products/DE000VY0NFK5-XMLI",
-      "sourceConfidence": "medium",
-      "delayedByMinutes": 5,
-      "bidSize": 50.0,
-      "askSize": 50.0,
-      "instrumentAssetType": "StructuredProduct",
-      "instrumentSymbol": "DE000VY0NFK5-XMLI"
-    },
-    {
       "positionId": "vinci-wc25v-20260723",
       "provider": "euronext",
       "session": "server",
@@ -1928,21 +2013,21 @@
       "instrumentSymbol": "DE000VY88TJ7-XMLI"
     },
     {
-      "positionId": "apple-oz97v-20260721",
+      "positionId": "totalenergies-lt07v-20260724",
       "provider": "euronext",
       "session": "server",
-      "price": 1.345,
-      "bid": 1.34,
-      "ask": 1.35,
-      "quoteAt": "2026-08-03T07:18:00+00:00",
-      "retrievedAt": "2026-08-03T07:35:13+00:00",
-      "sourceUrl": "https://live.euronext.com/en/product/structured-products/DE000VY3GDC5-XMLI",
+      "price": 0.895,
+      "bid": 0.89,
+      "ask": 0.9,
+      "quoteAt": "2026-08-03T07:19:00+00:00",
+      "retrievedAt": "2026-08-03T07:24:36+00:00",
+      "sourceUrl": "https://live.euronext.com/en/product/structured-products/DE000VY0NFK5-XMLI",
       "sourceConfidence": "medium",
-      "delayedByMinutes": 17,
+      "delayedByMinutes": 5,
       "bidSize": 50.0,
       "askSize": 50.0,
       "instrumentAssetType": "StructuredProduct",
-      "instrumentSymbol": "DE000VY3GDC5-XMLI"
+      "instrumentSymbol": "DE000VY0NFK5-XMLI"
     },
     {
       "positionId": "nexans-325ks-20260715",
@@ -1960,6 +2045,23 @@
       "askSize": 3.0,
       "instrumentAssetType": "StructuredProduct",
       "instrumentSymbol": "DE000FE3FPS1-XMLI"
+    },
+    {
+      "positionId": "apple-oz97v-20260721",
+      "provider": "euronext",
+      "session": "server",
+      "price": 1.345,
+      "bid": 1.34,
+      "ask": 1.35,
+      "quoteAt": "2026-08-03T07:18:00+00:00",
+      "retrievedAt": "2026-08-03T07:35:13+00:00",
+      "sourceUrl": "https://live.euronext.com/en/product/structured-products/DE000VY3GDC5-XMLI",
+      "sourceConfidence": "medium",
+      "delayedByMinutes": 17,
+      "bidSize": 50.0,
+      "askSize": 50.0,
+      "instrumentAssetType": "StructuredProduct",
+      "instrumentSymbol": "DE000VY3GDC5-XMLI"
     },
     {
       "positionId": "legrand-3f7tb-20260715",
@@ -2200,23 +2302,6 @@
       "instrumentSymbol": "DE000VY3GDC5-XMLI"
     },
     {
-      "positionId": "apple-oz97v-20260721",
-      "provider": "euronext",
-      "session": "manual",
-      "price": 1.495,
-      "bid": 1.49,
-      "ask": 1.5,
-      "quoteAt": "2026-07-31T13:02:00+00:00",
-      "retrievedAt": "2026-07-31T13:05:36+00:00",
-      "sourceUrl": "https://live.euronext.com/en/product/structured-products/DE000VY3GDC5-XMLI",
-      "sourceConfidence": "medium",
-      "delayedByMinutes": 3,
-      "bidSize": 30.0,
-      "askSize": 30.0,
-      "instrumentAssetType": "StructuredProduct",
-      "instrumentSymbol": "DE000VY3GDC5-XMLI"
-    },
-    {
       "positionId": "nexans-325ks-20260715",
       "provider": "euronext",
       "session": "manual",
@@ -2232,6 +2317,23 @@
       "askSize": 7.0,
       "instrumentAssetType": "StructuredProduct",
       "instrumentSymbol": "DE000FE3FPS1-XMLI"
+    },
+    {
+      "positionId": "apple-oz97v-20260721",
+      "provider": "euronext",
+      "session": "manual",
+      "price": 1.495,
+      "bid": 1.49,
+      "ask": 1.5,
+      "quoteAt": "2026-07-31T13:02:00+00:00",
+      "retrievedAt": "2026-07-31T13:05:36+00:00",
+      "sourceUrl": "https://live.euronext.com/en/product/structured-products/DE000VY3GDC5-XMLI",
+      "sourceConfidence": "medium",
+      "delayedByMinutes": 3,
+      "bidSize": 30.0,
+      "askSize": 30.0,
+      "instrumentAssetType": "StructuredProduct",
+      "instrumentSymbol": "DE000VY3GDC5-XMLI"
     },
     {
       "positionId": "legrand-3f7tb-20260715",
@@ -2268,23 +2370,6 @@
       "instrumentSymbol": "DE000VY3Z5D1-XMLI"
     },
     {
-      "positionId": "totalenergies-lt07v-20260724",
-      "provider": "euronext",
-      "session": "manual",
-      "price": 0.835,
-      "bid": 0.83,
-      "ask": 0.84,
-      "quoteAt": "2026-07-31T12:52:00+00:00",
-      "retrievedAt": "2026-07-31T13:05:26+00:00",
-      "sourceUrl": "https://live.euronext.com/en/product/structured-products/DE000VY0NFK5-XMLI",
-      "sourceConfidence": "medium",
-      "delayedByMinutes": 13,
-      "bidSize": 50.0,
-      "askSize": 50.0,
-      "instrumentAssetType": "StructuredProduct",
-      "instrumentSymbol": "DE000VY0NFK5-XMLI"
-    },
-    {
       "positionId": "vinci-wc25v-20260723",
       "provider": "euronext",
       "session": "manual",
@@ -2300,6 +2385,23 @@
       "askSize": 30.0,
       "instrumentAssetType": "StructuredProduct",
       "instrumentSymbol": "DE000VY88TJ7-XMLI"
+    },
+    {
+      "positionId": "totalenergies-lt07v-20260724",
+      "provider": "euronext",
+      "session": "manual",
+      "price": 0.835,
+      "bid": 0.83,
+      "ask": 0.84,
+      "quoteAt": "2026-07-31T12:52:00+00:00",
+      "retrievedAt": "2026-07-31T13:05:26+00:00",
+      "sourceUrl": "https://live.euronext.com/en/product/structured-products/DE000VY0NFK5-XMLI",
+      "sourceConfidence": "medium",
+      "delayedByMinutes": 13,
+      "bidSize": 50.0,
+      "askSize": 50.0,
+      "instrumentAssetType": "StructuredProduct",
+      "instrumentSymbol": "DE000VY0NFK5-XMLI"
     }
   ]
 }
