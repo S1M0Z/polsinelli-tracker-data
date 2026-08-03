@@ -1,6 +1,6 @@
 {
   "meta": {
-    "generatedAt": "2026-08-03T08:27:18.653584+00:00",
+    "generatedAt": "2026-08-03T08:32:15.382788+00:00",
     "engineVersion": "1.0.0",
     "sourceGeneratedAt": "2026-07-28T10:31:34+02:00",
     "purpose": "Conservative decision support; not an automated order system."
@@ -54,7 +54,7 @@
         "missing_risk_levels"
       ],
       "diagnostics": {
-        "quoteAgeMinutes": 8.31,
+        "quoteAgeMinutes": 13.26,
         "spreadPct": 1.227,
         "priceDriftPct": -5.7471,
         "detectionLatencySeconds": null,
@@ -71,16 +71,16 @@
       "mnemo": "WC25V",
       "entryPrice": 1.12,
       "market": {
-        "currentPrice": 1.4449999999999998,
-        "quoteAt": "2026-08-03T08:19:00+00:00",
-        "bid": 1.44,
-        "ask": 1.45,
+        "currentPrice": 1.435,
+        "quoteAt": "2026-08-03T08:29:00+00:00",
+        "bid": 1.43,
+        "ask": 1.44,
         "underlyingPrice": null,
         "publicationPrice": 1.12,
         "detectedAt": null,
         "publishedAt": null
       },
-      "markToMarketReturnPct": 29.0179,
+      "markToMarketReturnPct": 28.125,
       "decision": "DATA_INCOMPLETE",
       "reasons": [
         "price_drift_too_high",
@@ -88,9 +88,9 @@
         "missing_risk_levels"
       ],
       "diagnostics": {
-        "quoteAgeMinutes": 8.31,
-        "spreadPct": 0.692,
-        "priceDriftPct": 29.4643,
+        "quoteAgeMinutes": 3.26,
+        "spreadPct": 0.6969,
+        "priceDriftPct": 28.5714,
         "detectionLatencySeconds": null,
         "rewardRiskRatio": null
       },
@@ -105,16 +105,16 @@
       "mnemo": "OZ97V",
       "entryPrice": 1.24,
       "market": {
-        "currentPrice": 1.3450000000000002,
-        "quoteAt": "2026-08-03T08:14:00+00:00",
-        "bid": 1.34,
-        "ask": 1.35,
+        "currentPrice": 1.375,
+        "quoteAt": "2026-08-03T08:29:00+00:00",
+        "bid": 1.37,
+        "ask": 1.38,
         "underlyingPrice": null,
         "publicationPrice": 1.24,
         "detectedAt": null,
         "publishedAt": null
       },
-      "markToMarketReturnPct": 8.4677,
+      "markToMarketReturnPct": 10.8871,
       "decision": "DATA_INCOMPLETE",
       "reasons": [
         "price_drift_too_high",
@@ -122,9 +122,9 @@
         "missing_risk_levels"
       ],
       "diagnostics": {
-        "quoteAgeMinutes": 13.31,
-        "spreadPct": 0.7435,
-        "priceDriftPct": 8.871,
+        "quoteAgeMinutes": 3.26,
+        "spreadPct": 0.7273,
+        "priceDriftPct": 11.2903,
         "detectionLatencySeconds": null,
         "rewardRiskRatio": null
       },
@@ -155,7 +155,7 @@
         "missing_risk_levels"
       ],
       "diagnostics": {
-        "quoteAgeMinutes": 3.31,
+        "quoteAgeMinutes": 8.26,
         "spreadPct": 0.3503,
         "priceDriftPct": -25.9067,
         "detectionLatencySeconds": null,
@@ -172,25 +172,25 @@
       "mnemo": "325KS",
       "entryPrice": 1.68,
       "market": {
-        "currentPrice": 1.335,
-        "quoteAt": "2026-08-03T08:24:00+00:00",
-        "bid": 1.33,
-        "ask": 1.34,
+        "currentPrice": 1.315,
+        "quoteAt": "2026-08-03T08:29:00+00:00",
+        "bid": 1.31,
+        "ask": 1.32,
         "underlyingPrice": null,
         "publicationPrice": 1.68,
         "detectedAt": null,
         "publishedAt": null
       },
-      "markToMarketReturnPct": -20.5357,
+      "markToMarketReturnPct": -21.7262,
       "decision": "DATA_INCOMPLETE",
       "reasons": [
         "missing_detection_timestamps",
         "missing_risk_levels"
       ],
       "diagnostics": {
-        "quoteAgeMinutes": 3.31,
-        "spreadPct": 0.7491,
-        "priceDriftPct": -20.2381,
+        "quoteAgeMinutes": 3.26,
+        "spreadPct": 0.7605,
+        "priceDriftPct": -21.4286,
         "detectionLatencySeconds": null,
         "rewardRiskRatio": null
       },
@@ -221,7 +221,7 @@
         "missing_risk_levels"
       ],
       "diagnostics": {
-        "quoteAgeMinutes": 2.31,
+        "quoteAgeMinutes": 7.26,
         "spreadPct": 0.5698,
         "priceDriftPct": -42.4837,
         "detectionLatencySeconds": null,
