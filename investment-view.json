@@ -1,6 +1,6 @@
 {
   "meta": {
-    "generatedAt": "2026-08-03T07:50:58.425430+00:00",
+    "generatedAt": "2026-08-03T07:56:19.230575+00:00",
     "engineVersion": "1.0.0",
     "sourceGeneratedAt": "2026-07-28T10:31:34+02:00",
     "purpose": "Conservative decision support; not an automated order system."
@@ -39,25 +39,25 @@
       "mnemo": "LT07V",
       "entryPrice": 0.87,
       "market": {
-        "currentPrice": 0.855,
-        "quoteAt": "2026-08-03T07:49:00+00:00",
-        "bid": 0.85,
-        "ask": 0.86,
+        "currentPrice": 0.845,
+        "quoteAt": "2026-08-03T07:54:00+00:00",
+        "bid": 0.84,
+        "ask": 0.85,
         "underlyingPrice": null,
         "publicationPrice": 0.87,
         "detectedAt": null,
         "publishedAt": null
       },
-      "markToMarketReturnPct": -1.7241,
+      "markToMarketReturnPct": -2.8736,
       "decision": "DATA_INCOMPLETE",
       "reasons": [
         "missing_detection_timestamps",
         "missing_risk_levels"
       ],
       "diagnostics": {
-        "quoteAgeMinutes": 1.97,
-        "spreadPct": 1.1696,
-        "priceDriftPct": -1.1494,
+        "quoteAgeMinutes": 2.32,
+        "spreadPct": 1.1834,
+        "priceDriftPct": -2.2989,
         "detectionLatencySeconds": null,
         "rewardRiskRatio": null
       },
@@ -89,7 +89,7 @@
         "missing_risk_levels"
       ],
       "diagnostics": {
-        "quoteAgeMinutes": 1.97,
+        "quoteAgeMinutes": 7.32,
         "spreadPct": 0.6969,
         "priceDriftPct": 28.5714,
         "detectionLatencySeconds": null,
@@ -124,7 +124,7 @@
         "missing_risk_levels"
       ],
       "diagnostics": {
-        "quoteAgeMinutes": 32.97,
+        "quoteAgeMinutes": 38.32,
         "spreadPct": 0.7435,
         "priceDriftPct": 8.871,
         "detectionLatencySeconds": null,
@@ -141,25 +141,25 @@
       "mnemo": "QA95V",
       "entryPrice": 3.86,
       "market": {
-        "currentPrice": 2.885,
-        "quoteAt": "2026-08-03T07:49:00+00:00",
-        "bid": 2.88,
-        "ask": 2.89,
+        "currentPrice": 2.895,
+        "quoteAt": "2026-08-03T07:54:00+00:00",
+        "bid": 2.89,
+        "ask": 2.9,
         "underlyingPrice": null,
         "publicationPrice": 3.86,
         "detectedAt": null,
         "publishedAt": null
       },
-      "markToMarketReturnPct": -25.2591,
+      "markToMarketReturnPct": -25.0,
       "decision": "DATA_INCOMPLETE",
       "reasons": [
         "missing_detection_timestamps",
         "missing_risk_levels"
       ],
       "diagnostics": {
-        "quoteAgeMinutes": 1.97,
-        "spreadPct": 0.3466,
-        "priceDriftPct": -25.1295,
+        "quoteAgeMinutes": 2.32,
+        "spreadPct": 0.3454,
+        "priceDriftPct": -24.8705,
         "detectionLatencySeconds": null,
         "rewardRiskRatio": null
       },
@@ -174,25 +174,25 @@
       "mnemo": "325KS",
       "entryPrice": 1.68,
       "market": {
-        "currentPrice": 1.3650000000000002,
-        "quoteAt": "2026-08-03T07:48:00+00:00",
-        "bid": 1.36,
-        "ask": 1.37,
+        "currentPrice": 1.315,
+        "quoteAt": "2026-08-03T07:53:00+00:00",
+        "bid": 1.31,
+        "ask": 1.32,
         "underlyingPrice": null,
         "publicationPrice": 1.68,
         "detectedAt": null,
         "publishedAt": null
       },
-      "markToMarketReturnPct": -18.75,
+      "markToMarketReturnPct": -21.7262,
       "decision": "DATA_INCOMPLETE",
       "reasons": [
         "missing_detection_timestamps",
         "missing_risk_levels"
       ],
       "diagnostics": {
-        "quoteAgeMinutes": 2.97,
-        "spreadPct": 0.7326,
-        "priceDriftPct": -18.4524,
+        "quoteAgeMinutes": 3.32,
+        "spreadPct": 0.7605,
+        "priceDriftPct": -21.4286,
         "detectionLatencySeconds": null,
         "rewardRiskRatio": null
       },
@@ -223,7 +223,7 @@
         "missing_risk_levels"
       ],
       "diagnostics": {
-        "quoteAgeMinutes": 1.97,
+        "quoteAgeMinutes": 7.32,
         "spreadPct": 0.5602,
         "priceDriftPct": -41.5033,
         "detectionLatencySeconds": null,
