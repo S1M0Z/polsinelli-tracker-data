@@ -1,11 +1,62 @@
 {
   "meta": {
     "version": 1,
-    "updatedAt": "2026-08-03T11:15:13+00:00",
+    "updatedAt": "2026-08-03T11:20:18+00:00",
     "description": "Append-only quote snapshots for open positions. Store bid, ask, price, underlyingPrice and quoteAt when available.",
     "maxQuotesPerPosition": 500
   },
   "quotes": [
+    {
+      "positionId": "nexans-325ks-20260715",
+      "provider": "euronext",
+      "session": "server",
+      "price": 1.3050000000000002,
+      "bid": 1.3,
+      "ask": 1.31,
+      "quoteAt": "2026-08-03T11:19:00+00:00",
+      "retrievedAt": "2026-08-03T11:21:20+00:00",
+      "sourceUrl": "https://live.euronext.com/en/product/structured-products/DE000FE3FPS1-XMLI",
+      "sourceConfidence": "high",
+      "delayedByMinutes": 2,
+      "bidSize": 7.0,
+      "askSize": 7.0,
+      "instrumentAssetType": "StructuredProduct",
+      "instrumentSymbol": "DE000FE3FPS1-XMLI"
+    },
+    {
+      "positionId": "vinci-wc25v-20260723",
+      "provider": "euronext",
+      "session": "server",
+      "price": 1.4049999999999998,
+      "bid": 1.4,
+      "ask": 1.41,
+      "quoteAt": "2026-08-03T11:19:00+00:00",
+      "retrievedAt": "2026-08-03T11:20:44+00:00",
+      "sourceUrl": "https://live.euronext.com/en/product/structured-products/DE000VY88TJ7-XMLI",
+      "sourceConfidence": "high",
+      "delayedByMinutes": 1,
+      "bidSize": 30.0,
+      "askSize": 30.0,
+      "instrumentAssetType": "StructuredProduct",
+      "instrumentSymbol": "DE000VY88TJ7-XMLI"
+    },
+    {
+      "positionId": "legrand-3f7tb-20260715",
+      "provider": "euronext",
+      "session": "server",
+      "price": 1.7349999999999999,
+      "bid": 1.73,
+      "ask": 1.74,
+      "quoteAt": "2026-08-03T11:15:00+00:00",
+      "retrievedAt": "2026-08-03T11:21:30+00:00",
+      "sourceUrl": "https://live.euronext.com/en/product/structured-products/NLBNPFR2CD04-XMLI",
+      "sourceConfidence": "medium",
+      "delayedByMinutes": 6,
+      "bidSize": 20.0,
+      "askSize": 20.0,
+      "instrumentAssetType": "StructuredProduct",
+      "instrumentSymbol": "NLBNPFR2CD04-XMLI"
+    },
     {
       "positionId": "nexans-325ks-20260715",
       "provider": "euronext",
@@ -73,6 +124,23 @@
       "askSize": 21.0,
       "instrumentAssetType": "StructuredProduct",
       "instrumentSymbol": "NLBNPFR2CD04-XMLI"
+    },
+    {
+      "positionId": "allianz-qa95v-20260716",
+      "provider": "euronext",
+      "session": "server",
+      "price": 2.825,
+      "bid": 2.82,
+      "ask": 2.83,
+      "quoteAt": "2026-08-03T11:04:33+00:00",
+      "retrievedAt": "2026-08-03T11:21:08+00:00",
+      "sourceUrl": "https://live.euronext.com/en/product/structured-products/DE000VY3Z5D1-XMLI",
+      "sourceConfidence": "medium",
+      "delayedByMinutes": 16,
+      "bidSize": 25.0,
+      "askSize": 25.0,
+      "instrumentAssetType": "StructuredProduct",
+      "instrumentSymbol": "DE000VY3Z5D1-XMLI"
     },
     {
       "positionId": "nexans-325ks-20260715",
