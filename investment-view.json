@@ -1,6 +1,6 @@
 {
   "meta": {
-    "generatedAt": "2026-08-03T12:02:39.361930+00:00",
+    "generatedAt": "2026-08-03T12:07:52.569959+00:00",
     "engineVersion": "1.0.0",
     "sourceGeneratedAt": "2026-07-28T10:31:34+02:00",
     "purpose": "Conservative decision support; not an automated order system."
@@ -38,25 +38,27 @@
       "mnemo": "LT07V",
       "entryPrice": 0.87,
       "market": {
-        "currentPrice": 0.765,
-        "quoteAt": "2026-08-03T11:54:00+00:00",
-        "bid": 0.76,
-        "ask": 0.77,
+        "currentPrice": 0.79,
+        "quoteAt": "2026-08-03T12:04:00+00:00",
+        "bid": 0.77,
+        "ask": 1.0,
         "underlyingPrice": null,
         "publicationPrice": 0.87,
         "detectedAt": null,
         "publishedAt": null
       },
-      "markToMarketReturnPct": -12.069,
+      "markToMarketReturnPct": -9.1954,
       "decision": "DATA_INCOMPLETE",
       "reasons": [
+        "spread_too_wide",
+        "price_drift_too_high",
         "missing_detection_timestamps",
         "missing_risk_levels"
       ],
       "diagnostics": {
-        "quoteAgeMinutes": 8.66,
-        "spreadPct": 1.3072,
-        "priceDriftPct": -11.4943,
+        "quoteAgeMinutes": 3.88,
+        "spreadPct": 25.9887,
+        "priceDriftPct": 14.9425,
         "detectionLatencySeconds": null,
         "rewardRiskRatio": null
       },
@@ -88,7 +90,7 @@
         "missing_risk_levels"
       ],
       "diagnostics": {
-        "quoteAgeMinutes": 3.66,
+        "quoteAgeMinutes": 8.88,
         "spreadPct": 0.7067,
         "priceDriftPct": 26.7857,
         "detectionLatencySeconds": null,
@@ -121,7 +123,7 @@
         "missing_risk_levels"
       ],
       "diagnostics": {
-        "quoteAgeMinutes": 2.66,
+        "quoteAgeMinutes": 7.88,
         "spreadPct": 0.7843,
         "priceDriftPct": 3.2258,
         "detectionLatencySeconds": null,
@@ -138,8 +140,8 @@
       "mnemo": "QA95V",
       "entryPrice": 3.86,
       "market": {
-        "currentPrice": 2.8049999999999997,
-        "quoteAt": "2026-08-03T11:59:00+00:00",
+        "currentPrice": 2.805,
+        "quoteAt": "2026-08-03T12:04:00+00:00",
         "bid": 2.8,
         "ask": 2.81,
         "underlyingPrice": null,
@@ -154,7 +156,7 @@
         "missing_risk_levels"
       ],
       "diagnostics": {
-        "quoteAgeMinutes": 3.66,
+        "quoteAgeMinutes": 3.88,
         "spreadPct": 0.3565,
         "priceDriftPct": -27.2021,
         "detectionLatencySeconds": null,
@@ -171,8 +173,8 @@
       "mnemo": "325KS",
       "entryPrice": 1.68,
       "market": {
-        "currentPrice": 1.325,
-        "quoteAt": "2026-08-03T11:59:00+00:00",
+        "currentPrice": 1.3250000000000002,
+        "quoteAt": "2026-08-03T12:04:00+00:00",
         "bid": 1.32,
         "ask": 1.33,
         "underlyingPrice": null,
@@ -187,7 +189,7 @@
         "missing_risk_levels"
       ],
       "diagnostics": {
-        "quoteAgeMinutes": 3.66,
+        "quoteAgeMinutes": 3.88,
         "spreadPct": 0.7547,
         "priceDriftPct": -20.8333,
         "detectionLatencySeconds": null,
@@ -204,25 +206,25 @@
       "mnemo": "3F7TB",
       "entryPrice": 3.06,
       "market": {
-        "currentPrice": 1.745,
-        "quoteAt": "2026-08-03T12:00:00+00:00",
-        "bid": 1.74,
-        "ask": 1.75,
+        "currentPrice": 1.755,
+        "quoteAt": "2026-08-03T12:05:00+00:00",
+        "bid": 1.75,
+        "ask": 1.76,
         "underlyingPrice": null,
         "publicationPrice": 3.06,
         "detectedAt": null,
         "publishedAt": null
       },
-      "markToMarketReturnPct": -42.9739,
+      "markToMarketReturnPct": -42.6471,
       "decision": "DATA_INCOMPLETE",
       "reasons": [
         "missing_detection_timestamps",
         "missing_risk_levels"
       ],
       "diagnostics": {
-        "quoteAgeMinutes": 2.66,
-        "spreadPct": 0.5731,
-        "priceDriftPct": -42.8105,
+        "quoteAgeMinutes": 2.88,
+        "spreadPct": 0.5698,
+        "priceDriftPct": -42.4837,
         "detectionLatencySeconds": null,
         "rewardRiskRatio": null
       },
