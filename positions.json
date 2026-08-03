@@ -6,7 +6,7 @@
     "mode": "scanned",
     "lastPublicationCheckedAt": "2026-07-28T09:32:00+02:00",
     "warning": "Cours indicatifs issus des dernières cotations publiques récupérées. Les articles anciens modifiés ou remis en avant sont également contrôlés.",
-    "marketDataUpdatedAt": "2026-08-03T07:29:23+00:00",
+    "marketDataUpdatedAt": "2026-08-03T07:34:33+00:00",
     "analysts": [
       {
         "id": "laurent-polsinelli",
@@ -89,11 +89,11 @@
       "isin": "DE000VY88TJ7",
       "status": "open",
       "entryPrice": 1.12,
-      "currentPrice": 1.495,
+      "currentPrice": 1.4849999999999999,
       "exitPrice": null,
       "entryDate": "2026-07-23",
       "exitDate": null,
-      "quoteAt": "2026-08-03T07:24:00+00:00",
+      "quoteAt": "2026-08-03T07:34:00+00:00",
       "target": 132,
       "stop": 111,
       "underlyingThreshold": 119.05,
@@ -101,12 +101,12 @@
       "url": "https://www.zonebourse.com/actualite-bourse/de-retour-sur-un-niveau-important-ce7f51ded88ff422",
       "note": "Rebond technique attendu depuis le support de 117,15 €.",
       "sourceConfidence": "high",
-      "bid": 1.49,
-      "ask": 1.5,
+      "bid": 1.48,
+      "ask": 1.49,
       "marketDataProvider": "euronext",
       "marketDataSourceUrl": "https://live.euronext.com/en/product/structured-products/DE000VY88TJ7-XMLI",
-      "marketDataRetrievedAt": "2026-08-03T07:29:52+00:00",
-      "marketDataDelayMinutes": 5
+      "marketDataRetrievedAt": "2026-08-03T07:35:03+00:00",
+      "marketDataDelayMinutes": 1
     },
     {
       "id": "loreal-5s0vb-20260717",
@@ -237,7 +237,7 @@
       "exitPrice": null,
       "entryDate": "2026-07-21",
       "exitDate": null,
-      "quoteAt": "2026-08-03T07:10:00+00:00",
+      "quoteAt": "2026-08-03T07:18:00+00:00",
       "target": 290,
       "stop": 342,
       "underlyingThreshold": 326.59,
@@ -249,8 +249,8 @@
       "ask": 1.35,
       "marketDataProvider": "euronext",
       "marketDataSourceUrl": "https://live.euronext.com/en/product/structured-products/DE000VY3GDC5-XMLI",
-      "marketDataRetrievedAt": "2026-08-03T07:30:03+00:00",
-      "marketDataDelayMinutes": 20
+      "marketDataRetrievedAt": "2026-08-03T07:35:13+00:00",
+      "marketDataDelayMinutes": 17
     },
     {
       "id": "renault-tj97v-20260720",
@@ -305,7 +305,7 @@
       "exitPrice": null,
       "entryDate": "2026-07-16",
       "exitDate": null,
-      "quoteAt": "2026-08-03T07:29:00+00:00",
+      "quoteAt": "2026-08-03T07:34:00+00:00",
       "target": 395,
       "stop": 430,
       "underlyingThreshold": 416.4,
@@ -317,7 +317,7 @@
       "ask": 2.9,
       "marketDataProvider": "euronext",
       "marketDataSourceUrl": "https://live.euronext.com/en/product/structured-products/DE000VY3Z5D1-XMLI",
-      "marketDataRetrievedAt": "2026-08-03T07:30:13+00:00",
+      "marketDataRetrievedAt": "2026-08-03T07:35:25+00:00",
       "marketDataDelayMinutes": 1
     },
     {
@@ -329,11 +329,11 @@
       "isin": "DE000FE3FPS1",
       "status": "open",
       "entryPrice": 1.68,
-      "currentPrice": 1.4449999999999998,
+      "currentPrice": 1.415,
       "exitPrice": null,
       "entryDate": "2026-07-15",
       "exitDate": null,
-      "quoteAt": "2026-08-03T07:23:00+00:00",
+      "quoteAt": "2026-08-03T07:33:00+00:00",
       "target": 150,
       "stop": 124,
       "underlyingThreshold": 135.7,
@@ -341,11 +341,11 @@
       "url": "https://www.zonebourse.com/actualite-bourse/une-opportunite-a-court-terme-ce7f5eddd181f022",
       "note": "Rebond technique anticipé depuis une zone survendue.",
       "sourceConfidence": "high",
-      "bid": 1.44,
-      "ask": 1.45,
+      "bid": 1.41,
+      "ask": 1.42,
       "marketDataProvider": "euronext",
       "marketDataSourceUrl": "https://live.euronext.com/en/product/structured-products/DE000FE3FPS1-XMLI",
-      "marketDataRetrievedAt": "2026-08-03T07:25:25+00:00",
+      "marketDataRetrievedAt": "2026-08-03T07:35:37+00:00",
       "marketDataDelayMinutes": 2
     },
     {
