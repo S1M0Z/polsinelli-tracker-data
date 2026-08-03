@@ -6,7 +6,7 @@
     "mode": "scanned",
     "lastPublicationCheckedAt": "2026-07-28T09:32:00+02:00",
     "warning": "Cours indicatifs issus des dernières cotations publiques récupérées. Les articles anciens modifiés ou remis en avant sont également contrôlés.",
-    "marketDataUpdatedAt": "2026-08-03T15:17:06+00:00",
+    "marketDataUpdatedAt": "2026-08-03T15:22:12+00:00",
     "analysts": [
       {
         "id": "laurent-polsinelli",
@@ -89,11 +89,11 @@
       "isin": "DE000VY88TJ7",
       "status": "open",
       "entryPrice": 1.12,
-      "currentPrice": 1.475,
+      "currentPrice": 1.455,
       "exitPrice": null,
       "entryDate": "2026-07-23",
       "exitDate": null,
-      "quoteAt": "2026-08-03T15:05:00+00:00",
+      "quoteAt": "2026-08-03T15:05:23+00:00",
       "target": 132,
       "stop": 111,
       "underlyingThreshold": 119.05,
@@ -101,12 +101,12 @@
       "url": "https://www.zonebourse.com/actualite-bourse/de-retour-sur-un-niveau-important-ce7f51ded88ff422",
       "note": "Rebond technique attendu depuis le support de 117,15 €.",
       "sourceConfidence": "high",
-      "bid": 1.47,
-      "ask": 1.48,
+      "bid": 1.45,
+      "ask": 1.46,
       "marketDataProvider": "euronext",
       "marketDataSourceUrl": "https://live.euronext.com/en/product/structured-products/DE000VY88TJ7-XMLI",
-      "marketDataRetrievedAt": "2026-08-03T15:07:20+00:00",
-      "marketDataDelayMinutes": 2
+      "marketDataRetrievedAt": "2026-08-03T15:22:43+00:00",
+      "marketDataDelayMinutes": 17
     },
     {
       "id": "loreal-5s0vb-20260717",
@@ -233,11 +233,11 @@
       "isin": "DE000VY3GDC5",
       "status": "open",
       "entryPrice": 1.24,
-      "currentPrice": 1.42,
+      "currentPrice": 1.5,
       "exitPrice": null,
       "entryDate": "2026-07-21",
       "exitDate": null,
-      "quoteAt": "2026-08-03T14:46:00+00:00",
+      "quoteAt": "2026-08-03T15:20:00+00:00",
       "target": 290,
       "stop": 342,
       "underlyingThreshold": 326.59,
@@ -245,12 +245,12 @@
       "url": "https://www.zonebourse.com/actualite-bourse/besoin-de-souffler-ce7f51d8d88eff21",
       "note": "Scénario de correction après zone de surachat.",
       "sourceConfidence": "high",
-      "bid": 1.41,
+      "bid": 1.44,
       "ask": 1.56,
       "marketDataProvider": "euronext",
       "marketDataSourceUrl": "https://live.euronext.com/en/product/structured-products/DE000VY3GDC5-XMLI",
-      "marketDataRetrievedAt": "2026-08-03T15:02:32+00:00",
-      "marketDataDelayMinutes": 16
+      "marketDataRetrievedAt": "2026-08-03T15:22:52+00:00",
+      "marketDataDelayMinutes": 2
     },
     {
       "id": "renault-tj97v-20260720",
@@ -333,7 +333,7 @@
       "exitPrice": null,
       "entryDate": "2026-07-15",
       "exitDate": null,
-      "quoteAt": "2026-08-03T15:14:00+00:00",
+      "quoteAt": "2026-08-03T15:19:00+00:00",
       "target": 150,
       "stop": 124,
       "underlyingThreshold": 135.7,
@@ -345,7 +345,7 @@
       "ask": 1.45,
       "marketDataProvider": "euronext",
       "marketDataSourceUrl": "https://live.euronext.com/en/product/structured-products/DE000FE3FPS1-XMLI",
-      "marketDataRetrievedAt": "2026-08-03T15:18:56+00:00",
+      "marketDataRetrievedAt": "2026-08-03T15:23:15+00:00",
       "marketDataDelayMinutes": 4
     },
     {
