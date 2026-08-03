@@ -1,6 +1,6 @@
 {
   "meta": {
-    "generatedAt": "2026-08-03T13:51:50.563226+00:00",
+    "generatedAt": "2026-08-03T13:56:56.254511+00:00",
     "engineVersion": "1.0.0",
     "sourceGeneratedAt": "2026-07-28T10:31:34+02:00",
     "purpose": "Conservative decision support; not an automated order system."
@@ -54,7 +54,7 @@
         "missing_risk_levels"
       ],
       "diagnostics": {
-        "quoteAgeMinutes": 6.84,
+        "quoteAgeMinutes": 11.94,
         "spreadPct": 1.2579,
         "priceDriftPct": -8.046,
         "detectionLatencySeconds": null,
@@ -71,16 +71,16 @@
       "mnemo": "WC25V",
       "entryPrice": 1.12,
       "market": {
-        "currentPrice": 1.4249999999999998,
-        "quoteAt": "2026-08-03T13:45:00+00:00",
-        "bid": 1.42,
-        "ask": 1.43,
+        "currentPrice": 1.435,
+        "quoteAt": "2026-08-03T13:50:00+00:00",
+        "bid": 1.43,
+        "ask": 1.44,
         "underlyingPrice": null,
         "publicationPrice": 1.12,
         "detectedAt": null,
         "publishedAt": null
       },
-      "markToMarketReturnPct": 27.2321,
+      "markToMarketReturnPct": 28.125,
       "decision": "DATA_INCOMPLETE",
       "reasons": [
         "price_drift_too_high",
@@ -88,9 +88,9 @@
         "missing_risk_levels"
       ],
       "diagnostics": {
-        "quoteAgeMinutes": 6.84,
-        "spreadPct": 0.7018,
-        "priceDriftPct": 27.6786,
+        "quoteAgeMinutes": 6.94,
+        "spreadPct": 0.6969,
+        "priceDriftPct": 28.5714,
         "detectionLatencySeconds": null,
         "rewardRiskRatio": null
       },
@@ -121,7 +121,7 @@
         "missing_risk_levels"
       ],
       "diagnostics": {
-        "quoteAgeMinutes": 21.84,
+        "quoteAgeMinutes": 26.94,
         "spreadPct": 0.7722,
         "priceDriftPct": 4.8387,
         "detectionLatencySeconds": null,
@@ -154,7 +154,7 @@
         "missing_risk_levels"
       ],
       "diagnostics": {
-        "quoteAgeMinutes": 7.84,
+        "quoteAgeMinutes": 12.94,
         "spreadPct": 0.3578,
         "priceDriftPct": -27.4611,
         "detectionLatencySeconds": null,
@@ -187,7 +187,7 @@
         "missing_risk_levels"
       ],
       "diagnostics": {
-        "quoteAgeMinutes": 2.84,
+        "quoteAgeMinutes": 7.94,
         "spreadPct": 0.7843,
         "priceDriftPct": -23.8095,
         "detectionLatencySeconds": null,
@@ -204,25 +204,25 @@
       "mnemo": "3F7TB",
       "entryPrice": 3.06,
       "market": {
-        "currentPrice": 1.645,
-        "quoteAt": "2026-08-03T13:49:00+00:00",
-        "bid": 1.64,
-        "ask": 1.65,
+        "currentPrice": 1.6349999999999998,
+        "quoteAt": "2026-08-03T13:50:00+00:00",
+        "bid": 1.63,
+        "ask": 1.64,
         "underlyingPrice": null,
         "publicationPrice": 3.06,
         "detectedAt": null,
         "publishedAt": null
       },
-      "markToMarketReturnPct": -46.2418,
+      "markToMarketReturnPct": -46.5686,
       "decision": "DATA_INCOMPLETE",
       "reasons": [
         "missing_detection_timestamps",
         "missing_risk_levels"
       ],
       "diagnostics": {
-        "quoteAgeMinutes": 2.84,
-        "spreadPct": 0.6079,
-        "priceDriftPct": -46.0784,
+        "quoteAgeMinutes": 6.94,
+        "spreadPct": 0.6116,
+        "priceDriftPct": -46.4052,
         "detectionLatencySeconds": null,
         "rewardRiskRatio": null
       },
