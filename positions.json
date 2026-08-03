@@ -6,7 +6,7 @@
     "mode": "scanned",
     "lastPublicationCheckedAt": "2026-07-28T09:32:00+02:00",
     "warning": "Cours indicatifs issus des dernières cotations publiques récupérées. Les articles anciens modifiés ou remis en avant sont également contrôlés.",
-    "marketDataUpdatedAt": "2026-08-03T07:04:15+00:00",
+    "marketDataUpdatedAt": "2026-08-03T07:09:12+00:00",
     "analysts": [
       {
         "id": "laurent-polsinelli",
@@ -329,11 +329,11 @@
       "isin": "DE000FE3FPS1",
       "status": "open",
       "entryPrice": 1.68,
-      "currentPrice": 1.54,
+      "currentPrice": 1.53,
       "exitPrice": null,
       "entryDate": "2026-07-15",
       "exitDate": null,
-      "quoteAt": "2026-08-03T07:03:00+00:00",
+      "quoteAt": "2026-08-03T07:08:00+00:00",
       "target": 150,
       "stop": 124,
       "underlyingThreshold": 135.7,
@@ -341,11 +341,11 @@
       "url": "https://www.zonebourse.com/actualite-bourse/une-opportunite-a-court-terme-ce7f5eddd181f022",
       "note": "Rebond technique anticipé depuis une zone survendue.",
       "sourceConfidence": "high",
-      "bid": 1.52,
-      "ask": 1.56,
+      "bid": 1.51,
+      "ask": 1.55,
       "marketDataProvider": "euronext",
       "marketDataSourceUrl": "https://live.euronext.com/en/product/structured-products/DE000FE3FPS1-XMLI",
-      "marketDataRetrievedAt": "2026-08-03T07:07:55+00:00",
+      "marketDataRetrievedAt": "2026-08-03T07:12:40+00:00",
       "marketDataDelayMinutes": 4
     },
     {
@@ -357,11 +357,11 @@
       "isin": "NLBNPFR2CD04",
       "status": "open",
       "entryPrice": 3.06,
-      "currentPrice": 1.975,
+      "currentPrice": 1.845,
       "exitPrice": null,
       "entryDate": "2026-07-15",
       "exitDate": null,
-      "quoteAt": "2026-08-03T07:04:00+00:00",
+      "quoteAt": "2026-08-03T07:09:00+00:00",
       "target": 160.1,
       "stop": 132,
       "underlyingThreshold": 141.05,
@@ -373,8 +373,8 @@
       "ask": 2.2,
       "marketDataProvider": "euronext",
       "marketDataSourceUrl": "https://live.euronext.com/en/product/structured-products/NLBNPFR2CD04-XMLI",
-      "marketDataRetrievedAt": "2026-08-03T07:08:08+00:00",
-      "marketDataDelayMinutes": 4
+      "marketDataRetrievedAt": "2026-08-03T07:12:49+00:00",
+      "marketDataDelayMinutes": 3
     },
     {
       "id": "total-ui72v-202607",
