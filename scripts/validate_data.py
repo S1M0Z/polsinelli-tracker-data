@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 from __future__ import annotations
 
+import argparse
 import json
 import re
 from datetime import datetime
@@ -80,8 +81,19 @@ def validate_market_data_config(config: dict[str, Any], position_ids: set[str]) 
                 raise ValueError(f"market-data mapping for {position_id} has invalid Euronext symbol")
 
 
+def parse_args() -> argparse.Namespace:
+    parser = argparse.ArgumentParser()
+    parser.add_argument(
+        "--root",
+        type=Path,
+        default=Path(__file__).resolve().parent.parent,
+        help="Directory containing the JSON documents to validate.",
+    )
+    return parser.parse_args()
+
+
 def main() -> int:
-    root = Path(__file__).resolve().parent.parent
+    root = parse_args().root.resolve()
     documents = {name: load(root / name) for name in REQUIRED_JSON_FILES}
     positions = documents["positions.json"].get("positions", [])
     position_ids = {position["id"] for position in positions}

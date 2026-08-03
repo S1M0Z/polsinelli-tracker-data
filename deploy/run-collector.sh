@@ -39,7 +39,9 @@ git pull --ff-only origin main
 # publication source before every pass, while quote history and mappings persist
 # locally between collections.
 mkdir -p "$RUNTIME_DIR"
-cp positions.json "$RUNTIME_DIR/positions.json"
+for file in positions.json updates.json article-state.json scan-log.json risk-policy.json; do
+  cp "$file" "$RUNTIME_DIR/$file"
+done
 for file in quote-history.json market-data-config.json investment-view.json; do
   if [[ ! -f "$RUNTIME_DIR/$file" ]]; then
     cp "$file" "$RUNTIME_DIR/$file"
@@ -54,16 +56,17 @@ sudo -n docker run --rm --init --ipc=host \
   --env EURONEXT_DEFAULT_MIC=XMLI \
   --env EURONEXT_LOCALE=en \
   --volume "$REPO_ROOT:/app" \
-  --volume "$RUNTIME_DIR/positions.json:/app/positions.json" \
-  --volume "$RUNTIME_DIR/quote-history.json:/app/quote-history.json" \
-  --volume "$RUNTIME_DIR/market-data-config.json:/app/market-data-config.json" \
-  --volume "$RUNTIME_DIR/investment-view.json:/app/investment-view.json" \
+  --volume "$RUNTIME_DIR:/runtime" \
   --workdir /app \
   "$IMAGE" \
   bash -lc '
-    python scripts/quote_collector_browser.py --session server &&
-    python scripts/investment_engine.py &&
-    python scripts/validate_data.py
+    python scripts/quote_collector_browser.py --root /runtime --session server &&
+    python scripts/investment_engine.py \
+      --positions /runtime/positions.json \
+      --policy /runtime/risk-policy.json \
+      --quotes /runtime/quote-history.json \
+      --output /runtime/investment-view.json &&
+    python scripts/validate_data.py --root /runtime
   '
 
 # Publish the validated runtime snapshot directly to Nginx. GitHub is no longer
