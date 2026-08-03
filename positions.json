@@ -6,7 +6,7 @@
     "mode": "scanned",
     "lastPublicationCheckedAt": "2026-07-28T09:32:00+02:00",
     "warning": "Cours indicatifs issus des dernières cotations publiques récupérées. Les articles anciens modifiés ou remis en avant sont également contrôlés.",
-    "marketDataUpdatedAt": "2026-08-03T10:59:51+00:00",
+    "marketDataUpdatedAt": "2026-08-03T11:05:04+00:00",
     "analysts": [
       {
         "id": "laurent-polsinelli",
@@ -237,7 +237,7 @@
       "exitPrice": null,
       "entryDate": "2026-07-21",
       "exitDate": null,
-      "quoteAt": "2026-08-03T10:54:00+00:00",
+      "quoteAt": "2026-08-03T11:04:00+00:00",
       "target": 290,
       "stop": 342,
       "underlyingThreshold": 326.59,
@@ -249,8 +249,8 @@
       "ask": 1.31,
       "marketDataProvider": "euronext",
       "marketDataSourceUrl": "https://live.euronext.com/en/product/structured-products/DE000VY3GDC5-XMLI",
-      "marketDataRetrievedAt": "2026-08-03T11:00:35+00:00",
-      "marketDataDelayMinutes": 6
+      "marketDataRetrievedAt": "2026-08-03T11:05:47+00:00",
+      "marketDataDelayMinutes": 1
     },
     {
       "id": "renault-tj97v-20260720",
@@ -301,11 +301,11 @@
       "isin": "DE000VY3Z5D1",
       "status": "open",
       "entryPrice": 3.86,
-      "currentPrice": 2.845,
+      "currentPrice": 2.835,
       "exitPrice": null,
       "entryDate": "2026-07-16",
       "exitDate": null,
-      "quoteAt": "2026-08-03T10:54:00+00:00",
+      "quoteAt": "2026-08-03T11:04:00+00:00",
       "target": 395,
       "stop": 430,
       "underlyingThreshold": 416.4,
@@ -313,12 +313,12 @@
       "url": "https://www.zonebourse.com/actualite-bourse/une-correction-technique-en-formation-ce7f5ed2de8ef427",
       "note": "Scénario baissier. L'intitulé et le scénario classent le produit en PUT malgré une incohérence de sens dans la fiche statique Zonebourse.",
       "sourceConfidence": "high",
-      "bid": 2.84,
-      "ask": 2.85,
+      "bid": 2.83,
+      "ask": 2.84,
       "marketDataProvider": "euronext",
       "marketDataSourceUrl": "https://live.euronext.com/en/product/structured-products/DE000VY3Z5D1-XMLI",
-      "marketDataRetrievedAt": "2026-08-03T10:55:29+00:00",
-      "marketDataDelayMinutes": 1
+      "marketDataRetrievedAt": "2026-08-03T11:06:00+00:00",
+      "marketDataDelayMinutes": 2
     },
     {
       "id": "nexans-325ks-20260715",
@@ -329,11 +329,11 @@
       "isin": "DE000FE3FPS1",
       "status": "open",
       "entryPrice": 1.68,
-      "currentPrice": 1.305,
+      "currentPrice": 1.3050000000000002,
       "exitPrice": null,
       "entryDate": "2026-07-15",
       "exitDate": null,
-      "quoteAt": "2026-08-03T10:54:00+00:00",
+      "quoteAt": "2026-08-03T11:04:00+00:00",
       "target": 150,
       "stop": 124,
       "underlyingThreshold": 135.7,
@@ -345,8 +345,8 @@
       "ask": 1.31,
       "marketDataProvider": "euronext",
       "marketDataSourceUrl": "https://live.euronext.com/en/product/structured-products/DE000FE3FPS1-XMLI",
-      "marketDataRetrievedAt": "2026-08-03T10:55:42+00:00",
-      "marketDataDelayMinutes": 1
+      "marketDataRetrievedAt": "2026-08-03T11:06:13+00:00",
+      "marketDataDelayMinutes": 2
     },
     {
       "id": "legrand-3f7tb-20260715",
@@ -357,11 +357,11 @@
       "isin": "NLBNPFR2CD04",
       "status": "open",
       "entryPrice": 3.06,
-      "currentPrice": 1.735,
+      "currentPrice": 1.7349999999999999,
       "exitPrice": null,
       "entryDate": "2026-07-15",
       "exitDate": null,
-      "quoteAt": "2026-08-03T10:50:00+00:00",
+      "quoteAt": "2026-08-03T11:00:00+00:00",
       "target": 160.1,
       "stop": 132,
       "underlyingThreshold": 141.05,
@@ -373,8 +373,8 @@
       "ask": 1.74,
       "marketDataProvider": "euronext",
       "marketDataSourceUrl": "https://live.euronext.com/en/product/structured-products/NLBNPFR2CD04-XMLI",
-      "marketDataRetrievedAt": "2026-08-03T10:55:56+00:00",
-      "marketDataDelayMinutes": 5
+      "marketDataRetrievedAt": "2026-08-03T11:06:22+00:00",
+      "marketDataDelayMinutes": 6
     },
     {
       "id": "total-ui72v-202607",
