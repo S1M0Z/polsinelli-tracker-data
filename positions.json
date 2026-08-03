@@ -6,7 +6,7 @@
     "mode": "scanned",
     "lastPublicationCheckedAt": "2026-07-28T09:32:00+02:00",
     "warning": "Cours indicatifs issus des dernières cotations publiques récupérées. Les articles anciens modifiés ou remis en avant sont également contrôlés.",
-    "marketDataUpdatedAt": "2026-08-03T10:14:03+00:00",
+    "marketDataUpdatedAt": "2026-08-03T10:19:10+00:00",
     "analysts": [
       {
         "id": "laurent-polsinelli",
@@ -301,11 +301,11 @@
       "isin": "DE000VY3Z5D1",
       "status": "open",
       "entryPrice": 3.86,
-      "currentPrice": 2.875,
+      "currentPrice": 2.885,
       "exitPrice": null,
       "entryDate": "2026-07-16",
       "exitDate": null,
-      "quoteAt": "2026-08-03T10:14:00+00:00",
+      "quoteAt": "2026-08-03T10:19:00+00:00",
       "target": 395,
       "stop": 430,
       "underlyingThreshold": 416.4,
@@ -313,12 +313,12 @@
       "url": "https://www.zonebourse.com/actualite-bourse/une-correction-technique-en-formation-ce7f5ed2de8ef427",
       "note": "Scénario baissier. L'intitulé et le scénario classent le produit en PUT malgré une incohérence de sens dans la fiche statique Zonebourse.",
       "sourceConfidence": "high",
-      "bid": 2.87,
-      "ask": 2.88,
+      "bid": 2.88,
+      "ask": 2.89,
       "marketDataProvider": "euronext",
       "marketDataSourceUrl": "https://live.euronext.com/en/product/structured-products/DE000VY3Z5D1-XMLI",
-      "marketDataRetrievedAt": "2026-08-03T10:14:56+00:00",
-      "marketDataDelayMinutes": 0
+      "marketDataRetrievedAt": "2026-08-03T10:20:10+00:00",
+      "marketDataDelayMinutes": 1
     },
     {
       "id": "nexans-325ks-20260715",
@@ -329,11 +329,11 @@
       "isin": "DE000FE3FPS1",
       "status": "open",
       "entryPrice": 1.68,
-      "currentPrice": 1.305,
+      "currentPrice": 1.3050000000000002,
       "exitPrice": null,
       "entryDate": "2026-07-15",
       "exitDate": null,
-      "quoteAt": "2026-08-03T10:04:00+00:00",
+      "quoteAt": "2026-08-03T10:19:00+00:00",
       "target": 150,
       "stop": 124,
       "underlyingThreshold": 135.7,
@@ -345,8 +345,8 @@
       "ask": 1.31,
       "marketDataProvider": "euronext",
       "marketDataSourceUrl": "https://live.euronext.com/en/product/structured-products/DE000FE3FPS1-XMLI",
-      "marketDataRetrievedAt": "2026-08-03T10:04:40+00:00",
-      "marketDataDelayMinutes": 0
+      "marketDataRetrievedAt": "2026-08-03T10:20:21+00:00",
+      "marketDataDelayMinutes": 1
     },
     {
       "id": "legrand-3f7tb-20260715",
