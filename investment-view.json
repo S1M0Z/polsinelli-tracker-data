@@ -1,6 +1,6 @@
 {
   "meta": {
-    "generatedAt": "2026-08-03T14:58:42.953450+00:00",
+    "generatedAt": "2026-08-03T15:03:08.836536+00:00",
     "engineVersion": "1.0.0",
     "sourceGeneratedAt": "2026-07-28T10:31:34+02:00",
     "purpose": "Conservative decision support; not an automated order system."
@@ -39,7 +39,7 @@
       "entryPrice": 0.87,
       "market": {
         "currentPrice": 0.76,
-        "quoteAt": "2026-08-03T14:34:00+00:00",
+        "quoteAt": "2026-08-03T14:43:00+00:00",
         "bid": 0.76,
         "ask": 1.0,
         "underlyingPrice": null,
@@ -56,7 +56,7 @@
         "missing_risk_levels"
       ],
       "diagnostics": {
-        "quoteAgeMinutes": 24.72,
+        "quoteAgeMinutes": 20.15,
         "spreadPct": 27.2727,
         "priceDriftPct": 14.9425,
         "detectionLatencySeconds": null,
@@ -90,7 +90,7 @@
         "missing_risk_levels"
       ],
       "diagnostics": {
-        "quoteAgeMinutes": 3.72,
+        "quoteAgeMinutes": 8.15,
         "spreadPct": 0.6645,
         "priceDriftPct": 34.8214,
         "detectionLatencySeconds": null,
@@ -108,9 +108,9 @@
       "entryPrice": 1.24,
       "market": {
         "currentPrice": 1.42,
-        "quoteAt": "2026-08-03T14:42:00+00:00",
-        "bid": 1.42,
-        "ask": 1.5603,
+        "quoteAt": "2026-08-03T14:46:00+00:00",
+        "bid": 1.41,
+        "ask": 1.56,
         "underlyingPrice": null,
         "publicationPrice": 1.24,
         "detectedAt": null,
@@ -125,9 +125,9 @@
         "missing_risk_levels"
       ],
       "diagnostics": {
-        "quoteAgeMinutes": 16.72,
-        "spreadPct": 9.4152,
-        "priceDriftPct": 25.8306,
+        "quoteAgeMinutes": 17.15,
+        "spreadPct": 10.101,
+        "priceDriftPct": 25.8065,
         "detectionLatencySeconds": null,
         "rewardRiskRatio": null
       },
@@ -142,25 +142,25 @@
       "mnemo": "QA95V",
       "entryPrice": 3.86,
       "market": {
-        "currentPrice": 2.8049999999999997,
-        "quoteAt": "2026-08-03T14:55:00+00:00",
-        "bid": 2.8,
-        "ask": 2.81,
+        "currentPrice": 2.815,
+        "quoteAt": "2026-08-03T15:00:00+00:00",
+        "bid": 2.81,
+        "ask": 2.82,
         "underlyingPrice": null,
         "publicationPrice": 3.86,
         "detectedAt": null,
         "publishedAt": null
       },
-      "markToMarketReturnPct": -27.3316,
+      "markToMarketReturnPct": -27.0725,
       "decision": "DATA_INCOMPLETE",
       "reasons": [
         "missing_detection_timestamps",
         "missing_risk_levels"
       ],
       "diagnostics": {
-        "quoteAgeMinutes": 3.72,
-        "spreadPct": 0.3565,
-        "priceDriftPct": -27.2021,
+        "quoteAgeMinutes": 3.15,
+        "spreadPct": 0.3552,
+        "priceDriftPct": -26.943,
         "detectionLatencySeconds": null,
         "rewardRiskRatio": null
       },
@@ -191,7 +191,7 @@
         "missing_risk_levels"
       ],
       "diagnostics": {
-        "quoteAgeMinutes": 4.72,
+        "quoteAgeMinutes": 9.15,
         "spreadPct": 0.6873,
         "priceDriftPct": -13.0952,
         "detectionLatencySeconds": null,
@@ -208,25 +208,25 @@
       "mnemo": "3F7TB",
       "entryPrice": 3.06,
       "market": {
-        "currentPrice": 1.895,
-        "quoteAt": "2026-08-03T14:50:00+00:00",
-        "bid": 1.89,
-        "ask": 1.9,
+        "currentPrice": 1.875,
+        "quoteAt": "2026-08-03T15:00:00+00:00",
+        "bid": 1.87,
+        "ask": 1.88,
         "underlyingPrice": null,
         "publicationPrice": 3.06,
         "detectedAt": null,
         "publishedAt": null
       },
-      "markToMarketReturnPct": -38.0719,
+      "markToMarketReturnPct": -38.7255,
       "decision": "DATA_INCOMPLETE",
       "reasons": [
         "missing_detection_timestamps",
         "missing_risk_levels"
       ],
       "diagnostics": {
-        "quoteAgeMinutes": 8.72,
-        "spreadPct": 0.5277,
-        "priceDriftPct": -37.9085,
+        "quoteAgeMinutes": 3.15,
+        "spreadPct": 0.5333,
+        "priceDriftPct": -38.5621,
         "detectionLatencySeconds": null,
         "rewardRiskRatio": null
       },
