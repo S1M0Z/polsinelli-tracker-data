@@ -41,7 +41,6 @@ if ! git diff --quiet || ! git diff --cached --quiet; then
   exit 1
 fi
 
-git fetch origin main
 git pull --ff-only origin main
 
 # Runtime market data lives outside Git. positions.json is refreshed from the
