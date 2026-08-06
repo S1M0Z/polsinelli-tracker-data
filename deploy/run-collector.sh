@@ -4,6 +4,7 @@ set -Eeuo pipefail
 REPO_ROOT="${POLSINELLI_REPO_ROOT:-$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)}"
 IMAGE="${POLSINELLI_IMAGE:-polsinelli-tracker-browser:1.60.0}"
 LOCK_FILE="${POLSINELLI_LOCK_FILE:-/tmp/polsinelli-collector.lock}"
+CONTAINER_NAME="${POLSINELLI_CONTAINER_NAME:-polsinelli-quote-collector}"
 RUNTIME_DIR="${POLSINELLI_RUNTIME_DIR:-/home/ubuntu/.local/share/polsinelli-collector}"
 SITE_DATA_DIR="${POLSINELLI_SITE_DATA_DIR:-/var/www/polsinelli-tracker-v3/data}"
 
@@ -12,6 +13,14 @@ if ! flock -n 9; then
   echo "A collection is already running; skipping."
   exit 0
 fi
+
+# A systemd timeout kills the Docker client, not necessarily the container it
+# started. Always remove a stale instance before a pass and clean up on exit.
+cleanup_container() {
+  sudo -n docker rm -f "$CONTAINER_NAME" >/dev/null 2>&1 || true
+}
+trap cleanup_container EXIT INT TERM
+cleanup_container
 
 cd "$REPO_ROOT"
 
@@ -48,8 +57,11 @@ for file in quote-history.json market-data-config.json investment-view.json; do
   fi
 done
 
+timeout --signal=TERM --kill-after=15s 270s \
 sudo -n docker run --rm --init --ipc=host \
-  --memory=700m --memory-swap=1536m \
+  --name "$CONTAINER_NAME" \
+  --cpus=1.0 --pids-limit=128 \
+  --memory=512m --memory-swap=768m \
   --user "$(id -u):$(id -g)" \
   --env HOME=/tmp \
   --env MARKET_DATA_PROVIDER=euronext \

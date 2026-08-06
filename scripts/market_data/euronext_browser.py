@@ -51,6 +51,16 @@ class PlaywrightRequester:
                 "Chrome/126.0 Safari/537.36 polsinelli-tracker/3.0"
             ),
         )
+        # Quotes are injected through scripts/XHR. Images, video and fonts add
+        # substantial bandwidth and memory use without contributing any data.
+        self._context.route(
+            "**/*",
+            lambda route: (
+                route.abort()
+                if route.request.resource_type in {"image", "media", "font"}
+                else route.continue_()
+            ),
+        )
         self._page = self._context.new_page()
         atexit.register(self.close)
 
