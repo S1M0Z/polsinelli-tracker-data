@@ -9,6 +9,7 @@ on:
     branches: [main]
     paths:
       - "scripts/fast_zonebourse_scan_v2.py"
+      - "scripts/sync_zonebourse_positions.py"
       - ".github/workflows/fast-zonebourse-scan.yml"
 
 permissions:
@@ -36,6 +37,17 @@ jobs:
         id: scan
         run: python scripts/fast_zonebourse_scan_v2.py
 
+      - name: Synchronize open and closed positions
+        id: sync
+        run: python scripts/sync_zonebourse_positions.py
+
+      - name: Rebuild tracker data
+        if: steps.sync.outputs.changed == 'true'
+        run: python scripts/investment_engine.py
+
+      - name: Validate tracker data
+        run: python scripts/validate_data.py
+
       - name: Report temporary source degradation
         if: steps.scan.outputs.source_status == 'degraded'
         continue-on-error: true
@@ -44,7 +56,7 @@ jobs:
           SOURCE_ERROR: ${{ steps.scan.outputs.source_error }}
         with:
           script: |
-            const title = '[SCANNER POLSINELLI] Source Zonebourse indisponible';
+            const title = '[SCANNER ZONEBOURSE] Source recommandations indisponible';
             const { data: issues } = await github.rest.issues.listForRepo({
               owner: context.repo.owner,
               repo: context.repo.repo,
@@ -68,7 +80,7 @@ jobs:
           SOURCE_USED: ${{ steps.scan.outputs.source_used }}
         with:
           script: |
-            const title = '[SCANNER POLSINELLI] Source Zonebourse indisponible';
+            const title = '[SCANNER ZONEBOURSE] Source recommandations indisponible';
             const { data: issues } = await github.rest.issues.listForRepo({
               owner: context.repo.owner,
               repo: context.repo.repo,
@@ -90,13 +102,13 @@ jobs:
               });
             }
 
-      - name: Commit fast detection state
-        if: steps.scan.outputs.changed == 'true'
+      - name: Commit synchronized tracker state
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add fast-scan.json
-          git commit -m "Détecte de nouvelles publications Polsinelli"
+          git add fast-scan.json positions.json investment-view.json
+          if git diff --cached --quiet; then exit 0; fi
+          git commit -m "Synchronise les recommandations Zonebourse"
           git pull --rebase origin main
           git push origin HEAD:main
 
@@ -116,7 +128,7 @@ jobs:
             for (let index = 0; index < urls.length; index += 1) {
               const title = titles[index] || 'Nouvelle position potentielle';
               const body = [
-                'Détection rapide automatique sur la page auteur de Laurent Polsinelli.',
+                'Détection rapide automatique sur la page globale des recommandations Zonebourse.',
                 '',
                 `- Publication : ${published[index] || 'heure non extraite'}`,
                 `- Article : ${urls[index]}`,
@@ -127,7 +139,7 @@ jobs:
               await github.rest.issues.create({
                 owner: context.repo.owner,
                 repo: context.repo.repo,
-                title: `[ALERTE POLSINELLI] ${title}`.slice(0, 240),
+                title: `[ALERTE ZONEBOURSE] ${title}`.slice(0, 240),
                 body,
                 assignees: [context.repo.owner]
               });

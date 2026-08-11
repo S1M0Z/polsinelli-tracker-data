@@ -28,6 +28,11 @@ POLICY = {
 
 
 class InvestmentEngineTests(unittest.TestCase):
+    def test_open_recommendation_can_wait_for_confirmed_entry_price(self):
+        document = {"positions": [{**self.position, "entryPrice": None}]}
+        view = build_view(document, POLICY, {"quotes": []}, self.as_of)
+        self.assertIn("missing_publication_price", view["openPositions"][0]["reasons"])
+
     def setUp(self) -> None:
         self.as_of = datetime.fromisoformat("2026-07-30T13:52:00+02:00")
         self.policy = Policy.from_document(POLICY)

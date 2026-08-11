@@ -2,9 +2,9 @@
   "meta": {
     "createdAt": "2026-07-30T14:35:34+02:00",
     "updatedAt": "2026-07-30T18:35:07+02:00",
-    "source": "https://www.zonebourse.com/auteur/laurent-polsinelli",
+    "source": "https://www.zonebourse.com/bourse/derives/recommandations/",
     "scanIntervalMinutes": 5,
-    "description": "Détection stricte des liens datés présents dans la liste auteur. Une position reste PENDING_DATA jusqu'à confirmation du produit, de la cotation et du risque."
+    "description": "Détection de toutes les recommandations Zonebourse de Turbos et Warrants en cours. Une position reste PENDING_DATA jusqu'à confirmation du produit, de la cotation et du risque."
   },
   "latest": {
     "url": "https://www.zonebourse.com/actualite-bourse/peu-d-iniatives-en-attendant-la-fed-ce7f51dddc8cf124",

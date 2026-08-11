@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
-"""Détection rapide et tolérante des publications de Laurent Polsinelli.
+"""Détection rapide des recommandations de produits dérivés Zonebourse.
 
-Le scanner essaie d'abord les pages officielles Zonebourse, puis un rendu texte de
+Le scanner essaie d'abord la page globale officielle, puis un rendu texte de
 secours. Une indisponibilité temporaire de la source ne modifie jamais l'état et
 ne fait pas échouer le workflow toutes les cinq minutes.
 """
@@ -12,7 +12,7 @@ import os
 import re
 import sys
 import time
-from datetime import datetime
+from datetime import datetime, timedelta
 from html.parser import HTMLParser
 from pathlib import Path
 from urllib.error import HTTPError, URLError
@@ -20,13 +20,16 @@ from urllib.parse import urljoin, urlparse
 from urllib.request import Request, urlopen
 from zoneinfo import ZoneInfo
 
-AUTHOR_URL = "https://www.zonebourse.com/auteur/laurent-polsinelli"
+RECOMMENDATIONS_URL = "https://www.zonebourse.com/bourse/derives/recommandations/"
 DIRECT_SOURCES = (
-    ("zonebourse-fr", AUTHOR_URL),
-    ("zonebourse-ch", "https://ch.zonebourse.com/auteur/laurent-polsinelli"),
+    ("zonebourse-fr", RECOMMENDATIONS_URL),
+    ("zonebourse-ch", "https://ch.zonebourse.com/bourse/derives/recommandations/"),
 )
 TEXT_FALLBACK_SOURCES = (
-    ("jina-zonebourse-fr", "https://r.jina.ai/http://www.zonebourse.com/auteur/laurent-polsinelli"),
+    (
+        "jina-zonebourse-fr",
+        "https://r.jina.ai/http://www.zonebourse.com/bourse/derives/recommandations/",
+    ),
 )
 PARIS = ZoneInfo("Europe/Paris")
 DATE_RE = re.compile(
@@ -35,6 +38,13 @@ DATE_RE = re.compile(
 )
 ARTICLE_RE = re.compile(r"^/actualite-bourse/[^/]+-ce[0-9a-f]+/?$", re.IGNORECASE)
 MARKDOWN_LINK_RE = re.compile(r"\[([^\]\n]{5,700})\]\(([^)\s]+)\)")
+RECOMMENDATION_RE = re.compile(
+    r"^(?P<underlying>.+?)\s+(?P<product>TURBO|WARRANT)\s+-\s+"
+    r"(?P<code>[A-Z0-9]+)\s+-\s+"
+    r"(?:(?P<day>\d{2})/(?P<month>\d{2})|(?P<hour>\d{2}):(?P<minute>\d{2}))\s+"
+    r"(?P<title>.+?)(?=\s+Prix d.exercice|\s+Barrière|\s+Maturité|$)",
+    re.IGNORECASE,
+)
 MONTHS = {
     "janvier": 1,
     "février": 2,
@@ -115,7 +125,9 @@ def classify(title: str) -> str:
     return "other"
 
 
-def canonical_article_url(href: str, base_url: str = AUTHOR_URL) -> str | None:
+def canonical_article_url(
+    href: str, base_url: str = RECOMMENDATIONS_URL
+) -> str | None:
     url = urljoin(base_url, href).split("#", 1)[0]
     parsed = urlparse(url)
     if parsed.netloc.lower() not in {
@@ -130,32 +142,93 @@ def canonical_article_url(href: str, base_url: str = AUTHOR_URL) -> str | None:
     return f"https://www.zonebourse.com{path}"
 
 
-def _articles_from_links(links: list[tuple[str, str]], base_url: str) -> list[dict]:
+def parse_recommendation(text: str, now: datetime | None = None) -> dict | None:
+    """Extrait la carte compacte affichée dans les recommandations en cours."""
+    compact = " ".join(text.split())
+    match = RECOMMENDATION_RE.match(compact)
+    if not match:
+        return None
+    reference = now or datetime.now(PARIS)
+    if match.group("day"):
+        published = datetime(
+            reference.year,
+            int(match.group("month")),
+            int(match.group("day")),
+            tzinfo=PARIS,
+        )
+    else:
+        published = reference.replace(
+            hour=int(match.group("hour")),
+            minute=int(match.group("minute")),
+            second=0,
+            microsecond=0,
+        )
+    # La page omet l'année. Au passage de décembre à janvier, une date qui
+    # semblerait très future appartient nécessairement à l'année précédente.
+    if match.group("day") and published > reference + timedelta(days=31):
+        published = published.replace(year=reference.year - 1)
+    product_type = match.group("product").upper()
+    direction_match = re.search(r"\b(CALL|PUT)\s*$", compact, re.IGNORECASE)
+    return {
+        "title": match.group("title").strip(),
+        "publishedAt": published.isoformat(timespec="minutes"),
+        "kind": "position_candidate",
+        "underlying": match.group("underlying").strip(),
+        "productType": product_type,
+        "productCode": match.group("code").upper(),
+        "direction": direction_match.group(1).upper() if direction_match else None,
+    }
+
+
+def _articles_from_links(
+    links: list[tuple[str, str]],
+    base_url: str,
+    recommendations_only: bool = False,
+) -> list[dict]:
     articles: list[dict] = []
     seen: set[str] = set()
     for href, raw in links:
         url = canonical_article_url(href, base_url)
         if not url or url in seen:
             continue
-        title, published = parse_date(" ".join(raw.split()))
-        if not title or not published:
-            continue
+        compact = " ".join(raw.split())
+        recommendation = parse_recommendation(compact)
+        if recommendation:
+            article = {"url": url, **recommendation}
+        else:
+            if recommendations_only:
+                continue
+            title, published = parse_date(compact)
+            if not title or not published:
+                continue
+            article = {
+                "url": url,
+                "title": title,
+                "publishedAt": published,
+                "kind": classify(title),
+            }
         seen.add(url)
-        articles.append(
-            {"url": url, "title": title, "publishedAt": published, "kind": classify(title)}
-        )
+        articles.append(article)
     return articles
 
 
-def parse_html_articles(html: str, base_url: str = AUTHOR_URL) -> list[dict]:
+def parse_html_articles(
+    html: str,
+    base_url: str = RECOMMENDATIONS_URL,
+    recommendations_only: bool = False,
+) -> list[dict]:
     parser = Parser()
     parser.feed(html)
-    return _articles_from_links(parser.links, base_url)
+    return _articles_from_links(parser.links, base_url, recommendations_only)
 
 
-def parse_markdown_articles(markdown: str, base_url: str = AUTHOR_URL) -> list[dict]:
+def parse_markdown_articles(
+    markdown: str,
+    base_url: str = RECOMMENDATIONS_URL,
+    recommendations_only: bool = False,
+) -> list[dict]:
     links = [(href, text) for text, href in MARKDOWN_LINK_RE.findall(markdown)]
-    return _articles_from_links(links, base_url)
+    return _articles_from_links(links, base_url, recommendations_only)
 
 
 def fetch_text(url: str, attempts: int = 2) -> str:
@@ -188,19 +261,25 @@ def scan_sources() -> tuple[list[dict], str | None, list[str]]:
     errors: list[str] = []
     for source_name, source_url in DIRECT_SOURCES:
         try:
-            articles = parse_html_articles(fetch_text(source_url), source_url)
+            articles = parse_html_articles(
+                fetch_text(source_url), source_url, recommendations_only=True
+            )
             if articles:
                 return articles, source_name, errors
-            errors.append(f"{source_name}: aucun article daté extrait")
+            errors.append(f"{source_name}: aucune recommandation extraite")
         except Exception as exc:
             errors.append(f"{source_name}: {exc}")
 
     for source_name, source_url in TEXT_FALLBACK_SOURCES:
         try:
-            articles = parse_markdown_articles(fetch_text(source_url), AUTHOR_URL)
+            articles = parse_markdown_articles(
+                fetch_text(source_url),
+                RECOMMENDATIONS_URL,
+                recommendations_only=True,
+            )
             if articles:
                 return articles, source_name, errors
-            errors.append(f"{source_name}: aucun article daté extrait")
+            errors.append(f"{source_name}: aucune recommandation extraite")
         except Exception as exc:
             errors.append(f"{source_name}: {exc}")
     return [], None, errors
@@ -278,10 +357,10 @@ def main() -> int:
         state.setdefault("meta", {}).update(
             {
                 "updatedAt": detected,
-                "source": AUTHOR_URL,
+                "source": RECOMMENDATIONS_URL,
                 "sourceUsed": source_used,
                 "scanIntervalMinutes": 5,
-                "description": "Détection stricte multi-source des liens datés présents dans la liste auteur.",
+                "description": "Détection multi-source de toutes les recommandations Zonebourse de Turbos et Warrants en cours.",
             }
         )
         state["latest"] = {**articles[0], "seenAt": detected}

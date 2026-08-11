@@ -80,7 +80,13 @@ def validate_positions(document: dict[str, Any]) -> list[dict[str, Any]]:
         if position.get("direction") not in allowed_direction:
             raise DataError(f"Invalid direction for {position_id}")
         entry = position.get("entryPrice")
-        if not isinstance(entry, (int, float)) or entry <= 0:
+        if position["status"] == "closed" and (
+            not isinstance(entry, (int, float)) or entry <= 0
+        ):
+            raise DataError(f"Invalid entryPrice for closed position {position_id}")
+        if entry is not None and (
+            not isinstance(entry, (int, float)) or isinstance(entry, bool) or entry <= 0
+        ):
             raise DataError(f"Invalid entryPrice for {position_id}")
         if position["status"] == "closed":
             exit_price = position.get("exitPrice")
@@ -361,8 +367,9 @@ def build_view(
         market = merged_market_data(position, quote_map.get(position["id"]))
         decision, reasons, diagnostics = entry_decision(position, market, policy, as_of)
         decision_counts[decision] = decision_counts.get(decision, 0) + 1
+        entry_price = position.get("entryPrice")
         mark_return = pct_change(
-            float(position["entryPrice"]),
+            float(entry_price) if isinstance(entry_price, (int, float)) else None,
             float(market["currentPrice"])
             if isinstance(market.get("currentPrice"), (int, float))
             else None,

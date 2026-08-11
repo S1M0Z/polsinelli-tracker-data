@@ -1,11 +1,13 @@
 {
   "meta": {
-    "generatedAt": "2026-07-28T10:31:34+02:00",
-    "source": "Zonebourse / Laurent Polsinelli",
+    "generatedAt": "2026-08-10T00:00:00+02:00",
+    "source": "Zonebourse / recommandations produits dérivés",
     "coverageStart": "2026-03-17",
     "mode": "scanned",
-    "lastPublicationCheckedAt": "2026-07-28T09:32:00+02:00",
-    "warning": "Cours indicatifs issus des dernières cotations publiques récupérées. Les articles anciens modifiés ou remis en avant sont également contrôlés.",
+    "automaticSync": true,
+    "openRecommendationCount": 25,
+    "lastPublicationCheckedAt": "2026-08-10T00:00:00+02:00",
+    "warning": "Les performances clôturées reprennent les prix d'entrée et de sortie publiés par Zonebourse. Elles excluent les frais, le spread et le slippage.",
     "marketDataUpdatedAt": "2026-08-03T15:27:26+00:00",
     "analysts": [
       {
@@ -87,26 +89,21 @@
       "direction": "CALL",
       "mnemo": "WC25V",
       "isin": "DE000VY88TJ7",
-      "status": "open",
+      "status": "closed",
       "entryPrice": 1.12,
-      "currentPrice": 1.455,
-      "exitPrice": null,
+      "currentPrice": null,
+      "exitPrice": 1.43,
       "entryDate": "2026-07-23",
-      "exitDate": null,
-      "quoteAt": "2026-08-03T15:25:00+00:00",
+      "exitDate": "2026-08-05",
+      "quoteAt": null,
       "target": 132,
       "stop": 111,
       "underlyingThreshold": 119.05,
       "currency": "EUR",
-      "url": "https://www.zonebourse.com/actualite-bourse/de-retour-sur-un-niveau-important-ce7f51ded88ff422",
-      "note": "Rebond technique attendu depuis le support de 117,15 €.",
+      "url": "https://www.zonebourse.com/actualite-bourse/prises-de-benefices-sur-le-warrant-call-vontobel-wc25v-27-68--ce7f50dcd98ff526",
+      "note": "Position clôturée à 1,43 €, soit +27,68 % selon Zonebourse.",
       "sourceConfidence": "high",
-      "bid": 1.45,
-      "ask": 1.46,
-      "marketDataProvider": "euronext",
-      "marketDataSourceUrl": "https://live.euronext.com/en/product/structured-products/DE000VY88TJ7-XMLI",
-      "marketDataRetrievedAt": "2026-08-03T15:28:07+00:00",
-      "marketDataDelayMinutes": 3
+      "realizedReturnPct": 27.68
     },
     {
       "id": "loreal-5s0vb-20260717",
@@ -456,6 +453,185 @@
       "url": "https://www.zonebourse.com/actualite-bourse/desactivation-du-mini-future-long-db83v-91-4--ce7f51dfdb8ff423",
       "note": "Mini-future désactivé ; valeur de remboursement 0,03 €, soit une perte de 91,40 %.",
       "sourceConfidence": "high"
+    },
+    {
+      "id": "russell-2000-mu13v-20260807",
+      "asset": "Russell 2000",
+      "productType": "Turbo",
+      "direction": "CALL",
+      "mnemo": "MU13V",
+      "isin": null,
+      "status": "open",
+      "entryPrice": null,
+      "currentPrice": null,
+      "exitPrice": null,
+      "entryDate": "2026-08-07",
+      "exitDate": null,
+      "strike": 2642.36,
+      "barrier": 2642.36,
+      "currency": "EUR",
+      "url": "https://www.zonebourse.com/actualite-bourse/achat-du-turbo-call-vontobel-mu13v-ce7f50d2dd80f02d",
+      "note": "Recommandation globale Zonebourse détectée ; prix d'entrée et ISIN à confirmer depuis la fiche article.",
+      "sourceConfidence": "medium"
+    },
+    {
+      "id": "gold-vu91v-20260807",
+      "asset": "Gold",
+      "productType": "Warrant",
+      "direction": "CALL",
+      "mnemo": "VU91V",
+      "isin": null,
+      "status": "open",
+      "entryPrice": null,
+      "currentPrice": null,
+      "exitPrice": null,
+      "entryDate": "2026-08-07",
+      "exitDate": null,
+      "strike": 4500,
+      "maturity": "2027-03-19",
+      "currency": "EUR",
+      "url": "https://www.zonebourse.com/actualite-bourse/nouveau-potentiel-au-dessus-de-la-resistance-ce7f50d2dd81f426",
+      "note": "Recommandation globale Zonebourse détectée ; prix d'entrée et ISIN à confirmer depuis la fiche article.",
+      "sourceConfidence": "medium"
+    },
+    {
+      "id": "kering-lu97v-20260807",
+      "asset": "Kering",
+      "productType": "Warrant",
+      "direction": "CALL",
+      "mnemo": "LU97V",
+      "isin": null,
+      "status": "open",
+      "entryPrice": null,
+      "currentPrice": null,
+      "exitPrice": null,
+      "entryDate": "2026-08-07",
+      "exitDate": null,
+      "strike": 330,
+      "maturity": "2027-03-19",
+      "currency": "EUR",
+      "url": "https://www.zonebourse.com/actualite-bourse/toujours-du-potentiel-ce7f50d2dd8ff12d",
+      "note": "Recommandation globale Zonebourse détectée ; prix d'entrée et ISIN à confirmer depuis la fiche article.",
+      "sourceConfidence": "medium"
+    },
+    {
+      "id": "stmicroelectronics-oj23v-20260810",
+      "asset": "STMicroelectronics N.V.", "productType": "Warrant", "direction": "CALL", "mnemo": "OJ23V", "isin": null,
+      "status": "open", "entryPrice": null, "currentPrice": null, "exitPrice": null, "entryDate": "2026-08-10", "exitDate": null,
+      "strike": 60, "maturity": "2026-12-18", "currency": "EUR",
+      "url": "https://www.zonebourse.com/bourse/derives/recommandations/", "note": "Une zone support en renfort. Prix d'entrée et ISIN à confirmer.", "sourceConfidence": "medium"
+    },
+    {
+      "id": "biomerieux-8rozb-20260806",
+      "asset": "bioMérieux", "productType": "Turbo", "direction": "CALL", "mnemo": "8ROZB", "isin": null,
+      "status": "open", "entryPrice": null, "currentPrice": null, "exitPrice": null, "entryDate": "2026-08-06", "exitDate": null,
+      "strike": 62.81, "barrier": 62.81, "maturity": "unlimited", "currency": "EUR",
+      "url": "https://www.zonebourse.com/bourse/derives/recommandations/", "note": "Achat du turbo CALL BNP Paribas 8ROZB. Prix d'entrée et ISIN à confirmer.", "sourceConfidence": "medium"
+    },
+    {
+      "id": "broadcom-mr20v-20260806",
+      "asset": "Broadcom Inc.", "productType": "Turbo", "direction": "CALL", "mnemo": "MR20V", "isin": null,
+      "status": "open", "entryPrice": null, "currentPrice": null, "exitPrice": null, "entryDate": "2026-08-06", "exitDate": null,
+      "strike": 343.42, "barrier": 343.42, "maturity": "unlimited", "currency": "EUR",
+      "url": "https://www.zonebourse.com/bourse/derives/recommandations/", "note": "Achat du turbo CALL Vontobel MR20V. Prix d'entrée et ISIN à confirmer.", "sourceConfidence": "medium"
+    },
+    {
+      "id": "alphabet-ml19v-20260804",
+      "asset": "Alphabet Inc.", "productType": "Turbo", "direction": "CALL", "mnemo": "ML19V", "isin": null,
+      "status": "open", "entryPrice": null, "currentPrice": null, "exitPrice": null, "entryDate": "2026-08-04", "exitDate": null,
+      "strike": 304.83, "barrier": 304.83, "maturity": "unlimited", "currency": "EUR",
+      "url": "https://www.zonebourse.com/bourse/derives/recommandations/", "note": "Achat du turbo CALL Vontobel ML19V. Prix d'entrée et ISIN à confirmer.", "sourceConfidence": "medium"
+    },
+    {
+      "id": "adyen-788xb-20260804",
+      "asset": "Adyen N.V.", "productType": "Turbo", "direction": "CALL", "mnemo": "788XB", "isin": null,
+      "status": "open", "entryPrice": null, "currentPrice": null, "exitPrice": null, "entryDate": "2026-08-04", "exitDate": null,
+      "strike": 722.23, "barrier": 722.23, "maturity": "unlimited", "currency": "EUR",
+      "url": "https://www.zonebourse.com/bourse/derives/recommandations/", "note": "Achat du turbo CALL BNP Paribas 788XB. Prix d'entrée et ISIN à confirmer.", "sourceConfidence": "medium"
+    },
+    {
+      "id": "alstom-nu70v-20260804",
+      "asset": "Alstom", "productType": "Turbo", "direction": "CALL", "mnemo": "NU70V", "isin": null,
+      "status": "open", "entryPrice": null, "currentPrice": null, "exitPrice": null, "entryDate": "2026-08-04", "exitDate": null,
+      "strike": 13.38, "barrier": 13.38, "maturity": "unlimited", "currency": "EUR",
+      "url": "https://www.zonebourse.com/bourse/derives/recommandations/", "note": "Achat du turbo CALL Vontobel NU70V. Prix d'entrée et ISIN à confirmer.", "sourceConfidence": "medium"
+    },
+    {
+      "id": "bmw-tu50v-20260803",
+      "asset": "BMW AG", "productType": "Turbo", "direction": "CALL", "mnemo": "TU50V", "isin": null,
+      "status": "open", "entryPrice": null, "currentPrice": null, "exitPrice": null, "entryDate": "2026-08-03", "exitDate": null,
+      "strike": 51.21, "barrier": 51.21, "maturity": "unlimited", "currency": "EUR",
+      "url": "https://www.zonebourse.com/bourse/derives/recommandations/", "note": "Achat du turbo CALL Vontobel TU50V. Prix d'entrée et ISIN à confirmer.", "sourceConfidence": "medium"
+    },
+    {
+      "id": "conocophillips-8y78s-20260731",
+      "asset": "ConocoPhillips", "productType": "Turbo", "direction": "CALL", "mnemo": "8Y78S", "isin": null,
+      "status": "open", "entryPrice": null, "currentPrice": null, "exitPrice": null, "entryDate": "2026-07-31", "exitDate": null,
+      "strike": 96.58, "barrier": 96.58, "maturity": "unlimited", "currency": "EUR",
+      "url": "https://www.zonebourse.com/bourse/derives/recommandations/", "note": "Achat du turbo CALL Société Générale 8Y78S. Prix d'entrée et ISIN à confirmer.", "sourceConfidence": "medium"
+    },
+    {
+      "id": "netflix-fs47v-20260716",
+      "asset": "Netflix, Inc.", "productType": "Warrant", "direction": "CALL", "mnemo": "FS47V", "isin": null,
+      "status": "open", "entryPrice": null, "currentPrice": null, "exitPrice": null, "entryDate": "2026-07-16", "exitDate": null,
+      "strike": 75, "maturity": "2026-12-18", "currency": "EUR",
+      "url": "https://www.zonebourse.com/bourse/derives/recommandations/", "note": "Les cours devraient se reprendre. Prix d'entrée et ISIN à confirmer.", "sourceConfidence": "medium"
+    },
+    {
+      "id": "bureau-veritas-akr4b-20260709",
+      "asset": "Bureau Veritas SA", "productType": "Turbo", "direction": "PUT", "mnemo": "AKR4B", "isin": null,
+      "status": "open", "entryPrice": null, "currentPrice": null, "exitPrice": null, "entryDate": "2026-07-09", "exitDate": null,
+      "strike": 32.01, "barrier": 30.72, "maturity": "unlimited", "currency": "EUR",
+      "url": "https://www.zonebourse.com/bourse/derives/recommandations/", "note": "Une correction technique en formation. Prix d'entrée et ISIN à confirmer.", "sourceConfidence": "medium"
+    },
+    {
+      "id": "ing-z38ps-20260708",
+      "asset": "ING Groep N.V.", "productType": "Turbo", "direction": "PUT", "mnemo": "Z38PS", "isin": null,
+      "status": "open", "entryPrice": null, "currentPrice": null, "exitPrice": null, "entryDate": "2026-07-08", "exitDate": null,
+      "strike": 31.92, "barrier": 31.92, "maturity": "unlimited", "currency": "EUR",
+      "url": "https://www.zonebourse.com/bourse/derives/recommandations/", "note": "Achat du turbo PUT Société Générale Z38PS. Prix d'entrée et ISIN à confirmer.", "sourceConfidence": "medium"
+    },
+    {
+      "id": "bouygues-2uuxb-20260706",
+      "asset": "Bouygues SA", "productType": "Turbo", "direction": "CALL", "mnemo": "2UUXB", "isin": null,
+      "status": "open", "entryPrice": null, "currentPrice": null, "exitPrice": null, "entryDate": "2026-07-06", "exitDate": null,
+      "strike": 36.62, "barrier": 36.62, "maturity": "unlimited", "currency": "EUR",
+      "url": "https://www.zonebourse.com/bourse/derives/recommandations/", "note": "Rebond technique attendu. Prix d'entrée et ISIN à confirmer.", "sourceConfidence": "medium"
+    },
+    {
+      "id": "airbus-4yf6b-20260626",
+      "asset": "Airbus SE", "productType": "Turbo", "direction": "PUT", "mnemo": "4YF6B", "isin": null,
+      "status": "open", "entryPrice": null, "currentPrice": null, "exitPrice": null, "entryDate": "2026-06-26", "exitDate": null,
+      "strike": 236.06, "barrier": 236.06, "maturity": "unlimited", "currency": "EUR",
+      "url": "https://www.zonebourse.com/bourse/derives/recommandations/", "note": "Achat du turbo PUT BNP Paribas 4YF6B. Prix d'entrée et ISIN à confirmer.", "sourceConfidence": "medium"
+    },
+    {
+      "id": "bnp-paribas-bm99v-20260624",
+      "asset": "BNP Paribas", "productType": "Warrant", "direction": "PUT", "mnemo": "BM99V", "isin": null,
+      "status": "open", "entryPrice": null, "currentPrice": null, "exitPrice": null, "entryDate": "2026-06-24", "exitDate": null,
+      "strike": 90, "maturity": "2026-12-18", "currency": "EUR",
+      "url": "https://www.zonebourse.com/bourse/derives/recommandations/", "note": "Une résistance pour argument. Prix d'entrée et ISIN à confirmer.", "sourceConfidence": "medium"
+    },
+    {
+      "id": "danone-s4tkb-20260624",
+      "asset": "Danone", "productType": "Turbo", "direction": "PUT", "mnemo": "S4TKB", "isin": null,
+      "status": "open", "entryPrice": null, "currentPrice": null, "exitPrice": null, "entryDate": "2026-06-24", "exitDate": null,
+      "strike": 79.9, "barrier": 79.9, "maturity": "unlimited", "currency": "EUR",
+      "url": "https://www.zonebourse.com/bourse/derives/recommandations/", "note": "Achat du turbo PUT BNP Paribas S4TKB. Prix d'entrée et ISIN à confirmer.", "sourceConfidence": "medium"
+    },
+    {
+      "id": "axa-ao22v-20260622",
+      "asset": "AXA", "productType": "Warrant", "direction": "PUT", "mnemo": "AO22V", "isin": null,
+      "status": "open", "entryPrice": null, "currentPrice": null, "exitPrice": null, "entryDate": "2026-06-22", "exitDate": null,
+      "strike": 42, "maturity": "2026-12-18", "currency": "EUR",
+      "url": "https://www.zonebourse.com/bourse/derives/recommandations/", "note": "Sous une résistance majeure. Prix d'entrée et ISIN à confirmer.", "sourceConfidence": "medium"
+    },
+    {
+      "id": "stellantis-fg12v-20260622",
+      "asset": "Stellantis N.V.", "productType": "Warrant", "direction": "CALL", "mnemo": "FG12V", "isin": "DE000VJ5FU71",
+      "status": "open", "entryPrice": 0.67, "currentPrice": null, "exitPrice": null, "entryDate": "2026-06-22", "exitDate": null,
+      "strike": 6, "maturity": "2026-12-18", "target": 6.5, "stop": 4.9, "currency": "EUR",
+      "url": "https://www.zonebourse.com/actualite-bourse/a-proximite-d-un-support-moyen-terme-important-ce7f5cd3da8bff20", "note": "A proximité d'un support moyen terme important.", "sourceConfidence": "high"
     }
   ]
 }

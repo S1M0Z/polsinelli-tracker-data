@@ -1,8 +1,8 @@
 {
   "meta": {
-    "generatedAt": "2026-08-03T15:29:42.331306+00:00",
+    "generatedAt": "2026-08-10T12:00:00+00:00",
     "engineVersion": "1.0.0",
-    "sourceGeneratedAt": "2026-07-28T10:31:34+02:00",
+    "sourceGeneratedAt": "2026-08-10T00:00:00+02:00",
     "purpose": "Conservative decision support; not an automated order system."
   },
   "policy": {
@@ -20,12 +20,12 @@
     "maxModelStakePerPositionEur": 50.0
   },
   "summary": {
-    "positionCount": 19,
-    "openCount": 6,
-    "closedCount": 13,
+    "positionCount": 39,
+    "openCount": 25,
+    "closedCount": 14,
     "actionableCount": 0,
     "decisionCounts": {
-      "DATA_INCOMPLETE": 6
+      "STALE_QUOTE": 25
     },
     "systemVerdict": "NO_ACTIONABLE_POSITION"
   },
@@ -48,15 +48,16 @@
         "publishedAt": null
       },
       "markToMarketReturnPct": -13.7931,
-      "decision": "DATA_INCOMPLETE",
+      "decision": "STALE_QUOTE",
       "reasons": [
+        "stale_quote",
         "spread_too_wide",
         "price_drift_too_high",
         "missing_detection_timestamps",
         "missing_risk_levels"
       ],
       "diagnostics": {
-        "quoteAgeMinutes": 19.41,
+        "quoteAgeMinutes": 9889.7,
         "spreadPct": 28.5714,
         "priceDriftPct": 14.9425,
         "detectionLatencySeconds": null,
@@ -64,40 +65,6 @@
       },
       "maxModelStakeEur": 50.0,
       "sourceUrl": "https://www.zonebourse.com/actualite-bourse/correction-technique-en-vue-ce7f51dfda8df125"
-    },
-    {
-      "positionId": "vinci-wc25v-20260723",
-      "asset": "Vinci",
-      "productType": "Warrant",
-      "direction": "CALL",
-      "mnemo": "WC25V",
-      "entryPrice": 1.12,
-      "market": {
-        "currentPrice": 1.455,
-        "quoteAt": "2026-08-03T15:25:00+00:00",
-        "bid": 1.45,
-        "ask": 1.46,
-        "underlyingPrice": null,
-        "publicationPrice": 1.12,
-        "detectedAt": null,
-        "publishedAt": null
-      },
-      "markToMarketReturnPct": 29.9107,
-      "decision": "DATA_INCOMPLETE",
-      "reasons": [
-        "price_drift_too_high",
-        "missing_detection_timestamps",
-        "missing_risk_levels"
-      ],
-      "diagnostics": {
-        "quoteAgeMinutes": 4.71,
-        "spreadPct": 0.6873,
-        "priceDriftPct": 30.3571,
-        "detectionLatencySeconds": null,
-        "rewardRiskRatio": null
-      },
-      "maxModelStakeEur": 50.0,
-      "sourceUrl": "https://www.zonebourse.com/actualite-bourse/de-retour-sur-un-niveau-important-ce7f51ded88ff422"
     },
     {
       "positionId": "apple-oz97v-20260721",
@@ -117,15 +84,16 @@
         "publishedAt": null
       },
       "markToMarketReturnPct": 20.9677,
-      "decision": "DATA_INCOMPLETE",
+      "decision": "STALE_QUOTE",
       "reasons": [
+        "stale_quote",
         "spread_too_wide",
         "price_drift_too_high",
         "missing_detection_timestamps",
         "missing_risk_levels"
       ],
       "diagnostics": {
-        "quoteAgeMinutes": 9.71,
+        "quoteAgeMinutes": 9880.0,
         "spreadPct": 8.0,
         "priceDriftPct": 25.8065,
         "detectionLatencySeconds": null,
@@ -152,13 +120,14 @@
         "publishedAt": null
       },
       "markToMarketReturnPct": -27.5907,
-      "decision": "DATA_INCOMPLETE",
+      "decision": "STALE_QUOTE",
       "reasons": [
+        "stale_quote",
         "missing_detection_timestamps",
         "missing_risk_levels"
       ],
       "diagnostics": {
-        "quoteAgeMinutes": 4.71,
+        "quoteAgeMinutes": 9875.0,
         "spreadPct": 0.3578,
         "priceDriftPct": -27.4611,
         "detectionLatencySeconds": null,
@@ -185,13 +154,14 @@
         "publishedAt": null
       },
       "markToMarketReturnPct": -14.5833,
-      "decision": "DATA_INCOMPLETE",
+      "decision": "STALE_QUOTE",
       "reasons": [
+        "stale_quote",
         "missing_detection_timestamps",
         "missing_risk_levels"
       ],
       "diagnostics": {
-        "quoteAgeMinutes": 4.71,
+        "quoteAgeMinutes": 9875.0,
         "spreadPct": 0.6969,
         "priceDriftPct": -14.2857,
         "detectionLatencySeconds": null,
@@ -218,13 +188,14 @@
         "publishedAt": null
       },
       "markToMarketReturnPct": -40.0327,
-      "decision": "DATA_INCOMPLETE",
+      "decision": "STALE_QUOTE",
       "reasons": [
+        "stale_quote",
         "missing_detection_timestamps",
         "missing_risk_levels"
       ],
       "diagnostics": {
-        "quoteAgeMinutes": 4.71,
+        "quoteAgeMinutes": 9875.0,
         "spreadPct": 0.545,
         "priceDriftPct": -39.8693,
         "detectionLatencySeconds": null,
@@ -232,20 +203,760 @@
       },
       "maxModelStakeEur": 50.0,
       "sourceUrl": "https://www.zonebourse.com/actualite-bourse/achat-du-warrant-call-bnp-paribas-3f7tb-ce7f5eddde81f72d"
+    },
+    {
+      "positionId": "russell-2000-mu13v-20260807",
+      "asset": "Russell 2000",
+      "productType": "Turbo",
+      "direction": "CALL",
+      "mnemo": "MU13V",
+      "entryPrice": null,
+      "market": {
+        "currentPrice": null,
+        "quoteAt": null,
+        "bid": null,
+        "ask": null,
+        "underlyingPrice": null,
+        "publicationPrice": null,
+        "detectedAt": null,
+        "publishedAt": null
+      },
+      "markToMarketReturnPct": null,
+      "decision": "STALE_QUOTE",
+      "reasons": [
+        "missing_quote_timestamp",
+        "missing_current_price",
+        "missing_bid_ask",
+        "missing_publication_price",
+        "missing_detection_timestamps",
+        "missing_risk_levels"
+      ],
+      "diagnostics": {
+        "quoteAgeMinutes": null,
+        "spreadPct": null,
+        "priceDriftPct": null,
+        "detectionLatencySeconds": null,
+        "rewardRiskRatio": null
+      },
+      "maxModelStakeEur": 50.0,
+      "sourceUrl": "https://www.zonebourse.com/actualite-bourse/achat-du-turbo-call-vontobel-mu13v-ce7f50d2dd80f02d"
+    },
+    {
+      "positionId": "gold-vu91v-20260807",
+      "asset": "Gold",
+      "productType": "Warrant",
+      "direction": "CALL",
+      "mnemo": "VU91V",
+      "entryPrice": null,
+      "market": {
+        "currentPrice": null,
+        "quoteAt": null,
+        "bid": null,
+        "ask": null,
+        "underlyingPrice": null,
+        "publicationPrice": null,
+        "detectedAt": null,
+        "publishedAt": null
+      },
+      "markToMarketReturnPct": null,
+      "decision": "STALE_QUOTE",
+      "reasons": [
+        "missing_quote_timestamp",
+        "missing_current_price",
+        "missing_bid_ask",
+        "missing_publication_price",
+        "missing_detection_timestamps",
+        "missing_risk_levels"
+      ],
+      "diagnostics": {
+        "quoteAgeMinutes": null,
+        "spreadPct": null,
+        "priceDriftPct": null,
+        "detectionLatencySeconds": null,
+        "rewardRiskRatio": null
+      },
+      "maxModelStakeEur": 50.0,
+      "sourceUrl": "https://www.zonebourse.com/actualite-bourse/nouveau-potentiel-au-dessus-de-la-resistance-ce7f50d2dd81f426"
+    },
+    {
+      "positionId": "kering-lu97v-20260807",
+      "asset": "Kering",
+      "productType": "Warrant",
+      "direction": "CALL",
+      "mnemo": "LU97V",
+      "entryPrice": null,
+      "market": {
+        "currentPrice": null,
+        "quoteAt": null,
+        "bid": null,
+        "ask": null,
+        "underlyingPrice": null,
+        "publicationPrice": null,
+        "detectedAt": null,
+        "publishedAt": null
+      },
+      "markToMarketReturnPct": null,
+      "decision": "STALE_QUOTE",
+      "reasons": [
+        "missing_quote_timestamp",
+        "missing_current_price",
+        "missing_bid_ask",
+        "missing_publication_price",
+        "missing_detection_timestamps",
+        "missing_risk_levels"
+      ],
+      "diagnostics": {
+        "quoteAgeMinutes": null,
+        "spreadPct": null,
+        "priceDriftPct": null,
+        "detectionLatencySeconds": null,
+        "rewardRiskRatio": null
+      },
+      "maxModelStakeEur": 50.0,
+      "sourceUrl": "https://www.zonebourse.com/actualite-bourse/toujours-du-potentiel-ce7f50d2dd8ff12d"
+    },
+    {
+      "positionId": "stmicroelectronics-oj23v-20260810",
+      "asset": "STMicroelectronics N.V.",
+      "productType": "Warrant",
+      "direction": "CALL",
+      "mnemo": "OJ23V",
+      "entryPrice": null,
+      "market": {
+        "currentPrice": null,
+        "quoteAt": null,
+        "bid": null,
+        "ask": null,
+        "underlyingPrice": null,
+        "publicationPrice": null,
+        "detectedAt": null,
+        "publishedAt": null
+      },
+      "markToMarketReturnPct": null,
+      "decision": "STALE_QUOTE",
+      "reasons": [
+        "missing_quote_timestamp",
+        "missing_current_price",
+        "missing_bid_ask",
+        "missing_publication_price",
+        "missing_detection_timestamps",
+        "missing_risk_levels"
+      ],
+      "diagnostics": {
+        "quoteAgeMinutes": null,
+        "spreadPct": null,
+        "priceDriftPct": null,
+        "detectionLatencySeconds": null,
+        "rewardRiskRatio": null
+      },
+      "maxModelStakeEur": 50.0,
+      "sourceUrl": "https://www.zonebourse.com/bourse/derives/recommandations/"
+    },
+    {
+      "positionId": "biomerieux-8rozb-20260806",
+      "asset": "bioMérieux",
+      "productType": "Turbo",
+      "direction": "CALL",
+      "mnemo": "8ROZB",
+      "entryPrice": null,
+      "market": {
+        "currentPrice": null,
+        "quoteAt": null,
+        "bid": null,
+        "ask": null,
+        "underlyingPrice": null,
+        "publicationPrice": null,
+        "detectedAt": null,
+        "publishedAt": null
+      },
+      "markToMarketReturnPct": null,
+      "decision": "STALE_QUOTE",
+      "reasons": [
+        "missing_quote_timestamp",
+        "missing_current_price",
+        "missing_bid_ask",
+        "missing_publication_price",
+        "missing_detection_timestamps",
+        "missing_risk_levels"
+      ],
+      "diagnostics": {
+        "quoteAgeMinutes": null,
+        "spreadPct": null,
+        "priceDriftPct": null,
+        "detectionLatencySeconds": null,
+        "rewardRiskRatio": null
+      },
+      "maxModelStakeEur": 50.0,
+      "sourceUrl": "https://www.zonebourse.com/bourse/derives/recommandations/"
+    },
+    {
+      "positionId": "broadcom-mr20v-20260806",
+      "asset": "Broadcom Inc.",
+      "productType": "Turbo",
+      "direction": "CALL",
+      "mnemo": "MR20V",
+      "entryPrice": null,
+      "market": {
+        "currentPrice": null,
+        "quoteAt": null,
+        "bid": null,
+        "ask": null,
+        "underlyingPrice": null,
+        "publicationPrice": null,
+        "detectedAt": null,
+        "publishedAt": null
+      },
+      "markToMarketReturnPct": null,
+      "decision": "STALE_QUOTE",
+      "reasons": [
+        "missing_quote_timestamp",
+        "missing_current_price",
+        "missing_bid_ask",
+        "missing_publication_price",
+        "missing_detection_timestamps",
+        "missing_risk_levels"
+      ],
+      "diagnostics": {
+        "quoteAgeMinutes": null,
+        "spreadPct": null,
+        "priceDriftPct": null,
+        "detectionLatencySeconds": null,
+        "rewardRiskRatio": null
+      },
+      "maxModelStakeEur": 50.0,
+      "sourceUrl": "https://www.zonebourse.com/bourse/derives/recommandations/"
+    },
+    {
+      "positionId": "alphabet-ml19v-20260804",
+      "asset": "Alphabet Inc.",
+      "productType": "Turbo",
+      "direction": "CALL",
+      "mnemo": "ML19V",
+      "entryPrice": null,
+      "market": {
+        "currentPrice": null,
+        "quoteAt": null,
+        "bid": null,
+        "ask": null,
+        "underlyingPrice": null,
+        "publicationPrice": null,
+        "detectedAt": null,
+        "publishedAt": null
+      },
+      "markToMarketReturnPct": null,
+      "decision": "STALE_QUOTE",
+      "reasons": [
+        "missing_quote_timestamp",
+        "missing_current_price",
+        "missing_bid_ask",
+        "missing_publication_price",
+        "missing_detection_timestamps",
+        "missing_risk_levels"
+      ],
+      "diagnostics": {
+        "quoteAgeMinutes": null,
+        "spreadPct": null,
+        "priceDriftPct": null,
+        "detectionLatencySeconds": null,
+        "rewardRiskRatio": null
+      },
+      "maxModelStakeEur": 50.0,
+      "sourceUrl": "https://www.zonebourse.com/bourse/derives/recommandations/"
+    },
+    {
+      "positionId": "adyen-788xb-20260804",
+      "asset": "Adyen N.V.",
+      "productType": "Turbo",
+      "direction": "CALL",
+      "mnemo": "788XB",
+      "entryPrice": null,
+      "market": {
+        "currentPrice": null,
+        "quoteAt": null,
+        "bid": null,
+        "ask": null,
+        "underlyingPrice": null,
+        "publicationPrice": null,
+        "detectedAt": null,
+        "publishedAt": null
+      },
+      "markToMarketReturnPct": null,
+      "decision": "STALE_QUOTE",
+      "reasons": [
+        "missing_quote_timestamp",
+        "missing_current_price",
+        "missing_bid_ask",
+        "missing_publication_price",
+        "missing_detection_timestamps",
+        "missing_risk_levels"
+      ],
+      "diagnostics": {
+        "quoteAgeMinutes": null,
+        "spreadPct": null,
+        "priceDriftPct": null,
+        "detectionLatencySeconds": null,
+        "rewardRiskRatio": null
+      },
+      "maxModelStakeEur": 50.0,
+      "sourceUrl": "https://www.zonebourse.com/bourse/derives/recommandations/"
+    },
+    {
+      "positionId": "alstom-nu70v-20260804",
+      "asset": "Alstom",
+      "productType": "Turbo",
+      "direction": "CALL",
+      "mnemo": "NU70V",
+      "entryPrice": null,
+      "market": {
+        "currentPrice": null,
+        "quoteAt": null,
+        "bid": null,
+        "ask": null,
+        "underlyingPrice": null,
+        "publicationPrice": null,
+        "detectedAt": null,
+        "publishedAt": null
+      },
+      "markToMarketReturnPct": null,
+      "decision": "STALE_QUOTE",
+      "reasons": [
+        "missing_quote_timestamp",
+        "missing_current_price",
+        "missing_bid_ask",
+        "missing_publication_price",
+        "missing_detection_timestamps",
+        "missing_risk_levels"
+      ],
+      "diagnostics": {
+        "quoteAgeMinutes": null,
+        "spreadPct": null,
+        "priceDriftPct": null,
+        "detectionLatencySeconds": null,
+        "rewardRiskRatio": null
+      },
+      "maxModelStakeEur": 50.0,
+      "sourceUrl": "https://www.zonebourse.com/bourse/derives/recommandations/"
+    },
+    {
+      "positionId": "bmw-tu50v-20260803",
+      "asset": "BMW AG",
+      "productType": "Turbo",
+      "direction": "CALL",
+      "mnemo": "TU50V",
+      "entryPrice": null,
+      "market": {
+        "currentPrice": null,
+        "quoteAt": null,
+        "bid": null,
+        "ask": null,
+        "underlyingPrice": null,
+        "publicationPrice": null,
+        "detectedAt": null,
+        "publishedAt": null
+      },
+      "markToMarketReturnPct": null,
+      "decision": "STALE_QUOTE",
+      "reasons": [
+        "missing_quote_timestamp",
+        "missing_current_price",
+        "missing_bid_ask",
+        "missing_publication_price",
+        "missing_detection_timestamps",
+        "missing_risk_levels"
+      ],
+      "diagnostics": {
+        "quoteAgeMinutes": null,
+        "spreadPct": null,
+        "priceDriftPct": null,
+        "detectionLatencySeconds": null,
+        "rewardRiskRatio": null
+      },
+      "maxModelStakeEur": 50.0,
+      "sourceUrl": "https://www.zonebourse.com/bourse/derives/recommandations/"
+    },
+    {
+      "positionId": "conocophillips-8y78s-20260731",
+      "asset": "ConocoPhillips",
+      "productType": "Turbo",
+      "direction": "CALL",
+      "mnemo": "8Y78S",
+      "entryPrice": null,
+      "market": {
+        "currentPrice": null,
+        "quoteAt": null,
+        "bid": null,
+        "ask": null,
+        "underlyingPrice": null,
+        "publicationPrice": null,
+        "detectedAt": null,
+        "publishedAt": null
+      },
+      "markToMarketReturnPct": null,
+      "decision": "STALE_QUOTE",
+      "reasons": [
+        "missing_quote_timestamp",
+        "missing_current_price",
+        "missing_bid_ask",
+        "missing_publication_price",
+        "missing_detection_timestamps",
+        "missing_risk_levels"
+      ],
+      "diagnostics": {
+        "quoteAgeMinutes": null,
+        "spreadPct": null,
+        "priceDriftPct": null,
+        "detectionLatencySeconds": null,
+        "rewardRiskRatio": null
+      },
+      "maxModelStakeEur": 50.0,
+      "sourceUrl": "https://www.zonebourse.com/bourse/derives/recommandations/"
+    },
+    {
+      "positionId": "netflix-fs47v-20260716",
+      "asset": "Netflix, Inc.",
+      "productType": "Warrant",
+      "direction": "CALL",
+      "mnemo": "FS47V",
+      "entryPrice": null,
+      "market": {
+        "currentPrice": null,
+        "quoteAt": null,
+        "bid": null,
+        "ask": null,
+        "underlyingPrice": null,
+        "publicationPrice": null,
+        "detectedAt": null,
+        "publishedAt": null
+      },
+      "markToMarketReturnPct": null,
+      "decision": "STALE_QUOTE",
+      "reasons": [
+        "missing_quote_timestamp",
+        "missing_current_price",
+        "missing_bid_ask",
+        "missing_publication_price",
+        "missing_detection_timestamps",
+        "missing_risk_levels"
+      ],
+      "diagnostics": {
+        "quoteAgeMinutes": null,
+        "spreadPct": null,
+        "priceDriftPct": null,
+        "detectionLatencySeconds": null,
+        "rewardRiskRatio": null
+      },
+      "maxModelStakeEur": 50.0,
+      "sourceUrl": "https://www.zonebourse.com/bourse/derives/recommandations/"
+    },
+    {
+      "positionId": "bureau-veritas-akr4b-20260709",
+      "asset": "Bureau Veritas SA",
+      "productType": "Turbo",
+      "direction": "PUT",
+      "mnemo": "AKR4B",
+      "entryPrice": null,
+      "market": {
+        "currentPrice": null,
+        "quoteAt": null,
+        "bid": null,
+        "ask": null,
+        "underlyingPrice": null,
+        "publicationPrice": null,
+        "detectedAt": null,
+        "publishedAt": null
+      },
+      "markToMarketReturnPct": null,
+      "decision": "STALE_QUOTE",
+      "reasons": [
+        "missing_quote_timestamp",
+        "missing_current_price",
+        "missing_bid_ask",
+        "missing_publication_price",
+        "missing_detection_timestamps",
+        "missing_risk_levels"
+      ],
+      "diagnostics": {
+        "quoteAgeMinutes": null,
+        "spreadPct": null,
+        "priceDriftPct": null,
+        "detectionLatencySeconds": null,
+        "rewardRiskRatio": null
+      },
+      "maxModelStakeEur": 50.0,
+      "sourceUrl": "https://www.zonebourse.com/bourse/derives/recommandations/"
+    },
+    {
+      "positionId": "ing-z38ps-20260708",
+      "asset": "ING Groep N.V.",
+      "productType": "Turbo",
+      "direction": "PUT",
+      "mnemo": "Z38PS",
+      "entryPrice": null,
+      "market": {
+        "currentPrice": null,
+        "quoteAt": null,
+        "bid": null,
+        "ask": null,
+        "underlyingPrice": null,
+        "publicationPrice": null,
+        "detectedAt": null,
+        "publishedAt": null
+      },
+      "markToMarketReturnPct": null,
+      "decision": "STALE_QUOTE",
+      "reasons": [
+        "missing_quote_timestamp",
+        "missing_current_price",
+        "missing_bid_ask",
+        "missing_publication_price",
+        "missing_detection_timestamps",
+        "missing_risk_levels"
+      ],
+      "diagnostics": {
+        "quoteAgeMinutes": null,
+        "spreadPct": null,
+        "priceDriftPct": null,
+        "detectionLatencySeconds": null,
+        "rewardRiskRatio": null
+      },
+      "maxModelStakeEur": 50.0,
+      "sourceUrl": "https://www.zonebourse.com/bourse/derives/recommandations/"
+    },
+    {
+      "positionId": "bouygues-2uuxb-20260706",
+      "asset": "Bouygues SA",
+      "productType": "Turbo",
+      "direction": "CALL",
+      "mnemo": "2UUXB",
+      "entryPrice": null,
+      "market": {
+        "currentPrice": null,
+        "quoteAt": null,
+        "bid": null,
+        "ask": null,
+        "underlyingPrice": null,
+        "publicationPrice": null,
+        "detectedAt": null,
+        "publishedAt": null
+      },
+      "markToMarketReturnPct": null,
+      "decision": "STALE_QUOTE",
+      "reasons": [
+        "missing_quote_timestamp",
+        "missing_current_price",
+        "missing_bid_ask",
+        "missing_publication_price",
+        "missing_detection_timestamps",
+        "missing_risk_levels"
+      ],
+      "diagnostics": {
+        "quoteAgeMinutes": null,
+        "spreadPct": null,
+        "priceDriftPct": null,
+        "detectionLatencySeconds": null,
+        "rewardRiskRatio": null
+      },
+      "maxModelStakeEur": 50.0,
+      "sourceUrl": "https://www.zonebourse.com/bourse/derives/recommandations/"
+    },
+    {
+      "positionId": "airbus-4yf6b-20260626",
+      "asset": "Airbus SE",
+      "productType": "Turbo",
+      "direction": "PUT",
+      "mnemo": "4YF6B",
+      "entryPrice": null,
+      "market": {
+        "currentPrice": null,
+        "quoteAt": null,
+        "bid": null,
+        "ask": null,
+        "underlyingPrice": null,
+        "publicationPrice": null,
+        "detectedAt": null,
+        "publishedAt": null
+      },
+      "markToMarketReturnPct": null,
+      "decision": "STALE_QUOTE",
+      "reasons": [
+        "missing_quote_timestamp",
+        "missing_current_price",
+        "missing_bid_ask",
+        "missing_publication_price",
+        "missing_detection_timestamps",
+        "missing_risk_levels"
+      ],
+      "diagnostics": {
+        "quoteAgeMinutes": null,
+        "spreadPct": null,
+        "priceDriftPct": null,
+        "detectionLatencySeconds": null,
+        "rewardRiskRatio": null
+      },
+      "maxModelStakeEur": 50.0,
+      "sourceUrl": "https://www.zonebourse.com/bourse/derives/recommandations/"
+    },
+    {
+      "positionId": "bnp-paribas-bm99v-20260624",
+      "asset": "BNP Paribas",
+      "productType": "Warrant",
+      "direction": "PUT",
+      "mnemo": "BM99V",
+      "entryPrice": null,
+      "market": {
+        "currentPrice": null,
+        "quoteAt": null,
+        "bid": null,
+        "ask": null,
+        "underlyingPrice": null,
+        "publicationPrice": null,
+        "detectedAt": null,
+        "publishedAt": null
+      },
+      "markToMarketReturnPct": null,
+      "decision": "STALE_QUOTE",
+      "reasons": [
+        "missing_quote_timestamp",
+        "missing_current_price",
+        "missing_bid_ask",
+        "missing_publication_price",
+        "missing_detection_timestamps",
+        "missing_risk_levels"
+      ],
+      "diagnostics": {
+        "quoteAgeMinutes": null,
+        "spreadPct": null,
+        "priceDriftPct": null,
+        "detectionLatencySeconds": null,
+        "rewardRiskRatio": null
+      },
+      "maxModelStakeEur": 50.0,
+      "sourceUrl": "https://www.zonebourse.com/bourse/derives/recommandations/"
+    },
+    {
+      "positionId": "danone-s4tkb-20260624",
+      "asset": "Danone",
+      "productType": "Turbo",
+      "direction": "PUT",
+      "mnemo": "S4TKB",
+      "entryPrice": null,
+      "market": {
+        "currentPrice": null,
+        "quoteAt": null,
+        "bid": null,
+        "ask": null,
+        "underlyingPrice": null,
+        "publicationPrice": null,
+        "detectedAt": null,
+        "publishedAt": null
+      },
+      "markToMarketReturnPct": null,
+      "decision": "STALE_QUOTE",
+      "reasons": [
+        "missing_quote_timestamp",
+        "missing_current_price",
+        "missing_bid_ask",
+        "missing_publication_price",
+        "missing_detection_timestamps",
+        "missing_risk_levels"
+      ],
+      "diagnostics": {
+        "quoteAgeMinutes": null,
+        "spreadPct": null,
+        "priceDriftPct": null,
+        "detectionLatencySeconds": null,
+        "rewardRiskRatio": null
+      },
+      "maxModelStakeEur": 50.0,
+      "sourceUrl": "https://www.zonebourse.com/bourse/derives/recommandations/"
+    },
+    {
+      "positionId": "axa-ao22v-20260622",
+      "asset": "AXA",
+      "productType": "Warrant",
+      "direction": "PUT",
+      "mnemo": "AO22V",
+      "entryPrice": null,
+      "market": {
+        "currentPrice": null,
+        "quoteAt": null,
+        "bid": null,
+        "ask": null,
+        "underlyingPrice": null,
+        "publicationPrice": null,
+        "detectedAt": null,
+        "publishedAt": null
+      },
+      "markToMarketReturnPct": null,
+      "decision": "STALE_QUOTE",
+      "reasons": [
+        "missing_quote_timestamp",
+        "missing_current_price",
+        "missing_bid_ask",
+        "missing_publication_price",
+        "missing_detection_timestamps",
+        "missing_risk_levels"
+      ],
+      "diagnostics": {
+        "quoteAgeMinutes": null,
+        "spreadPct": null,
+        "priceDriftPct": null,
+        "detectionLatencySeconds": null,
+        "rewardRiskRatio": null
+      },
+      "maxModelStakeEur": 50.0,
+      "sourceUrl": "https://www.zonebourse.com/bourse/derives/recommandations/"
+    },
+    {
+      "positionId": "stellantis-fg12v-20260622",
+      "asset": "Stellantis N.V.",
+      "productType": "Warrant",
+      "direction": "CALL",
+      "mnemo": "FG12V",
+      "entryPrice": 0.67,
+      "market": {
+        "currentPrice": null,
+        "quoteAt": null,
+        "bid": null,
+        "ask": null,
+        "underlyingPrice": null,
+        "publicationPrice": 0.67,
+        "detectedAt": null,
+        "publishedAt": null
+      },
+      "markToMarketReturnPct": null,
+      "decision": "STALE_QUOTE",
+      "reasons": [
+        "missing_quote_timestamp",
+        "missing_current_price",
+        "missing_bid_ask",
+        "missing_publication_price",
+        "missing_detection_timestamps",
+        "missing_risk_levels"
+      ],
+      "diagnostics": {
+        "quoteAgeMinutes": null,
+        "spreadPct": null,
+        "priceDriftPct": null,
+        "detectionLatencySeconds": null,
+        "rewardRiskRatio": null
+      },
+      "maxModelStakeEur": 50.0,
+      "sourceUrl": "https://www.zonebourse.com/actualite-bourse/a-proximite-d-un-support-moyen-terme-important-ce7f5cd3da8bff20"
     }
   ],
   "closedTrackRecord": {
-    "tradeCount": 13,
-    "winCount": 12,
+    "tradeCount": 14,
+    "winCount": 13,
     "lossCount": 1,
-    "winRatePct": 92.31,
-    "averageReturnPct": 15.6607,
-    "medianReturnPct": 20.6897,
+    "winRatePct": 92.86,
+    "averageReturnPct": 16.5192,
+    "medianReturnPct": 20.9218,
     "bestReturnPct": 41.6667,
     "worstReturnPct": -91.4286,
     "fixedStakeEur": 100.0,
-    "fixedStakeTotalPnlEur": 203.59,
-    "profitFactor": 3.2268,
+    "fixedStakeTotalPnlEur": 231.27,
+    "profitFactor": 3.5295,
     "trades": [
       {
         "positionId": "sap-db83v-20260317",
@@ -350,6 +1061,14 @@
         "fixedStakePnlEur": 20.69,
         "entryDate": "2026-07-20",
         "exitDate": "2026-07-28"
+      },
+      {
+        "positionId": "vinci-wc25v-20260723",
+        "asset": "Vinci",
+        "returnPct": 27.6786,
+        "fixedStakePnlEur": 27.68,
+        "entryDate": "2026-07-23",
+        "exitDate": "2026-08-05"
       }
     ],
     "limitations": [

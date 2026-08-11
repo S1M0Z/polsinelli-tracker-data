@@ -1,6 +1,6 @@
-# Polsinelli Tracker Data
+# Zonebourse Derivatives Tracker Data
 
-Données, scanner de publications et moteur de décision conservateur pour le suivi des positions publiées par Laurent Polsinelli.
+Données, scanner de publications et moteur de décision conservateur pour le suivi de toutes les recommandations de Turbos et Warrants publiées sur la page globale Zonebourse.
 
 ## Fichiers de données
 
@@ -68,6 +68,10 @@ python3 -m unittest discover -s tests -v
 ```
 
 Les seuils par défaut utilisent un capital de simulation de 10 000 € et supposent que la totalité de la prime d'un produit à effet de levier peut être perdue. Modifie `risk-policy.json` pour adapter la simulation à ton capital et à ta tolérance au risque.
+
+## Synchronisation Zonebourse
+
+Le workflow rapide lit toutes les cinq minutes les recommandations en cours et les positions soldées. Il ajoute les nouveaux produits à `positions.json`, n'enregistre une clôture que lorsqu'un prix d'entrée et un prix de sortie explicites sont publiés, puis reconstruit `investment-view.json`. Une recommandation sans prix d'entrée confirmé reste visible avec une valeur `null` et une décision bloquée pour données incomplètes.
 
 ## Important
 
