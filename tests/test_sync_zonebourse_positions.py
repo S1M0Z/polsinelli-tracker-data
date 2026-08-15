@@ -20,6 +20,16 @@ class ZoneboursePositionSyncTests(unittest.TestCase):
         self.assertEqual(details["target"], 4650)
         self.assertEqual(details["stop"], 4390)
 
+    def test_extracts_stop_from_zonebourse_opinion_header(self):
+        details = parse_article_details("""
+            <p>Opinion Négative sous les 326.59 €</p>
+            <p>Objectif de cours 290 €</p>
+            <p>Cours d'entrée 1.24 €</p>
+            <section>ISIN DE000VY3GDC5</section>
+        """)
+        self.assertEqual(details["stop"], 326.59)
+        self.assertEqual(details["target"], 290)
+
     def test_new_position_keeps_enriched_article_fields(self):
         document = {"meta": {}, "positions": []}
         current = [{
