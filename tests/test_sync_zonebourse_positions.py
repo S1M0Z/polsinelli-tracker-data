@@ -89,6 +89,7 @@ class ZoneboursePositionSyncTests(unittest.TestCase):
                 "detectedAt": "2026-08-10T11:13:00+02:00",
             }],
         }
+        synchronize(document, current, [], datetime(2026, 8, 10, 12, tzinfo=PARIS))
         result = synchronize(document, current, [], datetime(2026, 8, 10, 12, tzinfo=PARIS))
         self.assertFalse(result["changed"])
 

@@ -24,6 +24,7 @@ from market_data.base import (
 )
 from market_data.euronext import EuronextProvider
 from market_data.saxo import SaxoProvider
+from data_quality import refresh_data_quality
 
 
 @dataclass
@@ -260,7 +261,8 @@ def collect_documents(
     )
     quotes_document["quotes"] = trimmed
 
-    changed = bool(added or updated or mappings_updated)
+    quality_updated = refresh_data_quality(positions)
+    changed = bool(added or updated or mappings_updated or quality_updated)
     if changed:
         quotes_document.setdefault("meta", {})["updatedAt"] = now
         positions_document.setdefault("meta", {})["marketDataUpdatedAt"] = now

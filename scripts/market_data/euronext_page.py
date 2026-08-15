@@ -47,7 +47,9 @@ _LABELS = {
 
 
 def _number_after_label(text: str, labels: tuple[str, ...]) -> float | None:
-    number = r"(?:[€$£]\s*)?[0-9][0-9\s.,'’]*"
+    # Stop at the end of one localized number. The previous permissive pattern
+    # could concatenate the following timestamp ("1,31 31/07/...") into 1.3131.
+    number = r"(?:[€$£]\s*)?[0-9]+(?:[\s\u00a0\u202f][0-9]{3})*(?:[.,][0-9]+)?"
     for label in labels:
         match = re.search(rf"(?:{label})\s*[:\-]?\s*(?P<value>{number})", text, re.I)
         if match:
@@ -72,7 +74,7 @@ def _merge_quote(
 ) -> tuple[float | None, float | None, float | None, float | None]:
     return tuple(
         existing if existing is not None else incoming
-        for existing, incoming in zip(current, candidate, strict=True)
+        for existing, incoming in zip(current, candidate)
     )  # type: ignore[return-value]
 
 

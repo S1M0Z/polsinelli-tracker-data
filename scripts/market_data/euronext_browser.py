@@ -19,6 +19,10 @@ class PlaywrightRequester:
         timeout_ms: int = 35_000,
         settle_ms: int = 2_500,
         headless: bool = True,
+        allow_http_errors: bool = False,
+        locale: str = "en-GB",
+        user_agent: str | None = None,
+        reduce_automation_signals: bool = False,
     ) -> None:
         try:
             from playwright.sync_api import Error as PlaywrightError
@@ -34,6 +38,7 @@ class PlaywrightRequester:
         self._timeout_error = PlaywrightTimeoutError
         self.timeout_ms = timeout_ms
         self.settle_ms = settle_ms
+        self.allow_http_errors = allow_http_errors
         self._closed = False
         self._playwright = sync_playwright().start()
         launch_args = ["--disable-dev-shm-usage"]
@@ -44,13 +49,17 @@ class PlaywrightRequester:
             args=launch_args,
         )
         self._context = self._browser.new_context(
-            locale="en-GB",
-            user_agent=(
+            locale=locale,
+            user_agent=user_agent or (
                 "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) "
                 "AppleWebKit/537.36 (KHTML, like Gecko) "
                 "Chrome/126.0 Safari/537.36 polsinelli-tracker/3.0"
             ),
         )
+        if reduce_automation_signals:
+            self._context.add_init_script(
+                "Object.defineProperty(navigator, 'webdriver', {get: () => undefined});"
+            )
         # Quotes are injected through scripts/XHR. Images, video and fonts add
         # substantial bandwidth and memory use without contributing any data.
         self._context.route(
@@ -95,7 +104,7 @@ class PlaywrightRequester:
                 wait_until="domcontentloaded",
                 timeout=self.timeout_ms,
             )
-            if response is not None and response.status >= 400:
+            if response is not None and response.status >= 400 and not self.allow_http_errors:
                 raise ProviderError(f"Browser HTTP {response.status} for {url}")
             self._accept_cookies()
             try:

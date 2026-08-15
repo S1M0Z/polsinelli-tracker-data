@@ -12,6 +12,11 @@ from datetime import datetime, timedelta
 from pathlib import Path
 
 try:
+    from .data_quality import refresh_data_quality
+except ImportError:
+    from data_quality import refresh_data_quality
+
+try:
     from .fast_zonebourse_scan_v2 import (
         PARIS, Parser, canonical_article_url, fetch_text, parse_html_articles,
     )
@@ -308,11 +313,14 @@ def synchronize(document: dict, current: list[dict], closed: list[dict], now: da
         changed = True
     if changed:
         meta.update(expected_meta)
+    quality_updated = refresh_data_quality(positions)
+    changed = bool(changed or quality_updated)
     return {
         "added": added,
         "closed": closed_count,
         "openSeen": len(current),
         "changed": changed,
+        "qualityUpdated": quality_updated,
     }
 
 
