@@ -174,6 +174,7 @@ def merged_market_data(position: dict[str, Any], quote: dict[str, Any] | None) -
         "publicationPrice": position.get("publicationPrice", position.get("entryPrice")),
         "detectedAt": position.get("detectedAt"),
         "publishedAt": position.get("publishedAt"),
+        "publishedAtPrecision": position.get("publishedAtPrecision", "minute"),
     }
     if quote:
         for key in data:
@@ -205,8 +206,10 @@ def entry_decision(
     if quote_at is None:
         reasons.append("missing_quote_timestamp")
     else:
-        quote_age_minutes = max(0.0, (as_of - quote_at).total_seconds() / 60.0)
-        if quote_age_minutes > policy.max_quote_age_minutes:
+        quote_age_minutes = (as_of - quote_at).total_seconds() / 60.0
+        if quote_age_minutes < -1:
+            reasons.append("quote_timestamp_in_future")
+        elif quote_age_minutes > policy.max_quote_age_minutes:
             reasons.append("stale_quote")
 
     current_price = market.get("currentPrice")
@@ -238,11 +241,15 @@ def entry_decision(
     published_at = parse_datetime(market.get("publishedAt"))
     detected_at = parse_datetime(market.get("detectedAt"))
     detection_latency_seconds: float | None = None
-    if published_at is None or detected_at is None:
+    if market.get("publishedAtPrecision", "minute") != "minute":
+        reasons.append("missing_publication_time")
+    elif published_at is None or detected_at is None:
         reasons.append("missing_detection_timestamps")
     else:
-        detection_latency_seconds = max(0.0, (detected_at - published_at).total_seconds())
-        if detection_latency_seconds > policy.max_detection_latency_seconds:
+        detection_latency_seconds = (detected_at - published_at).total_seconds()
+        if detection_latency_seconds < 0:
+            reasons.append("detection_before_publication")
+        elif detection_latency_seconds > policy.max_detection_latency_seconds:
             reasons.append("detection_too_slow")
 
     target = position.get("target")
@@ -270,6 +277,8 @@ def entry_decision(
 
     if "stale_quote" in reasons or "missing_quote_timestamp" in reasons:
         decision = "STALE_QUOTE"
+    elif "quote_timestamp_in_future" in reasons or "detection_before_publication" in reasons:
+        decision = "INVALID_TIMESTAMPS"
     elif any(reason.startswith("missing_") for reason in reasons):
         decision = "DATA_INCOMPLETE"
     elif "spread_too_wide" in reasons:
@@ -393,17 +402,28 @@ def build_view(
         )
 
     actionable = [row for row in open_rows if row["decision"] == "ELIGIBLE"]
-    if len(actionable) > policy.max_open_positions:
-        for row in actionable[policy.max_open_positions :]:
+    committed_positions = sum(
+        1
+        for position in open_positions
+        if isinstance(position.get("entryPrice"), (int, float))
+        and not isinstance(position.get("entryPrice"), bool)
+        and position["entryPrice"] > 0
+    )
+    available_slots = max(0, policy.max_open_positions - committed_positions)
+    if len(actionable) > available_slots:
+        for row in actionable[available_slots:]:
             row["decision"] = "PORTFOLIO_LIMIT"
             row["reasons"].append("max_open_positions_reached")
-        decision_counts["ELIGIBLE"] = policy.max_open_positions
-        decision_counts["PORTFOLIO_LIMIT"] = len(actionable) - policy.max_open_positions
+        if available_slots:
+            decision_counts["ELIGIBLE"] = available_slots
+        else:
+            decision_counts.pop("ELIGIBLE", None)
+        decision_counts["PORTFOLIO_LIMIT"] = len(actionable) - available_slots
 
     return {
         "meta": {
             "generatedAt": as_of.isoformat(),
-            "engineVersion": "1.0.0",
+            "engineVersion": "1.1.0",
             "sourceGeneratedAt": positions_document.get("meta", {}).get("generatedAt"),
             "purpose": "Conservative decision support; not an automated order system.",
         },
@@ -426,6 +446,8 @@ def build_view(
             "openCount": len(open_positions),
             "closedCount": len(closed_positions),
             "actionableCount": sum(1 for row in open_rows if row["decision"] == "ELIGIBLE"),
+            "committedOpenCount": committed_positions,
+            "availablePositionSlots": available_slots,
             "decisionCounts": decision_counts,
             "systemVerdict": "NO_ACTIONABLE_POSITION"
             if not any(row["decision"] == "ELIGIBLE" for row in open_rows)

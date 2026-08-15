@@ -130,6 +130,7 @@ def new_position(card: dict, detected_at: str) -> dict:
         "currency": "EUR",
         "url": card["url"],
         "publishedAt": card["publishedAt"],
+        "publishedAtPrecision": card.get("publishedAtPrecision", "minute"),
         "detectedAt": detected_at,
         "note": f"{card['title']}. Prix d'entrée et ISIN à confirmer depuis la fiche article.",
         "sourceConfidence": "medium",
@@ -152,9 +153,25 @@ def synchronize(document: dict, current: list[dict], closed: list[dict], now: da
             if existing.get("url") != card["url"]:
                 existing["url"] = card["url"]
                 changed = True
-            if "publishedAt" not in existing:
+            if not existing.get("publishedAt"):
                 existing["publishedAt"] = card["publishedAt"]
                 changed = True
+            precision = card.get("publishedAtPrecision", "minute")
+            if existing.get("publishedAtPrecision") != precision:
+                existing["publishedAtPrecision"] = precision
+                changed = True
+            if not existing.get("detectedAt"):
+                existing["detectedAt"] = detected_at
+                changed = True
+            for destination, source in (
+                ("asset", "underlying"),
+                ("productType", "productType"),
+                ("direction", "direction"),
+            ):
+                value = card.get(source)
+                if value and not existing.get(destination):
+                    existing[destination] = value.title() if destination == "productType" else value
+                    changed = True
             continue
         position = new_position(card, detected_at)
         positions.append(position)

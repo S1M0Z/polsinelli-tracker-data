@@ -67,6 +67,7 @@ class FastZonebourseScanV2Tests(unittest.TestCase):
         self.assertEqual(articles[0]["productType"], "TURBO")
         self.assertEqual(articles[0]["productCode"], "MU13V")
         self.assertEqual(articles[0]["direction"], "CALL")
+        self.assertEqual(articles[0]["publishedAtPrecision"], "date")
         self.assertEqual(articles[1]["title"], "Nouveau potentiel au-dessus de la résistance")
 
     def test_infers_previous_year_for_december_card_seen_in_january(self):
@@ -83,6 +84,7 @@ class FastZonebourseScanV2Tests(unittest.TestCase):
         )
         self.assertEqual(parsed["productCode"], "OJ23V")
         self.assertEqual(parsed["publishedAt"], "2026-08-10T11:12+02:00")
+        self.assertEqual(parsed["publishedAtPrecision"], "minute")
 
 
 if __name__ == "__main__":

@@ -88,5 +88,11 @@ sudo -n install \
   -m 0644 \
   "$RUNTIME_DIR/positions.json" \
   "$SITE_DATA_DIR/positions.json"
+sudo -n install \
+  -o ubuntu \
+  -g www-data \
+  -m 0644 \
+  "$RUNTIME_DIR/investment-view.json" \
+  "$SITE_DATA_DIR/investment-view.json"
 
 echo "Market quotes refreshed locally; no Git commit or push performed."
