@@ -7,6 +7,7 @@ import os
 import re
 import sys
 import unicodedata
+from html import unescape
 from datetime import datetime, timedelta
 from pathlib import Path
 
@@ -35,6 +36,87 @@ CLOSED_CARD_RE = re.compile(
     r"(?P<exit>\d+[,.]\d+)\s+(?P<performance>[+-]\d+[,.]\d+)\s*%\s+SORTIE$",
     re.IGNORECASE,
 )
+ISIN_RE = re.compile(r"\b(?:ISIN\s*:?[\s-]*)?([A-Z]{2}[A-Z0-9]{9}\d)\b", re.IGNORECASE)
+
+
+def article_text(raw: str) -> str:
+    """Normalise aussi bien une page HTML qu'un rendu texte Jina."""
+    without_scripts = re.sub(r"<(?:script|style)\b[^>]*>.*?</(?:script|style)>", " ", raw, flags=re.I | re.S)
+    without_tags = re.sub(r"<[^>]+>", " ", without_scripts)
+    return " ".join(unescape(without_tags).replace("**", " ").split())
+
+
+def first_number(text: str, patterns: tuple[str, ...]) -> float | None:
+    for pattern in patterns:
+        match = re.search(pattern, text, flags=re.I)
+        if match:
+            try:
+                return number(match.group(1))
+            except ValueError:
+                continue
+    return None
+
+
+def parse_article_details(raw: str) -> dict:
+    """Extrait uniquement les valeurs explicitement publiées sur la fiche."""
+    text = article_text(raw)
+    isin_match = ISIN_RE.search(text)
+    return {
+        "isin": isin_match.group(1).upper() if isin_match else None,
+        "entryPrice": first_number(text, (
+            r"Cours d['’]entrée\s*:?[\s€]*([\d\s.,]+)",
+            r"Prix d['’]entrée\s*:?[\s€]*([\d\s.,]+)",
+            r"\bEntrée\s*:?[\s€]*([\d]+[,.]\d+)",
+            r"(?:acheté|recommandé)\s+(?:à|au cours de)\s+([\d\s.,]+)\s*€",
+        )),
+        "target": first_number(text, (
+            r"Objectif de cours\s*:?\s*([\d\s.,]+)",
+            r"Objectif\s*:?\s*([\d\s.,]+)\s*(?:EUR|USD|€)",
+        )),
+        "stop": first_number(text, (
+            r"seuil d['’]invalidation[^\d]{0,100}([\d\s.,]+)\s*(?:EUR|USD|€)",
+            r"Invalidation\s*:?\s*([\d\s.,]+)\s*(?:EUR|USD|€)",
+            r"Stop(?: loss)?\s*:?\s*([\d\s.,]+)\s*(?:EUR|USD|€)",
+        )),
+    }
+
+
+def fetch_article(url: str) -> str:
+    try:
+        return fetch_text(url, attempts=1)
+    except Exception as direct_error:
+        parsed = url.split("://", 1)[-1]
+        try:
+            return fetch_text(f"https://r.jina.ai/http://{parsed}", attempts=1)
+        except Exception as fallback_error:
+            raise RuntimeError(f"direct: {direct_error}; jina: {fallback_error}") from fallback_error
+
+
+def enrich_current_cards(document: dict, current: list[dict]) -> list[str]:
+    """Complète progressivement les cartes incomplètes depuis leurs articles."""
+    positions_by_code = {
+        item.get("mnemo"): item
+        for item in document.get("positions", [])
+        if item.get("status") == "open"
+    }
+    maximum = max(1, int(os.getenv("POLSINELLI_MAX_ARTICLE_FETCHES", "10")))
+    errors: list[str] = []
+    fetched = 0
+    for card in current:
+        existing = positions_by_code.get(card.get("productCode"), {})
+        needed = any(not existing.get(field) for field in ("isin", "entryPrice", "target", "stop"))
+        if not needed or fetched >= maximum or "/actualite-bourse/" not in card.get("url", ""):
+            continue
+        fetched += 1
+        try:
+            details = parse_article_details(fetch_article(card["url"]))
+        except Exception as exc:
+            errors.append(f"{card.get('productCode')}: {exc}")
+            continue
+        for field, value in details.items():
+            if value is not None:
+                card[field] = value
+    return errors
 
 
 def number(value: str) -> float:
@@ -120,9 +202,9 @@ def new_position(card: dict, detected_at: str) -> dict:
         "direction": card.get("direction")
         or ("PUT" if "PUT" in card["title"].upper() else "CALL"),
         "mnemo": card["productCode"],
-        "isin": None,
+        "isin": card.get("isin"),
         "status": "open",
-        "entryPrice": None,
+        "entryPrice": card.get("entryPrice"),
         "currentPrice": None,
         "exitPrice": None,
         "entryDate": entry_date,
@@ -132,6 +214,8 @@ def new_position(card: dict, detected_at: str) -> dict:
         "publishedAt": card["publishedAt"],
         "publishedAtPrecision": card.get("publishedAtPrecision", "minute"),
         "detectedAt": detected_at,
+        "target": card.get("target"),
+        "stop": card.get("stop"),
         "note": f"{card['title']}. Prix d'entrée et ISIN à confirmer depuis la fiche article.",
         "sourceConfidence": "medium",
     }
@@ -172,6 +256,13 @@ def synchronize(document: dict, current: list[dict], closed: list[dict], now: da
                 if value and not existing.get(destination):
                     existing[destination] = value.title() if destination == "productType" else value
                     changed = True
+            for field in ("isin", "entryPrice", "target", "stop"):
+                value = card.get(field)
+                if value is not None and existing.get(field) != value:
+                    existing[field] = value
+                    changed = True
+            if any(card.get(field) is not None for field in ("isin", "entryPrice", "target", "stop")):
+                existing["sourceConfidence"] = "high"
             continue
         position = new_position(card, detected_at)
         positions.append(position)
@@ -236,6 +327,9 @@ def main() -> int:
         current = list(current_by_url.values())
         if not current:
             raise RuntimeError("aucune recommandation ouverte extraite")
+        enrichment_errors = enrich_current_cards(
+            json.loads(positions_path.read_text(encoding="utf-8")), current
+        )
         closed_by_url: dict[str, dict] = {}
         for closed_html, closed_source in fetch_pages(CLOSED_URLS, max_pages=5):
             for card in parse_closed_cards(closed_html, closed_source, now):
@@ -247,6 +341,7 @@ def main() -> int:
 
     document = json.loads(positions_path.read_text(encoding="utf-8"))
     result = synchronize(document, current, closed, now)
+    result["enrichmentErrors"] = enrichment_errors
     if result["changed"]:
         positions_path.write_text(
             json.dumps(document, ensure_ascii=False, indent=2) + "\n", encoding="utf-8"
