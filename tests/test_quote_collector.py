@@ -10,7 +10,12 @@ SCRIPTS = ROOT / "scripts"
 if str(SCRIPTS) not in sys.path:
     sys.path.insert(0, str(SCRIPTS))
 
-from market_data.base import InstrumentRef, ProviderError, QuoteSnapshot
+from market_data.base import (
+    InstrumentRef,
+    ProviderConfigurationError,
+    ProviderError,
+    QuoteSnapshot,
+)
 from market_data.saxo import SaxoProvider
 from quote_collector import collect_documents
 
@@ -123,6 +128,13 @@ class FakeProvider:
             instrument_asset_type=instrument.asset_type,
             instrument_symbol=instrument.symbol,
         )
+
+
+class MissingIsinProvider(FakeProvider):
+    def resolve_instrument(self, position, mapping):
+        if not position.get("isin"):
+            raise ProviderConfigurationError(f"{position['id']}: valid ISIN required")
+        return super().resolve_instrument(position, mapping)
 
 
 class SaxoProviderTests(unittest.TestCase):
@@ -262,6 +274,32 @@ class CollectorTests(unittest.TestCase):
             self.positions, self.quotes, self.config, FakeProvider(), session="close"
         )
         self.assertEqual(self.positions["positions"][1], before)
+
+    def test_missing_isin_is_skipped_without_failing_other_quotes(self):
+        self.positions["positions"].insert(0, {
+            "id": "pending-identity",
+            "asset": "Pending",
+            "productType": "Turbo",
+            "direction": "CALL",
+            "mnemo": "WAIT",
+            "isin": None,
+            "status": "open",
+            "entryPrice": None,
+        })
+        result = collect_documents(
+            self.positions,
+            self.quotes,
+            self.config,
+            MissingIsinProvider(),
+            session="close",
+        )
+        self.assertEqual(result.quotes_added, 1)
+        self.assertEqual(result.errors, [])
+        self.assertEqual(len(result.skipped), 1)
+        health = self.positions["meta"]["marketDataHealth"]
+        self.assertEqual(health["status"], "partial")
+        self.assertEqual(health["skippedCount"], 1)
+        self.assertEqual(health["errorCount"], 0)
 
 
 if __name__ == "__main__":
