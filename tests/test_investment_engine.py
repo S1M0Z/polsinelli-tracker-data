@@ -101,6 +101,51 @@ class InvestmentEngineTests(unittest.TestCase):
     def test_full_premium_risk_caps_stake_at_fifty_euros(self) -> None:
         self.assertEqual(position_stake_limit(self.policy), 50)
 
+    def test_future_quote_is_rejected(self) -> None:
+        decision, reasons, diagnostics = entry_decision(
+            self.position,
+            self.market(quoteAt="2026-07-30T14:00:00+02:00"),
+            self.policy,
+            self.as_of,
+        )
+        self.assertEqual(decision, "INVALID_TIMESTAMPS")
+        self.assertIn("quote_timestamp_in_future", reasons)
+        self.assertLess(diagnostics["quoteAgeMinutes"], 0)
+
+    def test_detection_before_publication_is_rejected(self) -> None:
+        decision, reasons, _ = entry_decision(
+            self.position,
+            self.market(detectedAt="2026-07-30T13:39:00+02:00"),
+            self.policy,
+            self.as_of,
+        )
+        self.assertEqual(decision, "INVALID_TIMESTAMPS")
+        self.assertIn("detection_before_publication", reasons)
+
+    def test_date_only_publication_does_not_invent_intraday_latency(self) -> None:
+        decision, reasons, diagnostics = entry_decision(
+            self.position,
+            self.market(publishedAtPrecision="date"),
+            self.policy,
+            self.as_of,
+        )
+        self.assertEqual(decision, "DATA_INCOMPLETE")
+        self.assertIn("missing_publication_time", reasons)
+        self.assertIsNone(diagnostics["detectionLatencySeconds"])
+
+    def test_existing_open_commitments_consume_portfolio_slots(self) -> None:
+        positions = []
+        quotes = []
+        for index in range(4):
+            position = {**self.position, "id": f"demo-{index}"}
+            positions.append(position)
+            quotes.append({"positionId": position["id"], **self.market(), "price": 1.02})
+        view = build_view({"positions": positions}, POLICY, {"quotes": quotes}, self.as_of)
+        self.assertEqual(view["summary"]["committedOpenCount"], 4)
+        self.assertEqual(view["summary"]["availablePositionSlots"], 0)
+        self.assertEqual(view["summary"]["actionableCount"], 0)
+        self.assertEqual(view["summary"]["decisionCounts"]["PORTFOLIO_LIMIT"], 4)
+
     def test_closed_statistics(self) -> None:
         stats = closed_statistics(
             [

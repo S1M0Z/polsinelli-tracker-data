@@ -172,6 +172,7 @@ def parse_recommendation(text: str, now: datetime | None = None) -> dict | None:
     return {
         "title": match.group("title").strip(),
         "publishedAt": published.isoformat(timespec="minutes"),
+        "publishedAtPrecision": "date" if match.group("day") else "minute",
         "kind": "position_candidate",
         "underlying": match.group("underlying").strip(),
         "productType": product_type,

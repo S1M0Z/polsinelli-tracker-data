@@ -2,6 +2,7 @@
 from __future__ import annotations
 
 import argparse
+import collections
 import json
 import re
 from datetime import datetime
@@ -162,6 +163,45 @@ def main() -> int:
     }
     if open_ids != view_open_ids:
         raise ValueError("investment-view.json is not aligned with open positions")
+
+    view = documents["investment-view.json"]
+    view_generated_at = parse_timestamp(
+        view.get("meta", {}).get("generatedAt"), "investment-view.json generatedAt"
+    )
+    latest_quote_at = max(
+        (parse_timestamp(quote.get("quoteAt"), "quote quoteAt") for quote in quotes),
+        default=None,
+    )
+    if latest_quote_at is not None and view_generated_at < latest_quote_at:
+        raise ValueError("investment-view.json predates the latest market quote")
+
+    open_rows = view.get("openPositions", [])
+    if not isinstance(open_rows, list):
+        raise ValueError("investment-view.json openPositions must be an array")
+    decisions = collections.Counter(item.get("decision") for item in open_rows)
+    if None in decisions:
+        raise ValueError("investment-view.json contains an open position without a decision")
+    summary = view.get("summary", {})
+    expected_counts = {
+        "positionCount": len(positions),
+        "openCount": len(open_ids),
+        "closedCount": len(positions) - len(open_ids),
+        "actionableCount": decisions.get("ELIGIBLE", 0),
+    }
+    for field, expected in expected_counts.items():
+        if summary.get(field) != expected:
+            raise ValueError(
+                f"investment-view.json summary {field} is {summary.get(field)!r}, expected {expected}"
+            )
+    if summary.get("decisionCounts") != dict(decisions):
+        raise ValueError("investment-view.json decisionCounts does not match open positions")
+    expected_verdict = (
+        "ACTIONABLE_POSITIONS_AVAILABLE"
+        if decisions.get("ELIGIBLE", 0)
+        else "NO_ACTIONABLE_POSITION"
+    )
+    if summary.get("systemVerdict") != expected_verdict:
+        raise ValueError("investment-view.json systemVerdict is inconsistent")
 
     print(
         f"Validated {len(REQUIRED_JSON_FILES)} JSON files, "
