@@ -2,12 +2,46 @@ import unittest
 from datetime import datetime
 from zoneinfo import ZoneInfo
 
-from scripts.sync_zonebourse_positions import parse_closed_cards, synchronize
+from scripts.sync_zonebourse_positions import parse_article_details, parse_closed_cards, synchronize
 
 PARIS = ZoneInfo("Europe/Paris")
 
 
 class ZoneboursePositionSyncTests(unittest.TestCase):
+    def test_extracts_trade_details_from_article(self):
+        details = parse_article_details("""
+            <section>ISIN DE000VU91V01</section>
+            <p>Cours d'entrée : 1,24 €</p>
+            <p>Objectif de cours : 4 650,00 USD</p>
+            <p>Seuil d'invalidation sous 4 390,00 USD</p>
+        """)
+        self.assertEqual(details["isin"], "DE000VU91V01")
+        self.assertEqual(details["entryPrice"], 1.24)
+        self.assertEqual(details["target"], 4650)
+        self.assertEqual(details["stop"], 4390)
+
+    def test_new_position_keeps_enriched_article_fields(self):
+        document = {"meta": {}, "positions": []}
+        current = [{
+            "url": "https://www.zonebourse.com/actualite-bourse/test-ce123abc",
+            "title": "Achat du warrant CALL",
+            "publishedAt": "2026-08-10T11:12+02:00",
+            "underlying": "Gold",
+            "productType": "WARRANT",
+            "productCode": "VU91V",
+            "direction": "CALL",
+            "isin": "DE000VU91V01",
+            "entryPrice": 1.24,
+            "target": 4650,
+            "stop": 4390,
+        }]
+        synchronize(document, current, [], datetime(2026, 8, 10, 12, tzinfo=PARIS))
+        position = document["positions"][0]
+        self.assertEqual(position["isin"], "DE000VU91V01")
+        self.assertEqual(position["entryPrice"], 1.24)
+        self.assertEqual(position["target"], 4650)
+        self.assertEqual(position["stop"], 4390)
+
     def test_parses_explicit_exit_prices(self):
         html = '''<a href="/actualite-bourse/prises-de-benefices-ce7f50dcd98ff526">
         VINCI WARRANT - WC25V - 05/08 Prises de bénéfices (+27.68%)
