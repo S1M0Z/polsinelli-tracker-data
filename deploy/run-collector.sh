@@ -56,7 +56,7 @@ for file in quote-history.json market-data-config.json investment-view.json; do
   fi
 done
 
-timeout --signal=TERM --kill-after=15s 270s \
+timeout --signal=TERM --kill-after=30s 600s \
 sudo -n docker run --rm --init --ipc=host \
   --name "$CONTAINER_NAME" \
   --cpus=1.0 --pids-limit=128 \
