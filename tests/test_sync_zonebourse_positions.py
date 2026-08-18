@@ -30,6 +30,18 @@ class ZoneboursePositionSyncTests(unittest.TestCase):
         self.assertEqual(details["stop"], 326.59)
         self.assertEqual(details["target"], 290)
 
+    def test_extracts_current_zonebourse_text_table_format(self):
+        details = parse_article_details("""
+            Opinion | Positive au dessus de 132.1 €
+            Objectif de cours | 200 €
+            Cours d'entrée | 0.975 €
+            ISIN | NLBNPFR2M8I2
+        """)
+        self.assertEqual(details["isin"], "NLBNPFR2M8I2")
+        self.assertEqual(details["entryPrice"], 0.975)
+        self.assertEqual(details["target"], 200)
+        self.assertEqual(details["stop"], 132.1)
+
     def test_new_position_keeps_enriched_article_fields(self):
         document = {"meta": {}, "positions": []}
         current = [{

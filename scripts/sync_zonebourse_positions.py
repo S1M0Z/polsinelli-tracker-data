@@ -41,7 +41,10 @@ CLOSED_CARD_RE = re.compile(
     r"(?P<exit>\d+[,.]\d+)\s+(?P<performance>[+-]\d+[,.]\d+)\s*%\s+SORTIE$",
     re.IGNORECASE,
 )
-ISIN_RE = re.compile(r"\b(?:ISIN\s*:?[\s-]*)?([A-Z]{2}[A-Z0-9]{9}\d)\b", re.IGNORECASE)
+ISIN_RE = re.compile(
+    r"\b(?:ISIN\s*(?:\||:)?[\s-]*)?([A-Z]{2}[A-Z0-9]{9}\d)\b",
+    re.IGNORECASE,
+)
 
 
 def article_text(raw: str) -> str:
@@ -69,18 +72,18 @@ def parse_article_details(raw: str) -> dict:
     return {
         "isin": isin_match.group(1).upper() if isin_match else None,
         "entryPrice": first_number(text, (
-            r"Cours d['’]entrée\s*:?[\s€]*([\d\s.,]+)",
-            r"Prix d['’]entrée\s*:?[\s€]*([\d\s.,]+)",
-            r"\bEntrée\s*:?[\s€]*([\d]+[,.]\d+)",
+            r"Cours d['’]entrée\s*(?:\||:)?[\s€]*([\d\s.,]+)",
+            r"Prix d['’]entrée\s*(?:\||:)?[\s€]*([\d\s.,]+)",
+            r"\bEntrée\s*(?:\||:)?[\s€]*([\d]+[,.]\d+)",
             r"(?:acheté|recommandé)\s+(?:à|au cours de)\s+([\d\s.,]+)\s*€",
         )),
         "target": first_number(text, (
-            r"Objectif de cours\s*:?\s*([\d\s.,]+)",
-            r"Objectif\s*:?\s*([\d\s.,]+)\s*(?:EUR|USD|€)",
+            r"Objectif de cours\s*(?:\||:)?\s*([\d\s.,]+)",
+            r"Objectif\s*(?:\||:)?\s*([\d\s.,]+)\s*(?:EUR|USD|€)",
         )),
         "stop": first_number(text, (
             r"seuil d['’]invalidation[^\d]{0,100}([\d\s.,]+)\s*(?:EUR|USD|€)",
-            r"Opinion\s+(?:Positive|Négative|Negative)\s+(?:au-dessus|sous|en-dessous)\s+(?:(?:de|des?|les?)\s+)?([\d\s.,]+)\s*(?:EUR|USD|€)",
+            r"Opinion\s*(?:\||:)?\s*(?:Positive|Négative|Negative)\s+(?:au-dessus|au dessus|sous|en-dessous)\s+(?:(?:de|des?|les?)\s+)?([\d\s.,]+)\s*(?:EUR|USD|€)",
             r"Invalidation\s*:?\s*([\d\s.,]+)\s*(?:EUR|USD|€)",
             r"Stop(?: loss)?\s*:?\s*([\d\s.,]+)\s*(?:EUR|USD|€)",
         )),

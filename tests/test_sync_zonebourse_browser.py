@@ -28,6 +28,10 @@ ARTICLE = """
 </body></html>
 """
 
+FALLBACK_LISTING = """
+[SOITEC WARRANT - B9W5B - 14/08 Un soutien à mettre à profit Prix d'exercice Maturité Elasticité Delta 165,00 € 18/09/2026 5.02x 0.336 CALL](https://www.zonebourse.com/actualite-bourse/un-soutien-a-mettre-a-profit-ce7859ded08ff624)
+"""
+
 
 class ZonebourseBrowserSyncTests(unittest.TestCase):
     def test_browser_render_enriches_russell_position(self):
@@ -55,6 +59,31 @@ class ZonebourseBrowserSyncTests(unittest.TestCase):
         self.assertEqual(position["target"], 2800)
         self.assertEqual(position["stop"], 2600)
         self.assertGreater(position["confidence"]["score"], 50)
+
+    def test_uses_text_fallback_when_browser_listing_has_no_cards(self):
+        document = {"meta": {}, "positions": []}
+
+        def requester(url, **_kwargs):
+            if "/cloturees/" in url:
+                return "<html></html>"
+            if "r.jina.ai/http://www.zonebourse.com/bourse/derives" in url:
+                return f"<html><body><pre>{FALLBACK_LISTING}</pre></body></html>"
+            if "r.jina.ai/http://www.zonebourse.com/actualite-bourse/" in url:
+                return ARTICLE
+            if "/actualite-bourse/" in url:
+                return "<html><body>page filtrée</body></html>"
+            return "<html><body>page filtrée</body></html>"
+
+        result = synchronize_with_browser(
+            document, requester, datetime(2026, 8, 18, 12, tzinfo=PARIS)
+        )
+
+        self.assertFalse(result["degraded"])
+        self.assertEqual(result["sourceUsed"], "jina-zonebourse-fr")
+        self.assertEqual(result["openSeen"], 1)
+        self.assertEqual(document["positions"][0]["mnemo"], "B9W5B")
+        self.assertEqual(document["positions"][0]["isin"], "DE000MU13V01")
+        self.assertEqual(document["positions"][0]["entryPrice"], 1.2)
 
 
 if __name__ == "__main__":

@@ -8,15 +8,37 @@ from datetime import datetime
 from pathlib import Path
 
 from data_quality import refresh_data_quality
-from fast_zonebourse_scan_v2 import PARIS, parse_html_articles
+from fast_zonebourse_scan_v2 import (
+    PARIS,
+    RECOMMENDATIONS_URL,
+    TEXT_FALLBACK_SOURCES,
+    parse_html_articles,
+    parse_markdown_articles,
+)
 from market_data.euronext_browser import PlaywrightRequester
 from sync_zonebourse_positions import (
     CLOSED_URLS,
     OPEN_URLS,
     parse_article_details,
+    article_text,
     parse_closed_cards,
     synchronize,
 )
+
+
+def _jina_url(url: str) -> str:
+    return f"https://r.jina.ai/http://{url.split('://', 1)[-1]}"
+
+
+def _article_details_with_fallback(requester, url: str) -> dict:
+    details = parse_article_details(requester(url))
+    if all(value is not None for value in details.values()):
+        return details
+    fallback = parse_article_details(requester(_jina_url(url)))
+    return {
+        field: value if value is not None else fallback.get(field)
+        for field, value in details.items()
+    }
 
 
 def write_json(path: Path, document: dict) -> None:
@@ -47,6 +69,22 @@ def synchronize_with_browser(
         except Exception as exc:
             errors.append(f"{source}: {exc}")
     if not current_by_url:
+        for source_name, source in TEXT_FALLBACK_SOURCES:
+            try:
+                rendered = requester(source)
+                cards = parse_markdown_articles(
+                    article_text(rendered),
+                    RECOMMENDATIONS_URL,
+                    recommendations_only=True,
+                )
+                if cards:
+                    current_by_url.update((card["url"], card) for card in cards)
+                    source_used = source_name
+                    break
+                errors.append(f"{source}: aucune recommandation extraite")
+            except Exception as exc:
+                errors.append(f"{source}: {exc}")
+    if not current_by_url:
         return {"changed": False, "degraded": True, "errors": errors}
 
     positions_by_code = {
@@ -63,7 +101,7 @@ def synchronize_with_browser(
             break
         fetched += 1
         try:
-            details = parse_article_details(requester(card["url"]))
+            details = _article_details_with_fallback(requester, card["url"])
             card.update({key: value for key, value in details.items() if value is not None})
         except Exception as exc:
             errors.append(f"{card.get('productCode')}: {exc}")
