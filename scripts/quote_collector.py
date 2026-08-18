@@ -34,6 +34,7 @@ class CollectionResult:
     positions_updated: int
     mappings_updated: int
     errors: list[str]
+    skipped: list[str]
     status: str
 
 
@@ -169,6 +170,7 @@ def collect_documents(
     updated = 0
     mappings_updated = 0
     errors: list[str] = []
+    skipped: list[str] = []
     now = utc_now_iso()
 
     for position in positions:
@@ -210,6 +212,12 @@ def collect_documents(
                 underlying_price=underlying_price,
             )
             normalized = _normalize_snapshot(snapshot)
+        except ProviderConfigurationError as exc:
+            # Une recommandation nouvellement détectée peut légitimement ne pas
+            # encore avoir d'ISIN. Elle ne doit pas faire échouer la collecte des
+            # positions déjà résolues ni empêcher la publication du tracker.
+            skipped.append(str(exc))
+            continue
         except ProviderError as exc:
             errors.append(str(exc))
             continue
@@ -262,10 +270,30 @@ def collect_documents(
     quotes_document["quotes"] = trimmed
 
     quality_updated = refresh_data_quality(positions)
-    changed = bool(added or updated or mappings_updated or quality_updated)
+    health = {
+        "status": (
+            "error" if errors and not added
+            else "partial" if errors or skipped
+            else "ok"
+        ),
+        "attemptedAt": now,
+        "quotesAdded": added,
+        "positionsUpdated": updated,
+        "skippedCount": len(skipped),
+        "errorCount": len(errors),
+        "skipped": skipped[:25],
+        "errors": errors[:25],
+    }
+    positions_meta = positions_document.setdefault("meta", {})
+    health_updated = positions_meta.get("marketDataHealth") != health
+    if health_updated:
+        positions_meta["marketDataHealth"] = health
+    changed = bool(
+        added or updated or mappings_updated or quality_updated or health_updated
+    )
     if changed:
         quotes_document.setdefault("meta", {})["updatedAt"] = now
-        positions_document.setdefault("meta", {})["marketDataUpdatedAt"] = now
+        positions_meta["marketDataUpdatedAt"] = now
         config_document.setdefault("meta", {})["updatedAt"] = now
 
     if added:
@@ -274,6 +302,8 @@ def collect_documents(
         status = "mapped"
     elif errors:
         status = "error"
+    elif skipped:
+        status = "partial"
     else:
         status = "no_change"
     return CollectionResult(
@@ -282,6 +312,7 @@ def collect_documents(
         positions_updated=updated,
         mappings_updated=mappings_updated,
         errors=errors,
+        skipped=skipped,
         status=status,
     )
 
@@ -335,6 +366,7 @@ def main() -> int:
         "positionsUpdated": result.positions_updated,
         "mappingsUpdated": result.mappings_updated,
         "errors": result.errors,
+        "skipped": result.skipped,
     }
     print(json.dumps(summary, ensure_ascii=False))
     if result.errors and result.quotes_added == 0 and result.mappings_updated == 0:

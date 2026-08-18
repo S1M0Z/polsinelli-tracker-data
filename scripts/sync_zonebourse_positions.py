@@ -80,6 +80,7 @@ def parse_article_details(raw: str) -> dict:
         )),
         "stop": first_number(text, (
             r"seuil d['’]invalidation[^\d]{0,100}([\d\s.,]+)\s*(?:EUR|USD|€)",
+            r"Opinion\s+(?:Positive|Négative|Negative)\s+(?:au-dessus|sous|en-dessous)\s+(?:(?:de|des?|les?)\s+)?([\d\s.,]+)\s*(?:EUR|USD|€)",
             r"Invalidation\s*:?\s*([\d\s.,]+)\s*(?:EUR|USD|€)",
             r"Stop(?: loss)?\s*:?\s*([\d\s.,]+)\s*(?:EUR|USD|€)",
         )),
