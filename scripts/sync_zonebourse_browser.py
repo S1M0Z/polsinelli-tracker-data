@@ -12,6 +12,7 @@ from fast_zonebourse_scan_v2 import (
     PARIS,
     RECOMMENDATIONS_URL,
     TEXT_FALLBACK_SOURCES,
+    fetch_text,
     parse_html_articles,
     parse_markdown_articles,
 )
@@ -20,7 +21,6 @@ from sync_zonebourse_positions import (
     CLOSED_URLS,
     OPEN_URLS,
     parse_article_details,
-    article_text,
     parse_closed_cards,
     synchronize,
 )
@@ -30,11 +30,11 @@ def _jina_url(url: str) -> str:
     return f"https://r.jina.ai/http://{url.split('://', 1)[-1]}"
 
 
-def _article_details_with_fallback(requester, url: str) -> dict:
+def _article_details_with_fallback(requester, text_requester, url: str) -> dict:
     details = parse_article_details(requester(url))
     if all(value is not None for value in details.values()):
         return details
-    fallback = parse_article_details(requester(_jina_url(url)))
+    fallback = parse_article_details(text_requester(_jina_url(url)))
     return {
         field: value if value is not None else fallback.get(field)
         for field, value in details.items()
@@ -53,6 +53,7 @@ def synchronize_with_browser(
     now: datetime,
     *,
     max_article_fetches: int = 12,
+    text_requester=fetch_text,
 ) -> dict:
     current_by_url: dict[str, dict] = {}
     source_used = None
@@ -71,9 +72,8 @@ def synchronize_with_browser(
     if not current_by_url:
         for source_name, source in TEXT_FALLBACK_SOURCES:
             try:
-                rendered = requester(source)
                 cards = parse_markdown_articles(
-                    article_text(rendered),
+                    text_requester(source),
                     RECOMMENDATIONS_URL,
                     recommendations_only=True,
                 )
@@ -101,7 +101,9 @@ def synchronize_with_browser(
             break
         fetched += 1
         try:
-            details = _article_details_with_fallback(requester, card["url"])
+            details = _article_details_with_fallback(
+                requester, text_requester, card["url"]
+            )
             card.update({key: value for key, value in details.items() if value is not None})
         except Exception as exc:
             errors.append(f"{card.get('productCode')}: {exc}")

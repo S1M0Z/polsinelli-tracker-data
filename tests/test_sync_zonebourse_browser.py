@@ -75,7 +75,10 @@ class ZonebourseBrowserSyncTests(unittest.TestCase):
             return "<html><body>page filtrée</body></html>"
 
         result = synchronize_with_browser(
-            document, requester, datetime(2026, 8, 18, 12, tzinfo=PARIS)
+            document,
+            requester,
+            datetime(2026, 8, 18, 12, tzinfo=PARIS),
+            text_requester=requester,
         )
 
         self.assertFalse(result["degraded"])
