@@ -71,7 +71,7 @@ Les seuils par défaut utilisent un capital de simulation de 10 000 € et suppo
 
 ## Synchronisation Zonebourse
 
-Le workflow rapide lit toutes les cinq minutes les recommandations en cours et les positions soldées. Pour les cartes incomplètes, il ouvre progressivement les fiches article afin d'extraire l'ISIN, le prix d'entrée, l'objectif et le seuil d'invalidation explicitement publiés. L'ISIN permet ensuite au collecteur Euronext de résoudre le produit et d'actualiser son bid/ask. Il n'enregistre une clôture que lorsqu'un prix d'entrée et un prix de sortie explicites sont publiés, puis reconstruit `investment-view.json`. Une recommandation qui reste sans données confirmées conserve des valeurs `null` et une décision bloquée.
+Le collecteur serveur lit toutes les cinq minutes les recommandations en cours et les positions soldées avec Chromium, car Zonebourse bloque les requêtes HTTP directes des runners GitHub. Pour les cartes incomplètes, il ouvre progressivement les fiches article afin d'extraire l'ISIN, le prix d'entrée, l'objectif et le seuil d'invalidation explicitement publiés. L'ISIN permet ensuite au collecteur Euronext de résoudre le produit et d'actualiser son bid/ask. Il n'enregistre une clôture que lorsqu'un prix d'entrée et un prix de sortie explicites sont publiés, puis reconstruit `investment-view.json`. Une recommandation qui reste sans données confirmées conserve des valeurs `null` et une décision bloquée.
 
 ## Important
 
