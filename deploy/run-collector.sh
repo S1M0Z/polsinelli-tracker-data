@@ -56,10 +56,10 @@ for file in positions.json updates.json article-state.json scan-log.json quote-h
     cp "$file" "$RUNTIME_DIR/$file"
   fi
 done
-python scripts/merge_market_config.py \
+python3 scripts/merge_market_config.py \
   --baseline "$REPO_ROOT/market-data-config.json" \
   --runtime "$RUNTIME_DIR/market-data-config.json"
-python scripts/migrate_schema.py --root "$RUNTIME_DIR"
+python3 scripts/migrate_schema.py --root "$RUNTIME_DIR"
 
 timeout --signal=TERM --kill-after=30s 600s \
 sudo -n docker run --rm --init --ipc=host \
@@ -91,8 +91,8 @@ SNAPSHOT_ROOT="${POLSINELLI_SNAPSHOT_ROOT:-$RUNTIME_DIR/snapshots}"
 mkdir -p "$SNAPSHOT_ROOT"
 SNAPSHOT_ID="$(date -u +%Y%m%dT%H%M%SZ)-$$"
 SNAPSHOT_DIR="$SNAPSHOT_ROOT/$SNAPSHOT_ID"
-python scripts/build_snapshot.py --source "$RUNTIME_DIR" --output "$SNAPSHOT_DIR"
-python scripts/validate_data.py --root "$SNAPSHOT_DIR"
+python3 scripts/build_snapshot.py --source "$RUNTIME_DIR" --output "$SNAPSHOT_DIR"
+python3 scripts/validate_data.py --root "$SNAPSHOT_DIR"
 
 # SITE_DATA_DIR is a symlink switched atomically; old snapshots enable rollback.
 PUBLIC_ROOT="$(dirname "$SITE_DATA_DIR")/.polsinelli-snapshots"
@@ -101,7 +101,7 @@ PUBLIC_SNAPSHOT="$PUBLIC_ROOT/$SNAPSHOT_ID"
 sudo -n mkdir "$PUBLIC_SNAPSHOT"
 while IFS= read -r file; do
   sudo -n install -o ubuntu -g www-data -m 0644 "$SNAPSHOT_DIR/$file" "$PUBLIC_SNAPSHOT/$file"
-done < <(python -c 'import json; print("\n".join(json.load(open("public-manifest.json"))["files"]))')
+done < <(python3 -c 'import json; print("\n".join(json.load(open("public-manifest.json"))["files"]))')
 sudo -n ln -sfn "$PUBLIC_SNAPSHOT" "$SITE_DATA_DIR.new"
 sudo -n mv -Tf "$SITE_DATA_DIR.new" "$SITE_DATA_DIR"
 

@@ -11,7 +11,7 @@ Group=ubuntu
 WorkingDirectory=/home/ubuntu/polsinelli-tracker-data
 Environment=POLSINELLI_REPO_ROOT=/home/ubuntu/polsinelli-tracker-data
 ExecStart=/usr/bin/bash /home/ubuntu/polsinelli-tracker-data/deploy/run-collector.sh
-TimeoutStartSec=300
+TimeoutStartSec=660
 TimeoutStopSec=30
 KillSignal=SIGTERM
 Nice=10
