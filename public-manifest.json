@@ -1,0 +1,10 @@
+{
+  "schemaVersion": 1,
+  "files": [
+    "positions.json",
+    "investment-view.json",
+    "quote-history.json",
+    "updates.json",
+    "health.json"
+  ]
+}

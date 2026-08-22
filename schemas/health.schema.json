@@ -1,0 +1,12 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://polsinelli.local/schemas/health-v1.json",
+  "type": "object",
+  "required": ["meta", "status", "systemVerdict", "freshness"],
+  "properties": {
+    "meta": {"type": "object", "required": ["schemaVersion", "snapshotId", "generatedAt"]},
+    "status": {"enum": ["ok", "degraded", "unhealthy"]},
+    "systemVerdict": {"enum": ["ACTIONABLE_POSITIONS_AVAILABLE", "NO_ACTIONABLE_POSITION", "SYSTEM_STALE", "DATA_PIPELINE_UNAVAILABLE"]},
+    "freshness": {"type": "object"}
+  }
+}

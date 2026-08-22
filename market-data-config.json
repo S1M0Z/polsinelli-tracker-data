@@ -18,6 +18,10 @@
         "mic": "XMLI",
         "symbol": "DE000VY0NFK5-XMLI",
         "assetType": "StructuredProduct",
+        "underlyingSymbol": "FR0000120271-XPAR",
+        "underlyingMic": "XPAR",
+        "underlyingCurrency": "EUR",
+        "underlyingSource": "euronext",
         "description": "TotalEnergies Warrant",
         "resolvedAt": "2026-07-31T13:05:20+00:00"
       },
@@ -25,6 +29,10 @@
         "mic": "XMLI",
         "symbol": "DE000VY88TJ7-XMLI",
         "assetType": "StructuredProduct",
+        "underlyingSymbol": "FR0000125486-XPAR",
+        "underlyingMic": "XPAR",
+        "underlyingCurrency": "EUR",
+        "underlyingSource": "euronext",
         "description": "Vinci Warrant",
         "resolvedAt": "2026-07-31T13:05:20+00:00"
       },
@@ -32,6 +40,10 @@
         "mic": "XMLI",
         "symbol": "DE000VY3GDC5-XMLI",
         "assetType": "StructuredProduct",
+        "underlyingSymbol": "US0378331005-XNAS",
+        "underlyingMic": "XNAS",
+        "underlyingCurrency": "USD",
+        "underlyingSource": "unresolved",
         "description": "Apple Warrant",
         "resolvedAt": "2026-07-31T13:05:20+00:00"
       },
@@ -39,6 +51,10 @@
         "mic": "XMLI",
         "symbol": "DE000VY3Z5D1-XMLI",
         "assetType": "StructuredProduct",
+        "underlyingSymbol": "DE0008404005-XETR",
+        "underlyingMic": "XETR",
+        "underlyingCurrency": "EUR",
+        "underlyingSource": "unresolved",
         "description": "Allianz Turbo",
         "resolvedAt": "2026-07-31T13:05:20+00:00"
       },
@@ -46,6 +62,10 @@
         "mic": "XMLI",
         "symbol": "DE000FE3FPS1-XMLI",
         "assetType": "StructuredProduct",
+        "underlyingSymbol": "FR0000044448-XPAR",
+        "underlyingMic": "XPAR",
+        "underlyingCurrency": "EUR",
+        "underlyingSource": "euronext",
         "description": "Nexans Turbo",
         "resolvedAt": "2026-07-31T13:05:20+00:00"
       },
@@ -53,6 +73,10 @@
         "mic": "XMLI",
         "symbol": "NLBNPFR2CD04-XMLI",
         "assetType": "StructuredProduct",
+        "underlyingSymbol": "FR0010307819-XPAR",
+        "underlyingMic": "XPAR",
+        "underlyingCurrency": "EUR",
+        "underlyingSource": "euronext",
         "description": "Legrand Warrant",
         "resolvedAt": "2026-07-31T13:05:20+00:00"
       }

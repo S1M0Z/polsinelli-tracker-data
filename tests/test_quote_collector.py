@@ -2,6 +2,8 @@ from __future__ import annotations
 
 import sys
 import unittest
+import tempfile
+import json
 from pathlib import Path
 from urllib.parse import parse_qs, urlparse
 
@@ -17,7 +19,7 @@ from market_data.base import (
     QuoteSnapshot,
 )
 from market_data.saxo import SaxoProvider
-from quote_collector import collect_documents
+from quote_collector import collect_documents, write_document_set
 
 
 class FakeSaxoRequester:
@@ -207,6 +209,17 @@ class SaxoProviderTests(unittest.TestCase):
 
 
 class CollectorTests(unittest.TestCase):
+    def test_transaction_staging_failure_preserves_all_original_files(self):
+        with tempfile.TemporaryDirectory() as directory:
+            first = Path(directory) / "first.json"
+            second = Path(directory) / "second.json"
+            first.write_text('{"old": 1}\n')
+            second.write_text('{"old": 2}\n')
+            with self.assertRaises(TypeError):
+                write_document_set({first: {"new": 1}, second: {"invalid": {1, 2}}})
+            self.assertEqual(json.loads(first.read_text()), {"old": 1})
+            self.assertEqual(json.loads(second.read_text()), {"old": 2})
+
     def setUp(self):
         self.positions = {
             "meta": {},
@@ -297,7 +310,7 @@ class CollectorTests(unittest.TestCase):
         self.assertEqual(result.errors, [])
         self.assertEqual(len(result.skipped), 1)
         health = self.positions["meta"]["marketDataHealth"]
-        self.assertEqual(health["status"], "partial")
+        self.assertEqual(health["status"], "degraded")
         self.assertEqual(health["skippedCount"], 1)
         self.assertEqual(health["errorCount"], 0)
 

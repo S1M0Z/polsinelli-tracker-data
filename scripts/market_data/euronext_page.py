@@ -22,6 +22,7 @@ from .euronext import (
     _parse_order_book,
     _strip_html,
     _unwrap_payload,
+    euronext_market_status,
 )
 
 _LABELS = {
@@ -140,6 +141,10 @@ class EuronextPageProvider(EuronextProvider):
                 _find_json_value(detail_payload, {"last", "lastprice", "price", "instrumentprice"})
             )
         price = last if last is not None and bid <= last <= ask else (bid + ask) / 2
+        if underlying_price is None:
+            underlying_price = _parse_number(
+                _find_json_value(detail_payload, {"underlyingprice", "underlyinglastprice"})
+            )
 
         retrieved_at = utc_now_iso()
         quote_time = _extract_timestamp(
@@ -148,9 +153,9 @@ class EuronextPageProvider(EuronextProvider):
             _strip_html(order_html),
         )
         if quote_time is None:
-            quote_at = retrieved_at
-            delayed_minutes = 0
-            confidence = "medium"
+            quote_at = None
+            delayed_minutes = None
+            confidence = "low"
         else:
             quote_utc = quote_time.astimezone(timezone.utc)
             quote_at = quote_utc.isoformat(timespec="seconds")
@@ -170,9 +175,15 @@ class EuronextPageProvider(EuronextProvider):
             source_url=product_url,
             source_confidence=confidence,
             delayed_by_minutes=delayed_minutes,
+            timestamp_source="euronext_page" if quote_time is not None else "unknown",
+            market_status=euronext_market_status(quote_utc if quote_time is not None else None),
+            is_indicative=quote_time is None,
             bid_size=bid_size,
             ask_size=ask_size,
             underlying_price=underlying_price,
+            underlying_quote_at=quote_at if underlying_price is not None else None,
+            quote_currency="EUR",
+            underlying_currency="EUR" if underlying_price is not None else None,
             instrument_uic=None,
             instrument_asset_type=instrument.asset_type,
             instrument_symbol=symbol,

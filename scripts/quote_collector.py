@@ -11,7 +11,8 @@ from __future__ import annotations
 import argparse
 import json
 import os
-from dataclasses import dataclass
+import tempfile
+from dataclasses import dataclass, replace
 from pathlib import Path
 from typing import Any
 
@@ -57,6 +58,39 @@ def write_json(path: Path, document: dict[str, Any]) -> None:
         encoding="utf-8",
     )
     temporary.replace(path)
+
+
+def write_document_set(documents: dict[Path, dict[str, Any]]) -> None:
+    """Publish related JSON files together and roll back on an interrupted replace."""
+    if not documents:
+        return
+    parent = next(iter(documents)).parent
+    if any(path.parent != parent for path in documents):
+        raise ValueError("transactional documents must share one directory")
+    originals = {path: path.read_bytes() if path.exists() else None for path in documents}
+    with tempfile.TemporaryDirectory(prefix=".quote-snapshot-", dir=parent) as raw_staging:
+        staging = Path(raw_staging)
+        staged: dict[Path, Path] = {}
+        for path, document in documents.items():
+            candidate = staging / path.name
+            candidate.write_text(json.dumps(document, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+            json.loads(candidate.read_text(encoding="utf-8"))
+            staged[path] = candidate
+        replaced: list[Path] = []
+        try:
+            for path, candidate in staged.items():
+                candidate.replace(path)
+                replaced.append(path)
+        except Exception:
+            for path in replaced:
+                original = originals[path]
+                if original is None:
+                    path.unlink(missing_ok=True)
+                else:
+                    rollback = staging / f"rollback-{path.name}"
+                    rollback.write_bytes(original)
+                    rollback.replace(path)
+            raise
 
 
 def build_provider(config: dict[str, Any]):
@@ -119,9 +153,15 @@ def _normalize_snapshot(snapshot: QuoteSnapshot) -> dict[str, Any]:
         "source_url": "sourceUrl",
         "source_confidence": "sourceConfidence",
         "delayed_by_minutes": "delayedByMinutes",
+        "timestamp_source": "timestampSource",
+        "market_status": "marketStatus",
+        "is_indicative": "isIndicative",
         "bid_size": "bidSize",
         "ask_size": "askSize",
         "underlying_price": "underlyingPrice",
+        "underlying_quote_at": "underlyingQuoteAt",
+        "quote_currency": "quoteCurrency",
+        "underlying_currency": "underlyingCurrency",
         "instrument_uic": "instrumentUic",
         "instrument_asset_type": "instrumentAssetType",
         "instrument_symbol": "instrumentSymbol",
@@ -196,6 +236,7 @@ def collect_documents(
                 resolved_mapping["symbol"] = instrument.symbol
                 if provider_name == "euronext" and "-" in instrument.symbol:
                     resolved_mapping["mic"] = instrument.symbol.rsplit("-", 1)[1]
+                    resolved_mapping.setdefault("underlyingSource", "unresolved")
             if instrument.description:
                 resolved_mapping["description"] = instrument.description
             if resolved_mapping != mapping:
@@ -204,13 +245,31 @@ def collect_documents(
                 mapping = resolved_mapping
                 mappings_updated += 1
 
-            underlying_price = provider.fetch_underlying_price(mapping)
+            try:
+                underlying_quote = (
+                    provider.fetch_underlying_quote(mapping)
+                    if hasattr(provider, "fetch_underlying_quote") else None
+                )
+            except ProviderError as exc:
+                underlying_quote = None
+                errors.append(f"{position_id} underlying: {exc}")
+            underlying_price = (
+                underlying_quote.get("price") if underlying_quote
+                else provider.fetch_underlying_price(mapping)
+            )
             snapshot = provider.fetch_instrument_quote(
                 position_id,
                 instrument,
                 session=session,
                 underlying_price=underlying_price,
             )
+            if underlying_quote:
+                snapshot = replace(
+                    snapshot,
+                    underlying_price=underlying_quote["price"],
+                    underlying_quote_at=underlying_quote["quoteAt"],
+                    underlying_currency=underlying_quote.get("currency"),
+                )
             normalized = _normalize_snapshot(snapshot)
         except ProviderConfigurationError as exc:
             # Une recommandation nouvellement détectée peut légitimement ne pas
@@ -235,6 +294,11 @@ def collect_documents(
             position["ask"] = normalized["ask"]
             if normalized.get("underlyingPrice") is not None:
                 position["underlyingPrice"] = normalized["underlyingPrice"]
+                position["underlyingQuoteAt"] = normalized.get("underlyingQuoteAt")
+                position["underlyingCurrency"] = normalized.get("underlyingCurrency")
+            for field in ("timestampSource", "marketStatus", "isIndicative", "quoteCurrency"):
+                if field in normalized:
+                    position[field] = normalized[field]
             position["marketDataProvider"] = normalized["provider"]
             position["marketDataSourceUrl"] = normalized["sourceUrl"]
             position["marketDataRetrievedAt"] = normalized["retrievedAt"]
@@ -270,10 +334,15 @@ def collect_documents(
     quotes_document["quotes"] = trimmed
 
     quality_updated = refresh_data_quality(positions)
+    previous_health = positions_document.get("meta", {}).get("marketDataHealth", {})
+    unavailable = bool(errors) and not added and not updated
+    consecutive_failures = (
+        int(previous_health.get("consecutiveFailures", 0)) + 1 if unavailable else 0
+    )
     health = {
         "status": (
-            "error" if errors and not added
-            else "partial" if errors or skipped
+            "source_unavailable" if unavailable
+            else "degraded" if errors or skipped
             else "ok"
         ),
         "attemptedAt": now,
@@ -283,6 +352,8 @@ def collect_documents(
         "errorCount": len(errors),
         "skipped": skipped[:25],
         "errors": errors[:25],
+        "consecutiveFailures": consecutive_failures,
+        "lastSuccessAt": previous_health.get("lastSuccessAt") if unavailable else now,
     }
     positions_meta = positions_document.setdefault("meta", {})
     health_updated = positions_meta.get("marketDataHealth") != health
@@ -301,7 +372,7 @@ def collect_documents(
     elif mappings_updated:
         status = "mapped"
     elif errors:
-        status = "error"
+        status = "source_unavailable" if unavailable else "degraded"
     elif skipped:
         status = "partial"
     else:
@@ -352,9 +423,11 @@ def main() -> int:
         session=args.session,
     )
     if result.changed:
-        write_json(positions_path, positions)
-        write_json(quotes_path, quotes)
-        write_json(config_path, config)
+        write_document_set({
+            positions_path: positions,
+            quotes_path: quotes,
+            config_path: config,
+        })
         if args.changed_flag:
             args.changed_flag.parent.mkdir(parents=True, exist_ok=True)
             args.changed_flag.write_text("changed\n", encoding="utf-8")
@@ -369,7 +442,8 @@ def main() -> int:
         "skipped": result.skipped,
     }
     print(json.dumps(summary, ensure_ascii=False))
-    if result.errors and result.quotes_added == 0 and result.mappings_updated == 0:
+    failures = positions.get("meta", {}).get("marketDataHealth", {}).get("consecutiveFailures", 0)
+    if result.errors and result.quotes_added == 0 and result.mappings_updated == 0 and failures >= 3:
         return 1
     return 0
 

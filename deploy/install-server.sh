@@ -42,6 +42,17 @@ sudo install -m 0644 \
   /etc/systemd/system/polsinelli-collector.timer
 sudo systemctl daemon-reload
 
+# Prepare the atomic publication layout once. Preserve an existing data
+# directory as the bootstrap rollback snapshot.
+SITE_DATA_DIR="${POLSINELLI_SITE_DATA_DIR:-/var/www/polsinelli-tracker-v3/data}"
+PUBLIC_ROOT="$(dirname "$SITE_DATA_DIR")/.polsinelli-snapshots"
+sudo mkdir -p "$PUBLIC_ROOT"
+if [[ -d "$SITE_DATA_DIR" && ! -L "$SITE_DATA_DIR" ]]; then
+  BOOTSTRAP="$PUBLIC_ROOT/bootstrap-$(date -u +%Y%m%dT%H%M%SZ)"
+  sudo mv "$SITE_DATA_DIR" "$BOOTSTRAP"
+  sudo ln -s "$BOOTSTRAP" "$SITE_DATA_DIR"
+fi
+
 printf '\nInstallation prepared. The timer is intentionally still disabled.\n'
 printf 'Manual test: FORCE_RUN=1 %q/deploy/run-collector.sh\n' "$REPO_ROOT"
 printf 'Enable after the Git remote can push: sudo systemctl enable --now polsinelli-collector.timer\n'

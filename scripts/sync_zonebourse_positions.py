@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import json
+import hashlib
 import os
 import re
 import sys
@@ -65,29 +66,109 @@ def first_number(text: str, patterns: tuple[str, ...]) -> float | None:
     return None
 
 
+def unique_number(text: str, patterns: tuple[str, ...]) -> tuple[float | None, bool]:
+    values: set[float] = set()
+    for pattern in patterns:
+        for match in re.finditer(pattern, text, flags=re.I):
+            try:
+                values.add(number(match.group(1)))
+            except ValueError:
+                pass
+    return (next(iter(values)), False) if len(values) == 1 else (None, len(values) > 1)
+
+
 def parse_article_details(raw: str) -> dict:
     """Extrait uniquement les valeurs explicitement publiées sur la fiche."""
     text = article_text(raw)
     isin_match = ISIN_RE.search(text)
-    return {
+    entry_patterns = (
+        r"Cours d['’]entrée\s*(?:\||:)?[\s€]*([\d\s.,]+)",
+        r"Prix d['’]entrée\s*(?:\||:)?[\s€]*([\d\s.,]+)",
+        r"\bEntrée\s*(?:\||:)?[\s€]*([\d]+[,.]\d+)",
+        r"(?:acheté|recommandé)\s+(?:à|au cours de)\s+([\d\s.,]+)\s*€",
+    )
+    target_patterns = (
+        r"Objectif de cours\s*(?:\||:)?\s*([\d\s.,]+)",
+        r"Objectif\s*(?:\||:)?\s*([\d\s.,]+)\s*(?:EUR|USD|€)",
+    )
+    stop_patterns = (
+        r"seuil d['’]invalidation[^\d]{0,100}([\d\s.,]+)\s*(?:EUR|USD|€)",
+        r"Opinion\s*(?:\||:)?\s*(?:Positive|Négative|Negative)\s+(?:au-dessus|au dessus|sous|en-dessous)\s+(?:(?:de|des?|les?)\s+)?([\d\s.,]+)\s*(?:EUR|USD|€)",
+        r"Invalidation\s*:?\s*([\d\s.,]+)\s*(?:EUR|USD|€)",
+        r"Stop(?: loss)?\s*:?\s*([\d\s.,]+)\s*(?:EUR|USD|€)",
+    )
+    def structured_values(keys: set[str]) -> set[float]:
+        found: set[float] = set()
+        for block in re.findall(r'<script[^>]+type=["\']application/(?:ld\+)?json["\'][^>]*>(.*?)</script>', raw, re.I | re.S):
+            try:
+                payload = json.loads(unescape(block))
+            except (json.JSONDecodeError, TypeError):
+                continue
+            stack = [payload]
+            while stack:
+                item = stack.pop()
+                if isinstance(item, dict):
+                    for key, value in item.items():
+                        if key.lower() in keys and isinstance(value, (int, float, str)):
+                            try:
+                                found.add(float(str(value).replace(" ", "").replace(",", ".")))
+                            except ValueError:
+                                pass
+                        elif isinstance(value, (dict, list)):
+                            stack.append(value)
+                elif isinstance(item, list):
+                    stack.extend(item)
+        return found
+
+    structured_entry = structured_values({"entryprice", "entry_price"})
+    structured_target = structured_values({"target", "targetprice", "target_price"})
+    structured_stop = structured_values({"stop", "stopprice", "invalidationlevel"})
+    def preferred(structured: set[float], patterns: tuple[str, ...]) -> tuple[float | None, bool]:
+        if structured:
+            return (next(iter(structured)), False) if len(structured) == 1 else (None, True)
+        return unique_number(text, patterns)
+    entry, entry_ambiguous = preferred(structured_entry, entry_patterns)
+    target, target_ambiguous = preferred(structured_target, target_patterns)
+    stop, stop_ambiguous = preferred(structured_stop, stop_patterns)
+    values = {
         "isin": isin_match.group(1).upper() if isin_match else None,
-        "entryPrice": first_number(text, (
-            r"Cours d['’]entrée\s*(?:\||:)?[\s€]*([\d\s.,]+)",
-            r"Prix d['’]entrée\s*(?:\||:)?[\s€]*([\d\s.,]+)",
-            r"\bEntrée\s*(?:\||:)?[\s€]*([\d]+[,.]\d+)",
-            r"(?:acheté|recommandé)\s+(?:à|au cours de)\s+([\d\s.,]+)\s*€",
-        )),
-        "target": first_number(text, (
-            r"Objectif de cours\s*(?:\||:)?\s*([\d\s.,]+)",
-            r"Objectif\s*(?:\||:)?\s*([\d\s.,]+)\s*(?:EUR|USD|€)",
-        )),
-        "stop": first_number(text, (
-            r"seuil d['’]invalidation[^\d]{0,100}([\d\s.,]+)\s*(?:EUR|USD|€)",
-            r"Opinion\s*(?:\||:)?\s*(?:Positive|Négative|Negative)\s+(?:au-dessus|au dessus|sous|en-dessous)\s+(?:(?:de|des?|les?)\s+)?([\d\s.,]+)\s*(?:EUR|USD|€)",
-            r"Invalidation\s*:?\s*([\d\s.,]+)\s*(?:EUR|USD|€)",
-            r"Stop(?: loss)?\s*:?\s*([\d\s.,]+)\s*(?:EUR|USD|€)",
-        )),
+        "entryPrice": entry,
+        "target": target,
+        "stop": stop,
+        "riskLevelsCurrency": (
+            next(iter(set(re.findall(r"(?:Objectif|invalidation|Opinion)[^€$]{0,120}\b(EUR|USD)\b", text, re.I)))).upper()
+            if len(set(value.upper() for value in re.findall(r"(?:Objectif|invalidation|Opinion)[^€$]{0,120}\b(EUR|USD)\b", text, re.I))) == 1
+            else "EUR" if "€" in text else None
+        ),
     }
+    values["extraction"] = {
+        "method": "structured_json" if any((structured_entry, structured_target, structured_stop)) else "normalized_text_regex",
+        "selector": "script[type=application/json]" if any((structured_entry, structured_target, structured_stop)) else "document_text",
+        "sourceExcerpt": text[:500],
+        "ambiguous": entry_ambiguous or target_ambiguous or stop_ambiguous,
+    }
+    return values
+
+
+def recommendation_identity(card: dict) -> str:
+    """Stable composite identity; URLs and mnemonics alone are not identities."""
+    parts = (
+        str(card.get("isin") or "").upper(),
+        str(card.get("productCode") or card.get("mnemo") or "").upper(),
+        str(card.get("publishedAt") or card.get("entryDate") or "")[:10],
+        str(card.get("author") or "zonebourse").lower(),
+        str(card.get("eventType") or "recommendation").lower(),
+    )
+    return "|".join(parts)
+
+
+def content_hash(card: dict) -> str:
+    material = {key: card.get(key) for key in (
+        "title", "isin", "productCode", "publishedAt", "direction",
+        "entryPrice", "target", "stop", "exitPrice",
+    )}
+    encoded = json.dumps(material, ensure_ascii=False, sort_keys=True, separators=(",", ":"))
+    return hashlib.sha256(encoded.encode("utf-8")).hexdigest()
 
 
 def fetch_article(url: str) -> str:
@@ -213,6 +294,8 @@ def new_position(card: dict, detected_at: str) -> dict:
         "mnemo": card["productCode"],
         "isin": card.get("isin"),
         "status": "open",
+        "recommendationStatus": "open",
+        "portfolioStatus": "not_held",
         "entryPrice": card.get("entryPrice"),
         "currentPrice": None,
         "exitPrice": None,
@@ -223,8 +306,14 @@ def new_position(card: dict, detected_at: str) -> dict:
         "publishedAt": card["publishedAt"],
         "publishedAtPrecision": card.get("publishedAtPrecision", "minute"),
         "detectedAt": detected_at,
+        "lastSeenOpenAt": detected_at,
+        "missingOpenCycles": 0,
+        "recommendationIdentity": recommendation_identity(card),
+        "contentHash": content_hash(card),
+        "mutationHistory": [],
         "target": card.get("target"),
         "stop": card.get("stop"),
+        "riskLevelsCurrency": card.get("riskLevelsCurrency"),
         "note": f"{card['title']}. Prix d'entrée et ISIN à confirmer depuis la fiche article.",
         "sourceConfidence": "medium",
     }
@@ -235,14 +324,58 @@ def synchronize(document: dict, current: list[dict], closed: list[dict], now: da
     open_by_code = {
         item.get("mnemo"): item for item in positions if item.get("status") == "open"
     }
+    open_by_identity = {
+        item.get("recommendationIdentity"): item
+        for item in positions
+        if item.get("status") == "open" and item.get("recommendationIdentity")
+    }
     detected_at = now.isoformat(timespec="seconds")
     added = 0
     closed_count = 0
     changed = False
+    seen_ids: set[str] = set()
 
     for card in current:
-        existing = open_by_code.get(card["productCode"])
+        direction = card.get("direction")
+        target, stop = card.get("target"), card.get("stop")
+        incoherent = (
+            isinstance(target, (int, float)) and isinstance(stop, (int, float))
+            and ((direction == "CALL" and target <= stop) or (direction == "PUT" and target >= stop))
+        )
+        if card.get("extraction", {}).get("ambiguous") or incoherent:
+            document.setdefault("meta", {}).setdefault("quarantine", []).append({
+                "url": card.get("url"), "productCode": card.get("productCode"),
+                "detectedAt": detected_at,
+                "reason": "ambiguous_extraction" if card.get("extraction", {}).get("ambiguous") else "incoherent_risk_levels",
+            })
+            for field in ("entryPrice", "target", "stop"):
+                card.pop(field, None)
+        identity = recommendation_identity(card)
+        existing = open_by_identity.get(identity)
+        if existing is None:
+            code_match = open_by_code.get(card["productCode"])
+            same_date = str(code_match.get("publishedAt") or code_match.get("entryDate") or "")[:10] == str(card.get("publishedAt") or "")[:10] if code_match else False
+            if code_match and (not code_match.get("recommendationIdentity") or same_date):
+                existing = code_match
         if existing:
+            seen_ids.add(existing.get("id") or existing.get("mnemo") or card["productCode"])
+            previous_hash = existing.get("contentHash")
+            new_hash = content_hash(card)
+            if previous_hash and previous_hash != new_hash:
+                existing.setdefault("mutationHistory", []).append({
+                    "changedAt": detected_at,
+                    "previousHash": previous_hash,
+                    "eventType": "modification",
+                })
+                changed = True
+            for key, value in (
+                ("contentHash", new_hash), ("recommendationIdentity", identity),
+                ("lastSeenOpenAt", detected_at), ("missingOpenCycles", 0),
+                ("recommendationStatus", "open"),
+            ):
+                if existing.get(key) != value:
+                    existing[key] = value
+                    changed = True
             if existing.get("url") != card["url"]:
                 existing["url"] = card["url"]
                 changed = True
@@ -265,7 +398,7 @@ def synchronize(document: dict, current: list[dict], closed: list[dict], now: da
                 if value and not existing.get(destination):
                     existing[destination] = value.title() if destination == "productType" else value
                     changed = True
-            for field in ("isin", "entryPrice", "target", "stop"):
+            for field in ("isin", "entryPrice", "target", "stop", "riskLevelsCurrency"):
                 value = card.get(field)
                 if value is not None and existing.get(field) != value:
                     existing[field] = value
@@ -275,7 +408,9 @@ def synchronize(document: dict, current: list[dict], closed: list[dict], now: da
             continue
         position = new_position(card, detected_at)
         positions.append(position)
+        seen_ids.add(position["id"])
         open_by_code[position["mnemo"]] = position
+        open_by_identity[position["recommendationIdentity"]] = position
         added += 1
         changed = True
 
@@ -286,6 +421,7 @@ def synchronize(document: dict, current: list[dict], closed: list[dict], now: da
         position.update(
             {
                 "status": "closed",
+                "recommendationStatus": "closed",
                 "entryPrice": row["entryPrice"],
                 "currentPrice": None,
                 "exitPrice": row["exitPrice"],
@@ -304,6 +440,25 @@ def synchronize(document: dict, current: list[dict], closed: list[dict], now: da
             position.pop(key, None)
         closed_count += 1
         changed = True
+
+    # A disappearance is evidence of uncertainty, never proof of closure.
+    closed_codes = {row.get("mnemo") for row in closed}
+    for position in positions:
+        if position.get("status") != "open" or position.get("mnemo") in closed_codes:
+            continue
+        if (position.get("id") or position.get("mnemo")) in seen_ids:
+            continue
+        cycles = int(position.get("missingOpenCycles", 0)) + 1
+        status = "UNKNOWN" if cycles >= 3 else "PENDING_RECONCILIATION"
+        if position.get("missingOpenCycles") != cycles or position.get("recommendationStatus") != status:
+            position["missingOpenCycles"] = cycles
+            position["recommendationStatus"] = status
+            position.setdefault("mutationHistory", []).append({
+                "changedAt": detected_at,
+                "eventType": "missing_from_open_listing",
+                "missingOpenCycles": cycles,
+            })
+            changed = True
 
     meta = document.setdefault("meta", {})
     expected_meta = {
@@ -349,7 +504,7 @@ def main() -> int:
         closed = list(closed_by_url.values())
     except Exception as exc:
         print(f"::warning title=Synchronisation Zonebourse ignorée::{exc}")
-        return 0
+        return 2
 
     document = json.loads(positions_path.read_text(encoding="utf-8"))
     result = synchronize(document, current, closed, now)

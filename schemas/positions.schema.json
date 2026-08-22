@@ -1,0 +1,26 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://polsinelli.local/schemas/positions-v2.json",
+  "title": "Polsinelli positions document",
+  "type": "object",
+  "required": ["meta", "positions"],
+  "properties": {
+    "meta": {"type": "object", "required": ["schemaVersion"]},
+    "positions": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "status", "recommendationStatus", "portfolioStatus", "direction", "currency", "mutationHistory"],
+        "properties": {
+          "id": {"type": "string", "minLength": 1},
+          "status": {"enum": ["open", "closed"]},
+          "recommendationStatus": {"enum": ["open", "closed", "PENDING_RECONCILIATION", "UNKNOWN"]},
+          "portfolioStatus": {"enum": ["not_held", "held", "sold"]},
+          "direction": {"enum": ["CALL", "PUT"]},
+          "currency": {"type": "string", "pattern": "^[A-Z]{3}$"}
+        }
+      }
+    }
+  },
+  "additionalProperties": false
+}

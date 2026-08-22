@@ -8,6 +8,7 @@ ne fait pas échouer le workflow toutes les cinq minutes.
 from __future__ import annotations
 
 import json
+import hashlib
 import os
 import re
 import sys
@@ -260,14 +261,18 @@ def fetch_text(url: str, attempts: int = 2) -> str:
 
 def scan_sources() -> tuple[list[dict], str | None, list[str]]:
     errors: list[str] = []
+    merged: dict[str, dict] = {}
+    used: list[str] = []
     for source_name, source_url in DIRECT_SOURCES:
         try:
             articles = parse_html_articles(
                 fetch_text(source_url), source_url, recommendations_only=True
             )
             if articles:
-                return articles, source_name, errors
-            errors.append(f"{source_name}: aucune recommandation extraite")
+                merged.update((item["url"], item) for item in articles)
+                used.append(source_name)
+            else:
+                errors.append(f"{source_name}: aucune recommandation extraite")
         except Exception as exc:
             errors.append(f"{source_name}: {exc}")
 
@@ -279,11 +284,13 @@ def scan_sources() -> tuple[list[dict], str | None, list[str]]:
                 recommendations_only=True,
             )
             if articles:
-                return articles, source_name, errors
-            errors.append(f"{source_name}: aucune recommandation extraite")
+                merged.update((item["url"], item) for item in articles)
+                used.append(source_name)
+            else:
+                errors.append(f"{source_name}: aucune recommandation extraite")
         except Exception as exc:
             errors.append(f"{source_name}: {exc}")
-    return [], None, errors
+    return list(merged.values()), ",".join(used) if used else None, errors
 
 
 def load(path: Path, default: dict) -> dict:
@@ -327,32 +334,53 @@ def write_outputs(
 
 def main() -> int:
     articles, source_used, errors = scan_sources()
+    state_path, article_path = Path("fast-scan.json"), Path("article-state.json")
+    state = load(state_path, {"meta": {}, "latest": None, "alerts": []})
     if not articles:
         message = " | ".join(errors) or "aucune source exploitable"
+        health = state.setdefault("meta", {}).setdefault("sourceHealth", {})
+        failures = int(health.get("consecutiveFailures", 0)) + 1
+        health.update({
+            "status": "source_unavailable", "attemptedAt": datetime.now(PARIS).isoformat(timespec="seconds"),
+            "consecutiveFailures": failures, "lastError": message[:1500],
+        })
+        state_path.write_text(json.dumps(state, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
         write_outputs(False, [], "degraded", None, message)
         print(f"::warning title=Scanner Zonebourse dégradé::{message}")
         print(json.dumps({"changed": False, "sourceStatus": "degraded", "errors": errors}, ensure_ascii=False))
-        return 0
+        return 2 if failures >= 3 else 0
 
-    state_path, article_path = Path("fast-scan.json"), Path("article-state.json")
-    state = load(state_path, {"meta": {}, "latest": None, "alerts": []})
     article_state = load(article_path, {"articles": {}})
+    def event_key(item: dict) -> str:
+        raw = "|".join((
+            str(item.get("productCode") or "").upper(),
+            str(item.get("publishedAt") or "")[:10],
+            str(item.get("author") or "zonebourse").lower(),
+            str(item.get("kind") or "other"),
+            str(item.get("title") or "").strip().lower(),
+        ))
+        return hashlib.sha256(raw.encode("utf-8")).hexdigest()
+
     known = {
-        item.get("url")
+        item.get("eventKey") or event_key(item)
         for item in state.get("alerts", [])
-        if isinstance(item, dict) and item.get("url")
+        if isinstance(item, dict)
     }
     known |= {
-        item.get("url")
+        item.get("eventKey") or event_key(item)
         for item in article_state.get("articles", {}).values()
-        if isinstance(item, dict) and item.get("url")
+        if isinstance(item, dict)
     }
 
     detected = datetime.now(PARIS).isoformat(timespec="seconds")
+    state.setdefault("meta", {})["sourceHealth"] = {
+        "status": "ok", "attemptedAt": detected, "lastSuccessAt": detected,
+        "consecutiveFailures": 0,
+    }
     new = [
-        {**article, "detectedAt": detected, "status": "detected"}
+        {**article, "eventKey": event_key(article), "contentHash": event_key(article), "detectedAt": detected, "status": "detected"}
         for article in articles
-        if article["url"] not in known
+        if event_key(article) not in known
     ]
     if new:
         state.setdefault("meta", {}).update(
@@ -366,6 +394,10 @@ def main() -> int:
         )
         state["latest"] = {**articles[0], "seenAt": detected}
         state["alerts"] = (new + state.get("alerts", []))[:200]
+        state_path.write_text(
+            json.dumps(state, ensure_ascii=False, indent=2) + "\n", encoding="utf-8"
+        )
+    else:
         state_path.write_text(
             json.dumps(state, ensure_ascii=False, indent=2) + "\n", encoding="utf-8"
         )

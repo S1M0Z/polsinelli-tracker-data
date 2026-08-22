@@ -19,6 +19,9 @@ class DataError(ValueError):
     """Raised when source data is invalid or internally inconsistent."""
 
 
+ENGINE_VERSION = "1.2.0"
+
+
 def parse_datetime(value: str | None) -> datetime | None:
     if not value:
         return None
@@ -121,6 +124,8 @@ class Policy:
     model_capital_eur: float
     fixed_stake_eur: float
     max_quote_age_minutes: int
+    max_watch_age_minutes: int
+    max_positions_age_minutes: int
     max_price_drift_pct: float
     max_spread_pct: float
     min_reward_risk_ratio: float
@@ -133,10 +138,14 @@ class Policy:
     @classmethod
     def from_document(cls, document: dict[str, Any]) -> "Policy":
         raw = document.get("policy", document)
+        if not isinstance(raw, dict):
+            raise DataError("policy must be a JSON object")
         required = {
             "modelCapitalEur",
             "fixedStakeEur",
             "maxQuoteAgeMinutes",
+            "maxWatchAgeMinutes",
+            "maxPositionsAgeMinutes",
             "maxPriceDriftPct",
             "maxSpreadPct",
             "minRewardRiskRatio",
@@ -149,19 +158,31 @@ class Policy:
         missing = sorted(required - raw.keys())
         if missing:
             raise DataError(f"Missing policy fields: {', '.join(missing)}")
-        return cls(
-            model_capital_eur=float(raw["modelCapitalEur"]),
-            fixed_stake_eur=float(raw["fixedStakeEur"]),
-            max_quote_age_minutes=int(raw["maxQuoteAgeMinutes"]),
-            max_price_drift_pct=float(raw["maxPriceDriftPct"]),
-            max_spread_pct=float(raw["maxSpreadPct"]),
-            min_reward_risk_ratio=float(raw["minRewardRiskRatio"]),
-            max_detection_latency_seconds=int(raw["maxDetectionLatencySeconds"]),
-            max_risk_per_trade_pct=float(raw["maxRiskPerTradePct"]),
-            max_total_leveraged_exposure_pct=float(raw["maxTotalLeveragedExposurePct"]),
-            max_open_positions=int(raw["maxOpenPositions"]),
-            assume_full_premium_at_risk=bool(raw["assumeFullPremiumAtRisk"]),
-        )
+        numeric = required - {"assumeFullPremiumAtRisk"}
+        for field in numeric:
+            value = raw[field]
+            if not isinstance(value, (int, float)) or isinstance(value, bool):
+                raise DataError(f"Policy field {field} must be a JSON number")
+        for field in ("maxQuoteAgeMinutes", "maxWatchAgeMinutes", "maxPositionsAgeMinutes", "maxDetectionLatencySeconds", "maxOpenPositions"):
+            if not isinstance(raw[field], int) or isinstance(raw[field], bool):
+                raise DataError(f"Policy field {field} must be a JSON integer")
+        if not isinstance(raw["assumeFullPremiumAtRisk"], bool):
+            raise DataError("Policy field assumeFullPremiumAtRisk must be a JSON boolean")
+        positive = numeric - {"maxPriceDriftPct"}
+        if any(raw[field] <= 0 for field in positive) or raw["maxPriceDriftPct"] < 0:
+            raise DataError("Policy limits must be positive (price drift may be zero)")
+        for field in ("maxRiskPerTradePct", "maxTotalLeveragedExposurePct"):
+            if raw[field] > 100:
+                raise DataError(f"Policy field {field} cannot exceed 100")
+        if raw["fixedStakeEur"] > raw["modelCapitalEur"]:
+            raise DataError("fixedStakeEur cannot exceed modelCapitalEur")
+        return cls(*(raw[field] for field in (
+            "modelCapitalEur", "fixedStakeEur", "maxQuoteAgeMinutes", "maxWatchAgeMinutes", "maxPositionsAgeMinutes",
+            "maxPriceDriftPct", "maxSpreadPct", "minRewardRiskRatio",
+            "maxDetectionLatencySeconds", "maxRiskPerTradePct",
+            "maxTotalLeveragedExposurePct", "maxOpenPositions",
+            "assumeFullPremiumAtRisk",
+        )))
 
 
 def merged_market_data(position: dict[str, Any], quote: dict[str, Any] | None) -> dict[str, Any]:
@@ -171,10 +192,16 @@ def merged_market_data(position: dict[str, Any], quote: dict[str, Any] | None) -
         "bid": position.get("bid"),
         "ask": position.get("ask"),
         "underlyingPrice": position.get("underlyingPrice"),
+        "underlyingQuoteAt": position.get("underlyingQuoteAt"),
+        "quoteCurrency": position.get("quoteCurrency"),
+        "underlyingCurrency": position.get("underlyingCurrency"),
         "publicationPrice": position.get("publicationPrice", position.get("entryPrice")),
         "detectedAt": position.get("detectedAt"),
         "publishedAt": position.get("publishedAt"),
         "publishedAtPrecision": position.get("publishedAtPrecision", "minute"),
+        "timestampSource": position.get("timestampSource"),
+        "marketStatus": position.get("marketStatus", "unknown"),
+        "isIndicative": position.get("isIndicative", True),
     }
     if quote:
         for key in data:
@@ -201,6 +228,10 @@ def entry_decision(
         return "CLOSED", [], {}
 
     reasons: list[str] = []
+    if as_of.weekday() >= 5:
+        reasons.append("market_calendar_closed")
+    if market.get("marketStatus") != "open":
+        reasons.append("market_not_confirmed_open")
     quote_at = parse_datetime(market.get("quoteAt"))
     quote_age_minutes: float | None = None
     if quote_at is None:
@@ -211,6 +242,10 @@ def entry_decision(
             reasons.append("quote_timestamp_in_future")
         elif quote_age_minutes > policy.max_quote_age_minutes:
             reasons.append("stale_quote")
+    if market.get("timestampSource") in (None, "unknown"):
+        reasons.append("unconfirmed_market_timestamp")
+    if market.get("isIndicative") is True:
+        reasons.append("indicative_quote")
 
     current_price = market.get("currentPrice")
     if not isinstance(current_price, (int, float)) or current_price <= 0:
@@ -259,6 +294,17 @@ def entry_decision(
     if not all(isinstance(value, (int, float)) for value in (target, stop, underlying)):
         reasons.append("missing_risk_levels")
     else:
+        underlying_quote_at = parse_datetime(market.get("underlyingQuoteAt"))
+        if underlying_quote_at is None:
+            reasons.append("missing_underlying_timestamp")
+        elif quote_at is not None and abs((underlying_quote_at - quote_at).total_seconds()) > 300:
+            reasons.append("mixed_market_sessions")
+        risk_levels_currency = position.get("riskLevelsCurrency")
+        underlying_currency = market.get("underlyingCurrency")
+        if not risk_levels_currency or not underlying_currency:
+            reasons.append("missing_risk_currency")
+        elif risk_levels_currency != underlying_currency:
+            reasons.append("currency_mismatch")
         target_value = float(target)
         stop_value = float(stop)
         underlying_value = float(underlying)
@@ -279,7 +325,12 @@ def entry_decision(
         decision = "STALE_QUOTE"
     elif "quote_timestamp_in_future" in reasons or "detection_before_publication" in reasons:
         decision = "INVALID_TIMESTAMPS"
-    elif any(reason.startswith("missing_") for reason in reasons):
+    elif any(reason.startswith("missing_") for reason in reasons) or any(
+        reason in {
+            "unconfirmed_market_timestamp", "indicative_quote", "market_not_confirmed_open",
+            "market_calendar_closed", "mixed_market_sessions", "currency_mismatch",
+        } for reason in reasons
+    ):
         decision = "DATA_INCOMPLETE"
     elif "spread_too_wide" in reasons:
         decision = "SPREAD_TOO_WIDE"
@@ -403,13 +454,29 @@ def build_view(
 
     actionable = [row for row in open_rows if row["decision"] == "ELIGIBLE"]
     committed_positions = sum(
-        1
-        for position in open_positions
-        if isinstance(position.get("entryPrice"), (int, float))
-        and not isinstance(position.get("entryPrice"), bool)
-        and position["entryPrice"] > 0
+        1 for position in open_positions
+        if position.get("portfolioStatus") == "held"
+        and isinstance(position.get("executedPrice"), (int, float))
+        and not isinstance(position.get("executedPrice"), bool)
+        and isinstance(position.get("quantity"), (int, float))
+        and not isinstance(position.get("quantity"), bool)
+        and position["executedPrice"] > 0 and position["quantity"] > 0
     )
     available_slots = max(0, policy.max_open_positions - committed_positions)
+    portfolio_rows = [
+        {
+            "positionId": position["id"],
+            "asset": position.get("asset"),
+            "portfolioStatus": position.get("portfolioStatus"),
+            "executedAt": position.get("executedAt"),
+            "executedPrice": position.get("executedPrice"),
+            "quantity": position.get("quantity"),
+            "fees": position.get("fees"),
+            "account": position.get("account"),
+        }
+        for position in positions
+        if position.get("portfolioStatus") in {"held", "sold"}
+    ]
     if len(actionable) > available_slots:
         for row in actionable[available_slots:]:
             row["decision"] = "PORTFOLIO_LIMIT"
@@ -420,17 +487,67 @@ def build_view(
             decision_counts.pop("ELIGIBLE", None)
         decision_counts["PORTFOLIO_LIMIT"] = len(actionable) - available_slots
 
+    def age_minutes(value: Any) -> float | None:
+        parsed = parse_datetime(value) if value else None
+        return round((as_of - parsed).total_seconds() / 60, 2) if parsed else None
+
+    latest_quote_time = max(
+        (parse_datetime(item.get("quoteAt")) for item in quote_map.values()),
+        default=None,
+    )
+    freshness = {
+        "watch": {
+            "at": positions_document.get("meta", {}).get("lastPublicationCheckedAt"),
+            "ageMinutes": age_minutes(positions_document.get("meta", {}).get("lastPublicationCheckedAt")),
+        },
+        "positions": {
+            "at": positions_document.get("meta", {}).get("generatedAt"),
+            "ageMinutes": age_minutes(positions_document.get("meta", {}).get("generatedAt")),
+        },
+        "quotes": {
+            "at": latest_quote_time.isoformat() if latest_quote_time else None,
+            "ageMinutes": round((as_of - latest_quote_time).total_seconds() / 60, 2) if latest_quote_time else None,
+        },
+        "calculation": {"at": as_of.isoformat(), "ageMinutes": 0.0},
+    }
+    data_blocked = bool(open_rows) and all(
+        row["decision"] in {"STALE_QUOTE", "DATA_INCOMPLETE"} for row in open_rows
+    )
+    has_any_quote = any(row["market"].get("quoteAt") for row in open_rows)
+    watch_age = freshness["watch"]["ageMinutes"]
+    positions_age = freshness["positions"]["ageMinutes"]
+    source_unavailable = positions_document.get("meta", {}).get("sourceHealth", {}).get("status") == "source_unavailable"
+    source_missing = watch_age is None or positions_age is None or source_unavailable
+    source_stale = (
+        watch_age is not None and watch_age > policy.max_watch_age_minutes
+    ) or (
+        positions_age is not None and positions_age > policy.max_positions_age_minutes
+    )
+    if source_missing:
+        system_verdict = "DATA_PIPELINE_UNAVAILABLE"
+    elif source_stale:
+        system_verdict = "SYSTEM_STALE"
+    elif data_blocked:
+        system_verdict = "SYSTEM_STALE" if has_any_quote else "DATA_PIPELINE_UNAVAILABLE"
+    elif any(row["decision"] == "ELIGIBLE" for row in open_rows):
+        system_verdict = "ACTIONABLE_POSITIONS_AVAILABLE"
+    else:
+        system_verdict = "NO_ACTIONABLE_POSITION"
+
     return {
         "meta": {
             "generatedAt": as_of.isoformat(),
-            "engineVersion": "1.1.0",
+            "engineVersion": ENGINE_VERSION,
             "sourceGeneratedAt": positions_document.get("meta", {}).get("generatedAt"),
             "purpose": "Conservative decision support; not an automated order system.",
+            "freshness": freshness,
         },
         "policy": {
             "modelCapitalEur": policy.model_capital_eur,
             "fixedStakeEur": policy.fixed_stake_eur,
             "maxQuoteAgeMinutes": policy.max_quote_age_minutes,
+            "maxWatchAgeMinutes": policy.max_watch_age_minutes,
+            "maxPositionsAgeMinutes": policy.max_positions_age_minutes,
             "maxPriceDriftPct": policy.max_price_drift_pct,
             "maxSpreadPct": policy.max_spread_pct,
             "minRewardRiskRatio": policy.min_reward_risk_ratio,
@@ -449,11 +566,14 @@ def build_view(
             "committedOpenCount": committed_positions,
             "availablePositionSlots": available_slots,
             "decisionCounts": decision_counts,
-            "systemVerdict": "NO_ACTIONABLE_POSITION"
-            if not any(row["decision"] == "ELIGIBLE" for row in open_rows)
-            else "ACTIONABLE_POSITIONS_AVAILABLE",
+            "systemVerdict": system_verdict,
         },
         "openPositions": open_rows,
+        "portfolio": {
+            "positions": portfolio_rows,
+            "heldCount": sum(row["portfolioStatus"] == "held" for row in portfolio_rows),
+            "note": "Only explicitly executed holdings are included; recommendations are separate.",
+        },
         "closedTrackRecord": closed_statistics(closed_positions, policy.fixed_stake_eur),
         "guardrails": [
             "Never enter from a stale quote.",

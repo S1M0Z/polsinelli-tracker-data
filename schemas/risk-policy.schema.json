@@ -1,0 +1,31 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://polsinelli.local/schemas/risk-policy-v3.json",
+  "title": "Polsinelli risk policy",
+  "type": "object",
+  "required": ["meta", "policy"],
+  "properties": {
+    "meta": {"type": "object", "required": ["schemaVersion"]},
+    "policy": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["modelCapitalEur", "fixedStakeEur", "maxQuoteAgeMinutes", "maxWatchAgeMinutes", "maxPositionsAgeMinutes", "maxPriceDriftPct", "maxSpreadPct", "minRewardRiskRatio", "maxDetectionLatencySeconds", "maxRiskPerTradePct", "maxTotalLeveragedExposurePct", "maxOpenPositions", "assumeFullPremiumAtRisk"],
+      "properties": {
+        "modelCapitalEur": {"type": "number", "exclusiveMinimum": 0},
+        "fixedStakeEur": {"type": "number", "exclusiveMinimum": 0},
+        "maxQuoteAgeMinutes": {"type": "integer", "minimum": 1},
+        "maxWatchAgeMinutes": {"type": "integer", "minimum": 1},
+        "maxPositionsAgeMinutes": {"type": "integer", "minimum": 1},
+        "maxPriceDriftPct": {"type": "number", "minimum": 0},
+        "maxSpreadPct": {"type": "number", "exclusiveMinimum": 0},
+        "minRewardRiskRatio": {"type": "number", "exclusiveMinimum": 0},
+        "maxDetectionLatencySeconds": {"type": "integer", "minimum": 1},
+        "maxRiskPerTradePct": {"type": "number", "exclusiveMinimum": 0, "maximum": 100},
+        "maxTotalLeveragedExposurePct": {"type": "number", "exclusiveMinimum": 0, "maximum": 100},
+        "maxOpenPositions": {"type": "integer", "minimum": 1},
+        "assumeFullPremiumAtRisk": {"type": "boolean"}
+      }
+    }
+  },
+  "additionalProperties": false
+}

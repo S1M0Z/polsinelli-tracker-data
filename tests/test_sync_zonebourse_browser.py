@@ -54,6 +54,7 @@ class ZonebourseBrowserSyncTests(unittest.TestCase):
         )
         position = document["positions"][0]
         self.assertFalse(result["degraded"])
+        self.assertEqual(result["errors"], [])
         self.assertEqual(position["isin"], "DE000MU13V01")
         self.assertEqual(position["entryPrice"], 1.2)
         self.assertEqual(position["target"], 2800)
@@ -87,6 +88,20 @@ class ZonebourseBrowserSyncTests(unittest.TestCase):
         self.assertEqual(document["positions"][0]["mnemo"], "B9W5B")
         self.assertEqual(document["positions"][0]["isin"], "DE000MU13V01")
         self.assertEqual(document["positions"][0]["entryPrice"], 1.2)
+
+    def test_successful_health_update_is_persistable_even_without_position_changes(self):
+        document = {"meta": {"sourceHealth": {"status": "degraded"}}, "positions": [{
+            "id": "russell", "mnemo": "MU13V", "status": "open", "direction": "CALL",
+            "currency": "EUR", "isin": "DE000MU13V01", "entryPrice": 1.2,
+            "target": 2800, "stop": 2600,
+            "url": "https://www.zonebourse.com/actualite-bourse/achat-du-turbo-call-vontobel-mu13v-ce123abc",
+        }]}
+        result = synchronize_with_browser(
+            document, lambda url, **_kwargs: "<html></html>" if "/cloturees/" in url else LISTING,
+            datetime(2026, 8, 15, 12, tzinfo=PARIS),
+        )
+        self.assertTrue(result["changed"])
+        self.assertEqual(document["meta"]["sourceHealth"]["status"], "ok")
 
 
 if __name__ == "__main__":

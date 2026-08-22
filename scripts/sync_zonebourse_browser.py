@@ -56,17 +56,23 @@ def synchronize_with_browser(
     text_requester=fetch_text,
 ) -> dict:
     current_by_url: dict[str, dict] = {}
-    source_used = None
+    sources_used: list[str] = []
     errors: list[str] = []
     for source in OPEN_URLS:
         try:
-            html = requester(source)
-            cards = parse_html_articles(html, source, recommendations_only=True)
-            if cards:
-                current_by_url.update((card["url"], card) for card in cards)
-                source_used = source
-                break
-            errors.append(f"{source}: aucune recommandation extraite")
+            source_cards: dict[str, dict] = {}
+            for page in range(1, 11):
+                url = source if page == 1 else f"{source}?p={page}"
+                cards = parse_html_articles(requester(url), url, recommendations_only=True)
+                new_cards = [card for card in cards if card["url"] not in source_cards]
+                if not new_cards:
+                    break
+                source_cards.update((card["url"], card) for card in new_cards)
+            if source_cards:
+                current_by_url.update(source_cards)
+                sources_used.append(source)
+            else:
+                errors.append(f"{source}: aucune recommandation extraite")
         except Exception as exc:
             errors.append(f"{source}: {exc}")
     if not current_by_url:
@@ -79,13 +85,22 @@ def synchronize_with_browser(
                 )
                 if cards:
                     current_by_url.update((card["url"], card) for card in cards)
-                    source_used = source_name
-                    break
-                errors.append(f"{source}: aucune recommandation extraite")
+                    sources_used.append(source_name)
+                else:
+                    errors.append(f"{source}: aucune recommandation extraite")
             except Exception as exc:
                 errors.append(f"{source}: {exc}")
     if not current_by_url:
-        return {"changed": False, "degraded": True, "errors": errors}
+        meta = document.setdefault("meta", {})
+        health = meta.setdefault("sourceHealth", {})
+        failures = int(health.get("consecutiveFailures", 0)) + 1
+        health.update({
+            "status": "source_unavailable",
+            "attemptedAt": now.isoformat(timespec="seconds"),
+            "consecutiveFailures": failures,
+            "errors": errors[-10:],
+        })
+        return {"changed": True, "degraded": True, "errors": errors, "consecutiveFailures": failures}
 
     positions_by_code = {
         item.get("mnemo"): item
@@ -93,12 +108,20 @@ def synchronize_with_browser(
         if item.get("status") == "open"
     }
     fetched = 0
-    for card in current_by_url.values():
+    queue = document.setdefault("meta", {}).setdefault("articleEnrichmentQueue", [])
+    cards_by_url = dict(current_by_url)
+    ordered_urls = list(dict.fromkeys([*queue, *cards_by_url]))
+    remaining_queue: list[str] = []
+    for url in ordered_urls:
+        card = cards_by_url.get(url)
+        if card is None:
+            continue
         existing = positions_by_code.get(card.get("productCode"), {})
         if not any(not existing.get(field) for field in ("isin", "entryPrice", "target", "stop")):
             continue
         if fetched >= max_article_fetches:
-            break
+            remaining_queue.append(url)
+            continue
         fetched += 1
         try:
             details = _article_details_with_fallback(
@@ -107,24 +130,43 @@ def synchronize_with_browser(
             card.update({key: value for key, value in details.items() if value is not None})
         except Exception as exc:
             errors.append(f"{card.get('productCode')}: {exc}")
+            remaining_queue.append(url)
+    document["meta"]["articleEnrichmentQueue"] = remaining_queue
 
     closed: list[dict] = []
+    closed_by_url: dict[str, dict] = {}
     for source in CLOSED_URLS:
         try:
-            closed = parse_closed_cards(requester(source), source, now)
-            if closed:
-                break
+            for page in range(1, 6):
+                url = source if page == 1 else f"{source}?p={page}"
+                rows = parse_closed_cards(requester(url), url, now)
+                if not rows and page > 1:
+                    break
+                closed_by_url.update((row["url"], row) for row in rows)
         except Exception as exc:
             errors.append(f"{source}: {exc}")
+    closed = list(closed_by_url.values())
 
     result = synchronize(document, list(current_by_url.values()), closed, now)
+    previous_health = document.setdefault("meta", {}).get("sourceHealth")
+    source_health = {
+        "status": "ok" if not errors else "degraded",
+        "attemptedAt": now.isoformat(timespec="seconds"),
+        "lastSuccessAt": now.isoformat(timespec="seconds"),
+        "consecutiveFailures": 0,
+        "errors": errors[-10:],
+    }
+    document["meta"]["sourceHealth"] = source_health
+    health_changed = previous_health != source_health
     quality_changed = refresh_data_quality(document.get("positions", []))
     result.update(
         {
-            "changed": bool(result["changed"] or quality_changed),
+            "changed": bool(result["changed"] or quality_changed or health_changed),
             "qualityUpdated": quality_changed,
             "articlePagesFetched": fetched,
-            "sourceUsed": source_used,
+            "sourceUsed": ",".join(sources_used) if sources_used else None,
+            "sourcesUsed": sources_used,
+            "enrichmentQueueSize": len(remaining_queue),
             "errors": errors,
             "degraded": False,
         }
@@ -166,7 +208,7 @@ def main() -> int:
     if result.get("changed"):
         write_json(path, document)
     print(json.dumps(result, ensure_ascii=False))
-    return 0
+    return 2 if result.get("consecutiveFailures", 0) >= 3 else 0
 
 
 if __name__ == "__main__":

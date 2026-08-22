@@ -35,6 +35,11 @@ class FakeRequester:
         return "<html>product</html>"
 
 
+class NoTimestampRequester(FakeRequester):
+    def __call__(self, url: str, **kwargs) -> str:
+        return super().__call__(url, **kwargs).replace("Updated 31/07/2026 14:04 CET", "")
+
+
 class EuronextProviderTests(unittest.TestCase):
     def test_parses_european_numbers(self):
         self.assertEqual(_parse_number("1,295 EUR"), 1.295)
@@ -66,6 +71,27 @@ class EuronextProviderTests(unittest.TestCase):
         self.assertEqual(quote.ask, 1.30)
         self.assertEqual(quote.price, 1.295)
         self.assertEqual(quote.instrument_symbol, "DE000VY3GDC5-XMLI")
+
+    def test_missing_market_timestamp_is_never_replaced_by_retrieval_time(self):
+        provider = EuronextProvider(requester=NoTimestampRequester())
+        instrument = provider.resolve_instrument(
+            {"id": "apple", "asset": "Apple", "productType": "Warrant", "isin": "DE000VY3GDC5"}, {}
+        )
+        quote = provider.fetch_instrument_quote("apple", instrument, session="manual")
+        self.assertIsNone(quote.quote_at)
+        self.assertEqual(quote.timestamp_source, "unknown")
+        self.assertTrue(quote.is_indicative)
+
+    def test_fetches_separately_timestamped_underlying(self):
+        provider = EuronextProvider(requester=FakeRequester())
+        quote = provider.fetch_underlying_quote({
+            "underlyingSource": "euronext",
+            "underlyingSymbol": "FR0000120271-XPAR",
+            "underlyingCurrency": "EUR",
+        })
+        self.assertEqual(quote["price"], 1.295)
+        self.assertEqual(quote["currency"], "EUR")
+        self.assertIn("2026-07-31", quote["quoteAt"])
 
 
 if __name__ == "__main__":

@@ -136,6 +136,35 @@ class ZoneboursePositionSyncTests(unittest.TestCase):
         self.assertEqual(position["detectedAt"], "2026-08-10T12:00:00+02:00")
         self.assertEqual(position["direction"], "PUT")
 
+    def test_missing_recommendation_moves_to_reconciliation_then_unknown(self):
+        document = {"meta": {}, "positions": [{
+            "id": "legacy", "mnemo": "OJ23V", "status": "open", "direction": "CALL",
+            "currency": "EUR", "missingOpenCycles": 0,
+        }]}
+        now = datetime(2026, 8, 10, 12, tzinfo=PARIS)
+        synchronize(document, [], [], now)
+        self.assertEqual(document["positions"][0]["recommendationStatus"], "PENDING_RECONCILIATION")
+        synchronize(document, [], [], now)
+        synchronize(document, [], [], now)
+        self.assertEqual(document["positions"][0]["recommendationStatus"], "UNKNOWN")
+        self.assertEqual(document["positions"][0]["status"], "open")
+
+    def test_reused_mnemonic_on_another_date_creates_a_distinct_recommendation(self):
+        document = {"meta": {}, "positions": [{
+            "id": "old", "mnemo": "OJ23V", "status": "open", "direction": "CALL",
+            "currency": "EUR", "publishedAt": "2026-07-01T10:00+02:00",
+            "recommendationIdentity": "|OJ23V|2026-07-01|zonebourse|recommendation",
+        }]}
+        card = {
+            "url": "https://www.zonebourse.com/actualite-bourse/new-ce123abc",
+            "title": "Nouvelle recommandation", "publishedAt": "2026-08-10T11:12+02:00",
+            "underlying": "Test", "productType": "WARRANT", "productCode": "OJ23V",
+            "direction": "CALL",
+        }
+        result = synchronize(document, [card], [], datetime(2026, 8, 10, 12, tzinfo=PARIS))
+        self.assertEqual(result["added"], 1)
+        self.assertEqual(len(document["positions"]), 2)
+
 
 if __name__ == "__main__":
     unittest.main()

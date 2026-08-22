@@ -15,6 +15,8 @@ POLICY = {
         "modelCapitalEur": 10000,
         "fixedStakeEur": 100,
         "maxQuoteAgeMinutes": 30,
+        "maxWatchAgeMinutes": 30,
+        "maxPositionsAgeMinutes": 60,
         "maxPriceDriftPct": 5,
         "maxSpreadPct": 4,
         "minRewardRiskRatio": 1.5,
@@ -46,6 +48,7 @@ class InvestmentEngineTests(unittest.TestCase):
             "entryDate": "2026-07-30",
             "target": 120,
             "stop": 100,
+            "riskLevelsCurrency": "EUR",
         }
 
     def market(self, **overrides):
@@ -56,8 +59,14 @@ class InvestmentEngineTests(unittest.TestCase):
             "ask": 1.03,
             "publicationPrice": 1.0,
             "underlyingPrice": 108,
+            "underlyingQuoteAt": "2026-07-30T13:45:00+02:00",
+            "quoteCurrency": "EUR",
+            "underlyingCurrency": "EUR",
             "publishedAt": "2026-07-30T13:40:00+02:00",
             "detectedAt": "2026-07-30T13:42:00+02:00",
+            "timestampSource": "provider_market_time",
+            "marketStatus": "open",
+            "isIndicative": False,
         }
         value.update(overrides)
         return value
@@ -133,11 +142,17 @@ class InvestmentEngineTests(unittest.TestCase):
         self.assertIn("missing_publication_time", reasons)
         self.assertIsNone(diagnostics["detectionLatencySeconds"])
 
-    def test_existing_open_commitments_consume_portfolio_slots(self) -> None:
+    def test_only_executed_holdings_consume_portfolio_slots(self) -> None:
         positions = []
         quotes = []
         for index in range(4):
-            position = {**self.position, "id": f"demo-{index}"}
+            position = {
+                **self.position,
+                "id": f"demo-{index}",
+                "portfolioStatus": "held",
+                "executedPrice": 1.0,
+                "quantity": 10,
+            }
             positions.append(position)
             quotes.append({"positionId": position["id"], **self.market(), "price": 1.02})
         view = build_view({"positions": positions}, POLICY, {"quotes": quotes}, self.as_of)
@@ -161,7 +176,64 @@ class InvestmentEngineTests(unittest.TestCase):
         document = {"meta": {}, "positions": [self.position]}
         view = build_view(document, POLICY, {"quotes": []}, self.as_of)
         self.assertEqual(view["summary"]["actionableCount"], 0)
-        self.assertEqual(view["summary"]["systemVerdict"], "NO_ACTIONABLE_POSITION")
+        self.assertEqual(view["summary"]["systemVerdict"], "DATA_PIPELINE_UNAVAILABLE")
+
+    def test_recommendation_entry_price_is_not_a_portfolio_holding(self) -> None:
+        view = build_view({"positions": [self.position]}, POLICY, {"quotes": []}, self.as_of)
+        self.assertEqual(view["summary"]["committedOpenCount"], 0)
+
+    def test_policy_rejects_string_boolean(self) -> None:
+        invalid = {"policy": {**POLICY["policy"], "assumeFullPremiumAtRisk": "false"}}
+        with self.assertRaisesRegex(Exception, "JSON boolean"):
+            Policy.from_document(invalid)
+
+    def test_unconfirmed_quote_timestamp_is_blocked(self) -> None:
+        decision, reasons, _ = entry_decision(
+            self.position,
+            self.market(timestampSource="unknown", isIndicative=True),
+            self.policy,
+            self.as_of,
+        )
+        self.assertEqual(decision, "DATA_INCOMPLETE")
+        self.assertIn("unconfirmed_market_timestamp", reasons)
+
+    def test_mixed_underlying_session_is_blocked(self) -> None:
+        decision, reasons, _ = entry_decision(
+            self.position,
+            self.market(underlyingQuoteAt="2026-07-30T13:30:00+02:00"),
+            self.policy,
+            self.as_of,
+        )
+        self.assertEqual(decision, "DATA_INCOMPLETE")
+        self.assertIn("mixed_market_sessions", reasons)
+
+    def test_closed_market_is_blocked(self) -> None:
+        decision, reasons, _ = entry_decision(
+            self.position, self.market(marketStatus="closed"), self.policy, self.as_of
+        )
+        self.assertEqual(decision, "DATA_INCOMPLETE")
+        self.assertIn("market_not_confirmed_open", reasons)
+
+    def test_product_and_underlying_may_use_different_currencies(self) -> None:
+        position = {**self.position, "riskLevelsCurrency": "USD"}
+        decision, reasons, _ = entry_decision(
+            position,
+            self.market(quoteCurrency="EUR", underlyingCurrency="USD"),
+            self.policy,
+            self.as_of,
+        )
+        self.assertEqual(decision, "ELIGIBLE")
+        self.assertNotIn("currency_mismatch", reasons)
+
+    def test_stale_watch_blocks_otherwise_actionable_positions(self) -> None:
+        quote = {"positionId": self.position["id"], **self.market(), "price": 1.02}
+        document = {"meta": {
+            "generatedAt": "2026-07-30T10:00:00+02:00",
+            "lastPublicationCheckedAt": "2026-07-30T10:00:00+02:00",
+        }, "positions": [self.position]}
+        view = build_view(document, POLICY, {"quotes": [quote]}, self.as_of)
+        self.assertEqual(view["openPositions"][0]["decision"], "ELIGIBLE")
+        self.assertEqual(view["summary"]["systemVerdict"], "SYSTEM_STALE")
 
 
 if __name__ == "__main__":

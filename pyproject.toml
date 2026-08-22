@@ -1,0 +1,32 @@
+[build-system]
+requires = ["setuptools>=75"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "polsinelli-tracker-data"
+version = "0.1.0"
+requires-python = ">=3.12"
+dependencies = ["jsonschema>=4.23"]
+
+[project.optional-dependencies]
+browser = ["playwright==1.60.0"]
+dev = ["coverage>=7.6", "mypy>=1.11", "ruff>=0.6"]
+
+[tool.ruff.lint]
+select = ["E9", "F63", "F7", "F82"]
+
+[tool.mypy]
+python_version = "3.12"
+ignore_missing_imports = true
+check_untyped_defs = true
+warn_unused_ignores = true
+
+[tool.coverage.run]
+source = ["scripts"]
+
+[tool.coverage.report]
+fail_under = 45
+show_missing = true
+
+[tool.setuptools]
+packages = []

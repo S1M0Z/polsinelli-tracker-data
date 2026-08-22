@@ -35,14 +35,20 @@ class QuoteSnapshot:
     price: float
     bid: float
     ask: float
-    quote_at: str
+    quote_at: str | None
     retrieved_at: str
     source_url: str
     source_confidence: str
-    delayed_by_minutes: int = 0
+    delayed_by_minutes: int | None = None
+    timestamp_source: str = "unknown"
+    market_status: str = "unknown"
+    is_indicative: bool = True
     bid_size: float | None = None
     ask_size: float | None = None
     underlying_price: float | None = None
+    underlying_quote_at: str | None = None
+    quote_currency: str | None = None
+    underlying_currency: str | None = None
     instrument_uic: int | None = None
     instrument_asset_type: str | None = None
     instrument_symbol: str | None = None

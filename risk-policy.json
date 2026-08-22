@@ -2,12 +2,15 @@
   "meta": {
     "version": 2,
     "purpose": "Conservative simulation defaults. Replace modelCapitalEur with the capital base you actually want to model.",
-    "updatedAt": "2026-07-30T14:22:00+02:00"
+    "updatedAt": "2026-07-30T14:22:00+02:00",
+    "schemaVersion": 3
   },
   "policy": {
     "modelCapitalEur": 10000,
     "fixedStakeEur": 100,
     "maxQuoteAgeMinutes": 30,
+    "maxWatchAgeMinutes": 30,
+    "maxPositionsAgeMinutes": 60,
     "maxPriceDriftPct": 5,
     "maxSpreadPct": 4,
     "minRewardRiskRatio": 1.5,

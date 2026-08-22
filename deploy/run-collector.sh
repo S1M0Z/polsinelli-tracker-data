@@ -47,14 +47,19 @@ git pull --ff-only origin main
 # publication source before every pass, while quote history and mappings persist
 # locally between collections.
 mkdir -p "$RUNTIME_DIR"
-for file in positions.json updates.json article-state.json scan-log.json risk-policy.json; do
+# Configuration is versioned; all mutable operational state persists in runtime.
+for file in risk-policy.json public-manifest.json; do
   cp "$file" "$RUNTIME_DIR/$file"
 done
-for file in quote-history.json market-data-config.json investment-view.json; do
+for file in positions.json updates.json article-state.json scan-log.json quote-history.json market-data-config.json investment-view.json; do
   if [[ ! -f "$RUNTIME_DIR/$file" ]]; then
     cp "$file" "$RUNTIME_DIR/$file"
   fi
 done
+python scripts/merge_market_config.py \
+  --baseline "$REPO_ROOT/market-data-config.json" \
+  --runtime "$RUNTIME_DIR/market-data-config.json"
+python scripts/migrate_schema.py --root "$RUNTIME_DIR"
 
 timeout --signal=TERM --kill-after=30s 600s \
 sudo -n docker run --rm --init --ipc=host \
@@ -81,19 +86,23 @@ sudo -n docker run --rm --init --ipc=host \
     python scripts/validate_data.py --root /runtime
   '
 
-# Publish the validated runtime snapshot directly to Nginx. GitHub is no longer
-# used as a five-minute transport for quotes.
-sudo -n install \
-  -o ubuntu \
-  -g www-data \
-  -m 0644 \
-  "$RUNTIME_DIR/positions.json" \
-  "$SITE_DATA_DIR/positions.json"
-sudo -n install \
-  -o ubuntu \
-  -g www-data \
-  -m 0644 \
-  "$RUNTIME_DIR/investment-view.json" \
-  "$SITE_DATA_DIR/investment-view.json"
+# Build and validate one immutable snapshot before publishing any file.
+SNAPSHOT_ROOT="${POLSINELLI_SNAPSHOT_ROOT:-$RUNTIME_DIR/snapshots}"
+mkdir -p "$SNAPSHOT_ROOT"
+SNAPSHOT_ID="$(date -u +%Y%m%dT%H%M%SZ)-$$"
+SNAPSHOT_DIR="$SNAPSHOT_ROOT/$SNAPSHOT_ID"
+python scripts/build_snapshot.py --source "$RUNTIME_DIR" --output "$SNAPSHOT_DIR"
+python scripts/validate_data.py --root "$SNAPSHOT_DIR"
+
+# SITE_DATA_DIR is a symlink switched atomically; old snapshots enable rollback.
+PUBLIC_ROOT="$(dirname "$SITE_DATA_DIR")/.polsinelli-snapshots"
+sudo -n mkdir -p "$PUBLIC_ROOT"
+PUBLIC_SNAPSHOT="$PUBLIC_ROOT/$SNAPSHOT_ID"
+sudo -n mkdir "$PUBLIC_SNAPSHOT"
+while IFS= read -r file; do
+  sudo -n install -o ubuntu -g www-data -m 0644 "$SNAPSHOT_DIR/$file" "$PUBLIC_SNAPSHOT/$file"
+done < <(python -c 'import json; print("\n".join(json.load(open("public-manifest.json"))["files"]))')
+sudo -n ln -sfn "$PUBLIC_SNAPSHOT" "$SITE_DATA_DIR.new"
+sudo -n mv -Tf "$SITE_DATA_DIR.new" "$SITE_DATA_DIR"
 
 echo "Market quotes refreshed locally; no Git commit or push performed."

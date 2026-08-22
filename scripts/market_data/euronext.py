@@ -6,7 +6,7 @@ import json
 import re
 import time
 import unicodedata
-from datetime import datetime, timezone
+from datetime import date, datetime, time as clock_time, timedelta, timezone
 from html import unescape
 from html.parser import HTMLParser
 from http.cookiejar import CookieJar
@@ -19,6 +19,34 @@ from .base import InstrumentRef, ProviderConfigurationError, ProviderError, Quot
 
 BASE_URL = "https://live.euronext.com"
 DEFAULT_MIC_CANDIDATES = ("XMLI", "XPAR", "SEDX")
+PARIS = ZoneInfo("Europe/Paris")
+
+
+def _easter_sunday(year: int) -> date:
+    a, b, c = year % 19, year // 100, year % 100
+    d, e = b // 4, b % 4
+    f, g = (b + 8) // 25, (b - (b + 8) // 25 + 1) // 3
+    h = (19 * a + b - d - g + 15) % 30
+    i, k = c // 4, c % 4
+    l = (32 + 2 * e + 2 * i - h - k) % 7
+    m = (a + 11 * h + 22 * l) // 451
+    month = (h + l - 7 * m + 114) // 31
+    day = (h + l - 7 * m + 114) % 31 + 1
+    return date(year, month, day)
+
+
+def euronext_market_status(at: datetime | None) -> str:
+    if at is None:
+        return "unknown"
+    local = at.astimezone(PARIS)
+    easter = _easter_sunday(local.year)
+    holidays = {
+        date(local.year, 1, 1), easter - timedelta(days=2), easter + timedelta(days=1),
+        date(local.year, 5, 1), date(local.year, 12, 25), date(local.year, 12, 26),
+    }
+    if local.weekday() >= 5 or local.date() in holidays:
+        return "closed"
+    return "open" if clock_time(9, 0) <= local.time().replace(tzinfo=None) <= clock_time(17, 30) else "closed"
 
 
 def _normalize_label(value: str) -> str:
@@ -287,6 +315,33 @@ class EuronextProvider:
     def fetch_underlying_price(self, mapping: dict[str, Any]) -> float | None:
         return None
 
+    def fetch_underlying_quote(self, mapping: dict[str, Any]) -> dict[str, Any] | None:
+        """Fetch a separately timestamped Euronext underlying quote when mapped."""
+        if mapping.get("underlyingSource") != "euronext":
+            return None
+        symbol = str(mapping.get("underlyingSymbol") or "").upper()
+        if not re.fullmatch(r"[A-Z]{2}[A-Z0-9]{9}\d-[A-Z0-9]{4}", symbol):
+            raise ProviderConfigurationError("complete Euronext underlyingSymbol required")
+        product_url = f"{BASE_URL}/{self.locale}/product/equities/{symbol}"
+        detail_url = f"{BASE_URL}/{self.locale}/ajax/getDetailedQuote/{symbol}"
+        product_html = self._request(product_url)
+        detail_raw = self._request(detail_url, referer=product_url)
+        detail_html, payload = _unwrap_payload(detail_raw)
+        price = _parse_number(_extract_element_text(detail_html, "header-instrument-price"))
+        if price is None:
+            price = _parse_number(_find_json_value(payload, {"last", "lastprice", "price", "instrumentprice"}))
+        quote_time = _extract_timestamp(_strip_html(detail_html), _strip_html(product_html))
+        if price is None or quote_time is None:
+            raise ProviderError(f"Euronext returned no confirmed underlying quote for {symbol}")
+        quote_at = quote_time.astimezone(timezone.utc).isoformat(timespec="seconds")
+        return {
+            "price": price,
+            "quoteAt": quote_at,
+            "currency": mapping.get("underlyingCurrency"),
+            "source": "euronext",
+            "symbol": symbol,
+        }
+
     def _request(self, url: str, *, referer: str | None = None) -> str:
         try:
             return self.requester(url, referer=referer)
@@ -329,15 +384,19 @@ class EuronextProvider:
                 _find_json_value(detail_payload, {"last", "lastprice", "price", "instrumentprice"})
             )
         price = last if last is not None and bid <= last <= ask else (bid + ask) / 2
+        if underlying_price is None:
+            underlying_price = _parse_number(
+                _find_json_value(detail_payload, {"underlyingprice", "underlyinglastprice"})
+            )
 
         retrieved_at = utc_now_iso()
         detail_text = _strip_html(detail_html)
         order_text = _strip_html(order_html)
         quote_time = _extract_timestamp(detail_text, order_text, product_html)
         if quote_time is None:
-            quote_at = retrieved_at
-            delayed_minutes = 0
-            confidence = "medium"
+            quote_at = None
+            delayed_minutes = None
+            confidence = "low"
         else:
             quote_utc = quote_time.astimezone(timezone.utc)
             quote_at = quote_utc.isoformat(timespec="seconds")
@@ -357,9 +416,15 @@ class EuronextProvider:
             source_url=product_url,
             source_confidence=confidence,
             delayed_by_minutes=delayed_minutes,
+            timestamp_source="euronext_page" if quote_time is not None else "unknown",
+            market_status=euronext_market_status(quote_utc if quote_time is not None else None),
+            is_indicative=quote_time is None,
             bid_size=bid_size,
             ask_size=ask_size,
             underlying_price=underlying_price,
+            underlying_quote_at=quote_at if underlying_price is not None else None,
+            quote_currency="EUR",
+            underlying_currency="EUR" if underlying_price is not None else None,
             instrument_uic=None,
             instrument_asset_type=instrument.asset_type,
             instrument_symbol=symbol,

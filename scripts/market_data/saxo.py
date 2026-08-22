@@ -278,12 +278,16 @@ class SaxoProvider:
         quote_time = parse_iso_datetime(last_updated if isinstance(last_updated, str) else None)
         delayed = quote.get("DelayedByMinutes", 0)
         delayed_minutes = int(delayed) if isinstance(delayed, (int, float)) and delayed >= 0 else 0
-        if quote_time is None:
-            quote_time = datetime.now(timezone.utc) - timedelta(minutes=delayed_minutes)
-        quote_at = quote_time.isoformat(timespec="seconds")
+        quote_at = quote_time.isoformat(timespec="seconds") if quote_time is not None else None
 
         details = payload.get("PriceInfoDetails")
         details = details if isinstance(details, dict) else {}
+        raw_market_state = payload.get("MarketState") or details.get("MarketState")
+        market_status = (
+            "open" if str(raw_market_state).lower() in {"open", "continuous"}
+            else "closed" if str(raw_market_state).lower() in {"closed", "postmarket", "premarket"}
+            else "unknown"
+        )
         confidence = "high" if delayed_minutes == 0 else "medium"
         return QuoteSnapshot(
             position_id=position_id,
@@ -297,6 +301,9 @@ class SaxoProvider:
             source_url=source_url,
             source_confidence=confidence,
             delayed_by_minutes=delayed_minutes,
+            timestamp_source="provider_last_updated" if quote_time is not None else "unknown",
+            market_status=market_status,
+            is_indicative=quote_time is None,
             bid_size=float(details["BidSize"])
             if isinstance(details.get("BidSize"), (int, float))
             else None,
