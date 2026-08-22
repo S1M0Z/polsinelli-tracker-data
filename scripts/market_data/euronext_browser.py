@@ -134,8 +134,28 @@ class EuronextBrowserProvider(EuronextPageProvider):
 
     def __init__(self, **kwargs: Any) -> None:
         requester = kwargs.pop("requester", None)
-        self.browser_requester = requester or PlaywrightRequester()
+        self.browser_requester = requester or PlaywrightRequester(
+            timeout_ms=20_000,
+            settle_ms=1_000,
+        )
         super().__init__(requester=self.browser_requester.get, **kwargs)
+
+    def fetch_instrument_quote(self, position_id, instrument, *, session, underlying_price=None):
+        """Use the resolved symbol only; browser-based MIC probing is too costly.
+
+        The generic HTTP provider can cheaply try several exchanges. With a
+        rendered page, one unavailable symbol can otherwise consume several
+        minutes and prevent every later position from being published.
+        """
+        if not instrument.symbol:
+            raise ProviderConfigurationError(f"{position_id}: Euronext symbol is missing")
+        return self._fetch_symbol_quote(
+            position_id,
+            instrument.symbol.upper(),
+            instrument,
+            session=session,
+            underlying_price=underlying_price,
+        )
 
     def close(self) -> None:
         close = getattr(self.browser_requester, "close", None)

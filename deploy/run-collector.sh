@@ -77,7 +77,11 @@ sudo -n docker run --rm --init --ipc=host \
   --workdir /app \
   "$IMAGE" \
   bash -lc '
-    python scripts/sync_zonebourse_browser.py --root /runtime --max-article-fetches 12 &&
+    zone_status=0
+    python scripts/sync_zonebourse_browser.py --root /runtime --max-article-fetches 12 || zone_status=$?
+    if (( zone_status != 0 && zone_status != 2 )); then
+      exit "$zone_status"
+    fi
     python scripts/quote_collector_browser.py --root /runtime --session server &&
     python scripts/investment_engine.py \
       --positions /runtime/positions.json \

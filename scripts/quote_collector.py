@@ -213,9 +213,11 @@ def collect_documents(
     skipped: list[str] = []
     now = utc_now_iso()
 
-    for position in positions:
-        if not isinstance(position, dict) or position.get("status") != "open":
-            continue
+    open_positions = [
+        position for position in positions
+        if isinstance(position, dict) and position.get("status") == "open"
+    ]
+    for position_number, position in enumerate(open_positions, start=1):
         position_id = position.get("id")
         if not isinstance(position_id, str):
             errors.append("Open position without a valid id")
@@ -225,6 +227,10 @@ def collect_documents(
             mapping = {}
 
         try:
+            print(
+                f"Collecting Euronext quote {position_number}/{len(open_positions)}: {position_id}",
+                flush=True,
+            )
             instrument = provider.resolve_instrument(position, mapping)
             resolved_mapping = {
                 **mapping,
