@@ -29,10 +29,15 @@ except ImportError:  # Exécution directe: python scripts/sync_zonebourse_positi
 OPEN_URLS = (
     "https://www.zonebourse.com/bourse/derives/recommandations/",
     "https://ch.zonebourse.com/bourse/derives/recommandations/",
+    # This consolidated page contains both active recommendations and recent
+    # events and has remained available when the active-only page returned an
+    # empty shell to datacenter addresses.
+    "https://www.zonebourse.com/bourse/derives/recommandations/historique/",
 )
 CLOSED_URLS = (
     "https://www.zonebourse.com/bourse/derives/recommandations/cloturees/",
     "https://ch.zonebourse.com/bourse/derives/recommandations/cloturees/",
+    "https://www.zonebourse.com/bourse/derives/recommandations/historique/",
 )
 CLOSED_CARD_RE = re.compile(
     r"^(?P<asset>.+?)\s+(?P<product>TURBO|WARRANT)\s+-\s+"

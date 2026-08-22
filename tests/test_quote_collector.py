@@ -107,13 +107,18 @@ class EmptyCatalogRequester:
 
 
 class FakeProvider:
+    def __init__(self):
+        self.calls = []
+
     def resolve_instrument(self, position, mapping):
         return InstrumentRef(42, "Warrant", symbol=position["mnemo"])
 
     def fetch_underlying_price(self, mapping):
+        self.calls.append("underlying")
         return 100.0
 
     def fetch_instrument_quote(self, position_id, instrument, *, session, underlying_price):
+        self.calls.append("instrument")
         return QuoteSnapshot(
             position_id=position_id,
             provider="fake",
@@ -255,8 +260,9 @@ class CollectorTests(unittest.TestCase):
         self.config = {"provider": "saxo", "saxo": {"instrumentMappings": {}}}
 
     def test_updates_open_position_and_appends_snapshot(self):
+        provider = FakeProvider()
         result = collect_documents(
-            self.positions, self.quotes, self.config, FakeProvider(), session="close"
+            self.positions, self.quotes, self.config, provider, session="close"
         )
         self.assertTrue(result.changed)
         self.assertEqual(result.quotes_added, 1)
@@ -267,6 +273,7 @@ class CollectorTests(unittest.TestCase):
         self.assertEqual(position["bid"], 1.0)
         self.assertEqual(position["ask"], 1.01)
         self.assertEqual(position["underlyingPrice"], 100.0)
+        self.assertEqual(provider.calls, ["instrument", "underlying"])
         self.assertEqual(
             self.config["saxo"]["instrumentMappings"]["test-position"]["uic"], 42
         )

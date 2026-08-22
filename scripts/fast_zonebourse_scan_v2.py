@@ -146,6 +146,12 @@ def canonical_article_url(
 def parse_recommendation(text: str, now: datetime | None = None) -> dict | None:
     """Extrait la carte compacte affichée dans les recommandations en cours."""
     compact = " ".join(text.split())
+    # The consolidated history mixes live ideas and explicit exits. Never feed
+    # an exit card back into the open-position synchronizer.
+    if re.search(r"\bEntrée\s+Sortie\s+Performance\b", compact, re.I) or re.search(
+        r"\bSORTIE\s*$", compact, re.I
+    ):
+        return None
     match = RECOMMENDATION_RE.match(compact)
     if not match:
         return None

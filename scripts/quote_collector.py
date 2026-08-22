@@ -251,24 +251,28 @@ def collect_documents(
                 mapping = resolved_mapping
                 mappings_updated += 1
 
+            # The actionable product bid/ask is the primary datum. Fetch it
+            # before the optional underlying so a slow secondary page can never
+            # consume the collection budget and starve the actual recommendation.
+            snapshot = provider.fetch_instrument_quote(
+                position_id,
+                instrument,
+                session=session,
+                underlying_price=None,
+            )
             try:
                 underlying_quote = (
                     provider.fetch_underlying_quote(mapping)
                     if hasattr(provider, "fetch_underlying_quote") else None
                 )
+                underlying_price = (
+                    underlying_quote.get("price") if underlying_quote
+                    else provider.fetch_underlying_price(mapping)
+                )
             except ProviderError as exc:
                 underlying_quote = None
+                underlying_price = None
                 errors.append(f"{position_id} underlying: {exc}")
-            underlying_price = (
-                underlying_quote.get("price") if underlying_quote
-                else provider.fetch_underlying_price(mapping)
-            )
-            snapshot = provider.fetch_instrument_quote(
-                position_id,
-                instrument,
-                session=session,
-                underlying_price=underlying_price,
-            )
             if underlying_quote:
                 snapshot = replace(
                     snapshot,
@@ -276,6 +280,8 @@ def collect_documents(
                     underlying_quote_at=underlying_quote["quoteAt"],
                     underlying_currency=underlying_quote.get("currency"),
                 )
+            elif underlying_price is not None:
+                snapshot = replace(snapshot, underlying_price=underlying_price)
             normalized = _normalize_snapshot(snapshot)
         except ProviderConfigurationError as exc:
             # Une recommandation nouvellement détectée peut légitimement ne pas

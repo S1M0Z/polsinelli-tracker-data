@@ -99,20 +99,33 @@ class PlaywrightRequester:
             if referer:
                 headers["Referer"] = referer
             self._page.set_extra_http_headers(headers)
-            response = self._page.goto(
-                url,
-                wait_until="domcontentloaded",
-                timeout=self.timeout_ms,
-            )
+            # Waiting for ``domcontentloaded`` used to discard otherwise usable
+            # pages whenever a third-party script kept the document loading.
+            # ``commit`` proves that the server answered; the bounded wait below
+            # then gives application JavaScript time to populate the quote DOM.
+            response = self._page.goto(url, wait_until="commit", timeout=self.timeout_ms)
             if response is not None and response.status >= 400 and not self.allow_http_errors:
                 raise ProviderError(f"Browser HTTP {response.status} for {url}")
+            try:
+                self._page.wait_for_load_state("domcontentloaded", timeout=5_000)
+            except self._timeout_error:
+                # A page can remain in a perpetual loading state because of
+                # analytics/advertising while its useful DOM is already present.
+                # Stop outstanding requests without throwing that DOM away.
+                try:
+                    self._page.evaluate("window.stop()")
+                except self._playwright_error:
+                    pass
             self._accept_cookies()
             try:
                 self._page.wait_for_load_state("networkidle", timeout=8_000)
             except self._timeout_error:
                 pass
             self._page.wait_for_timeout(self.settle_ms)
-            return self._page.content()
+            content = self._page.content()
+            if len(content.strip()) < 80:
+                raise ProviderError(f"Browser returned an empty document for {url}")
+            return content
         except ProviderError:
             raise
         except (self._playwright_error, self._timeout_error) as exc:

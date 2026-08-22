@@ -86,6 +86,14 @@ class FastZonebourseScanV2Tests(unittest.TestCase):
         self.assertEqual(parsed["publishedAt"], "2026-08-10T11:12+02:00")
         self.assertEqual(parsed["publishedAtPrecision"], "minute")
 
+    def test_history_exit_card_is_not_reopened_as_a_recommendation(self):
+        parsed = parse_recommendation(
+            "NEXANS TURBO - 325KS - 13/08 Prises de bénéfices sur le turbo "
+            "CALL Société Générale 325KS (+23.51%) Prix d'exercice Entrée "
+            "Sortie Performance 120 € 1,680 2,075 +23,51 % SORTIE"
+        )
+        self.assertIsNone(parsed)
+
 
 if __name__ == "__main__":
     unittest.main()
