@@ -7,6 +7,7 @@ LOCK_FILE="${POLSINELLI_LOCK_FILE:-/tmp/polsinelli-collector.lock}"
 CONTAINER_NAME="${POLSINELLI_CONTAINER_NAME:-polsinelli-quote-collector}"
 RUNTIME_DIR="${POLSINELLI_RUNTIME_DIR:-/home/ubuntu/.local/share/polsinelli-collector}"
 SITE_DATA_DIR="${POLSINELLI_SITE_DATA_DIR:-/var/www/polsinelli-tracker-v3/data}"
+COLLECTOR_TIMEOUT_SECONDS="${POLSINELLI_COLLECTOR_TIMEOUT_SECONDS:-1500}"
 
 exec 9>"$LOCK_FILE"
 if ! flock -n 9; then
@@ -61,7 +62,7 @@ python3 scripts/merge_market_config.py \
   --runtime "$RUNTIME_DIR/market-data-config.json"
 python3 scripts/migrate_schema.py --root "$RUNTIME_DIR"
 
-timeout --signal=TERM --kill-after=30s 600s \
+timeout --signal=TERM --kill-after=30s "${COLLECTOR_TIMEOUT_SECONDS}s" \
 sudo -n docker run --rm --init --ipc=host \
   --name "$CONTAINER_NAME" \
   --cpus=1.0 --pids-limit=128 \

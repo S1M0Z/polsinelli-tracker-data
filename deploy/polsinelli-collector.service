@@ -11,7 +11,9 @@ Group=ubuntu
 WorkingDirectory=/home/ubuntu/polsinelli-tracker-data
 Environment=POLSINELLI_REPO_ROOT=/home/ubuntu/polsinelli-tracker-data
 ExecStart=/usr/bin/bash /home/ubuntu/polsinelli-tracker-data/deploy/run-collector.sh
-TimeoutStartSec=660
+# Keep this above POLSINELLI_COLLECTOR_TIMEOUT_SECONDS (1500s by default) so
+# run-collector.sh can stop and remove the Docker container itself.
+TimeoutStartSec=1560
 TimeoutStopSec=30
 KillSignal=SIGTERM
 Nice=10
