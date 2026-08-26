@@ -34,6 +34,14 @@ OPEN_URLS = (
     # empty shell to datacenter addresses.
     "https://www.zonebourse.com/bourse/derives/recommandations/historique/",
 )
+PARTIAL_OPEN_URLS = (
+    # The synthesis page is server-rendered on network origins where the
+    # dedicated recommendation page is reduced to an empty anti-bot shell.
+    # It only contains recent cards, so absence from it must never reconcile or
+    # close an existing recommendation.
+    "https://www.zonebourse.com/bourse/derives/",
+    "https://ch.zonebourse.com/bourse/derives/",
+)
 CLOSED_URLS = (
     "https://www.zonebourse.com/bourse/derives/recommandations/cloturees/",
     "https://ch.zonebourse.com/bourse/derives/recommandations/cloturees/",

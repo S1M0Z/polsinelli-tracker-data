@@ -94,6 +94,22 @@ class FastZonebourseScanV2Tests(unittest.TestCase):
         )
         self.assertIsNone(parsed)
 
+    def test_extracts_synthesis_page_card(self):
+        parsed = parse_recommendation(
+            "AHOLD DELHAIZE N.V. (TURBO CALL - 355FS) - 25/08 CALL "
+            "Achat du turbo CALL Société Générale 355FS",
+            datetime(2026, 8, 26, tzinfo=ZoneInfo("Europe/Paris")),
+        )
+        self.assertEqual(parsed["underlying"], "AHOLD DELHAIZE N.V.")
+        self.assertEqual(parsed["productCode"], "355FS")
+        self.assertEqual(parsed["direction"], "CALL")
+
+    def test_rejects_synthesis_page_exit(self):
+        self.assertIsNone(parse_recommendation(
+            "RHEINMETALL AG (TURBO PUT - 9IN0B) - 24/08 SORTIE "
+            "Sortie du turbo PUT 9IN0B (+30.23%)"
+        ))
+
 
 if __name__ == "__main__":
     unittest.main()

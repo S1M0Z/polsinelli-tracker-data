@@ -46,6 +46,14 @@ RECOMMENDATION_RE = re.compile(
     r"(?P<title>.+?)(?=\s+Prix d.exercice|\s+Barrière|\s+Maturité|$)",
     re.IGNORECASE,
 )
+SUMMARY_RECOMMENDATION_RE = re.compile(
+    r"^(?P<underlying>.+?)\s+\(?"
+    r"(?P<product>TURBO|WARRANT)\s+(?P<direction>CALL|PUT)\s*-\s*"
+    r"(?P<code>[A-Z0-9]+)\)?\s*-\s*"
+    r"(?:(?P<day>\d{2})/(?P<month>\d{2})|(?P<hour>\d{2}):(?P<minute>\d{2}))\s+"
+    r"(?P<event>CALL|PUT|SORTIE)\s+(?P<title>.+)$",
+    re.IGNORECASE,
+)
 MONTHS = {
     "janvier": 1,
     "février": 2,
@@ -153,6 +161,11 @@ def parse_recommendation(text: str, now: datetime | None = None) -> dict | None:
     ):
         return None
     match = RECOMMENDATION_RE.match(compact)
+    summary_match = SUMMARY_RECOMMENDATION_RE.match(compact)
+    if summary_match:
+        if summary_match.group("event").upper() == "SORTIE":
+            return None
+        match = summary_match
     if not match:
         return None
     reference = now or datetime.now(PARIS)
@@ -175,6 +188,7 @@ def parse_recommendation(text: str, now: datetime | None = None) -> dict | None:
     if match.group("day") and published > reference + timedelta(days=31):
         published = published.replace(year=reference.year - 1)
     product_type = match.group("product").upper()
+    explicit_direction = match.groupdict().get("direction")
     direction_match = re.search(r"\b(CALL|PUT)\s*$", compact, re.IGNORECASE)
     return {
         "title": match.group("title").strip(),
@@ -184,7 +198,10 @@ def parse_recommendation(text: str, now: datetime | None = None) -> dict | None:
         "underlying": match.group("underlying").strip(),
         "productType": product_type,
         "productCode": match.group("code").upper(),
-        "direction": direction_match.group(1).upper() if direction_match else None,
+        "direction": (
+            explicit_direction.upper() if explicit_direction
+            else direction_match.group(1).upper() if direction_match else None
+        ),
     }
 
 

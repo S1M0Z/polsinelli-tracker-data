@@ -20,6 +20,7 @@ from market_data.euronext_browser import PlaywrightRequester
 from sync_zonebourse_positions import (
     CLOSED_URLS,
     OPEN_URLS,
+    PARTIAL_OPEN_URLS,
     parse_article_details,
     parse_closed_cards,
     synchronize,
@@ -90,6 +91,21 @@ def synchronize_with_browser(
                     errors.append(f"{source}: aucune recommandation extraite")
             except Exception as exc:
                 errors.append(f"{source}: {exc}")
+    partial_source = False
+    if not current_by_url:
+        for source in PARTIAL_OPEN_URLS:
+            try:
+                cards = parse_html_articles(
+                    requester(source), source, recommendations_only=True
+                )
+                if cards:
+                    current_by_url.update((card["url"], card) for card in cards)
+                    sources_used.append(source)
+                    partial_source = True
+                    break
+                errors.append(f"{source}: aucune recommandation extraite")
+            except Exception as exc:
+                errors.append(f"{source}: {exc}")
     if not current_by_url:
         meta = document.setdefault("meta", {})
         health = meta.setdefault("sourceHealth", {})
@@ -101,6 +117,25 @@ def synchronize_with_browser(
             "errors": errors[-10:],
         })
         return {"changed": True, "degraded": True, "errors": errors, "consecutiveFailures": failures}
+
+    if partial_source:
+        # Preserve recommendations not shown in the short synthesis page. The
+        # synchronizer may still add new cards, while explicit history cards
+        # remain the only authority allowed to close a position.
+        for position in document.get("positions", []):
+            if position.get("status") != "open" or not position.get("url"):
+                continue
+            current_by_url.setdefault(position["url"], {
+                "url": position["url"],
+                "title": position.get("note") or position.get("asset") or "Recommendation",
+                "publishedAt": position.get("publishedAt") or position.get("entryDate"),
+                "publishedAtPrecision": position.get("publishedAtPrecision", "date"),
+                "kind": "position_candidate",
+                "underlying": position.get("asset"),
+                "productType": str(position.get("productType") or "Turbo").upper(),
+                "productCode": position.get("mnemo"),
+                "direction": position.get("direction"),
+            })
 
     positions_by_code = {
         item.get("mnemo"): item
