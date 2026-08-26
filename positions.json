@@ -8,7 +8,7 @@
     "openRecommendationCount": 25,
     "lastPublicationCheckedAt": "2026-08-10T00:00:00+02:00",
     "warning": "Les performances clôturées reprennent les prix d'entrée et de sortie publiés par Zonebourse. Elles excluent les frais, le spread et le slippage.",
-    "marketDataUpdatedAt": "2026-08-03T15:27:26+00:00",
+    "marketDataUpdatedAt": "2026-08-26T12:22:36+00:00",
     "analysts": [
       {
         "id": "laurent-polsinelli",
@@ -31,7 +31,54 @@
       "missingDataLabel": "Données insuffisantes",
       "principle": "Aucun score n'est publié sans une couverture suffisante et des sources traçables."
     },
-    "schemaVersion": 2
+    "schemaVersion": 2,
+    "sourceHealth": {
+      "status": "source_unavailable",
+      "attemptedAt": "2026-08-26T14:22:28+02:00",
+      "consecutiveFailures": 1,
+      "errors": [
+        "https://www.zonebourse.com/bourse/derives/recommandations/: aucune recommandation extraite",
+        "https://ch.zonebourse.com/bourse/derives/recommandations/: aucune recommandation extraite",
+        "https://www.zonebourse.com/bourse/derives/recommandations/historique/: aucune recommandation extraite",
+        "https://r.jina.ai/http://www.zonebourse.com/bourse/derives/recommandations/: HTTPError: HTTP Error 403: Forbidden"
+      ]
+    },
+    "marketDataHealth": {
+      "status": "degraded",
+      "attemptedAt": "2026-08-26T12:22:36+00:00",
+      "quotesAdded": 6,
+      "positionsUpdated": 6,
+      "skippedCount": 19,
+      "errorCount": 3,
+      "skipped": [
+        "russell-2000-mu13v-20260807: valid ISIN required for Euronext",
+        "gold-vu91v-20260807: valid ISIN required for Euronext",
+        "kering-lu97v-20260807: valid ISIN required for Euronext",
+        "stmicroelectronics-oj23v-20260810: valid ISIN required for Euronext",
+        "biomerieux-8rozb-20260806: valid ISIN required for Euronext",
+        "broadcom-mr20v-20260806: valid ISIN required for Euronext",
+        "alphabet-ml19v-20260804: valid ISIN required for Euronext",
+        "adyen-788xb-20260804: valid ISIN required for Euronext",
+        "alstom-nu70v-20260804: valid ISIN required for Euronext",
+        "bmw-tu50v-20260803: valid ISIN required for Euronext",
+        "conocophillips-8y78s-20260731: valid ISIN required for Euronext",
+        "netflix-fs47v-20260716: valid ISIN required for Euronext",
+        "bureau-veritas-akr4b-20260709: valid ISIN required for Euronext",
+        "ing-z38ps-20260708: valid ISIN required for Euronext",
+        "bouygues-2uuxb-20260706: valid ISIN required for Euronext",
+        "airbus-4yf6b-20260626: valid ISIN required for Euronext",
+        "bnp-paribas-bm99v-20260624: valid ISIN required for Euronext",
+        "danone-s4tkb-20260624: valid ISIN required for Euronext",
+        "axa-ao22v-20260622: valid ISIN required for Euronext"
+      ],
+      "errors": [
+        "totalenergies-lt07v-20260724 underlying: Euronext returned no confirmed underlying quote for FR0000120271-XPAR",
+        "nexans-325ks-20260715 underlying: Euronext returned no confirmed underlying quote for FR0000044448-XPAR",
+        "legrand-3f7tb-20260715 underlying: Euronext returned no confirmed underlying quote for FR0010307819-XPAR"
+      ],
+      "consecutiveFailures": 0,
+      "lastSuccessAt": "2026-08-26T12:22:36+00:00"
+    }
   },
   "positions": [
     {
@@ -68,11 +115,11 @@
       "isin": "DE000VY0NFK5",
       "status": "open",
       "entryPrice": 0.87,
-      "currentPrice": 0.75,
+      "currentPrice": 0.865,
       "exitPrice": null,
       "entryDate": "2026-07-24",
       "exitDate": null,
-      "quoteAt": "2026-08-03T15:10:18+00:00",
+      "quoteAt": "2026-08-26T12:14:00+00:00",
       "target": 70,
       "stop": 79.2,
       "underlyingThreshold": 75.94,
@@ -80,17 +127,85 @@
       "url": "https://www.zonebourse.com/actualite-bourse/correction-technique-en-vue-ce7f51dfda8df125",
       "note": "Correction technique anticipée vers 70 € après approche de la résistance à 77,60 €.",
       "sourceConfidence": "high",
-      "bid": 0.75,
-      "ask": 1.0,
+      "bid": 0.86,
+      "ask": 0.87,
       "marketDataProvider": "euronext",
       "marketDataSourceUrl": "https://live.euronext.com/en/product/structured-products/DE000VY0NFK5-XMLI",
-      "marketDataRetrievedAt": "2026-08-03T15:27:50+00:00",
-      "marketDataDelayMinutes": 17,
+      "marketDataRetrievedAt": "2026-08-26T12:22:41+00:00",
+      "marketDataDelayMinutes": 8,
       "recommendationStatus": "open",
       "portfolioStatus": "not_held",
       "mutationHistory": [],
       "missingOpenCycles": 0,
-      "riskLevelsCurrency": "EUR"
+      "riskLevelsCurrency": "EUR",
+      "timestampSource": "euronext_page",
+      "marketStatus": "open",
+      "isIndicative": false,
+      "quoteCurrency": "EUR",
+      "confidence": {
+        "kind": "data_quality",
+        "score": 86,
+        "coveragePct": 86,
+        "label": "Données partielles",
+        "operationallyUsable": false,
+        "quoteAgeMinutes": 9.29,
+        "components": [
+          {
+            "key": "recommendation",
+            "weight": 20,
+            "score": 100,
+            "available": true,
+            "sources": [
+              "https://www.zonebourse.com/actualite-bourse/correction-technique-en-vue-ce7f51dfda8df125"
+            ]
+          },
+          {
+            "key": "productIdentity",
+            "weight": 15,
+            "score": 100,
+            "available": true,
+            "sources": [
+              "https://www.zonebourse.com/actualite-bourse/correction-technique-en-vue-ce7f51dfda8df125"
+            ]
+          },
+          {
+            "key": "tradePlan",
+            "weight": 30,
+            "score": 100,
+            "available": true,
+            "sources": [
+              "https://www.zonebourse.com/actualite-bourse/correction-technique-en-vue-ce7f51dfda8df125"
+            ]
+          },
+          {
+            "key": "marketQuote",
+            "weight": 20,
+            "score": 100,
+            "available": true,
+            "sources": [
+              "https://live.euronext.com/en/product/structured-products/DE000VY0NFK5-XMLI"
+            ]
+          },
+          {
+            "key": "underlying",
+            "weight": 5,
+            "score": 25,
+            "available": false,
+            "sources": [
+              "https://www.zonebourse.com/actualite-bourse/correction-technique-en-vue-ce7f51dfda8df125"
+            ]
+          },
+          {
+            "key": "timing",
+            "weight": 10,
+            "score": 0,
+            "available": false,
+            "sources": [
+              "https://www.zonebourse.com/actualite-bourse/correction-technique-en-vue-ce7f51dfda8df125"
+            ]
+          }
+        ]
+      }
     },
     {
       "id": "vinci-wc25v-20260723",
@@ -268,11 +383,11 @@
       "isin": "DE000VY3GDC5",
       "status": "open",
       "entryPrice": 1.24,
-      "currentPrice": 1.5,
+      "currentPrice": 1.165,
       "exitPrice": null,
       "entryDate": "2026-07-21",
       "exitDate": null,
-      "quoteAt": "2026-08-03T15:20:00+00:00",
+      "quoteAt": "2026-08-26T12:09:00+00:00",
       "target": 290,
       "stop": 342,
       "underlyingThreshold": 326.59,
@@ -280,17 +395,85 @@
       "url": "https://www.zonebourse.com/actualite-bourse/besoin-de-souffler-ce7f51d8d88eff21",
       "note": "Scénario de correction après zone de surachat.",
       "sourceConfidence": "high",
-      "bid": 1.44,
-      "ask": 1.56,
+      "bid": 1.16,
+      "ask": 1.17,
       "marketDataProvider": "euronext",
       "marketDataSourceUrl": "https://live.euronext.com/en/product/structured-products/DE000VY3GDC5-XMLI",
-      "marketDataRetrievedAt": "2026-08-03T15:22:52+00:00",
-      "marketDataDelayMinutes": 2,
+      "marketDataRetrievedAt": "2026-08-26T12:22:50+00:00",
+      "marketDataDelayMinutes": 13,
       "recommendationStatus": "open",
       "portfolioStatus": "not_held",
       "mutationHistory": [],
       "missingOpenCycles": 0,
-      "riskLevelsCurrency": "USD"
+      "riskLevelsCurrency": "USD",
+      "timestampSource": "euronext_page",
+      "marketStatus": "open",
+      "isIndicative": false,
+      "quoteCurrency": "EUR",
+      "confidence": {
+        "kind": "data_quality",
+        "score": 86,
+        "coveragePct": 86,
+        "label": "Données partielles",
+        "operationallyUsable": false,
+        "quoteAgeMinutes": 14.29,
+        "components": [
+          {
+            "key": "recommendation",
+            "weight": 20,
+            "score": 100,
+            "available": true,
+            "sources": [
+              "https://www.zonebourse.com/actualite-bourse/besoin-de-souffler-ce7f51d8d88eff21"
+            ]
+          },
+          {
+            "key": "productIdentity",
+            "weight": 15,
+            "score": 100,
+            "available": true,
+            "sources": [
+              "https://www.zonebourse.com/actualite-bourse/besoin-de-souffler-ce7f51d8d88eff21"
+            ]
+          },
+          {
+            "key": "tradePlan",
+            "weight": 30,
+            "score": 100,
+            "available": true,
+            "sources": [
+              "https://www.zonebourse.com/actualite-bourse/besoin-de-souffler-ce7f51d8d88eff21"
+            ]
+          },
+          {
+            "key": "marketQuote",
+            "weight": 20,
+            "score": 100,
+            "available": true,
+            "sources": [
+              "https://live.euronext.com/en/product/structured-products/DE000VY3GDC5-XMLI"
+            ]
+          },
+          {
+            "key": "underlying",
+            "weight": 5,
+            "score": 25,
+            "available": false,
+            "sources": [
+              "https://www.zonebourse.com/actualite-bourse/besoin-de-souffler-ce7f51d8d88eff21"
+            ]
+          },
+          {
+            "key": "timing",
+            "weight": 10,
+            "score": 0,
+            "available": false,
+            "sources": [
+              "https://www.zonebourse.com/actualite-bourse/besoin-de-souffler-ce7f51d8d88eff21"
+            ]
+          }
+        ]
+      }
     },
     {
       "id": "renault-tj97v-20260720",
@@ -349,11 +532,11 @@
       "isin": "DE000VY3Z5D1",
       "status": "open",
       "entryPrice": 3.86,
-      "currentPrice": 2.795,
+      "currentPrice": 1.8849999999999998,
       "exitPrice": null,
       "entryDate": "2026-07-16",
       "exitDate": null,
-      "quoteAt": "2026-08-03T15:25:00+00:00",
+      "quoteAt": "2026-08-26T12:14:00+00:00",
       "target": 395,
       "stop": 430,
       "underlyingThreshold": 416.4,
@@ -361,17 +544,85 @@
       "url": "https://www.zonebourse.com/actualite-bourse/une-correction-technique-en-formation-ce7f5ed2de8ef427",
       "note": "Scénario baissier. L'intitulé et le scénario classent le produit en PUT malgré une incohérence de sens dans la fiche statique Zonebourse.",
       "sourceConfidence": "high",
-      "bid": 2.79,
-      "ask": 2.8,
+      "bid": 1.88,
+      "ask": 1.89,
       "marketDataProvider": "euronext",
       "marketDataSourceUrl": "https://live.euronext.com/en/product/structured-products/DE000VY3Z5D1-XMLI",
-      "marketDataRetrievedAt": "2026-08-03T15:29:05+00:00",
-      "marketDataDelayMinutes": 4,
+      "marketDataRetrievedAt": "2026-08-26T12:22:54+00:00",
+      "marketDataDelayMinutes": 8,
       "recommendationStatus": "open",
       "portfolioStatus": "not_held",
       "mutationHistory": [],
       "missingOpenCycles": 0,
-      "riskLevelsCurrency": "EUR"
+      "riskLevelsCurrency": "EUR",
+      "timestampSource": "euronext_page",
+      "marketStatus": "open",
+      "isIndicative": false,
+      "quoteCurrency": "EUR",
+      "confidence": {
+        "kind": "data_quality",
+        "score": 86,
+        "coveragePct": 86,
+        "label": "Données partielles",
+        "operationallyUsable": false,
+        "quoteAgeMinutes": 9.29,
+        "components": [
+          {
+            "key": "recommendation",
+            "weight": 20,
+            "score": 100,
+            "available": true,
+            "sources": [
+              "https://www.zonebourse.com/actualite-bourse/une-correction-technique-en-formation-ce7f5ed2de8ef427"
+            ]
+          },
+          {
+            "key": "productIdentity",
+            "weight": 15,
+            "score": 100,
+            "available": true,
+            "sources": [
+              "https://www.zonebourse.com/actualite-bourse/une-correction-technique-en-formation-ce7f5ed2de8ef427"
+            ]
+          },
+          {
+            "key": "tradePlan",
+            "weight": 30,
+            "score": 100,
+            "available": true,
+            "sources": [
+              "https://www.zonebourse.com/actualite-bourse/une-correction-technique-en-formation-ce7f5ed2de8ef427"
+            ]
+          },
+          {
+            "key": "marketQuote",
+            "weight": 20,
+            "score": 100,
+            "available": true,
+            "sources": [
+              "https://live.euronext.com/en/product/structured-products/DE000VY3Z5D1-XMLI"
+            ]
+          },
+          {
+            "key": "underlying",
+            "weight": 5,
+            "score": 25,
+            "available": false,
+            "sources": [
+              "https://www.zonebourse.com/actualite-bourse/une-correction-technique-en-formation-ce7f5ed2de8ef427"
+            ]
+          },
+          {
+            "key": "timing",
+            "weight": 10,
+            "score": 0,
+            "available": false,
+            "sources": [
+              "https://www.zonebourse.com/actualite-bourse/une-correction-technique-en-formation-ce7f5ed2de8ef427"
+            ]
+          }
+        ]
+      }
     },
     {
       "id": "nexans-325ks-20260715",
@@ -382,11 +633,11 @@
       "isin": "DE000FE3FPS1",
       "status": "open",
       "entryPrice": 1.68,
-      "currentPrice": 1.435,
+      "currentPrice": 1.9249999999999998,
       "exitPrice": null,
       "entryDate": "2026-07-15",
       "exitDate": null,
-      "quoteAt": "2026-08-03T15:25:00+00:00",
+      "quoteAt": "2026-08-26T12:07:00+00:00",
       "target": 150,
       "stop": 124,
       "underlyingThreshold": 135.7,
@@ -394,17 +645,85 @@
       "url": "https://www.zonebourse.com/actualite-bourse/une-opportunite-a-court-terme-ce7f5eddd181f022",
       "note": "Rebond technique anticipé depuis une zone survendue.",
       "sourceConfidence": "high",
-      "bid": 1.43,
-      "ask": 1.44,
+      "bid": 1.92,
+      "ask": 1.93,
       "marketDataProvider": "euronext",
       "marketDataSourceUrl": "https://live.euronext.com/en/product/structured-products/DE000FE3FPS1-XMLI",
-      "marketDataRetrievedAt": "2026-08-03T15:29:17+00:00",
-      "marketDataDelayMinutes": 4,
+      "marketDataRetrievedAt": "2026-08-26T12:22:58+00:00",
+      "marketDataDelayMinutes": 15,
       "recommendationStatus": "open",
       "portfolioStatus": "not_held",
       "mutationHistory": [],
       "missingOpenCycles": 0,
-      "riskLevelsCurrency": "EUR"
+      "riskLevelsCurrency": "EUR",
+      "timestampSource": "euronext_page",
+      "marketStatus": "open",
+      "isIndicative": false,
+      "quoteCurrency": "EUR",
+      "confidence": {
+        "kind": "data_quality",
+        "score": 86,
+        "coveragePct": 86,
+        "label": "Données partielles",
+        "operationallyUsable": false,
+        "quoteAgeMinutes": 16.29,
+        "components": [
+          {
+            "key": "recommendation",
+            "weight": 20,
+            "score": 100,
+            "available": true,
+            "sources": [
+              "https://www.zonebourse.com/actualite-bourse/une-opportunite-a-court-terme-ce7f5eddd181f022"
+            ]
+          },
+          {
+            "key": "productIdentity",
+            "weight": 15,
+            "score": 100,
+            "available": true,
+            "sources": [
+              "https://www.zonebourse.com/actualite-bourse/une-opportunite-a-court-terme-ce7f5eddd181f022"
+            ]
+          },
+          {
+            "key": "tradePlan",
+            "weight": 30,
+            "score": 100,
+            "available": true,
+            "sources": [
+              "https://www.zonebourse.com/actualite-bourse/une-opportunite-a-court-terme-ce7f5eddd181f022"
+            ]
+          },
+          {
+            "key": "marketQuote",
+            "weight": 20,
+            "score": 100,
+            "available": true,
+            "sources": [
+              "https://live.euronext.com/en/product/structured-products/DE000FE3FPS1-XMLI"
+            ]
+          },
+          {
+            "key": "underlying",
+            "weight": 5,
+            "score": 25,
+            "available": false,
+            "sources": [
+              "https://www.zonebourse.com/actualite-bourse/une-opportunite-a-court-terme-ce7f5eddd181f022"
+            ]
+          },
+          {
+            "key": "timing",
+            "weight": 10,
+            "score": 0,
+            "available": false,
+            "sources": [
+              "https://www.zonebourse.com/actualite-bourse/une-opportunite-a-court-terme-ce7f5eddd181f022"
+            ]
+          }
+        ]
+      }
     },
     {
       "id": "legrand-3f7tb-20260715",
@@ -415,11 +734,11 @@
       "isin": "NLBNPFR2CD04",
       "status": "open",
       "entryPrice": 3.06,
-      "currentPrice": 1.835,
+      "currentPrice": 2.085,
       "exitPrice": null,
       "entryDate": "2026-07-15",
       "exitDate": null,
-      "quoteAt": "2026-08-03T15:25:00+00:00",
+      "quoteAt": "2026-08-26T12:19:00+00:00",
       "target": 160.1,
       "stop": 132,
       "underlyingThreshold": 141.05,
@@ -427,17 +746,85 @@
       "url": "https://www.zonebourse.com/actualite-bourse/achat-du-warrant-call-bnp-paribas-3f7tb-ce7f5eddde81f72d",
       "note": "Relance de la dynamique haussière anticipée.",
       "sourceConfidence": "high",
-      "bid": 1.83,
-      "ask": 1.84,
+      "bid": 2.08,
+      "ask": 2.09,
       "marketDataProvider": "euronext",
       "marketDataSourceUrl": "https://live.euronext.com/en/product/structured-products/NLBNPFR2CD04-XMLI",
-      "marketDataRetrievedAt": "2026-08-03T15:29:39+00:00",
+      "marketDataRetrievedAt": "2026-08-26T12:23:08+00:00",
       "marketDataDelayMinutes": 4,
       "recommendationStatus": "open",
       "portfolioStatus": "not_held",
       "mutationHistory": [],
       "missingOpenCycles": 0,
-      "riskLevelsCurrency": "EUR"
+      "riskLevelsCurrency": "EUR",
+      "timestampSource": "euronext_page",
+      "marketStatus": "open",
+      "isIndicative": false,
+      "quoteCurrency": "EUR",
+      "confidence": {
+        "kind": "data_quality",
+        "score": 86,
+        "coveragePct": 86,
+        "label": "Données partielles",
+        "operationallyUsable": false,
+        "quoteAgeMinutes": 4.29,
+        "components": [
+          {
+            "key": "recommendation",
+            "weight": 20,
+            "score": 100,
+            "available": true,
+            "sources": [
+              "https://www.zonebourse.com/actualite-bourse/achat-du-warrant-call-bnp-paribas-3f7tb-ce7f5eddde81f72d"
+            ]
+          },
+          {
+            "key": "productIdentity",
+            "weight": 15,
+            "score": 100,
+            "available": true,
+            "sources": [
+              "https://www.zonebourse.com/actualite-bourse/achat-du-warrant-call-bnp-paribas-3f7tb-ce7f5eddde81f72d"
+            ]
+          },
+          {
+            "key": "tradePlan",
+            "weight": 30,
+            "score": 100,
+            "available": true,
+            "sources": [
+              "https://www.zonebourse.com/actualite-bourse/achat-du-warrant-call-bnp-paribas-3f7tb-ce7f5eddde81f72d"
+            ]
+          },
+          {
+            "key": "marketQuote",
+            "weight": 20,
+            "score": 100,
+            "available": true,
+            "sources": [
+              "https://live.euronext.com/en/product/structured-products/NLBNPFR2CD04-XMLI"
+            ]
+          },
+          {
+            "key": "underlying",
+            "weight": 5,
+            "score": 25,
+            "available": false,
+            "sources": [
+              "https://www.zonebourse.com/actualite-bourse/achat-du-warrant-call-bnp-paribas-3f7tb-ce7f5eddde81f72d"
+            ]
+          },
+          {
+            "key": "timing",
+            "weight": 10,
+            "score": 0,
+            "available": false,
+            "sources": [
+              "https://www.zonebourse.com/actualite-bourse/achat-du-warrant-call-bnp-paribas-3f7tb-ce7f5eddde81f72d"
+            ]
+          }
+        ]
+      }
     },
     {
       "id": "total-ui72v-202607",
@@ -559,7 +946,71 @@
       "portfolioStatus": "not_held",
       "mutationHistory": [],
       "missingOpenCycles": 0,
-      "riskLevelsCurrency": null
+      "riskLevelsCurrency": null,
+      "confidence": {
+        "kind": "data_quality",
+        "score": 20,
+        "coveragePct": 20,
+        "label": "Données insuffisantes",
+        "operationallyUsable": false,
+        "quoteAgeMinutes": null,
+        "components": [
+          {
+            "key": "recommendation",
+            "weight": 20,
+            "score": 100,
+            "available": true,
+            "sources": [
+              "https://www.zonebourse.com/actualite-bourse/achat-du-turbo-call-vontobel-mu13v-ce7f50d2dd80f02d"
+            ]
+          },
+          {
+            "key": "productIdentity",
+            "weight": 15,
+            "score": 0,
+            "available": false,
+            "sources": [
+              "https://www.zonebourse.com/actualite-bourse/achat-du-turbo-call-vontobel-mu13v-ce7f50d2dd80f02d"
+            ]
+          },
+          {
+            "key": "tradePlan",
+            "weight": 30,
+            "score": 0,
+            "available": false,
+            "sources": [
+              "https://www.zonebourse.com/actualite-bourse/achat-du-turbo-call-vontobel-mu13v-ce7f50d2dd80f02d"
+            ]
+          },
+          {
+            "key": "marketQuote",
+            "weight": 20,
+            "score": 0,
+            "available": false,
+            "sources": [
+              "https://www.zonebourse.com/actualite-bourse/achat-du-turbo-call-vontobel-mu13v-ce7f50d2dd80f02d"
+            ]
+          },
+          {
+            "key": "underlying",
+            "weight": 5,
+            "score": 0,
+            "available": false,
+            "sources": [
+              "https://www.zonebourse.com/actualite-bourse/achat-du-turbo-call-vontobel-mu13v-ce7f50d2dd80f02d"
+            ]
+          },
+          {
+            "key": "timing",
+            "weight": 10,
+            "score": 0,
+            "available": false,
+            "sources": [
+              "https://www.zonebourse.com/actualite-bourse/achat-du-turbo-call-vontobel-mu13v-ce7f50d2dd80f02d"
+            ]
+          }
+        ]
+      }
     },
     {
       "id": "gold-vu91v-20260807",
@@ -584,7 +1035,71 @@
       "portfolioStatus": "not_held",
       "mutationHistory": [],
       "missingOpenCycles": 0,
-      "riskLevelsCurrency": null
+      "riskLevelsCurrency": null,
+      "confidence": {
+        "kind": "data_quality",
+        "score": 20,
+        "coveragePct": 20,
+        "label": "Données insuffisantes",
+        "operationallyUsable": false,
+        "quoteAgeMinutes": null,
+        "components": [
+          {
+            "key": "recommendation",
+            "weight": 20,
+            "score": 100,
+            "available": true,
+            "sources": [
+              "https://www.zonebourse.com/actualite-bourse/nouveau-potentiel-au-dessus-de-la-resistance-ce7f50d2dd81f426"
+            ]
+          },
+          {
+            "key": "productIdentity",
+            "weight": 15,
+            "score": 0,
+            "available": false,
+            "sources": [
+              "https://www.zonebourse.com/actualite-bourse/nouveau-potentiel-au-dessus-de-la-resistance-ce7f50d2dd81f426"
+            ]
+          },
+          {
+            "key": "tradePlan",
+            "weight": 30,
+            "score": 0,
+            "available": false,
+            "sources": [
+              "https://www.zonebourse.com/actualite-bourse/nouveau-potentiel-au-dessus-de-la-resistance-ce7f50d2dd81f426"
+            ]
+          },
+          {
+            "key": "marketQuote",
+            "weight": 20,
+            "score": 0,
+            "available": false,
+            "sources": [
+              "https://www.zonebourse.com/actualite-bourse/nouveau-potentiel-au-dessus-de-la-resistance-ce7f50d2dd81f426"
+            ]
+          },
+          {
+            "key": "underlying",
+            "weight": 5,
+            "score": 0,
+            "available": false,
+            "sources": [
+              "https://www.zonebourse.com/actualite-bourse/nouveau-potentiel-au-dessus-de-la-resistance-ce7f50d2dd81f426"
+            ]
+          },
+          {
+            "key": "timing",
+            "weight": 10,
+            "score": 0,
+            "available": false,
+            "sources": [
+              "https://www.zonebourse.com/actualite-bourse/nouveau-potentiel-au-dessus-de-la-resistance-ce7f50d2dd81f426"
+            ]
+          }
+        ]
+      }
     },
     {
       "id": "kering-lu97v-20260807",
@@ -609,7 +1124,71 @@
       "portfolioStatus": "not_held",
       "mutationHistory": [],
       "missingOpenCycles": 0,
-      "riskLevelsCurrency": null
+      "riskLevelsCurrency": null,
+      "confidence": {
+        "kind": "data_quality",
+        "score": 20,
+        "coveragePct": 20,
+        "label": "Données insuffisantes",
+        "operationallyUsable": false,
+        "quoteAgeMinutes": null,
+        "components": [
+          {
+            "key": "recommendation",
+            "weight": 20,
+            "score": 100,
+            "available": true,
+            "sources": [
+              "https://www.zonebourse.com/actualite-bourse/toujours-du-potentiel-ce7f50d2dd8ff12d"
+            ]
+          },
+          {
+            "key": "productIdentity",
+            "weight": 15,
+            "score": 0,
+            "available": false,
+            "sources": [
+              "https://www.zonebourse.com/actualite-bourse/toujours-du-potentiel-ce7f50d2dd8ff12d"
+            ]
+          },
+          {
+            "key": "tradePlan",
+            "weight": 30,
+            "score": 0,
+            "available": false,
+            "sources": [
+              "https://www.zonebourse.com/actualite-bourse/toujours-du-potentiel-ce7f50d2dd8ff12d"
+            ]
+          },
+          {
+            "key": "marketQuote",
+            "weight": 20,
+            "score": 0,
+            "available": false,
+            "sources": [
+              "https://www.zonebourse.com/actualite-bourse/toujours-du-potentiel-ce7f50d2dd8ff12d"
+            ]
+          },
+          {
+            "key": "underlying",
+            "weight": 5,
+            "score": 0,
+            "available": false,
+            "sources": [
+              "https://www.zonebourse.com/actualite-bourse/toujours-du-potentiel-ce7f50d2dd8ff12d"
+            ]
+          },
+          {
+            "key": "timing",
+            "weight": 10,
+            "score": 0,
+            "available": false,
+            "sources": [
+              "https://www.zonebourse.com/actualite-bourse/toujours-du-potentiel-ce7f50d2dd8ff12d"
+            ]
+          }
+        ]
+      }
     },
     {
       "id": "stmicroelectronics-oj23v-20260810",
@@ -634,7 +1213,71 @@
       "portfolioStatus": "not_held",
       "mutationHistory": [],
       "missingOpenCycles": 0,
-      "riskLevelsCurrency": null
+      "riskLevelsCurrency": null,
+      "confidence": {
+        "kind": "data_quality",
+        "score": 20,
+        "coveragePct": 20,
+        "label": "Données insuffisantes",
+        "operationallyUsable": false,
+        "quoteAgeMinutes": null,
+        "components": [
+          {
+            "key": "recommendation",
+            "weight": 20,
+            "score": 100,
+            "available": true,
+            "sources": [
+              "https://www.zonebourse.com/bourse/derives/recommandations/"
+            ]
+          },
+          {
+            "key": "productIdentity",
+            "weight": 15,
+            "score": 0,
+            "available": false,
+            "sources": [
+              "https://www.zonebourse.com/bourse/derives/recommandations/"
+            ]
+          },
+          {
+            "key": "tradePlan",
+            "weight": 30,
+            "score": 0,
+            "available": false,
+            "sources": [
+              "https://www.zonebourse.com/bourse/derives/recommandations/"
+            ]
+          },
+          {
+            "key": "marketQuote",
+            "weight": 20,
+            "score": 0,
+            "available": false,
+            "sources": [
+              "https://www.zonebourse.com/bourse/derives/recommandations/"
+            ]
+          },
+          {
+            "key": "underlying",
+            "weight": 5,
+            "score": 0,
+            "available": false,
+            "sources": [
+              "https://www.zonebourse.com/bourse/derives/recommandations/"
+            ]
+          },
+          {
+            "key": "timing",
+            "weight": 10,
+            "score": 0,
+            "available": false,
+            "sources": [
+              "https://www.zonebourse.com/bourse/derives/recommandations/"
+            ]
+          }
+        ]
+      }
     },
     {
       "id": "biomerieux-8rozb-20260806",
@@ -660,7 +1303,71 @@
       "portfolioStatus": "not_held",
       "mutationHistory": [],
       "missingOpenCycles": 0,
-      "riskLevelsCurrency": null
+      "riskLevelsCurrency": null,
+      "confidence": {
+        "kind": "data_quality",
+        "score": 20,
+        "coveragePct": 20,
+        "label": "Données insuffisantes",
+        "operationallyUsable": false,
+        "quoteAgeMinutes": null,
+        "components": [
+          {
+            "key": "recommendation",
+            "weight": 20,
+            "score": 100,
+            "available": true,
+            "sources": [
+              "https://www.zonebourse.com/bourse/derives/recommandations/"
+            ]
+          },
+          {
+            "key": "productIdentity",
+            "weight": 15,
+            "score": 0,
+            "available": false,
+            "sources": [
+              "https://www.zonebourse.com/bourse/derives/recommandations/"
+            ]
+          },
+          {
+            "key": "tradePlan",
+            "weight": 30,
+            "score": 0,
+            "available": false,
+            "sources": [
+              "https://www.zonebourse.com/bourse/derives/recommandations/"
+            ]
+          },
+          {
+            "key": "marketQuote",
+            "weight": 20,
+            "score": 0,
+            "available": false,
+            "sources": [
+              "https://www.zonebourse.com/bourse/derives/recommandations/"
+            ]
+          },
+          {
+            "key": "underlying",
+            "weight": 5,
+            "score": 0,
+            "available": false,
+            "sources": [
+              "https://www.zonebourse.com/bourse/derives/recommandations/"
+            ]
+          },
+          {
+            "key": "timing",
+            "weight": 10,
+            "score": 0,
+            "available": false,
+            "sources": [
+              "https://www.zonebourse.com/bourse/derives/recommandations/"
+            ]
+          }
+        ]
+      }
     },
     {
       "id": "broadcom-mr20v-20260806",
@@ -686,7 +1393,71 @@
       "portfolioStatus": "not_held",
       "mutationHistory": [],
       "missingOpenCycles": 0,
-      "riskLevelsCurrency": null
+      "riskLevelsCurrency": null,
+      "confidence": {
+        "kind": "data_quality",
+        "score": 20,
+        "coveragePct": 20,
+        "label": "Données insuffisantes",
+        "operationallyUsable": false,
+        "quoteAgeMinutes": null,
+        "components": [
+          {
+            "key": "recommendation",
+            "weight": 20,
+            "score": 100,
+            "available": true,
+            "sources": [
+              "https://www.zonebourse.com/bourse/derives/recommandations/"
+            ]
+          },
+          {
+            "key": "productIdentity",
+            "weight": 15,
+            "score": 0,
+            "available": false,
+            "sources": [
+              "https://www.zonebourse.com/bourse/derives/recommandations/"
+            ]
+          },
+          {
+            "key": "tradePlan",
+            "weight": 30,
+            "score": 0,
+            "available": false,
+            "sources": [
+              "https://www.zonebourse.com/bourse/derives/recommandations/"
+            ]
+          },
+          {
+            "key": "marketQuote",
+            "weight": 20,
+            "score": 0,
+            "available": false,
+            "sources": [
+              "https://www.zonebourse.com/bourse/derives/recommandations/"
+            ]
+          },
+          {
+            "key": "underlying",
+            "weight": 5,
+            "score": 0,
+            "available": false,
+            "sources": [
+              "https://www.zonebourse.com/bourse/derives/recommandations/"
+            ]
+          },
+          {
+            "key": "timing",
+            "weight": 10,
+            "score": 0,
+            "available": false,
+            "sources": [
+              "https://www.zonebourse.com/bourse/derives/recommandations/"
+            ]
+          }
+        ]
+      }
     },
     {
       "id": "alphabet-ml19v-20260804",
@@ -712,7 +1483,71 @@
       "portfolioStatus": "not_held",
       "mutationHistory": [],
       "missingOpenCycles": 0,
-      "riskLevelsCurrency": null
+      "riskLevelsCurrency": null,
+      "confidence": {
+        "kind": "data_quality",
+        "score": 20,
+        "coveragePct": 20,
+        "label": "Données insuffisantes",
+        "operationallyUsable": false,
+        "quoteAgeMinutes": null,
+        "components": [
+          {
+            "key": "recommendation",
+            "weight": 20,
+            "score": 100,
+            "available": true,
+            "sources": [
+              "https://www.zonebourse.com/bourse/derives/recommandations/"
+            ]
+          },
+          {
+            "key": "productIdentity",
+            "weight": 15,
+            "score": 0,
+            "available": false,
+            "sources": [
+              "https://www.zonebourse.com/bourse/derives/recommandations/"
+            ]
+          },
+          {
+            "key": "tradePlan",
+            "weight": 30,
+            "score": 0,
+            "available": false,
+            "sources": [
+              "https://www.zonebourse.com/bourse/derives/recommandations/"
+            ]
+          },
+          {
+            "key": "marketQuote",
+            "weight": 20,
+            "score": 0,
+            "available": false,
+            "sources": [
+              "https://www.zonebourse.com/bourse/derives/recommandations/"
+            ]
+          },
+          {
+            "key": "underlying",
+            "weight": 5,
+            "score": 0,
+            "available": false,
+            "sources": [
+              "https://www.zonebourse.com/bourse/derives/recommandations/"
+            ]
+          },
+          {
+            "key": "timing",
+            "weight": 10,
+            "score": 0,
+            "available": false,
+            "sources": [
+              "https://www.zonebourse.com/bourse/derives/recommandations/"
+            ]
+          }
+        ]
+      }
     },
     {
       "id": "adyen-788xb-20260804",
@@ -738,7 +1573,71 @@
       "portfolioStatus": "not_held",
       "mutationHistory": [],
       "missingOpenCycles": 0,
-      "riskLevelsCurrency": null
+      "riskLevelsCurrency": null,
+      "confidence": {
+        "kind": "data_quality",
+        "score": 20,
+        "coveragePct": 20,
+        "label": "Données insuffisantes",
+        "operationallyUsable": false,
+        "quoteAgeMinutes": null,
+        "components": [
+          {
+            "key": "recommendation",
+            "weight": 20,
+            "score": 100,
+            "available": true,
+            "sources": [
+              "https://www.zonebourse.com/bourse/derives/recommandations/"
+            ]
+          },
+          {
+            "key": "productIdentity",
+            "weight": 15,
+            "score": 0,
+            "available": false,
+            "sources": [
+              "https://www.zonebourse.com/bourse/derives/recommandations/"
+            ]
+          },
+          {
+            "key": "tradePlan",
+            "weight": 30,
+            "score": 0,
+            "available": false,
+            "sources": [
+              "https://www.zonebourse.com/bourse/derives/recommandations/"
+            ]
+          },
+          {
+            "key": "marketQuote",
+            "weight": 20,
+            "score": 0,
+            "available": false,
+            "sources": [
+              "https://www.zonebourse.com/bourse/derives/recommandations/"
+            ]
+          },
+          {
+            "key": "underlying",
+            "weight": 5,
+            "score": 0,
+            "available": false,
+            "sources": [
+              "https://www.zonebourse.com/bourse/derives/recommandations/"
+            ]
+          },
+          {
+            "key": "timing",
+            "weight": 10,
+            "score": 0,
+            "available": false,
+            "sources": [
+              "https://www.zonebourse.com/bourse/derives/recommandations/"
+            ]
+          }
+        ]
+      }
     },
     {
       "id": "alstom-nu70v-20260804",
@@ -764,7 +1663,71 @@
       "portfolioStatus": "not_held",
       "mutationHistory": [],
       "missingOpenCycles": 0,
-      "riskLevelsCurrency": null
+      "riskLevelsCurrency": null,
+      "confidence": {
+        "kind": "data_quality",
+        "score": 20,
+        "coveragePct": 20,
+        "label": "Données insuffisantes",
+        "operationallyUsable": false,
+        "quoteAgeMinutes": null,
+        "components": [
+          {
+            "key": "recommendation",
+            "weight": 20,
+            "score": 100,
+            "available": true,
+            "sources": [
+              "https://www.zonebourse.com/bourse/derives/recommandations/"
+            ]
+          },
+          {
+            "key": "productIdentity",
+            "weight": 15,
+            "score": 0,
+            "available": false,
+            "sources": [
+              "https://www.zonebourse.com/bourse/derives/recommandations/"
+            ]
+          },
+          {
+            "key": "tradePlan",
+            "weight": 30,
+            "score": 0,
+            "available": false,
+            "sources": [
+              "https://www.zonebourse.com/bourse/derives/recommandations/"
+            ]
+          },
+          {
+            "key": "marketQuote",
+            "weight": 20,
+            "score": 0,
+            "available": false,
+            "sources": [
+              "https://www.zonebourse.com/bourse/derives/recommandations/"
+            ]
+          },
+          {
+            "key": "underlying",
+            "weight": 5,
+            "score": 0,
+            "available": false,
+            "sources": [
+              "https://www.zonebourse.com/bourse/derives/recommandations/"
+            ]
+          },
+          {
+            "key": "timing",
+            "weight": 10,
+            "score": 0,
+            "available": false,
+            "sources": [
+              "https://www.zonebourse.com/bourse/derives/recommandations/"
+            ]
+          }
+        ]
+      }
     },
     {
       "id": "bmw-tu50v-20260803",
@@ -790,7 +1753,71 @@
       "portfolioStatus": "not_held",
       "mutationHistory": [],
       "missingOpenCycles": 0,
-      "riskLevelsCurrency": null
+      "riskLevelsCurrency": null,
+      "confidence": {
+        "kind": "data_quality",
+        "score": 20,
+        "coveragePct": 20,
+        "label": "Données insuffisantes",
+        "operationallyUsable": false,
+        "quoteAgeMinutes": null,
+        "components": [
+          {
+            "key": "recommendation",
+            "weight": 20,
+            "score": 100,
+            "available": true,
+            "sources": [
+              "https://www.zonebourse.com/bourse/derives/recommandations/"
+            ]
+          },
+          {
+            "key": "productIdentity",
+            "weight": 15,
+            "score": 0,
+            "available": false,
+            "sources": [
+              "https://www.zonebourse.com/bourse/derives/recommandations/"
+            ]
+          },
+          {
+            "key": "tradePlan",
+            "weight": 30,
+            "score": 0,
+            "available": false,
+            "sources": [
+              "https://www.zonebourse.com/bourse/derives/recommandations/"
+            ]
+          },
+          {
+            "key": "marketQuote",
+            "weight": 20,
+            "score": 0,
+            "available": false,
+            "sources": [
+              "https://www.zonebourse.com/bourse/derives/recommandations/"
+            ]
+          },
+          {
+            "key": "underlying",
+            "weight": 5,
+            "score": 0,
+            "available": false,
+            "sources": [
+              "https://www.zonebourse.com/bourse/derives/recommandations/"
+            ]
+          },
+          {
+            "key": "timing",
+            "weight": 10,
+            "score": 0,
+            "available": false,
+            "sources": [
+              "https://www.zonebourse.com/bourse/derives/recommandations/"
+            ]
+          }
+        ]
+      }
     },
     {
       "id": "conocophillips-8y78s-20260731",
@@ -816,7 +1843,71 @@
       "portfolioStatus": "not_held",
       "mutationHistory": [],
       "missingOpenCycles": 0,
-      "riskLevelsCurrency": null
+      "riskLevelsCurrency": null,
+      "confidence": {
+        "kind": "data_quality",
+        "score": 20,
+        "coveragePct": 20,
+        "label": "Données insuffisantes",
+        "operationallyUsable": false,
+        "quoteAgeMinutes": null,
+        "components": [
+          {
+            "key": "recommendation",
+            "weight": 20,
+            "score": 100,
+            "available": true,
+            "sources": [
+              "https://www.zonebourse.com/bourse/derives/recommandations/"
+            ]
+          },
+          {
+            "key": "productIdentity",
+            "weight": 15,
+            "score": 0,
+            "available": false,
+            "sources": [
+              "https://www.zonebourse.com/bourse/derives/recommandations/"
+            ]
+          },
+          {
+            "key": "tradePlan",
+            "weight": 30,
+            "score": 0,
+            "available": false,
+            "sources": [
+              "https://www.zonebourse.com/bourse/derives/recommandations/"
+            ]
+          },
+          {
+            "key": "marketQuote",
+            "weight": 20,
+            "score": 0,
+            "available": false,
+            "sources": [
+              "https://www.zonebourse.com/bourse/derives/recommandations/"
+            ]
+          },
+          {
+            "key": "underlying",
+            "weight": 5,
+            "score": 0,
+            "available": false,
+            "sources": [
+              "https://www.zonebourse.com/bourse/derives/recommandations/"
+            ]
+          },
+          {
+            "key": "timing",
+            "weight": 10,
+            "score": 0,
+            "available": false,
+            "sources": [
+              "https://www.zonebourse.com/bourse/derives/recommandations/"
+            ]
+          }
+        ]
+      }
     },
     {
       "id": "netflix-fs47v-20260716",
@@ -841,7 +1932,71 @@
       "portfolioStatus": "not_held",
       "mutationHistory": [],
       "missingOpenCycles": 0,
-      "riskLevelsCurrency": null
+      "riskLevelsCurrency": null,
+      "confidence": {
+        "kind": "data_quality",
+        "score": 20,
+        "coveragePct": 20,
+        "label": "Données insuffisantes",
+        "operationallyUsable": false,
+        "quoteAgeMinutes": null,
+        "components": [
+          {
+            "key": "recommendation",
+            "weight": 20,
+            "score": 100,
+            "available": true,
+            "sources": [
+              "https://www.zonebourse.com/bourse/derives/recommandations/"
+            ]
+          },
+          {
+            "key": "productIdentity",
+            "weight": 15,
+            "score": 0,
+            "available": false,
+            "sources": [
+              "https://www.zonebourse.com/bourse/derives/recommandations/"
+            ]
+          },
+          {
+            "key": "tradePlan",
+            "weight": 30,
+            "score": 0,
+            "available": false,
+            "sources": [
+              "https://www.zonebourse.com/bourse/derives/recommandations/"
+            ]
+          },
+          {
+            "key": "marketQuote",
+            "weight": 20,
+            "score": 0,
+            "available": false,
+            "sources": [
+              "https://www.zonebourse.com/bourse/derives/recommandations/"
+            ]
+          },
+          {
+            "key": "underlying",
+            "weight": 5,
+            "score": 0,
+            "available": false,
+            "sources": [
+              "https://www.zonebourse.com/bourse/derives/recommandations/"
+            ]
+          },
+          {
+            "key": "timing",
+            "weight": 10,
+            "score": 0,
+            "available": false,
+            "sources": [
+              "https://www.zonebourse.com/bourse/derives/recommandations/"
+            ]
+          }
+        ]
+      }
     },
     {
       "id": "bureau-veritas-akr4b-20260709",
@@ -867,7 +2022,71 @@
       "portfolioStatus": "not_held",
       "mutationHistory": [],
       "missingOpenCycles": 0,
-      "riskLevelsCurrency": null
+      "riskLevelsCurrency": null,
+      "confidence": {
+        "kind": "data_quality",
+        "score": 20,
+        "coveragePct": 20,
+        "label": "Données insuffisantes",
+        "operationallyUsable": false,
+        "quoteAgeMinutes": null,
+        "components": [
+          {
+            "key": "recommendation",
+            "weight": 20,
+            "score": 100,
+            "available": true,
+            "sources": [
+              "https://www.zonebourse.com/bourse/derives/recommandations/"
+            ]
+          },
+          {
+            "key": "productIdentity",
+            "weight": 15,
+            "score": 0,
+            "available": false,
+            "sources": [
+              "https://www.zonebourse.com/bourse/derives/recommandations/"
+            ]
+          },
+          {
+            "key": "tradePlan",
+            "weight": 30,
+            "score": 0,
+            "available": false,
+            "sources": [
+              "https://www.zonebourse.com/bourse/derives/recommandations/"
+            ]
+          },
+          {
+            "key": "marketQuote",
+            "weight": 20,
+            "score": 0,
+            "available": false,
+            "sources": [
+              "https://www.zonebourse.com/bourse/derives/recommandations/"
+            ]
+          },
+          {
+            "key": "underlying",
+            "weight": 5,
+            "score": 0,
+            "available": false,
+            "sources": [
+              "https://www.zonebourse.com/bourse/derives/recommandations/"
+            ]
+          },
+          {
+            "key": "timing",
+            "weight": 10,
+            "score": 0,
+            "available": false,
+            "sources": [
+              "https://www.zonebourse.com/bourse/derives/recommandations/"
+            ]
+          }
+        ]
+      }
     },
     {
       "id": "ing-z38ps-20260708",
@@ -893,7 +2112,71 @@
       "portfolioStatus": "not_held",
       "mutationHistory": [],
       "missingOpenCycles": 0,
-      "riskLevelsCurrency": null
+      "riskLevelsCurrency": null,
+      "confidence": {
+        "kind": "data_quality",
+        "score": 20,
+        "coveragePct": 20,
+        "label": "Données insuffisantes",
+        "operationallyUsable": false,
+        "quoteAgeMinutes": null,
+        "components": [
+          {
+            "key": "recommendation",
+            "weight": 20,
+            "score": 100,
+            "available": true,
+            "sources": [
+              "https://www.zonebourse.com/bourse/derives/recommandations/"
+            ]
+          },
+          {
+            "key": "productIdentity",
+            "weight": 15,
+            "score": 0,
+            "available": false,
+            "sources": [
+              "https://www.zonebourse.com/bourse/derives/recommandations/"
+            ]
+          },
+          {
+            "key": "tradePlan",
+            "weight": 30,
+            "score": 0,
+            "available": false,
+            "sources": [
+              "https://www.zonebourse.com/bourse/derives/recommandations/"
+            ]
+          },
+          {
+            "key": "marketQuote",
+            "weight": 20,
+            "score": 0,
+            "available": false,
+            "sources": [
+              "https://www.zonebourse.com/bourse/derives/recommandations/"
+            ]
+          },
+          {
+            "key": "underlying",
+            "weight": 5,
+            "score": 0,
+            "available": false,
+            "sources": [
+              "https://www.zonebourse.com/bourse/derives/recommandations/"
+            ]
+          },
+          {
+            "key": "timing",
+            "weight": 10,
+            "score": 0,
+            "available": false,
+            "sources": [
+              "https://www.zonebourse.com/bourse/derives/recommandations/"
+            ]
+          }
+        ]
+      }
     },
     {
       "id": "bouygues-2uuxb-20260706",
@@ -919,7 +2202,71 @@
       "portfolioStatus": "not_held",
       "mutationHistory": [],
       "missingOpenCycles": 0,
-      "riskLevelsCurrency": null
+      "riskLevelsCurrency": null,
+      "confidence": {
+        "kind": "data_quality",
+        "score": 20,
+        "coveragePct": 20,
+        "label": "Données insuffisantes",
+        "operationallyUsable": false,
+        "quoteAgeMinutes": null,
+        "components": [
+          {
+            "key": "recommendation",
+            "weight": 20,
+            "score": 100,
+            "available": true,
+            "sources": [
+              "https://www.zonebourse.com/bourse/derives/recommandations/"
+            ]
+          },
+          {
+            "key": "productIdentity",
+            "weight": 15,
+            "score": 0,
+            "available": false,
+            "sources": [
+              "https://www.zonebourse.com/bourse/derives/recommandations/"
+            ]
+          },
+          {
+            "key": "tradePlan",
+            "weight": 30,
+            "score": 0,
+            "available": false,
+            "sources": [
+              "https://www.zonebourse.com/bourse/derives/recommandations/"
+            ]
+          },
+          {
+            "key": "marketQuote",
+            "weight": 20,
+            "score": 0,
+            "available": false,
+            "sources": [
+              "https://www.zonebourse.com/bourse/derives/recommandations/"
+            ]
+          },
+          {
+            "key": "underlying",
+            "weight": 5,
+            "score": 0,
+            "available": false,
+            "sources": [
+              "https://www.zonebourse.com/bourse/derives/recommandations/"
+            ]
+          },
+          {
+            "key": "timing",
+            "weight": 10,
+            "score": 0,
+            "available": false,
+            "sources": [
+              "https://www.zonebourse.com/bourse/derives/recommandations/"
+            ]
+          }
+        ]
+      }
     },
     {
       "id": "airbus-4yf6b-20260626",
@@ -945,7 +2292,71 @@
       "portfolioStatus": "not_held",
       "mutationHistory": [],
       "missingOpenCycles": 0,
-      "riskLevelsCurrency": null
+      "riskLevelsCurrency": null,
+      "confidence": {
+        "kind": "data_quality",
+        "score": 20,
+        "coveragePct": 20,
+        "label": "Données insuffisantes",
+        "operationallyUsable": false,
+        "quoteAgeMinutes": null,
+        "components": [
+          {
+            "key": "recommendation",
+            "weight": 20,
+            "score": 100,
+            "available": true,
+            "sources": [
+              "https://www.zonebourse.com/bourse/derives/recommandations/"
+            ]
+          },
+          {
+            "key": "productIdentity",
+            "weight": 15,
+            "score": 0,
+            "available": false,
+            "sources": [
+              "https://www.zonebourse.com/bourse/derives/recommandations/"
+            ]
+          },
+          {
+            "key": "tradePlan",
+            "weight": 30,
+            "score": 0,
+            "available": false,
+            "sources": [
+              "https://www.zonebourse.com/bourse/derives/recommandations/"
+            ]
+          },
+          {
+            "key": "marketQuote",
+            "weight": 20,
+            "score": 0,
+            "available": false,
+            "sources": [
+              "https://www.zonebourse.com/bourse/derives/recommandations/"
+            ]
+          },
+          {
+            "key": "underlying",
+            "weight": 5,
+            "score": 0,
+            "available": false,
+            "sources": [
+              "https://www.zonebourse.com/bourse/derives/recommandations/"
+            ]
+          },
+          {
+            "key": "timing",
+            "weight": 10,
+            "score": 0,
+            "available": false,
+            "sources": [
+              "https://www.zonebourse.com/bourse/derives/recommandations/"
+            ]
+          }
+        ]
+      }
     },
     {
       "id": "bnp-paribas-bm99v-20260624",
@@ -970,7 +2381,71 @@
       "portfolioStatus": "not_held",
       "mutationHistory": [],
       "missingOpenCycles": 0,
-      "riskLevelsCurrency": null
+      "riskLevelsCurrency": null,
+      "confidence": {
+        "kind": "data_quality",
+        "score": 20,
+        "coveragePct": 20,
+        "label": "Données insuffisantes",
+        "operationallyUsable": false,
+        "quoteAgeMinutes": null,
+        "components": [
+          {
+            "key": "recommendation",
+            "weight": 20,
+            "score": 100,
+            "available": true,
+            "sources": [
+              "https://www.zonebourse.com/bourse/derives/recommandations/"
+            ]
+          },
+          {
+            "key": "productIdentity",
+            "weight": 15,
+            "score": 0,
+            "available": false,
+            "sources": [
+              "https://www.zonebourse.com/bourse/derives/recommandations/"
+            ]
+          },
+          {
+            "key": "tradePlan",
+            "weight": 30,
+            "score": 0,
+            "available": false,
+            "sources": [
+              "https://www.zonebourse.com/bourse/derives/recommandations/"
+            ]
+          },
+          {
+            "key": "marketQuote",
+            "weight": 20,
+            "score": 0,
+            "available": false,
+            "sources": [
+              "https://www.zonebourse.com/bourse/derives/recommandations/"
+            ]
+          },
+          {
+            "key": "underlying",
+            "weight": 5,
+            "score": 0,
+            "available": false,
+            "sources": [
+              "https://www.zonebourse.com/bourse/derives/recommandations/"
+            ]
+          },
+          {
+            "key": "timing",
+            "weight": 10,
+            "score": 0,
+            "available": false,
+            "sources": [
+              "https://www.zonebourse.com/bourse/derives/recommandations/"
+            ]
+          }
+        ]
+      }
     },
     {
       "id": "danone-s4tkb-20260624",
@@ -996,7 +2471,71 @@
       "portfolioStatus": "not_held",
       "mutationHistory": [],
       "missingOpenCycles": 0,
-      "riskLevelsCurrency": null
+      "riskLevelsCurrency": null,
+      "confidence": {
+        "kind": "data_quality",
+        "score": 20,
+        "coveragePct": 20,
+        "label": "Données insuffisantes",
+        "operationallyUsable": false,
+        "quoteAgeMinutes": null,
+        "components": [
+          {
+            "key": "recommendation",
+            "weight": 20,
+            "score": 100,
+            "available": true,
+            "sources": [
+              "https://www.zonebourse.com/bourse/derives/recommandations/"
+            ]
+          },
+          {
+            "key": "productIdentity",
+            "weight": 15,
+            "score": 0,
+            "available": false,
+            "sources": [
+              "https://www.zonebourse.com/bourse/derives/recommandations/"
+            ]
+          },
+          {
+            "key": "tradePlan",
+            "weight": 30,
+            "score": 0,
+            "available": false,
+            "sources": [
+              "https://www.zonebourse.com/bourse/derives/recommandations/"
+            ]
+          },
+          {
+            "key": "marketQuote",
+            "weight": 20,
+            "score": 0,
+            "available": false,
+            "sources": [
+              "https://www.zonebourse.com/bourse/derives/recommandations/"
+            ]
+          },
+          {
+            "key": "underlying",
+            "weight": 5,
+            "score": 0,
+            "available": false,
+            "sources": [
+              "https://www.zonebourse.com/bourse/derives/recommandations/"
+            ]
+          },
+          {
+            "key": "timing",
+            "weight": 10,
+            "score": 0,
+            "available": false,
+            "sources": [
+              "https://www.zonebourse.com/bourse/derives/recommandations/"
+            ]
+          }
+        ]
+      }
     },
     {
       "id": "axa-ao22v-20260622",
@@ -1021,7 +2560,71 @@
       "portfolioStatus": "not_held",
       "mutationHistory": [],
       "missingOpenCycles": 0,
-      "riskLevelsCurrency": null
+      "riskLevelsCurrency": null,
+      "confidence": {
+        "kind": "data_quality",
+        "score": 20,
+        "coveragePct": 20,
+        "label": "Données insuffisantes",
+        "operationallyUsable": false,
+        "quoteAgeMinutes": null,
+        "components": [
+          {
+            "key": "recommendation",
+            "weight": 20,
+            "score": 100,
+            "available": true,
+            "sources": [
+              "https://www.zonebourse.com/bourse/derives/recommandations/"
+            ]
+          },
+          {
+            "key": "productIdentity",
+            "weight": 15,
+            "score": 0,
+            "available": false,
+            "sources": [
+              "https://www.zonebourse.com/bourse/derives/recommandations/"
+            ]
+          },
+          {
+            "key": "tradePlan",
+            "weight": 30,
+            "score": 0,
+            "available": false,
+            "sources": [
+              "https://www.zonebourse.com/bourse/derives/recommandations/"
+            ]
+          },
+          {
+            "key": "marketQuote",
+            "weight": 20,
+            "score": 0,
+            "available": false,
+            "sources": [
+              "https://www.zonebourse.com/bourse/derives/recommandations/"
+            ]
+          },
+          {
+            "key": "underlying",
+            "weight": 5,
+            "score": 0,
+            "available": false,
+            "sources": [
+              "https://www.zonebourse.com/bourse/derives/recommandations/"
+            ]
+          },
+          {
+            "key": "timing",
+            "weight": 10,
+            "score": 0,
+            "available": false,
+            "sources": [
+              "https://www.zonebourse.com/bourse/derives/recommandations/"
+            ]
+          }
+        ]
+      }
     },
     {
       "id": "stellantis-fg12v-20260622",
@@ -1032,7 +2635,7 @@
       "isin": "DE000VJ5FU71",
       "status": "open",
       "entryPrice": 0.67,
-      "currentPrice": null,
+      "currentPrice": 0.109,
       "exitPrice": null,
       "entryDate": "2026-06-22",
       "exitDate": null,
@@ -1048,7 +2651,82 @@
       "portfolioStatus": "not_held",
       "mutationHistory": [],
       "missingOpenCycles": 0,
-      "riskLevelsCurrency": null
+      "riskLevelsCurrency": null,
+      "quoteAt": "2026-08-26T12:14:00+00:00",
+      "bid": 0.104,
+      "ask": 0.114,
+      "timestampSource": "euronext_page",
+      "marketStatus": "open",
+      "isIndicative": false,
+      "quoteCurrency": "EUR",
+      "marketDataProvider": "euronext",
+      "marketDataSourceUrl": "https://live.euronext.com/en/product/structured-products/DE000VJ5FU71-XMLI",
+      "marketDataRetrievedAt": "2026-08-26T12:23:17+00:00",
+      "marketDataDelayMinutes": 9,
+      "confidence": {
+        "kind": "data_quality",
+        "score": 85,
+        "coveragePct": 85,
+        "label": "Données partielles",
+        "operationallyUsable": false,
+        "quoteAgeMinutes": 9.29,
+        "components": [
+          {
+            "key": "recommendation",
+            "weight": 20,
+            "score": 100,
+            "available": true,
+            "sources": [
+              "https://www.zonebourse.com/actualite-bourse/a-proximite-d-un-support-moyen-terme-important-ce7f5cd3da8bff20"
+            ]
+          },
+          {
+            "key": "productIdentity",
+            "weight": 15,
+            "score": 100,
+            "available": true,
+            "sources": [
+              "https://www.zonebourse.com/actualite-bourse/a-proximite-d-un-support-moyen-terme-important-ce7f5cd3da8bff20"
+            ]
+          },
+          {
+            "key": "tradePlan",
+            "weight": 30,
+            "score": 100,
+            "available": true,
+            "sources": [
+              "https://www.zonebourse.com/actualite-bourse/a-proximite-d-un-support-moyen-terme-important-ce7f5cd3da8bff20"
+            ]
+          },
+          {
+            "key": "marketQuote",
+            "weight": 20,
+            "score": 100,
+            "available": true,
+            "sources": [
+              "https://live.euronext.com/en/product/structured-products/DE000VJ5FU71-XMLI"
+            ]
+          },
+          {
+            "key": "underlying",
+            "weight": 5,
+            "score": 0,
+            "available": false,
+            "sources": [
+              "https://www.zonebourse.com/actualite-bourse/a-proximite-d-un-support-moyen-terme-important-ce7f5cd3da8bff20"
+            ]
+          },
+          {
+            "key": "timing",
+            "weight": 10,
+            "score": 0,
+            "available": false,
+            "sources": [
+              "https://www.zonebourse.com/actualite-bourse/a-proximite-d-un-support-moyen-terme-important-ce7f5cd3da8bff20"
+            ]
+          }
+        ]
+      }
     }
   ]
 }
