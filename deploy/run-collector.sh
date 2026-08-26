@@ -57,10 +57,13 @@ for file in positions.json updates.json article-state.json scan-log.json quote-h
     cp "$file" "$RUNTIME_DIR/$file"
   fi
 done
-python3 scripts/merge_market_config.py \
-  --baseline "$REPO_ROOT/market-data-config.json" \
-  --runtime "$RUNTIME_DIR/market-data-config.json"
-python3 scripts/migrate_schema.py --root "$RUNTIME_DIR"
+# The host is intentionally not part of the Python runtime contract (some
+# deployed Ubuntu hosts still provide Python 3.8). Run every Python step in the
+# pinned image, including migration and snapshot construction.
+SNAPSHOT_ROOT="${POLSINELLI_SNAPSHOT_ROOT:-$RUNTIME_DIR/snapshots}"
+mkdir -p "$SNAPSHOT_ROOT"
+SNAPSHOT_ID="$(date -u +%Y%m%dT%H%M%SZ)-$$"
+SNAPSHOT_DIR="$SNAPSHOT_ROOT/$SNAPSHOT_ID"
 
 timeout --signal=TERM --kill-after=30s "${COLLECTOR_TIMEOUT_SECONDS}s" \
 sudo -n docker run --rm --init --ipc=host \
@@ -74,9 +77,14 @@ sudo -n docker run --rm --init --ipc=host \
   --env EURONEXT_LOCALE=en \
   --volume "$REPO_ROOT:/app" \
   --volume "$RUNTIME_DIR:/runtime" \
+  --env SNAPSHOT_DIR="/runtime/snapshots/$SNAPSHOT_ID" \
   --workdir /app \
   "$IMAGE" \
   bash -lc '
+    python scripts/merge_market_config.py \
+      --baseline /app/market-data-config.json \
+      --runtime /runtime/market-data-config.json &&
+    python scripts/migrate_schema.py --root /runtime &&
     zone_status=0
     python scripts/sync_zonebourse_browser.py --root /runtime --max-article-fetches 12 || zone_status=$?
     if (( zone_status != 0 && zone_status != 2 )); then
@@ -88,16 +96,10 @@ sudo -n docker run --rm --init --ipc=host \
       --policy /runtime/risk-policy.json \
       --quotes /runtime/quote-history.json \
       --output /runtime/investment-view.json &&
-    python scripts/validate_data.py --root /runtime
+    python scripts/validate_data.py --root /runtime --mode structural &&
+    python scripts/build_snapshot.py --source /runtime --output "$SNAPSHOT_DIR" &&
+    python scripts/validate_data.py --root "$SNAPSHOT_DIR" --mode structural
   '
-
-# Build and validate one immutable snapshot before publishing any file.
-SNAPSHOT_ROOT="${POLSINELLI_SNAPSHOT_ROOT:-$RUNTIME_DIR/snapshots}"
-mkdir -p "$SNAPSHOT_ROOT"
-SNAPSHOT_ID="$(date -u +%Y%m%dT%H%M%SZ)-$$"
-SNAPSHOT_DIR="$SNAPSHOT_ROOT/$SNAPSHOT_ID"
-python3 scripts/build_snapshot.py --source "$RUNTIME_DIR" --output "$SNAPSHOT_DIR"
-python3 scripts/validate_data.py --root "$SNAPSHOT_DIR"
 
 # SITE_DATA_DIR is a symlink switched atomically; old snapshots enable rollback.
 PUBLIC_ROOT="$(dirname "$SITE_DATA_DIR")/.polsinelli-snapshots"
@@ -106,7 +108,7 @@ PUBLIC_SNAPSHOT="$PUBLIC_ROOT/$SNAPSHOT_ID"
 sudo -n mkdir "$PUBLIC_SNAPSHOT"
 while IFS= read -r file; do
   sudo -n install -o ubuntu -g www-data -m 0644 "$SNAPSHOT_DIR/$file" "$PUBLIC_SNAPSHOT/$file"
-done < <(python3 -c 'import json; print("\n".join(json.load(open("public-manifest.json"))["files"]))')
+done < <(sed -n 's/^[[:space:]]*"\([^"]*\.json\)"[,]*$/\1/p' public-manifest.json)
 sudo -n ln -sfn "$PUBLIC_SNAPSHOT" "$SITE_DATA_DIR.new"
 sudo -n mv -Tf "$SITE_DATA_DIR.new" "$SITE_DATA_DIR"
 

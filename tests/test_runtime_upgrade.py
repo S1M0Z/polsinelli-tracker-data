@@ -11,6 +11,13 @@ ROOT = Path(__file__).resolve().parents[1]
 
 
 class RuntimeUpgradeTests(unittest.TestCase):
+    def test_server_runner_does_not_depend_on_host_python(self):
+        runner = (ROOT / "deploy/run-collector.sh").read_text()
+        self.assertNotIn("python3 scripts/", runner)
+        self.assertNotIn("python3 -c", runner)
+        self.assertIn("python scripts/migrate_schema.py --root /runtime", runner)
+        self.assertIn("python scripts/build_snapshot.py", runner)
+
     def test_config_merge_preserves_runtime_resolution_and_applies_baseline(self):
         with tempfile.TemporaryDirectory() as directory:
             root = Path(directory)

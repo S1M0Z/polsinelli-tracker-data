@@ -53,7 +53,18 @@ Le provider essaie successivement les places configurées dans `market-data-conf
 
 ### GitHub Actions
 
-Le workflow `.github/workflows/collect-market-quotes.yml` est volontairement limité au lancement manuel pendant la validation du rendu Chromium. La collecte permanente sera installée sur le serveur, où Chromium reste présent entre les passages au lieu d'être retéléchargé par un runner GitHub éphémère.
+Le serveur reste le collecteur principal. Le workflow
+`.github/workflows/sync-tracker.yml` exécute en plus une synchronisation de
+secours toutes les quinze minutes pendant les séances européennes. Il utilise
+une origine réseau distincte, met à jour recommandations et cotations, valide
+les documents puis pousse uniquement les changements. Le workflow
+`.github/workflows/collect-market-quotes.yml` reste disponible pour un test
+manuel limité aux cotations.
+
+Toutes les opérations Python du collecteur serveur s'exécutent dans l'image
+Docker figée. La version de Python installée sur l'hôte n'entre donc pas dans le
+contrat d'exécution. L'installateur active le timer après avoir construit et
+installé l'image et les unités systemd.
 
 Les pages publiques Euronext ne constituent pas un flux garanti par contrat. Pour un service avec SLA et droits formels de redistribution, il faudra remplacer ce provider par Euronext Web Services ou un autre flux licencié. Le provider Saxo et son support OAuth restent présents comme solution facultative, mais Saxo SIM ne référençait pas les produits suivis lors des tests.
 

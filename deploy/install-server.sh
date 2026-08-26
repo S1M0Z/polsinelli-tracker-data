@@ -53,6 +53,6 @@ if [[ -d "$SITE_DATA_DIR" && ! -L "$SITE_DATA_DIR" ]]; then
   sudo ln -s "$BOOTSTRAP" "$SITE_DATA_DIR"
 fi
 
-printf '\nInstallation prepared. The timer is intentionally still disabled.\n'
+printf '\nInstallation prepared. Enabling the collector timer now.\n'
 printf 'Manual test: FORCE_RUN=1 %q/deploy/run-collector.sh\n' "$REPO_ROOT"
-printf 'Enable after the Git remote can push: sudo systemctl enable --now polsinelli-collector.timer\n'
+sudo systemctl enable --now polsinelli-collector.timer
