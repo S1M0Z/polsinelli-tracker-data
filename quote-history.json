@@ -1,7 +1,7 @@
 {
   "meta": {
     "version": 1,
-    "updatedAt": "2026-08-28T18:34:40+00:00",
+    "updatedAt": "2026-08-29T01:54:49+00:00",
     "description": "Append-only quote snapshots for open positions. Store bid, ask, price, underlyingPrice and quoteAt when available.",
     "maxQuotesPerPosition": 500,
     "schemaVersion": 2
