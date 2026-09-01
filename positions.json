@@ -8,7 +8,7 @@
     "openRecommendationCount": 25,
     "lastPublicationCheckedAt": "2026-08-10T00:00:00+02:00",
     "warning": "Les performances clôturées reprennent les prix d'entrée et de sortie publiés par Zonebourse. Elles excluent les frais, le spread et le slippage.",
-    "marketDataUpdatedAt": "2026-09-01T18:47:19+00:00",
+    "marketDataUpdatedAt": "2026-09-01T21:26:28+00:00",
     "analysts": [
       {
         "id": "laurent-polsinelli",
@@ -34,8 +34,8 @@
     "schemaVersion": 2,
     "sourceHealth": {
       "status": "source_unavailable",
-      "attemptedAt": "2026-09-01T20:47:07+02:00",
-      "consecutiveFailures": 16,
+      "attemptedAt": "2026-09-01T23:26:15+02:00",
+      "consecutiveFailures": 17,
       "errors": [
         "https://www.zonebourse.com/bourse/derives/recommandations/: aucune recommandation extraite",
         "https://ch.zonebourse.com/bourse/derives/recommandations/: aucune recommandation extraite",
@@ -46,10 +46,10 @@
       ]
     },
     "marketDataHealth": {
-      "status": "degraded",
-      "attemptedAt": "2026-09-01T18:47:19+00:00",
-      "quotesAdded": 2,
-      "positionsUpdated": 2,
+      "status": "source_unavailable",
+      "attemptedAt": "2026-09-01T21:26:28+00:00",
+      "quotesAdded": 0,
+      "positionsUpdated": 0,
       "skippedCount": 19,
       "errorCount": 6,
       "skipped": [
@@ -75,13 +75,13 @@
       ],
       "errors": [
         "Euronext product page has no usable bid/ask for DE000VY0NFK5-XMLI (product=True, labels=True)",
-        "Euronext product page has no usable bid/ask for DE000VY3GDC5-XMLI (product=True, labels=True)",
+        "Euronext product page has no usable bid/ask for DE000VY3GDC5-XMLI (product=True, labels=False)",
         "Euronext product page has no usable bid/ask for DE000VY3Z5D1-XMLI (product=True, labels=False)",
-        "nexans-325ks-20260715 underlying: Euronext returned no confirmed underlying quote for FR0000044448-XPAR",
-        "legrand-3f7tb-20260715 underlying: Euronext returned no confirmed underlying quote for FR0010307819-XPAR",
+        "Euronext product page has no usable bid/ask for DE000FE3FPS1-XMLI (product=True, labels=False)",
+        "Euronext product page has no usable bid/ask for NLBNPFR2CD04-XMLI (product=True, labels=False)",
         "Euronext product page has no usable bid/ask for DE000VJ5FU71-XMLI (product=True, labels=True)"
       ],
-      "consecutiveFailures": 0,
+      "consecutiveFailures": 1,
       "lastSuccessAt": "2026-09-01T18:47:19+00:00"
     }
   },
@@ -153,7 +153,7 @@
         "coveragePct": 86,
         "label": "Données partielles",
         "operationallyUsable": false,
-        "quoteAgeMinutes": 199.26,
+        "quoteAgeMinutes": 359.43,
         "components": [
           {
             "key": "recommendation",
@@ -421,7 +421,7 @@
         "coveragePct": 86,
         "label": "Données partielles",
         "operationallyUsable": false,
-        "quoteAgeMinutes": 209.26,
+        "quoteAgeMinutes": 369.43,
         "components": [
           {
             "key": "recommendation",
@@ -570,7 +570,7 @@
         "coveragePct": 86,
         "label": "Données partielles",
         "operationallyUsable": false,
-        "quoteAgeMinutes": 199.26,
+        "quoteAgeMinutes": 359.43,
         "components": [
           {
             "key": "recommendation",
@@ -671,7 +671,7 @@
         "coveragePct": 86,
         "label": "Données partielles",
         "operationallyUsable": false,
-        "quoteAgeMinutes": 14.26,
+        "quoteAgeMinutes": 174.43,
         "components": [
           {
             "key": "recommendation",
@@ -772,7 +772,7 @@
         "coveragePct": 86,
         "label": "Données partielles",
         "operationallyUsable": false,
-        "quoteAgeMinutes": 2.26,
+        "quoteAgeMinutes": 162.43,
         "components": [
           {
             "key": "recommendation",
@@ -2674,7 +2674,7 @@
         "coveragePct": 85,
         "label": "Données partielles",
         "operationallyUsable": false,
-        "quoteAgeMinutes": 214.26,
+        "quoteAgeMinutes": 374.43,
         "components": [
           {
             "key": "recommendation",
