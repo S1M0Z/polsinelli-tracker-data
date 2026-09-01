@@ -8,7 +8,7 @@
     "openRecommendationCount": 25,
     "lastPublicationCheckedAt": "2026-08-10T00:00:00+02:00",
     "warning": "Les performances clôturées reprennent les prix d'entrée et de sortie publiés par Zonebourse. Elles excluent les frais, le spread et le slippage.",
-    "marketDataUpdatedAt": "2026-09-01T15:32:35+00:00",
+    "marketDataUpdatedAt": "2026-09-01T18:47:19+00:00",
     "analysts": [
       {
         "id": "laurent-polsinelli",
@@ -34,8 +34,8 @@
     "schemaVersion": 2,
     "sourceHealth": {
       "status": "source_unavailable",
-      "attemptedAt": "2026-09-01T17:32:22+02:00",
-      "consecutiveFailures": 15,
+      "attemptedAt": "2026-09-01T20:47:07+02:00",
+      "consecutiveFailures": 16,
       "errors": [
         "https://www.zonebourse.com/bourse/derives/recommandations/: aucune recommandation extraite",
         "https://ch.zonebourse.com/bourse/derives/recommandations/: aucune recommandation extraite",
@@ -47,11 +47,11 @@
     },
     "marketDataHealth": {
       "status": "degraded",
-      "attemptedAt": "2026-09-01T15:32:35+00:00",
-      "quotesAdded": 6,
-      "positionsUpdated": 6,
+      "attemptedAt": "2026-09-01T18:47:19+00:00",
+      "quotesAdded": 2,
+      "positionsUpdated": 2,
       "skippedCount": 19,
-      "errorCount": 3,
+      "errorCount": 6,
       "skipped": [
         "russell-2000-mu13v-20260807: valid ISIN required for Euronext",
         "gold-vu91v-20260807: valid ISIN required for Euronext",
@@ -74,12 +74,15 @@
         "axa-ao22v-20260622: valid ISIN required for Euronext"
       ],
       "errors": [
-        "totalenergies-lt07v-20260724 underlying: Euronext returned no confirmed underlying quote for FR0000120271-XPAR",
+        "Euronext product page has no usable bid/ask for DE000VY0NFK5-XMLI (product=True, labels=True)",
+        "Euronext product page has no usable bid/ask for DE000VY3GDC5-XMLI (product=True, labels=True)",
+        "Euronext product page has no usable bid/ask for DE000VY3Z5D1-XMLI (product=True, labels=False)",
         "nexans-325ks-20260715 underlying: Euronext returned no confirmed underlying quote for FR0000044448-XPAR",
-        "legrand-3f7tb-20260715 underlying: Euronext returned no confirmed underlying quote for FR0010307819-XPAR"
+        "legrand-3f7tb-20260715 underlying: Euronext returned no confirmed underlying quote for FR0010307819-XPAR",
+        "Euronext product page has no usable bid/ask for DE000VJ5FU71-XMLI (product=True, labels=True)"
       ],
       "consecutiveFailures": 0,
-      "lastSuccessAt": "2026-09-01T15:32:35+00:00"
+      "lastSuccessAt": "2026-09-01T18:47:19+00:00"
     }
   },
   "positions": [
@@ -150,7 +153,7 @@
         "coveragePct": 86,
         "label": "Données partielles",
         "operationallyUsable": false,
-        "quoteAgeMinutes": 4.41,
+        "quoteAgeMinutes": 199.26,
         "components": [
           {
             "key": "recommendation",
@@ -418,7 +421,7 @@
         "coveragePct": 86,
         "label": "Données partielles",
         "operationallyUsable": false,
-        "quoteAgeMinutes": 14.41,
+        "quoteAgeMinutes": 209.26,
         "components": [
           {
             "key": "recommendation",
@@ -567,7 +570,7 @@
         "coveragePct": 86,
         "label": "Données partielles",
         "operationallyUsable": false,
-        "quoteAgeMinutes": 4.41,
+        "quoteAgeMinutes": 199.26,
         "components": [
           {
             "key": "recommendation",
@@ -639,7 +642,7 @@
       "exitPrice": null,
       "entryDate": "2026-07-15",
       "exitDate": null,
-      "quoteAt": "2026-09-01T15:24:00+00:00",
+      "quoteAt": "2026-09-01T18:34:00+00:00",
       "target": 150,
       "stop": 124,
       "underlyingThreshold": 135.7,
@@ -647,19 +650,19 @@
       "url": "https://www.zonebourse.com/actualite-bourse/une-opportunite-a-court-terme-ce7f5eddd181f022",
       "note": "Rebond technique anticipé depuis une zone survendue.",
       "sourceConfidence": "high",
-      "bid": 1.68,
-      "ask": 1.69,
+      "bid": 1.67,
+      "ask": 1.7,
       "marketDataProvider": "euronext",
       "marketDataSourceUrl": "https://live.euronext.com/en/product/structured-products/DE000FE3FPS1-XMLI",
-      "marketDataRetrievedAt": "2026-09-01T15:33:03+00:00",
-      "marketDataDelayMinutes": 9,
+      "marketDataRetrievedAt": "2026-09-01T18:47:53+00:00",
+      "marketDataDelayMinutes": 13,
       "recommendationStatus": "open",
       "portfolioStatus": "not_held",
       "mutationHistory": [],
       "missingOpenCycles": 0,
       "riskLevelsCurrency": "EUR",
       "timestampSource": "euronext_page",
-      "marketStatus": "open",
+      "marketStatus": "closed",
       "isIndicative": false,
       "quoteCurrency": "EUR",
       "confidence": {
@@ -668,7 +671,7 @@
         "coveragePct": 86,
         "label": "Données partielles",
         "operationallyUsable": false,
-        "quoteAgeMinutes": 9.41,
+        "quoteAgeMinutes": 14.26,
         "components": [
           {
             "key": "recommendation",
@@ -736,11 +739,11 @@
       "isin": "NLBNPFR2CD04",
       "status": "open",
       "entryPrice": 3.06,
-      "currentPrice": 1.6949999999999998,
+      "currentPrice": 1.655,
       "exitPrice": null,
       "entryDate": "2026-07-15",
       "exitDate": null,
-      "quoteAt": "2026-09-01T15:20:00+00:00",
+      "quoteAt": "2026-09-01T18:46:00+00:00",
       "target": 160.1,
       "stop": 132,
       "underlyingThreshold": 141.05,
@@ -748,19 +751,19 @@
       "url": "https://www.zonebourse.com/actualite-bourse/achat-du-warrant-call-bnp-paribas-3f7tb-ce7f5eddde81f72d",
       "note": "Relance de la dynamique haussière anticipée.",
       "sourceConfidence": "high",
-      "bid": 1.69,
-      "ask": 1.7,
+      "bid": 1.65,
+      "ask": 1.68,
       "marketDataProvider": "euronext",
       "marketDataSourceUrl": "https://live.euronext.com/en/product/structured-products/NLBNPFR2CD04-XMLI",
-      "marketDataRetrievedAt": "2026-09-01T15:33:14+00:00",
-      "marketDataDelayMinutes": 13,
+      "marketDataRetrievedAt": "2026-09-01T18:48:04+00:00",
+      "marketDataDelayMinutes": 2,
       "recommendationStatus": "open",
       "portfolioStatus": "not_held",
       "mutationHistory": [],
       "missingOpenCycles": 0,
       "riskLevelsCurrency": "EUR",
       "timestampSource": "euronext_page",
-      "marketStatus": "open",
+      "marketStatus": "closed",
       "isIndicative": false,
       "quoteCurrency": "EUR",
       "confidence": {
@@ -769,7 +772,7 @@
         "coveragePct": 86,
         "label": "Données partielles",
         "operationallyUsable": false,
-        "quoteAgeMinutes": 13.41,
+        "quoteAgeMinutes": 2.26,
         "components": [
           {
             "key": "recommendation",
@@ -2671,7 +2674,7 @@
         "coveragePct": 85,
         "label": "Données partielles",
         "operationallyUsable": false,
-        "quoteAgeMinutes": 19.41,
+        "quoteAgeMinutes": 214.26,
         "components": [
           {
             "key": "recommendation",
