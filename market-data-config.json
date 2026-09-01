@@ -1,7 +1,7 @@
 {
   "meta": {
     "version": 2,
-    "updatedAt": "2026-08-31T19:37:31+00:00",
+    "updatedAt": "2026-09-01T11:34:03+00:00",
     "description": "Market-data provider configuration. Euronext Live is active; Saxo remains available as an optional fallback."
   },
   "provider": "euronext",
