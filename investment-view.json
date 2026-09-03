@@ -1,24 +1,24 @@
 {
   "meta": {
-    "generatedAt": "2026-09-03T18:34:29.614804+00:00",
+    "generatedAt": "2026-09-03T21:18:54.243454+00:00",
     "engineVersion": "1.2.0",
     "sourceGeneratedAt": "2026-08-10T00:00:00+02:00",
     "purpose": "Conservative decision support; not an automated order system.",
     "freshness": {
       "watch": {
         "at": "2026-08-10T00:00:00+02:00",
-        "ageMinutes": 35794.49
+        "ageMinutes": 35958.9
       },
       "positions": {
         "at": "2026-08-10T00:00:00+02:00",
-        "ageMinutes": 35794.49
+        "ageMinutes": 35958.9
       },
       "quotes": {
         "at": "2026-09-03T18:02:00+00:00",
-        "ageMinutes": 32.49
+        "ageMinutes": 196.9
       },
       "calculation": {
-        "at": "2026-09-03T18:34:29.614804+00:00",
+        "at": "2026-09-03T21:18:54.243454+00:00",
         "ageMinutes": 0.0
       }
     }
@@ -84,7 +84,7 @@
         "missing_risk_levels"
       ],
       "diagnostics": {
-        "quoteAgeMinutes": 224.49,
+        "quoteAgeMinutes": 388.9,
         "spreadPct": 1.6807,
         "priceDriftPct": -31.0345,
         "detectionLatencySeconds": null,
@@ -125,7 +125,7 @@
         "missing_risk_levels"
       ],
       "diagnostics": {
-        "quoteAgeMinutes": 230.49,
+        "quoteAgeMinutes": 394.9,
         "spreadPct": 1.227,
         "priceDriftPct": -33.871,
         "detectionLatencySeconds": null,
@@ -166,7 +166,7 @@
         "missing_risk_levels"
       ],
       "diagnostics": {
-        "quoteAgeMinutes": 220.49,
+        "quoteAgeMinutes": 384.9,
         "spreadPct": 0.545,
         "priceDriftPct": -52.3316,
         "detectionLatencySeconds": null,
@@ -209,7 +209,7 @@
         "missing_risk_levels"
       ],
       "diagnostics": {
-        "quoteAgeMinutes": 64.43,
+        "quoteAgeMinutes": 228.84,
         "spreadPct": 1.6901,
         "priceDriftPct": 6.5476,
         "detectionLatencySeconds": null,
@@ -251,7 +251,7 @@
         "missing_risk_levels"
       ],
       "diagnostics": {
-        "quoteAgeMinutes": 32.49,
+        "quoteAgeMinutes": 196.9,
         "spreadPct": 1.6173,
         "priceDriftPct": -38.8889,
         "detectionLatencySeconds": null,
@@ -1187,7 +1187,7 @@
         "missing_risk_levels"
       ],
       "diagnostics": {
-        "quoteAgeMinutes": 119.49,
+        "quoteAgeMinutes": 283.9,
         "spreadPct": 33.3333,
         "priceDriftPct": -79.1045,
         "detectionLatencySeconds": null,
