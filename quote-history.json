@@ -1,7 +1,7 @@
 {
   "meta": {
     "version": 1,
-    "updatedAt": "2026-09-07T17:47:28+00:00",
+    "updatedAt": "2026-09-07T20:48:20+00:00",
     "description": "Append-only quote snapshots for open positions. Store bid, ask, price, underlyingPrice and quoteAt when available.",
     "maxQuotesPerPosition": 500,
     "schemaVersion": 2
@@ -92,27 +92,6 @@
       "instrumentSymbol": "NLBNPFR2CD04-XMLI"
     },
     {
-      "positionId": "nexans-325ks-20260715",
-      "provider": "euronext",
-      "session": "github-scheduled",
-      "price": 1.7650000000000001,
-      "bid": 1.76,
-      "ask": 1.77,
-      "quoteAt": "2026-09-07T12:19:00+00:00",
-      "retrievedAt": "2026-09-07T12:20:20+00:00",
-      "sourceUrl": "https://live.euronext.com/en/product/structured-products/DE000FE3FPS1-XMLI",
-      "sourceConfidence": "high",
-      "delayedByMinutes": 1,
-      "timestampSource": "euronext_page",
-      "marketStatus": "open",
-      "isIndicative": false,
-      "bidSize": 10.0,
-      "askSize": 10.0,
-      "quoteCurrency": "EUR",
-      "instrumentAssetType": "StructuredProduct",
-      "instrumentSymbol": "DE000FE3FPS1-XMLI"
-    },
-    {
       "positionId": "stellantis-fg12v-20260622",
       "provider": "euronext",
       "session": "github-scheduled",
@@ -132,6 +111,27 @@
       "quoteCurrency": "EUR",
       "instrumentAssetType": "StructuredProduct",
       "instrumentSymbol": "DE000VJ5FU71-XMLI"
+    },
+    {
+      "positionId": "nexans-325ks-20260715",
+      "provider": "euronext",
+      "session": "github-scheduled",
+      "price": 1.7650000000000001,
+      "bid": 1.76,
+      "ask": 1.77,
+      "quoteAt": "2026-09-07T12:19:00+00:00",
+      "retrievedAt": "2026-09-07T12:20:20+00:00",
+      "sourceUrl": "https://live.euronext.com/en/product/structured-products/DE000FE3FPS1-XMLI",
+      "sourceConfidence": "high",
+      "delayedByMinutes": 1,
+      "timestampSource": "euronext_page",
+      "marketStatus": "open",
+      "isIndicative": false,
+      "bidSize": 10.0,
+      "askSize": 10.0,
+      "quoteCurrency": "EUR",
+      "instrumentAssetType": "StructuredProduct",
+      "instrumentSymbol": "DE000FE3FPS1-XMLI"
     },
     {
       "positionId": "allianz-qa95v-20260716",
