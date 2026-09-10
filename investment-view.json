@@ -1,24 +1,24 @@
 {
   "meta": {
-    "generatedAt": "2026-09-10T18:21:24.705529+00:00",
+    "generatedAt": "2026-09-10T20:59:47.599325+00:00",
     "engineVersion": "1.2.0",
     "sourceGeneratedAt": "2026-08-10T00:00:00+02:00",
     "purpose": "Conservative decision support; not an automated order system.",
     "freshness": {
       "watch": {
         "at": "2026-08-10T00:00:00+02:00",
-        "ageMinutes": 45861.41
+        "ageMinutes": 46019.79
       },
       "positions": {
         "at": "2026-08-10T00:00:00+02:00",
-        "ageMinutes": 45861.41
+        "ageMinutes": 46019.79
       },
       "quotes": {
         "at": "2026-09-10T18:10:00+00:00",
-        "ageMinutes": 11.41
+        "ageMinutes": 169.79
       },
       "calculation": {
-        "at": "2026-09-10T18:21:24.705529+00:00",
+        "at": "2026-09-10T20:59:47.599325+00:00",
         "ageMinutes": 0.0
       }
     }
@@ -47,8 +47,7 @@
     "committedOpenCount": 0,
     "availablePositionSlots": 3,
     "decisionCounts": {
-      "STALE_QUOTE": 23,
-      "DATA_INCOMPLETE": 2
+      "STALE_QUOTE": 25
     },
     "systemVerdict": "DATA_PIPELINE_UNAVAILABLE"
   },
@@ -85,7 +84,7 @@
         "missing_risk_levels"
       ],
       "diagnostics": {
-        "quoteAgeMinutes": 212.41,
+        "quoteAgeMinutes": 370.79,
         "spreadPct": 1.6807,
         "priceDriftPct": -31.0345,
         "detectionLatencySeconds": null,
@@ -126,7 +125,7 @@
         "missing_risk_levels"
       ],
       "diagnostics": {
-        "quoteAgeMinutes": 201.41,
+        "quoteAgeMinutes": 359.79,
         "spreadPct": 1.0582,
         "priceDriftPct": -23.3871,
         "detectionLatencySeconds": null,
@@ -167,7 +166,7 @@
         "missing_risk_levels"
       ],
       "diagnostics": {
-        "quoteAgeMinutes": 207.41,
+        "quoteAgeMinutes": 365.79,
         "spreadPct": 0.4008,
         "priceDriftPct": -35.2332,
         "detectionLatencySeconds": null,
@@ -201,15 +200,16 @@
         "isIndicative": false
       },
       "markToMarketReturnPct": 5.6548,
-      "decision": "DATA_INCOMPLETE",
+      "decision": "STALE_QUOTE",
       "reasons": [
         "market_not_confirmed_open",
+        "stale_quote",
         "price_drift_too_high",
         "missing_detection_timestamps",
         "missing_risk_levels"
       ],
       "diagnostics": {
-        "quoteAgeMinutes": 12.41,
+        "quoteAgeMinutes": 170.79,
         "spreadPct": 1.6901,
         "priceDriftPct": 6.5476,
         "detectionLatencySeconds": null,
@@ -243,14 +243,15 @@
         "isIndicative": false
       },
       "markToMarketReturnPct": -30.5556,
-      "decision": "DATA_INCOMPLETE",
+      "decision": "STALE_QUOTE",
       "reasons": [
         "market_not_confirmed_open",
+        "stale_quote",
         "missing_detection_timestamps",
         "missing_risk_levels"
       ],
       "diagnostics": {
-        "quoteAgeMinutes": 11.41,
+        "quoteAgeMinutes": 169.79,
         "spreadPct": 1.4052,
         "priceDriftPct": -29.7386,
         "detectionLatencySeconds": null,
@@ -1185,7 +1186,7 @@
         "missing_risk_levels"
       ],
       "diagnostics": {
-        "quoteAgeMinutes": 202.41,
+        "quoteAgeMinutes": 360.79,
         "spreadPct": 11.236,
         "priceDriftPct": -85.9701,
         "detectionLatencySeconds": null,
