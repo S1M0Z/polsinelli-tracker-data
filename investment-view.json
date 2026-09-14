@@ -1,24 +1,24 @@
 {
   "meta": {
-    "generatedAt": "2026-09-11T21:15:19.920404+00:00",
+    "generatedAt": "2026-09-14T12:35:21.294715+00:00",
     "engineVersion": "1.2.0",
     "sourceGeneratedAt": "2026-08-10T00:00:00+02:00",
     "purpose": "Conservative decision support; not an automated order system.",
     "freshness": {
       "watch": {
         "at": "2026-08-10T00:00:00+02:00",
-        "ageMinutes": 47475.33
+        "ageMinutes": 51275.35
       },
       "positions": {
         "at": "2026-08-10T00:00:00+02:00",
-        "ageMinutes": 47475.33
+        "ageMinutes": 51275.35
       },
       "quotes": {
-        "at": "2026-09-11T18:24:00+00:00",
-        "ageMinutes": 171.33
+        "at": "2026-09-14T12:34:00+00:00",
+        "ageMinutes": 1.35
       },
       "calculation": {
-        "at": "2026-09-11T21:15:19.920404+00:00",
+        "at": "2026-09-14T12:35:21.294715+00:00",
         "ageMinutes": 0.0
       }
     }
@@ -47,7 +47,8 @@
     "committedOpenCount": 0,
     "availablePositionSlots": 3,
     "decisionCounts": {
-      "STALE_QUOTE": 25
+      "DATA_INCOMPLETE": 5,
+      "STALE_QUOTE": 20
     },
     "systemVerdict": "DATA_PIPELINE_UNAVAILABLE"
   },
@@ -60,10 +61,10 @@
       "mnemo": "LT07V",
       "entryPrice": 0.87,
       "market": {
-        "currentPrice": 0.58,
-        "quoteAt": "2026-09-11T15:01:00+00:00",
-        "bid": 0.58,
-        "ask": 0.59,
+        "currentPrice": 0.517,
+        "quoteAt": "2026-09-14T12:30:00+00:00",
+        "bid": 0.515,
+        "ask": 0.52,
         "underlyingPrice": null,
         "underlyingQuoteAt": null,
         "quoteCurrency": "EUR",
@@ -76,17 +77,16 @@
         "marketStatus": "open",
         "isIndicative": false
       },
-      "markToMarketReturnPct": -33.3333,
-      "decision": "STALE_QUOTE",
+      "markToMarketReturnPct": -40.5747,
+      "decision": "DATA_INCOMPLETE",
       "reasons": [
-        "stale_quote",
         "missing_detection_timestamps",
         "missing_risk_levels"
       ],
       "diagnostics": {
-        "quoteAgeMinutes": 374.33,
-        "spreadPct": 1.7094,
-        "priceDriftPct": -32.1839,
+        "quoteAgeMinutes": 5.35,
+        "spreadPct": 0.9662,
+        "priceDriftPct": -40.2299,
         "detectionLatencySeconds": null,
         "rewardRiskRatio": null
       },
@@ -101,10 +101,10 @@
       "mnemo": "OZ97V",
       "entryPrice": 1.24,
       "market": {
-        "currentPrice": 0.735,
-        "quoteAt": "2026-09-11T14:49:00+00:00",
-        "bid": 0.73,
-        "ask": 0.74,
+        "currentPrice": 0.755,
+        "quoteAt": "2026-09-14T12:30:00+00:00",
+        "bid": 0.75,
+        "ask": 0.76,
         "underlyingPrice": null,
         "underlyingQuoteAt": null,
         "quoteCurrency": "EUR",
@@ -117,17 +117,16 @@
         "marketStatus": "open",
         "isIndicative": false
       },
-      "markToMarketReturnPct": -40.7258,
-      "decision": "STALE_QUOTE",
+      "markToMarketReturnPct": -39.1129,
+      "decision": "DATA_INCOMPLETE",
       "reasons": [
-        "stale_quote",
         "missing_detection_timestamps",
         "missing_risk_levels"
       ],
       "diagnostics": {
-        "quoteAgeMinutes": 386.33,
-        "spreadPct": 1.3605,
-        "priceDriftPct": -40.3226,
+        "quoteAgeMinutes": 5.35,
+        "spreadPct": 1.3245,
+        "priceDriftPct": -38.7097,
         "detectionLatencySeconds": null,
         "rewardRiskRatio": null
       },
@@ -142,10 +141,10 @@
       "mnemo": "QA95V",
       "entryPrice": 3.86,
       "market": {
-        "currentPrice": 2.395,
-        "quoteAt": "2026-09-11T15:03:00+00:00",
-        "bid": 2.39,
-        "ask": 2.4,
+        "currentPrice": 2.285,
+        "quoteAt": "2026-09-14T12:24:00+00:00",
+        "bid": 2.28,
+        "ask": 2.29,
         "underlyingPrice": null,
         "underlyingQuoteAt": null,
         "quoteCurrency": "EUR",
@@ -158,17 +157,16 @@
         "marketStatus": "open",
         "isIndicative": false
       },
-      "markToMarketReturnPct": -37.9534,
-      "decision": "STALE_QUOTE",
+      "markToMarketReturnPct": -40.8031,
+      "decision": "DATA_INCOMPLETE",
       "reasons": [
-        "stale_quote",
         "missing_detection_timestamps",
         "missing_risk_levels"
       ],
       "diagnostics": {
-        "quoteAgeMinutes": 372.33,
-        "spreadPct": 0.4175,
-        "priceDriftPct": -37.8238,
+        "quoteAgeMinutes": 11.35,
+        "spreadPct": 0.4376,
+        "priceDriftPct": -40.6736,
         "detectionLatencySeconds": null,
         "rewardRiskRatio": null
       },
@@ -183,10 +181,10 @@
       "mnemo": "325KS",
       "entryPrice": 1.68,
       "market": {
-        "currentPrice": 1.94,
-        "quoteAt": "2026-09-11T18:23:00+00:00",
-        "bid": 1.93,
-        "ask": 1.97,
+        "currentPrice": 1.525,
+        "quoteAt": "2026-09-14T12:34:00+00:00",
+        "bid": 1.52,
+        "ask": 1.53,
         "underlyingPrice": null,
         "underlyingQuoteAt": null,
         "quoteCurrency": "EUR",
@@ -196,22 +194,19 @@
         "publishedAt": null,
         "publishedAtPrecision": "minute",
         "timestampSource": "euronext_page",
-        "marketStatus": "closed",
+        "marketStatus": "open",
         "isIndicative": false
       },
-      "markToMarketReturnPct": 15.4762,
-      "decision": "STALE_QUOTE",
+      "markToMarketReturnPct": -9.2262,
+      "decision": "DATA_INCOMPLETE",
       "reasons": [
-        "market_not_confirmed_open",
-        "stale_quote",
-        "price_drift_too_high",
         "missing_detection_timestamps",
         "missing_risk_levels"
       ],
       "diagnostics": {
-        "quoteAgeMinutes": 172.33,
-        "spreadPct": 2.0513,
-        "priceDriftPct": 17.2619,
+        "quoteAgeMinutes": 1.35,
+        "spreadPct": 0.6557,
+        "priceDriftPct": -8.9286,
         "detectionLatencySeconds": null,
         "rewardRiskRatio": null
       },
@@ -226,10 +221,10 @@
       "mnemo": "3F7TB",
       "entryPrice": 3.06,
       "market": {
-        "currentPrice": 2.455,
-        "quoteAt": "2026-09-11T18:24:00+00:00",
-        "bid": 2.45,
-        "ask": 2.48,
+        "currentPrice": 1.565,
+        "quoteAt": "2026-09-14T12:30:00+00:00",
+        "bid": 1.56,
+        "ask": 1.57,
         "underlyingPrice": null,
         "underlyingQuoteAt": null,
         "quoteCurrency": "EUR",
@@ -239,21 +234,19 @@
         "publishedAt": null,
         "publishedAtPrecision": "minute",
         "timestampSource": "euronext_page",
-        "marketStatus": "closed",
+        "marketStatus": "open",
         "isIndicative": false
       },
-      "markToMarketReturnPct": -19.7712,
-      "decision": "STALE_QUOTE",
+      "markToMarketReturnPct": -48.8562,
+      "decision": "DATA_INCOMPLETE",
       "reasons": [
-        "market_not_confirmed_open",
-        "stale_quote",
         "missing_detection_timestamps",
         "missing_risk_levels"
       ],
       "diagnostics": {
-        "quoteAgeMinutes": 171.33,
-        "spreadPct": 1.217,
-        "priceDriftPct": -18.9542,
+        "quoteAgeMinutes": 5.35,
+        "spreadPct": 0.639,
+        "priceDriftPct": -48.6928,
         "detectionLatencySeconds": null,
         "rewardRiskRatio": null
       },
@@ -1186,7 +1179,7 @@
         "missing_risk_levels"
       ],
       "diagnostics": {
-        "quoteAgeMinutes": 372.33,
+        "quoteAgeMinutes": 4172.35,
         "spreadPct": 7.5472,
         "priceDriftPct": -83.5821,
         "detectionLatencySeconds": null,
