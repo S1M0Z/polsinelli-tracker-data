@@ -8,7 +8,7 @@
     "openRecommendationCount": 25,
     "lastPublicationCheckedAt": "2026-08-10T00:00:00+02:00",
     "warning": "Les performances clôturées reprennent les prix d'entrée et de sortie publiés par Zonebourse. Elles excluent les frais, le spread et le slippage.",
-    "marketDataUpdatedAt": "2026-10-05T14:25:42+00:00",
+    "marketDataUpdatedAt": "2026-10-05T21:36:48+00:00",
     "analysts": [
       {
         "id": "laurent-polsinelli",
@@ -34,8 +34,8 @@
     "schemaVersion": 2,
     "sourceHealth": {
       "status": "source_unavailable",
-      "attemptedAt": "2026-10-05T16:25:30+02:00",
-      "consecutiveFailures": 94,
+      "attemptedAt": "2026-10-05T23:36:35+02:00",
+      "consecutiveFailures": 95,
       "errors": [
         "https://www.zonebourse.com/bourse/derives/recommandations/: aucune recommandation extraite",
         "https://ch.zonebourse.com/bourse/derives/recommandations/: aucune recommandation extraite",
@@ -46,12 +46,12 @@
       ]
     },
     "marketDataHealth": {
-      "status": "degraded",
-      "attemptedAt": "2026-10-05T14:25:42+00:00",
-      "quotesAdded": 6,
-      "positionsUpdated": 6,
+      "status": "source_unavailable",
+      "attemptedAt": "2026-10-05T21:36:48+00:00",
+      "quotesAdded": 0,
+      "positionsUpdated": 0,
       "skippedCount": 19,
-      "errorCount": 3,
+      "errorCount": 6,
       "skipped": [
         "russell-2000-mu13v-20260807: valid ISIN required for Euronext",
         "gold-vu91v-20260807: valid ISIN required for Euronext",
@@ -74,11 +74,14 @@
         "axa-ao22v-20260622: valid ISIN required for Euronext"
       ],
       "errors": [
-        "totalenergies-lt07v-20260724 underlying: Euronext returned no confirmed underlying quote for FR0000120271-XPAR",
-        "nexans-325ks-20260715 underlying: Euronext returned no confirmed underlying quote for FR0000044448-XPAR",
-        "legrand-3f7tb-20260715 underlying: Euronext returned no confirmed underlying quote for FR0010307819-XPAR"
+        "Euronext product page has no usable bid/ask for DE000VY0NFK5-XMLI (product=True, labels=True)",
+        "Euronext product page has no usable bid/ask for DE000VY3GDC5-XMLI (product=True, labels=True)",
+        "Euronext product page has no usable bid/ask for DE000VY3Z5D1-XMLI (product=True, labels=True)",
+        "Euronext product page has no usable bid/ask for DE000FE3FPS1-XMLI (product=True, labels=False)",
+        "Euronext product page has no usable bid/ask for NLBNPFR2CD04-XMLI (product=True, labels=False)",
+        "Euronext product page has no usable bid/ask for DE000VJ5FU71-XMLI (product=True, labels=True)"
       ],
-      "consecutiveFailures": 0,
+      "consecutiveFailures": 1,
       "lastSuccessAt": "2026-10-05T14:25:42+00:00"
     }
   },
@@ -150,7 +153,7 @@
         "coveragePct": 86,
         "label": "Données partielles",
         "operationallyUsable": false,
-        "quoteAgeMinutes": 7.62,
+        "quoteAgeMinutes": 438.81,
         "components": [
           {
             "key": "recommendation",
@@ -418,7 +421,7 @@
         "coveragePct": 86,
         "label": "Données partielles",
         "operationallyUsable": false,
-        "quoteAgeMinutes": 7.62,
+        "quoteAgeMinutes": 438.81,
         "components": [
           {
             "key": "recommendation",
@@ -567,7 +570,7 @@
         "coveragePct": 86,
         "label": "Données partielles",
         "operationallyUsable": false,
-        "quoteAgeMinutes": 2.62,
+        "quoteAgeMinutes": 433.81,
         "components": [
           {
             "key": "recommendation",
@@ -668,7 +671,7 @@
         "coveragePct": 86,
         "label": "Données partielles",
         "operationallyUsable": false,
-        "quoteAgeMinutes": 7.62,
+        "quoteAgeMinutes": 438.81,
         "components": [
           {
             "key": "recommendation",
@@ -769,7 +772,7 @@
         "coveragePct": 86,
         "label": "Données partielles",
         "operationallyUsable": false,
-        "quoteAgeMinutes": 3.62,
+        "quoteAgeMinutes": 434.81,
         "components": [
           {
             "key": "recommendation",
@@ -2671,7 +2674,7 @@
         "coveragePct": 85,
         "label": "Données partielles",
         "operationallyUsable": false,
-        "quoteAgeMinutes": 22.42,
+        "quoteAgeMinutes": 453.61,
         "components": [
           {
             "key": "recommendation",

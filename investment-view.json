@@ -1,24 +1,24 @@
 {
   "meta": {
-    "generatedAt": "2026-10-05T14:26:37.524213+00:00",
+    "generatedAt": "2026-10-05T21:37:48.647866+00:00",
     "engineVersion": "1.2.0",
     "sourceGeneratedAt": "2026-08-10T00:00:00+02:00",
     "purpose": "Conservative decision support; not an automated order system.",
     "freshness": {
       "watch": {
         "at": "2026-08-10T00:00:00+02:00",
-        "ageMinutes": 81626.63
+        "ageMinutes": 82057.81
       },
       "positions": {
         "at": "2026-08-10T00:00:00+02:00",
-        "ageMinutes": 81626.63
+        "ageMinutes": 82057.81
       },
       "quotes": {
         "at": "2026-10-05T14:24:00+00:00",
-        "ageMinutes": 2.63
+        "ageMinutes": 433.81
       },
       "calculation": {
-        "at": "2026-10-05T14:26:37.524213+00:00",
+        "at": "2026-10-05T21:37:48.647866+00:00",
         "ageMinutes": 0.0
       }
     }
@@ -47,8 +47,7 @@
     "committedOpenCount": 0,
     "availablePositionSlots": 3,
     "decisionCounts": {
-      "DATA_INCOMPLETE": 6,
-      "STALE_QUOTE": 19
+      "STALE_QUOTE": 25
     },
     "systemVerdict": "DATA_PIPELINE_UNAVAILABLE"
   },
@@ -78,13 +77,14 @@
         "isIndicative": false
       },
       "markToMarketReturnPct": -18.9655,
-      "decision": "DATA_INCOMPLETE",
+      "decision": "STALE_QUOTE",
       "reasons": [
+        "stale_quote",
         "missing_detection_timestamps",
         "missing_risk_levels"
       ],
       "diagnostics": {
-        "quoteAgeMinutes": 7.63,
+        "quoteAgeMinutes": 438.81,
         "spreadPct": 1.4184,
         "priceDriftPct": -18.3908,
         "detectionLatencySeconds": null,
@@ -118,13 +118,14 @@
         "isIndicative": false
       },
       "markToMarketReturnPct": -50.4032,
-      "decision": "DATA_INCOMPLETE",
+      "decision": "STALE_QUOTE",
       "reasons": [
+        "stale_quote",
         "missing_detection_timestamps",
         "missing_risk_levels"
       ],
       "diagnostics": {
-        "quoteAgeMinutes": 7.63,
+        "quoteAgeMinutes": 438.81,
         "spreadPct": 1.626,
         "priceDriftPct": -50.0,
         "detectionLatencySeconds": null,
@@ -158,13 +159,14 @@
         "isIndicative": false
       },
       "markToMarketReturnPct": -9.456,
-      "decision": "DATA_INCOMPLETE",
+      "decision": "STALE_QUOTE",
       "reasons": [
+        "stale_quote",
         "missing_detection_timestamps",
         "missing_risk_levels"
       ],
       "diagnostics": {
-        "quoteAgeMinutes": 2.63,
+        "quoteAgeMinutes": 433.81,
         "spreadPct": 0.2861,
         "priceDriftPct": -9.3264,
         "detectionLatencySeconds": null,
@@ -198,13 +200,14 @@
         "isIndicative": false
       },
       "markToMarketReturnPct": -11.6071,
-      "decision": "DATA_INCOMPLETE",
+      "decision": "STALE_QUOTE",
       "reasons": [
+        "stale_quote",
         "missing_detection_timestamps",
         "missing_risk_levels"
       ],
       "diagnostics": {
-        "quoteAgeMinutes": 7.63,
+        "quoteAgeMinutes": 438.81,
         "spreadPct": 0.6734,
         "priceDriftPct": -11.3095,
         "detectionLatencySeconds": null,
@@ -238,13 +241,14 @@
         "isIndicative": false
       },
       "markToMarketReturnPct": -27.2876,
-      "decision": "DATA_INCOMPLETE",
+      "decision": "STALE_QUOTE",
       "reasons": [
+        "stale_quote",
         "missing_detection_timestamps",
         "missing_risk_levels"
       ],
       "diagnostics": {
-        "quoteAgeMinutes": 3.63,
+        "quoteAgeMinutes": 434.81,
         "spreadPct": 0.4494,
         "priceDriftPct": -27.1242,
         "detectionLatencySeconds": null,
@@ -1171,14 +1175,15 @@
         "isIndicative": false
       },
       "markToMarketReturnPct": -94.7761,
-      "decision": "DATA_INCOMPLETE",
+      "decision": "STALE_QUOTE",
       "reasons": [
+        "stale_quote",
         "spread_too_wide",
         "missing_detection_timestamps",
         "missing_risk_levels"
       ],
       "diagnostics": {
-        "quoteAgeMinutes": 22.43,
+        "quoteAgeMinutes": 453.61,
         "spreadPct": 27.027,
         "priceDriftPct": -93.7313,
         "detectionLatencySeconds": null,
