@@ -1,7 +1,7 @@
 {
   "meta": {
     "version": 2,
-    "updatedAt": "2026-10-09T22:56:28+00:00",
+    "updatedAt": "2026-10-12T15:15:00+00:00",
     "description": "Market-data provider configuration. Euronext Live is active; Saxo remains available as an optional fallback."
   },
   "provider": "euronext",
@@ -87,6 +87,134 @@
         "underlyingSource": "unresolved",
         "description": "Stellantis N.V. Warrant",
         "resolvedAt": "2026-08-26T12:22:36+00:00"
+      },
+      "publicis-groupe-s-a-8tn9b-20261008": {
+        "assetType": "StructuredProduct",
+        "symbol": "FRBNPP114NX6-XMLI",
+        "mic": "XMLI",
+        "underlyingSource": "unresolved",
+        "description": "PUBLICIS GROUPE S.A. Turbo",
+        "resolvedAt": "2026-10-12T15:15:00+00:00"
+      },
+      "dassault-aviation-fi3rb-20261008": {
+        "assetType": "StructuredProduct",
+        "symbol": "FRBNPP0808F8-XMLI",
+        "mic": "XMLI",
+        "underlyingSource": "unresolved",
+        "description": "DASSAULT AVIATION Turbo",
+        "resolvedAt": "2026-10-12T15:15:00+00:00"
+      },
+      "hermes-international-dm92v-20261008": {
+        "assetType": "StructuredProduct",
+        "symbol": "DE000BD7H8B3-XMLI",
+        "mic": "XMLI",
+        "underlyingSource": "unresolved",
+        "description": "HERMÈS INTERNATIONAL Warrant",
+        "resolvedAt": "2026-10-12T15:15:00+00:00"
+      },
+      "siemens-energy-ag-tv34v-20261006": {
+        "assetType": "StructuredProduct",
+        "symbol": "DE000VY7GEB6-XMLI",
+        "mic": "XMLI",
+        "underlyingSource": "unresolved",
+        "description": "SIEMENS ENERGY AG Turbo",
+        "resolvedAt": "2026-10-12T15:15:00+00:00"
+      },
+      "arcelormittal-qh67v-20261005": {
+        "assetType": "StructuredProduct",
+        "symbol": "DE000VY34X99-XMLI",
+        "mic": "XMLI",
+        "underlyingSource": "unresolved",
+        "description": "ARCELORMITTAL Turbo",
+        "resolvedAt": "2026-10-12T15:15:00+00:00"
+      },
+      "enel-s-p-a-l6web-20261005": {
+        "assetType": "StructuredProduct",
+        "symbol": "FRBNPP091RP3-XMLI",
+        "mic": "XMLI",
+        "underlyingSource": "unresolved",
+        "description": "ENEL S.P.A. Turbo",
+        "resolvedAt": "2026-10-12T15:15:00+00:00"
+      },
+      "bmw-ag-dx29v-20261002": {
+        "assetType": "StructuredProduct",
+        "symbol": "DE000BD7Z734-XMLI",
+        "mic": "XMLI",
+        "underlyingSource": "unresolved",
+        "description": "BMW AG Turbo",
+        "resolvedAt": "2026-10-12T15:15:00+00:00"
+      },
+      "airbus-se-lz77v-20261001": {
+        "assetType": "StructuredProduct",
+        "symbol": "DE000VY0NXS1-XMLI",
+        "mic": "XMLI",
+        "underlyingSource": "unresolved",
+        "description": "AIRBUS SE Warrant",
+        "resolvedAt": "2026-10-12T15:15:00+00:00"
+      },
+      "renault-wb89v-20260929": {
+        "assetType": "StructuredProduct",
+        "symbol": "DE000VY88SJ9-XMLI",
+        "mic": "XMLI",
+        "underlyingSource": "unresolved",
+        "description": "RENAULT Warrant",
+        "resolvedAt": "2026-10-12T15:15:00+00:00"
+      },
+      "safran-ge85v-20260929": {
+        "assetType": "StructuredProduct",
+        "symbol": "DE000VK7EXZ6-XMLI",
+        "mic": "XMLI",
+        "underlyingSource": "unresolved",
+        "description": "SAFRAN Turbo",
+        "resolvedAt": "2026-10-12T15:15:00+00:00"
+      },
+      "eur-usd-vv35v-20260925": {
+        "assetType": "StructuredProduct",
+        "symbol": "DE000VY879P1-XMLI",
+        "mic": "XMLI",
+        "underlyingSource": "unresolved",
+        "description": "EUR / USD Warrant",
+        "resolvedAt": "2026-10-12T15:15:00+00:00"
+      },
+      "micron-technology-inc-cjc0b-20260922": {
+        "assetType": "StructuredProduct",
+        "symbol": "FRBNPP11XF39-XMLI",
+        "mic": "XMLI",
+        "underlyingSource": "unresolved",
+        "description": "MICRON TECHNOLOGY, INC. Turbo",
+        "resolvedAt": "2026-10-12T15:15:00+00:00"
+      },
+      "leonardo-s-p-a-ac28v-20260922": {
+        "assetType": "StructuredProduct",
+        "symbol": "DE000VJ1XC91-XMLI",
+        "mic": "XMLI",
+        "underlyingSource": "unresolved",
+        "description": "LEONARDO S.P.A. Turbo",
+        "resolvedAt": "2026-10-12T15:15:00+00:00"
+      },
+      "unibail-rodamco-westfield-se-0ekyb-20260921": {
+        "assetType": "StructuredProduct",
+        "symbol": "FRBNPP097G91-XMLI",
+        "mic": "XMLI",
+        "underlyingSource": "unresolved",
+        "description": "UNIBAIL-RODAMCO-WESTFIELD SE Turbo",
+        "resolvedAt": "2026-10-12T15:15:00+00:00"
+      },
+      "yara-international-asa-sp3ls-20260917": {
+        "assetType": "StructuredProduct",
+        "symbol": "DE000FE01AG1-XMLI",
+        "mic": "XMLI",
+        "underlyingSource": "unresolved",
+        "description": "YARA INTERNATIONAL ASA Turbo",
+        "resolvedAt": "2026-10-12T15:15:00+00:00"
+      },
+      "eiffage-s-a-6iwsb-20260917": {
+        "assetType": "StructuredProduct",
+        "symbol": "FRBNPP08EU04-XMLI",
+        "mic": "XMLI",
+        "underlyingSource": "unresolved",
+        "description": "EIFFAGE S.A. Turbo",
+        "resolvedAt": "2026-10-12T15:15:00+00:00"
       }
     }
   },

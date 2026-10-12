@@ -1,14 +1,14 @@
 {
   "meta": {
-    "generatedAt": "2026-08-10T00:00:00+02:00",
+    "generatedAt": "2026-10-12T17:12:22+02:00",
     "source": "Zonebourse / recommandations produits dérivés",
     "coverageStart": "2026-03-17",
     "mode": "scanned",
     "automaticSync": true,
     "openRecommendationCount": 25,
-    "lastPublicationCheckedAt": "2026-08-10T00:00:00+02:00",
+    "lastPublicationCheckedAt": "2026-10-12T17:12:22+02:00",
     "warning": "Les performances clôturées reprennent les prix d'entrée et de sortie publiés par Zonebourse. Elles excluent les frais, le spread et le slippage.",
-    "marketDataUpdatedAt": "2026-10-09T22:56:28+00:00",
+    "marketDataUpdatedAt": "2026-10-12T15:15:00+00:00",
     "analysts": [
       {
         "id": "laurent-polsinelli",
@@ -33,25 +33,23 @@
     },
     "schemaVersion": 2,
     "sourceHealth": {
-      "status": "source_unavailable",
-      "attemptedAt": "2026-10-10T00:56:16+02:00",
-      "consecutiveFailures": 103,
+      "status": "degraded",
+      "attemptedAt": "2026-10-12T17:12:22+02:00",
+      "lastSuccessAt": "2026-10-12T17:12:22+02:00",
+      "consecutiveFailures": 0,
       "errors": [
         "https://www.zonebourse.com/bourse/derives/recommandations/: aucune recommandation extraite",
         "https://ch.zonebourse.com/bourse/derives/recommandations/: aucune recommandation extraite",
-        "https://www.zonebourse.com/bourse/derives/recommandations/historique/: aucune recommandation extraite",
-        "https://r.jina.ai/http://www.zonebourse.com/bourse/derives/recommandations/: HTTPError: HTTP Error 403: Forbidden",
-        "https://www.zonebourse.com/bourse/derives/: aucune recommandation extraite",
-        "https://ch.zonebourse.com/bourse/derives/: aucune recommandation extraite"
+        "https://www.zonebourse.com/bourse/derives/recommandations/historique/: aucune recommandation extraite"
       ]
     },
     "marketDataHealth": {
-      "status": "source_unavailable",
-      "attemptedAt": "2026-10-09T22:56:28+00:00",
-      "quotesAdded": 0,
-      "positionsUpdated": 0,
-      "skippedCount": 19,
-      "errorCount": 6,
+      "status": "degraded",
+      "attemptedAt": "2026-10-12T15:15:00+00:00",
+      "quotesAdded": 6,
+      "positionsUpdated": 6,
+      "skippedCount": 28,
+      "errorCount": 19,
       "skipped": [
         "russell-2000-mu13v-20260807: valid ISIN required for Euronext",
         "gold-vu91v-20260807: valid ISIN required for Euronext",
@@ -71,19 +69,49 @@
         "airbus-4yf6b-20260626: valid ISIN required for Euronext",
         "bnp-paribas-bm99v-20260624: valid ISIN required for Euronext",
         "danone-s4tkb-20260624: valid ISIN required for Euronext",
-        "axa-ao22v-20260622: valid ISIN required for Euronext"
+        "axa-ao22v-20260622: valid ISIN required for Euronext",
+        "axa-8k2wb-20260917: valid ISIN required for Euronext",
+        "aeroports-de-paris-4ti4b-20260916: valid ISIN required for Euronext",
+        "philips-nv-y11tb-20260916: valid ISIN required for Euronext",
+        "veolia-environnement-3pkjb-20260911: valid ISIN required for Euronext",
+        "pernod-ricard-4ym3b-20260909: valid ISIN required for Euronext",
+        "nexans-00q7b-20260908: valid ISIN required for Euronext"
       ],
       "errors": [
-        "Euronext product page has no usable bid/ask for DE000VY0NFK5-XMLI (product=True, labels=True)",
-        "Euronext product page has no usable bid/ask for DE000VY3GDC5-XMLI (product=True, labels=True)",
-        "Euronext product page has no usable bid/ask for DE000VY3Z5D1-XMLI (product=True, labels=True)",
-        "Euronext product page has no usable bid/ask for DE000FE3FPS1-XMLI (product=True, labels=False)",
-        "Euronext product page has no usable bid/ask for NLBNPFR2CD04-XMLI (product=True, labels=False)",
-        "Euronext product page has no usable bid/ask for DE000VJ5FU71-XMLI (product=True, labels=True)"
+        "totalenergies-lt07v-20260724 underlying: Euronext returned no confirmed underlying quote for FR0000120271-XPAR",
+        "nexans-325ks-20260715 underlying: Euronext returned no confirmed underlying quote for FR0000044448-XPAR",
+        "legrand-3f7tb-20260715 underlying: Euronext returned no confirmed underlying quote for FR0010307819-XPAR",
+        "Browser HTTP 403 for https://live.euronext.com/en/product/structured-products/FRBNPP114NX6-XMLI",
+        "Browser HTTP 403 for https://live.euronext.com/en/product/structured-products/FRBNPP0808F8-XMLI",
+        "Browser HTTP 403 for https://live.euronext.com/en/product/structured-products/DE000BD7H8B3-XMLI",
+        "Browser HTTP 403 for https://live.euronext.com/en/product/structured-products/DE000VY7GEB6-XMLI",
+        "Browser HTTP 403 for https://live.euronext.com/en/product/structured-products/DE000VY34X99-XMLI",
+        "Browser HTTP 403 for https://live.euronext.com/en/product/structured-products/FRBNPP091RP3-XMLI",
+        "Browser HTTP 403 for https://live.euronext.com/en/product/structured-products/DE000BD7Z734-XMLI",
+        "Browser HTTP 403 for https://live.euronext.com/en/product/structured-products/DE000VY0NXS1-XMLI",
+        "Browser HTTP 403 for https://live.euronext.com/en/product/structured-products/DE000VY88SJ9-XMLI",
+        "Browser HTTP 403 for https://live.euronext.com/en/product/structured-products/DE000VK7EXZ6-XMLI",
+        "Browser HTTP 403 for https://live.euronext.com/en/product/structured-products/DE000VY879P1-XMLI",
+        "Browser HTTP 403 for https://live.euronext.com/en/product/structured-products/FRBNPP11XF39-XMLI",
+        "Browser HTTP 403 for https://live.euronext.com/en/product/structured-products/DE000VJ1XC91-XMLI",
+        "Browser HTTP 403 for https://live.euronext.com/en/product/structured-products/FRBNPP097G91-XMLI",
+        "Browser HTTP 403 for https://live.euronext.com/en/product/structured-products/DE000FE01AG1-XMLI",
+        "Browser HTTP 403 for https://live.euronext.com/en/product/structured-products/FRBNPP08EU04-XMLI"
       ],
-      "consecutiveFailures": 1,
-      "lastSuccessAt": "2026-10-09T18:47:14+00:00"
-    }
+      "consecutiveFailures": 0,
+      "lastSuccessAt": "2026-10-12T15:15:00+00:00"
+    },
+    "articleEnrichmentQueue": [
+      "https://www.zonebourse.com/actualite-bourse/une-zone-support-en-renfort-ce785bd3db8df525",
+      "https://www.zonebourse.com/actualite-bourse/achat-du-turbo-put-bnp-paribas-4ti4b-ce785bd2df8efe20",
+      "https://www.zonebourse.com/actualite-bourse/une-zone-support-en-renfort-ce785bd2db80f321",
+      "https://www.zonebourse.com/actualite-bourse/des-niveaux-de-prix-interessants-ce785bdfdb8ef423",
+      "https://www.zonebourse.com/actualite-bourse/un-niveau-d-achat-ce785bd9dd80f625",
+      "https://www.zonebourse.com/actualite-bourse/de-retour-sur-le-support-ce785bd8da89f626",
+      "https://www.zonebourse.com/actualite-bourse/achat-du-turbo-call-societe-generale-c22as-ce785bd8db81f327",
+      "https://www.zonebourse.com/actualite-bourse/un-support-moyen-terme-a-exploiter-ce785bdadf8ef12d",
+      "https://www.zonebourse.com/actualite-bourse/les-cours-devraient-se-reprendre-ce785bdadf8cf124"
+    ]
   },
   "positions": [
     {
@@ -120,11 +148,11 @@
       "isin": "DE000VY0NFK5",
       "status": "open",
       "entryPrice": 0.87,
-      "currentPrice": 0.535,
+      "currentPrice": 0.485,
       "exitPrice": null,
       "entryDate": "2026-07-24",
       "exitDate": null,
-      "quoteAt": "2026-10-09T12:54:00+00:00",
+      "quoteAt": "2026-10-12T15:00:00+00:00",
       "target": 70,
       "stop": 79.2,
       "underlyingThreshold": 75.94,
@@ -132,16 +160,22 @@
       "url": "https://www.zonebourse.com/actualite-bourse/correction-technique-en-vue-ce7f51dfda8df125",
       "note": "Correction technique anticipée vers 70 € après approche de la résistance à 77,60 €.",
       "sourceConfidence": "high",
-      "bid": 0.53,
-      "ask": 0.54,
+      "bid": 0.48,
+      "ask": 0.49,
       "marketDataProvider": "euronext",
       "marketDataSourceUrl": "https://live.euronext.com/en/product/structured-products/DE000VY0NFK5-XMLI",
-      "marketDataRetrievedAt": "2026-10-09T13:06:56+00:00",
-      "marketDataDelayMinutes": 12,
-      "recommendationStatus": "open",
+      "marketDataRetrievedAt": "2026-10-12T15:15:06+00:00",
+      "marketDataDelayMinutes": 15,
+      "recommendationStatus": "PENDING_RECONCILIATION",
       "portfolioStatus": "not_held",
-      "mutationHistory": [],
-      "missingOpenCycles": 0,
+      "mutationHistory": [
+        {
+          "changedAt": "2026-10-12T17:12:22+02:00",
+          "eventType": "missing_from_open_listing",
+          "missingOpenCycles": 1
+        }
+      ],
+      "missingOpenCycles": 1,
       "riskLevelsCurrency": "EUR",
       "timestampSource": "euronext_page",
       "marketStatus": "open",
@@ -153,7 +187,7 @@
         "coveragePct": 86,
         "label": "Données partielles",
         "operationallyUsable": false,
-        "quoteAgeMinutes": 603.48,
+        "quoteAgeMinutes": 15.88,
         "components": [
           {
             "key": "recommendation",
@@ -388,11 +422,11 @@
       "isin": "DE000VY3GDC5",
       "status": "open",
       "entryPrice": 1.24,
-      "currentPrice": 0.635,
+      "currentPrice": 0.485,
       "exitPrice": null,
       "entryDate": "2026-07-21",
       "exitDate": null,
-      "quoteAt": "2026-10-09T13:04:00+00:00",
+      "quoteAt": "2026-10-12T15:03:00+00:00",
       "target": 290,
       "stop": 342,
       "underlyingThreshold": 326.59,
@@ -400,16 +434,22 @@
       "url": "https://www.zonebourse.com/actualite-bourse/besoin-de-souffler-ce7f51d8d88eff21",
       "note": "Scénario de correction après zone de surachat.",
       "sourceConfidence": "high",
-      "bid": 0.63,
-      "ask": 0.64,
+      "bid": 0.48,
+      "ask": 0.49,
       "marketDataProvider": "euronext",
       "marketDataSourceUrl": "https://live.euronext.com/en/product/structured-products/DE000VY3GDC5-XMLI",
-      "marketDataRetrievedAt": "2026-10-09T13:07:08+00:00",
-      "marketDataDelayMinutes": 3,
-      "recommendationStatus": "open",
+      "marketDataRetrievedAt": "2026-10-12T15:15:17+00:00",
+      "marketDataDelayMinutes": 12,
+      "recommendationStatus": "PENDING_RECONCILIATION",
       "portfolioStatus": "not_held",
-      "mutationHistory": [],
-      "missingOpenCycles": 0,
+      "mutationHistory": [
+        {
+          "changedAt": "2026-10-12T17:12:22+02:00",
+          "eventType": "missing_from_open_listing",
+          "missingOpenCycles": 1
+        }
+      ],
+      "missingOpenCycles": 1,
       "riskLevelsCurrency": "USD",
       "timestampSource": "euronext_page",
       "marketStatus": "open",
@@ -421,7 +461,7 @@
         "coveragePct": 86,
         "label": "Données partielles",
         "operationallyUsable": false,
-        "quoteAgeMinutes": 593.48,
+        "quoteAgeMinutes": 12.88,
         "components": [
           {
             "key": "recommendation",
@@ -537,11 +577,11 @@
       "isin": "DE000VY3Z5D1",
       "status": "open",
       "entryPrice": 3.86,
-      "currentPrice": 3.475,
+      "currentPrice": 3.435,
       "exitPrice": null,
       "entryDate": "2026-07-16",
       "exitDate": null,
-      "quoteAt": "2026-10-09T12:59:00+00:00",
+      "quoteAt": "2026-10-12T15:13:00+00:00",
       "target": 395,
       "stop": 430,
       "underlyingThreshold": 416.4,
@@ -549,16 +589,22 @@
       "url": "https://www.zonebourse.com/actualite-bourse/une-correction-technique-en-formation-ce7f5ed2de8ef427",
       "note": "Scénario baissier. L'intitulé et le scénario classent le produit en PUT malgré une incohérence de sens dans la fiche statique Zonebourse.",
       "sourceConfidence": "high",
-      "bid": 3.47,
-      "ask": 3.48,
+      "bid": 3.43,
+      "ask": 3.44,
       "marketDataProvider": "euronext",
       "marketDataSourceUrl": "https://live.euronext.com/en/product/structured-products/DE000VY3Z5D1-XMLI",
-      "marketDataRetrievedAt": "2026-10-09T13:07:13+00:00",
-      "marketDataDelayMinutes": 8,
-      "recommendationStatus": "open",
+      "marketDataRetrievedAt": "2026-10-12T15:15:22+00:00",
+      "marketDataDelayMinutes": 2,
+      "recommendationStatus": "PENDING_RECONCILIATION",
       "portfolioStatus": "not_held",
-      "mutationHistory": [],
-      "missingOpenCycles": 0,
+      "mutationHistory": [
+        {
+          "changedAt": "2026-10-12T17:12:22+02:00",
+          "eventType": "missing_from_open_listing",
+          "missingOpenCycles": 1
+        }
+      ],
+      "missingOpenCycles": 1,
       "riskLevelsCurrency": "EUR",
       "timestampSource": "euronext_page",
       "marketStatus": "open",
@@ -570,7 +616,7 @@
         "coveragePct": 86,
         "label": "Données partielles",
         "operationallyUsable": false,
-        "quoteAgeMinutes": 598.48,
+        "quoteAgeMinutes": 2.88,
         "components": [
           {
             "key": "recommendation",
@@ -638,11 +684,11 @@
       "isin": "DE000FE3FPS1",
       "status": "open",
       "entryPrice": 1.68,
-      "currentPrice": 1.265,
+      "currentPrice": 1.3849999999999998,
       "exitPrice": null,
       "entryDate": "2026-07-15",
       "exitDate": null,
-      "quoteAt": "2026-10-09T18:35:00+00:00",
+      "quoteAt": "2026-10-12T15:13:00+00:00",
       "target": 150,
       "stop": 124,
       "underlyingThreshold": 135.7,
@@ -650,19 +696,25 @@
       "url": "https://www.zonebourse.com/actualite-bourse/une-opportunite-a-court-terme-ce7f5eddd181f022",
       "note": "Rebond technique anticipé depuis une zone survendue.",
       "sourceConfidence": "high",
-      "bid": 1.25,
-      "ask": 1.3,
+      "bid": 1.38,
+      "ask": 1.39,
       "marketDataProvider": "euronext",
       "marketDataSourceUrl": "https://live.euronext.com/en/product/structured-products/DE000FE3FPS1-XMLI",
-      "marketDataRetrievedAt": "2026-10-09T18:47:51+00:00",
-      "marketDataDelayMinutes": 12,
-      "recommendationStatus": "open",
+      "marketDataRetrievedAt": "2026-10-12T15:15:27+00:00",
+      "marketDataDelayMinutes": 2,
+      "recommendationStatus": "PENDING_RECONCILIATION",
       "portfolioStatus": "not_held",
-      "mutationHistory": [],
-      "missingOpenCycles": 0,
+      "mutationHistory": [
+        {
+          "changedAt": "2026-10-12T17:12:22+02:00",
+          "eventType": "missing_from_open_listing",
+          "missingOpenCycles": 1
+        }
+      ],
+      "missingOpenCycles": 1,
       "riskLevelsCurrency": "EUR",
       "timestampSource": "euronext_page",
-      "marketStatus": "closed",
+      "marketStatus": "open",
       "isIndicative": false,
       "quoteCurrency": "EUR",
       "confidence": {
@@ -671,7 +723,7 @@
         "coveragePct": 86,
         "label": "Données partielles",
         "operationallyUsable": false,
-        "quoteAgeMinutes": 262.48,
+        "quoteAgeMinutes": 2.88,
         "components": [
           {
             "key": "recommendation",
@@ -739,11 +791,11 @@
       "isin": "NLBNPFR2CD04",
       "status": "open",
       "entryPrice": 3.06,
-      "currentPrice": 1.725,
+      "currentPrice": 1.7349999999999999,
       "exitPrice": null,
       "entryDate": "2026-07-15",
       "exitDate": null,
-      "quoteAt": "2026-10-09T18:29:41+00:00",
+      "quoteAt": "2026-10-12T15:12:00+00:00",
       "target": 160.1,
       "stop": 132,
       "underlyingThreshold": 141.05,
@@ -751,19 +803,25 @@
       "url": "https://www.zonebourse.com/actualite-bourse/achat-du-warrant-call-bnp-paribas-3f7tb-ce7f5eddde81f72d",
       "note": "Relance de la dynamique haussière anticipée.",
       "sourceConfidence": "high",
-      "bid": 1.72,
-      "ask": 1.75,
+      "bid": 1.73,
+      "ask": 1.74,
       "marketDataProvider": "euronext",
       "marketDataSourceUrl": "https://live.euronext.com/en/product/structured-products/NLBNPFR2CD04-XMLI",
-      "marketDataRetrievedAt": "2026-10-09T18:48:03+00:00",
-      "marketDataDelayMinutes": 18,
-      "recommendationStatus": "open",
+      "marketDataRetrievedAt": "2026-10-12T15:15:39+00:00",
+      "marketDataDelayMinutes": 3,
+      "recommendationStatus": "PENDING_RECONCILIATION",
       "portfolioStatus": "not_held",
-      "mutationHistory": [],
-      "missingOpenCycles": 0,
+      "mutationHistory": [
+        {
+          "changedAt": "2026-10-12T17:12:22+02:00",
+          "eventType": "missing_from_open_listing",
+          "missingOpenCycles": 1
+        }
+      ],
+      "missingOpenCycles": 1,
       "riskLevelsCurrency": "EUR",
       "timestampSource": "euronext_page",
-      "marketStatus": "closed",
+      "marketStatus": "open",
       "isIndicative": false,
       "quoteCurrency": "EUR",
       "confidence": {
@@ -772,7 +830,7 @@
         "coveragePct": 86,
         "label": "Données partielles",
         "operationallyUsable": false,
-        "quoteAgeMinutes": 267.79,
+        "quoteAgeMinutes": 3.88,
         "components": [
           {
             "key": "recommendation",
@@ -947,10 +1005,16 @@
       "url": "https://www.zonebourse.com/actualite-bourse/achat-du-turbo-call-vontobel-mu13v-ce7f50d2dd80f02d",
       "note": "Recommandation globale Zonebourse détectée ; prix d'entrée et ISIN à confirmer depuis la fiche article.",
       "sourceConfidence": "medium",
-      "recommendationStatus": "open",
+      "recommendationStatus": "PENDING_RECONCILIATION",
       "portfolioStatus": "not_held",
-      "mutationHistory": [],
-      "missingOpenCycles": 0,
+      "mutationHistory": [
+        {
+          "changedAt": "2026-10-12T17:12:22+02:00",
+          "eventType": "missing_from_open_listing",
+          "missingOpenCycles": 1
+        }
+      ],
+      "missingOpenCycles": 1,
       "riskLevelsCurrency": null,
       "confidence": {
         "kind": "data_quality",
@@ -1036,10 +1100,16 @@
       "url": "https://www.zonebourse.com/actualite-bourse/nouveau-potentiel-au-dessus-de-la-resistance-ce7f50d2dd81f426",
       "note": "Recommandation globale Zonebourse détectée ; prix d'entrée et ISIN à confirmer depuis la fiche article.",
       "sourceConfidence": "medium",
-      "recommendationStatus": "open",
+      "recommendationStatus": "PENDING_RECONCILIATION",
       "portfolioStatus": "not_held",
-      "mutationHistory": [],
-      "missingOpenCycles": 0,
+      "mutationHistory": [
+        {
+          "changedAt": "2026-10-12T17:12:22+02:00",
+          "eventType": "missing_from_open_listing",
+          "missingOpenCycles": 1
+        }
+      ],
+      "missingOpenCycles": 1,
       "riskLevelsCurrency": null,
       "confidence": {
         "kind": "data_quality",
@@ -1125,10 +1195,16 @@
       "url": "https://www.zonebourse.com/actualite-bourse/toujours-du-potentiel-ce7f50d2dd8ff12d",
       "note": "Recommandation globale Zonebourse détectée ; prix d'entrée et ISIN à confirmer depuis la fiche article.",
       "sourceConfidence": "medium",
-      "recommendationStatus": "open",
+      "recommendationStatus": "PENDING_RECONCILIATION",
       "portfolioStatus": "not_held",
-      "mutationHistory": [],
-      "missingOpenCycles": 0,
+      "mutationHistory": [
+        {
+          "changedAt": "2026-10-12T17:12:22+02:00",
+          "eventType": "missing_from_open_listing",
+          "missingOpenCycles": 1
+        }
+      ],
+      "missingOpenCycles": 1,
       "riskLevelsCurrency": null,
       "confidence": {
         "kind": "data_quality",
@@ -1214,10 +1290,16 @@
       "url": "https://www.zonebourse.com/bourse/derives/recommandations/",
       "note": "Une zone support en renfort. Prix d'entrée et ISIN à confirmer.",
       "sourceConfidence": "medium",
-      "recommendationStatus": "open",
+      "recommendationStatus": "PENDING_RECONCILIATION",
       "portfolioStatus": "not_held",
-      "mutationHistory": [],
-      "missingOpenCycles": 0,
+      "mutationHistory": [
+        {
+          "changedAt": "2026-10-12T17:12:22+02:00",
+          "eventType": "missing_from_open_listing",
+          "missingOpenCycles": 1
+        }
+      ],
+      "missingOpenCycles": 1,
       "riskLevelsCurrency": null,
       "confidence": {
         "kind": "data_quality",
@@ -1304,10 +1386,16 @@
       "url": "https://www.zonebourse.com/bourse/derives/recommandations/",
       "note": "Achat du turbo CALL BNP Paribas 8ROZB. Prix d'entrée et ISIN à confirmer.",
       "sourceConfidence": "medium",
-      "recommendationStatus": "open",
+      "recommendationStatus": "PENDING_RECONCILIATION",
       "portfolioStatus": "not_held",
-      "mutationHistory": [],
-      "missingOpenCycles": 0,
+      "mutationHistory": [
+        {
+          "changedAt": "2026-10-12T17:12:22+02:00",
+          "eventType": "missing_from_open_listing",
+          "missingOpenCycles": 1
+        }
+      ],
+      "missingOpenCycles": 1,
       "riskLevelsCurrency": null,
       "confidence": {
         "kind": "data_quality",
@@ -1394,10 +1482,16 @@
       "url": "https://www.zonebourse.com/bourse/derives/recommandations/",
       "note": "Achat du turbo CALL Vontobel MR20V. Prix d'entrée et ISIN à confirmer.",
       "sourceConfidence": "medium",
-      "recommendationStatus": "open",
+      "recommendationStatus": "PENDING_RECONCILIATION",
       "portfolioStatus": "not_held",
-      "mutationHistory": [],
-      "missingOpenCycles": 0,
+      "mutationHistory": [
+        {
+          "changedAt": "2026-10-12T17:12:22+02:00",
+          "eventType": "missing_from_open_listing",
+          "missingOpenCycles": 1
+        }
+      ],
+      "missingOpenCycles": 1,
       "riskLevelsCurrency": null,
       "confidence": {
         "kind": "data_quality",
@@ -1484,10 +1578,16 @@
       "url": "https://www.zonebourse.com/bourse/derives/recommandations/",
       "note": "Achat du turbo CALL Vontobel ML19V. Prix d'entrée et ISIN à confirmer.",
       "sourceConfidence": "medium",
-      "recommendationStatus": "open",
+      "recommendationStatus": "PENDING_RECONCILIATION",
       "portfolioStatus": "not_held",
-      "mutationHistory": [],
-      "missingOpenCycles": 0,
+      "mutationHistory": [
+        {
+          "changedAt": "2026-10-12T17:12:22+02:00",
+          "eventType": "missing_from_open_listing",
+          "missingOpenCycles": 1
+        }
+      ],
+      "missingOpenCycles": 1,
       "riskLevelsCurrency": null,
       "confidence": {
         "kind": "data_quality",
@@ -1574,10 +1674,16 @@
       "url": "https://www.zonebourse.com/bourse/derives/recommandations/",
       "note": "Achat du turbo CALL BNP Paribas 788XB. Prix d'entrée et ISIN à confirmer.",
       "sourceConfidence": "medium",
-      "recommendationStatus": "open",
+      "recommendationStatus": "PENDING_RECONCILIATION",
       "portfolioStatus": "not_held",
-      "mutationHistory": [],
-      "missingOpenCycles": 0,
+      "mutationHistory": [
+        {
+          "changedAt": "2026-10-12T17:12:22+02:00",
+          "eventType": "missing_from_open_listing",
+          "missingOpenCycles": 1
+        }
+      ],
+      "missingOpenCycles": 1,
       "riskLevelsCurrency": null,
       "confidence": {
         "kind": "data_quality",
@@ -1664,10 +1770,16 @@
       "url": "https://www.zonebourse.com/bourse/derives/recommandations/",
       "note": "Achat du turbo CALL Vontobel NU70V. Prix d'entrée et ISIN à confirmer.",
       "sourceConfidence": "medium",
-      "recommendationStatus": "open",
+      "recommendationStatus": "PENDING_RECONCILIATION",
       "portfolioStatus": "not_held",
-      "mutationHistory": [],
-      "missingOpenCycles": 0,
+      "mutationHistory": [
+        {
+          "changedAt": "2026-10-12T17:12:22+02:00",
+          "eventType": "missing_from_open_listing",
+          "missingOpenCycles": 1
+        }
+      ],
+      "missingOpenCycles": 1,
       "riskLevelsCurrency": null,
       "confidence": {
         "kind": "data_quality",
@@ -1754,10 +1866,16 @@
       "url": "https://www.zonebourse.com/bourse/derives/recommandations/",
       "note": "Achat du turbo CALL Vontobel TU50V. Prix d'entrée et ISIN à confirmer.",
       "sourceConfidence": "medium",
-      "recommendationStatus": "open",
+      "recommendationStatus": "PENDING_RECONCILIATION",
       "portfolioStatus": "not_held",
-      "mutationHistory": [],
-      "missingOpenCycles": 0,
+      "mutationHistory": [
+        {
+          "changedAt": "2026-10-12T17:12:22+02:00",
+          "eventType": "missing_from_open_listing",
+          "missingOpenCycles": 1
+        }
+      ],
+      "missingOpenCycles": 1,
       "riskLevelsCurrency": null,
       "confidence": {
         "kind": "data_quality",
@@ -1844,10 +1962,16 @@
       "url": "https://www.zonebourse.com/bourse/derives/recommandations/",
       "note": "Achat du turbo CALL Société Générale 8Y78S. Prix d'entrée et ISIN à confirmer.",
       "sourceConfidence": "medium",
-      "recommendationStatus": "open",
+      "recommendationStatus": "PENDING_RECONCILIATION",
       "portfolioStatus": "not_held",
-      "mutationHistory": [],
-      "missingOpenCycles": 0,
+      "mutationHistory": [
+        {
+          "changedAt": "2026-10-12T17:12:22+02:00",
+          "eventType": "missing_from_open_listing",
+          "missingOpenCycles": 1
+        }
+      ],
+      "missingOpenCycles": 1,
       "riskLevelsCurrency": null,
       "confidence": {
         "kind": "data_quality",
@@ -1933,10 +2057,16 @@
       "url": "https://www.zonebourse.com/bourse/derives/recommandations/",
       "note": "Les cours devraient se reprendre. Prix d'entrée et ISIN à confirmer.",
       "sourceConfidence": "medium",
-      "recommendationStatus": "open",
+      "recommendationStatus": "PENDING_RECONCILIATION",
       "portfolioStatus": "not_held",
-      "mutationHistory": [],
-      "missingOpenCycles": 0,
+      "mutationHistory": [
+        {
+          "changedAt": "2026-10-12T17:12:22+02:00",
+          "eventType": "missing_from_open_listing",
+          "missingOpenCycles": 1
+        }
+      ],
+      "missingOpenCycles": 1,
       "riskLevelsCurrency": null,
       "confidence": {
         "kind": "data_quality",
@@ -2023,10 +2153,16 @@
       "url": "https://www.zonebourse.com/bourse/derives/recommandations/",
       "note": "Une correction technique en formation. Prix d'entrée et ISIN à confirmer.",
       "sourceConfidence": "medium",
-      "recommendationStatus": "open",
+      "recommendationStatus": "PENDING_RECONCILIATION",
       "portfolioStatus": "not_held",
-      "mutationHistory": [],
-      "missingOpenCycles": 0,
+      "mutationHistory": [
+        {
+          "changedAt": "2026-10-12T17:12:22+02:00",
+          "eventType": "missing_from_open_listing",
+          "missingOpenCycles": 1
+        }
+      ],
+      "missingOpenCycles": 1,
       "riskLevelsCurrency": null,
       "confidence": {
         "kind": "data_quality",
@@ -2113,10 +2249,16 @@
       "url": "https://www.zonebourse.com/bourse/derives/recommandations/",
       "note": "Achat du turbo PUT Société Générale Z38PS. Prix d'entrée et ISIN à confirmer.",
       "sourceConfidence": "medium",
-      "recommendationStatus": "open",
+      "recommendationStatus": "PENDING_RECONCILIATION",
       "portfolioStatus": "not_held",
-      "mutationHistory": [],
-      "missingOpenCycles": 0,
+      "mutationHistory": [
+        {
+          "changedAt": "2026-10-12T17:12:22+02:00",
+          "eventType": "missing_from_open_listing",
+          "missingOpenCycles": 1
+        }
+      ],
+      "missingOpenCycles": 1,
       "riskLevelsCurrency": null,
       "confidence": {
         "kind": "data_quality",
@@ -2203,10 +2345,16 @@
       "url": "https://www.zonebourse.com/bourse/derives/recommandations/",
       "note": "Rebond technique attendu. Prix d'entrée et ISIN à confirmer.",
       "sourceConfidence": "medium",
-      "recommendationStatus": "open",
+      "recommendationStatus": "PENDING_RECONCILIATION",
       "portfolioStatus": "not_held",
-      "mutationHistory": [],
-      "missingOpenCycles": 0,
+      "mutationHistory": [
+        {
+          "changedAt": "2026-10-12T17:12:22+02:00",
+          "eventType": "missing_from_open_listing",
+          "missingOpenCycles": 1
+        }
+      ],
+      "missingOpenCycles": 1,
       "riskLevelsCurrency": null,
       "confidence": {
         "kind": "data_quality",
@@ -2293,10 +2441,16 @@
       "url": "https://www.zonebourse.com/bourse/derives/recommandations/",
       "note": "Achat du turbo PUT BNP Paribas 4YF6B. Prix d'entrée et ISIN à confirmer.",
       "sourceConfidence": "medium",
-      "recommendationStatus": "open",
+      "recommendationStatus": "PENDING_RECONCILIATION",
       "portfolioStatus": "not_held",
-      "mutationHistory": [],
-      "missingOpenCycles": 0,
+      "mutationHistory": [
+        {
+          "changedAt": "2026-10-12T17:12:22+02:00",
+          "eventType": "missing_from_open_listing",
+          "missingOpenCycles": 1
+        }
+      ],
+      "missingOpenCycles": 1,
       "riskLevelsCurrency": null,
       "confidence": {
         "kind": "data_quality",
@@ -2382,10 +2536,16 @@
       "url": "https://www.zonebourse.com/bourse/derives/recommandations/",
       "note": "Une résistance pour argument. Prix d'entrée et ISIN à confirmer.",
       "sourceConfidence": "medium",
-      "recommendationStatus": "open",
+      "recommendationStatus": "PENDING_RECONCILIATION",
       "portfolioStatus": "not_held",
-      "mutationHistory": [],
-      "missingOpenCycles": 0,
+      "mutationHistory": [
+        {
+          "changedAt": "2026-10-12T17:12:22+02:00",
+          "eventType": "missing_from_open_listing",
+          "missingOpenCycles": 1
+        }
+      ],
+      "missingOpenCycles": 1,
       "riskLevelsCurrency": null,
       "confidence": {
         "kind": "data_quality",
@@ -2472,10 +2632,16 @@
       "url": "https://www.zonebourse.com/bourse/derives/recommandations/",
       "note": "Achat du turbo PUT BNP Paribas S4TKB. Prix d'entrée et ISIN à confirmer.",
       "sourceConfidence": "medium",
-      "recommendationStatus": "open",
+      "recommendationStatus": "PENDING_RECONCILIATION",
       "portfolioStatus": "not_held",
-      "mutationHistory": [],
-      "missingOpenCycles": 0,
+      "mutationHistory": [
+        {
+          "changedAt": "2026-10-12T17:12:22+02:00",
+          "eventType": "missing_from_open_listing",
+          "missingOpenCycles": 1
+        }
+      ],
+      "missingOpenCycles": 1,
       "riskLevelsCurrency": null,
       "confidence": {
         "kind": "data_quality",
@@ -2561,10 +2727,16 @@
       "url": "https://www.zonebourse.com/bourse/derives/recommandations/",
       "note": "Sous une résistance majeure. Prix d'entrée et ISIN à confirmer.",
       "sourceConfidence": "medium",
-      "recommendationStatus": "open",
+      "recommendationStatus": "PENDING_RECONCILIATION",
       "portfolioStatus": "not_held",
-      "mutationHistory": [],
-      "missingOpenCycles": 0,
+      "mutationHistory": [
+        {
+          "changedAt": "2026-10-12T17:12:22+02:00",
+          "eventType": "missing_from_open_listing",
+          "missingOpenCycles": 1
+        }
+      ],
+      "missingOpenCycles": 1,
       "riskLevelsCurrency": null,
       "confidence": {
         "kind": "data_quality",
@@ -2640,7 +2812,7 @@
       "isin": "DE000VJ5FU71",
       "status": "open",
       "entryPrice": 0.67,
-      "currentPrice": 0.043,
+      "currentPrice": 0.029,
       "exitPrice": null,
       "entryDate": "2026-06-22",
       "exitDate": null,
@@ -2652,29 +2824,35 @@
       "url": "https://www.zonebourse.com/actualite-bourse/a-proximite-d-un-support-moyen-terme-important-ce7f5cd3da8bff20",
       "note": "A proximité d'un support moyen terme important.",
       "sourceConfidence": "high",
-      "recommendationStatus": "open",
+      "recommendationStatus": "PENDING_RECONCILIATION",
       "portfolioStatus": "not_held",
-      "mutationHistory": [],
-      "missingOpenCycles": 0,
+      "mutationHistory": [
+        {
+          "changedAt": "2026-10-12T17:12:22+02:00",
+          "eventType": "missing_from_open_listing",
+          "missingOpenCycles": 1
+        }
+      ],
+      "missingOpenCycles": 1,
       "riskLevelsCurrency": null,
-      "quoteAt": "2026-10-07T13:09:00+00:00",
-      "bid": 0.036,
-      "ask": 0.046,
+      "quoteAt": "2026-10-12T15:02:00+00:00",
+      "bid": 0.024,
+      "ask": 0.034,
       "timestampSource": "euronext_page",
       "marketStatus": "open",
       "isIndicative": false,
       "quoteCurrency": "EUR",
       "marketDataProvider": "euronext",
       "marketDataSourceUrl": "https://live.euronext.com/en/product/structured-products/DE000VJ5FU71-XMLI",
-      "marketDataRetrievedAt": "2026-10-07T13:13:00+00:00",
-      "marketDataDelayMinutes": 4,
+      "marketDataRetrievedAt": "2026-10-12T15:15:52+00:00",
+      "marketDataDelayMinutes": 13,
       "confidence": {
         "kind": "data_quality",
         "score": 85,
         "coveragePct": 85,
         "label": "Données partielles",
         "operationallyUsable": false,
-        "quoteAgeMinutes": 3468.48,
+        "quoteAgeMinutes": 13.88,
         "components": [
           {
             "key": "recommendation",
@@ -2728,6 +2906,2381 @@
             "available": false,
             "sources": [
               "https://www.zonebourse.com/actualite-bourse/a-proximite-d-un-support-moyen-terme-important-ce7f5cd3da8bff20"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "publicis-groupe-s-a-8tn9b-20261008",
+      "asset": "PUBLICIS GROUPE S.A.",
+      "productType": "Turbo",
+      "direction": "CALL",
+      "mnemo": "8TN9B",
+      "isin": "FRBNPP114NX6",
+      "status": "open",
+      "recommendationStatus": "open",
+      "portfolioStatus": "not_held",
+      "entryPrice": 2.28,
+      "currentPrice": null,
+      "exitPrice": null,
+      "entryDate": "2026-10-08",
+      "exitDate": null,
+      "currency": "EUR",
+      "url": "https://www.zonebourse.com/actualite-bourse/rebond-technique-en-formation-ce785dded18df325",
+      "publishedAt": "2026-10-08T00:00+02:00",
+      "publishedAtPrecision": "date",
+      "detectedAt": "2026-10-12T17:12:22+02:00",
+      "lastSeenOpenAt": "2026-10-12T17:12:22+02:00",
+      "missingOpenCycles": 0,
+      "recommendationIdentity": "FRBNPP114NX6|8TN9B|2026-10-08|zonebourse|recommendation",
+      "contentHash": "4c8a148136a590b0ce2e46208358e7803f95340967b48a103fe752769c2a241a",
+      "mutationHistory": [],
+      "target": 104.0,
+      "stop": null,
+      "riskLevelsCurrency": "EUR",
+      "note": "Rebond technique en formation |. Prix d'entrée et ISIN à confirmer depuis la fiche article.",
+      "sourceConfidence": "medium",
+      "confidence": {
+        "kind": "data_quality",
+        "score": 66,
+        "coveragePct": 66,
+        "label": "Données partielles",
+        "operationallyUsable": false,
+        "quoteAgeMinutes": null,
+        "components": [
+          {
+            "key": "recommendation",
+            "weight": 20,
+            "score": 100,
+            "available": true,
+            "sources": [
+              "https://www.zonebourse.com/actualite-bourse/rebond-technique-en-formation-ce785dded18df325"
+            ]
+          },
+          {
+            "key": "productIdentity",
+            "weight": 15,
+            "score": 100,
+            "available": true,
+            "sources": [
+              "https://www.zonebourse.com/actualite-bourse/rebond-technique-en-formation-ce785dded18df325"
+            ]
+          },
+          {
+            "key": "tradePlan",
+            "weight": 30,
+            "score": 67,
+            "available": false,
+            "sources": [
+              "https://www.zonebourse.com/actualite-bourse/rebond-technique-en-formation-ce785dded18df325"
+            ]
+          },
+          {
+            "key": "marketQuote",
+            "weight": 20,
+            "score": 0,
+            "available": false,
+            "sources": [
+              "https://www.zonebourse.com/actualite-bourse/rebond-technique-en-formation-ce785dded18df325"
+            ]
+          },
+          {
+            "key": "underlying",
+            "weight": 5,
+            "score": 25,
+            "available": false,
+            "sources": [
+              "https://www.zonebourse.com/actualite-bourse/rebond-technique-en-formation-ce785dded18df325"
+            ]
+          },
+          {
+            "key": "timing",
+            "weight": 10,
+            "score": 100,
+            "available": true,
+            "sources": [
+              "https://www.zonebourse.com/actualite-bourse/rebond-technique-en-formation-ce785dded18df325"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "dassault-aviation-fi3rb-20261008",
+      "asset": "DASSAULT AVIATION",
+      "productType": "Turbo",
+      "direction": "CALL",
+      "mnemo": "FI3RB",
+      "isin": "FRBNPP0808F8",
+      "status": "open",
+      "recommendationStatus": "open",
+      "portfolioStatus": "not_held",
+      "entryPrice": 8.05,
+      "currentPrice": null,
+      "exitPrice": null,
+      "entryDate": "2026-10-08",
+      "exitDate": null,
+      "currency": "EUR",
+      "url": "https://www.zonebourse.com/actualite-bourse/un-soutien-a-mettre-a-profit-ce785dded18af424",
+      "publishedAt": "2026-10-08T00:00+02:00",
+      "publishedAtPrecision": "date",
+      "detectedAt": "2026-10-12T17:12:22+02:00",
+      "lastSeenOpenAt": "2026-10-12T17:12:22+02:00",
+      "missingOpenCycles": 0,
+      "recommendationIdentity": "FRBNPP0808F8|FI3RB|2026-10-08|zonebourse|recommendation",
+      "contentHash": "f26338aaf0a5405d92ae5505a85b81d2bba15cbed6774d2fc0b5a42c323855a4",
+      "mutationHistory": [],
+      "target": 300.0,
+      "stop": null,
+      "riskLevelsCurrency": "EUR",
+      "note": "Un soutien à mettre à profit |. Prix d'entrée et ISIN à confirmer depuis la fiche article.",
+      "sourceConfidence": "medium",
+      "confidence": {
+        "kind": "data_quality",
+        "score": 66,
+        "coveragePct": 66,
+        "label": "Données partielles",
+        "operationallyUsable": false,
+        "quoteAgeMinutes": null,
+        "components": [
+          {
+            "key": "recommendation",
+            "weight": 20,
+            "score": 100,
+            "available": true,
+            "sources": [
+              "https://www.zonebourse.com/actualite-bourse/un-soutien-a-mettre-a-profit-ce785dded18af424"
+            ]
+          },
+          {
+            "key": "productIdentity",
+            "weight": 15,
+            "score": 100,
+            "available": true,
+            "sources": [
+              "https://www.zonebourse.com/actualite-bourse/un-soutien-a-mettre-a-profit-ce785dded18af424"
+            ]
+          },
+          {
+            "key": "tradePlan",
+            "weight": 30,
+            "score": 67,
+            "available": false,
+            "sources": [
+              "https://www.zonebourse.com/actualite-bourse/un-soutien-a-mettre-a-profit-ce785dded18af424"
+            ]
+          },
+          {
+            "key": "marketQuote",
+            "weight": 20,
+            "score": 0,
+            "available": false,
+            "sources": [
+              "https://www.zonebourse.com/actualite-bourse/un-soutien-a-mettre-a-profit-ce785dded18af424"
+            ]
+          },
+          {
+            "key": "underlying",
+            "weight": 5,
+            "score": 25,
+            "available": false,
+            "sources": [
+              "https://www.zonebourse.com/actualite-bourse/un-soutien-a-mettre-a-profit-ce785dded18af424"
+            ]
+          },
+          {
+            "key": "timing",
+            "weight": 10,
+            "score": 100,
+            "available": true,
+            "sources": [
+              "https://www.zonebourse.com/actualite-bourse/un-soutien-a-mettre-a-profit-ce785dded18af424"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "hermes-international-dm92v-20261008",
+      "asset": "HERMÈS INTERNATIONAL",
+      "productType": "Warrant",
+      "direction": "CALL",
+      "mnemo": "DM92V",
+      "isin": "DE000BD7H8B3",
+      "status": "open",
+      "recommendationStatus": "open",
+      "portfolioStatus": "not_held",
+      "entryPrice": 1.2,
+      "currentPrice": null,
+      "exitPrice": null,
+      "entryDate": "2026-10-08",
+      "exitDate": null,
+      "currency": "EUR",
+      "url": "https://www.zonebourse.com/actualite-bourse/excessivement-sanctionne--ce785dded189f62d",
+      "publishedAt": "2026-10-08T00:00+02:00",
+      "publishedAtPrecision": "date",
+      "detectedAt": "2026-10-12T17:12:22+02:00",
+      "lastSeenOpenAt": "2026-10-12T17:12:22+02:00",
+      "missingOpenCycles": 0,
+      "recommendationIdentity": "DE000BD7H8B3|DM92V|2026-10-08|zonebourse|recommendation",
+      "contentHash": "2ffd0a8de0349c157acd1f9b7c1033f4cfa69801e881767a4a4042c8cab3ecd5",
+      "mutationHistory": [],
+      "target": 1414.0,
+      "stop": null,
+      "riskLevelsCurrency": "EUR",
+      "note": "Excessivement sanctionné ? |. Prix d'entrée et ISIN à confirmer depuis la fiche article.",
+      "sourceConfidence": "medium",
+      "confidence": {
+        "kind": "data_quality",
+        "score": 66,
+        "coveragePct": 66,
+        "label": "Données partielles",
+        "operationallyUsable": false,
+        "quoteAgeMinutes": null,
+        "components": [
+          {
+            "key": "recommendation",
+            "weight": 20,
+            "score": 100,
+            "available": true,
+            "sources": [
+              "https://www.zonebourse.com/actualite-bourse/excessivement-sanctionne--ce785dded189f62d"
+            ]
+          },
+          {
+            "key": "productIdentity",
+            "weight": 15,
+            "score": 100,
+            "available": true,
+            "sources": [
+              "https://www.zonebourse.com/actualite-bourse/excessivement-sanctionne--ce785dded189f62d"
+            ]
+          },
+          {
+            "key": "tradePlan",
+            "weight": 30,
+            "score": 67,
+            "available": false,
+            "sources": [
+              "https://www.zonebourse.com/actualite-bourse/excessivement-sanctionne--ce785dded189f62d"
+            ]
+          },
+          {
+            "key": "marketQuote",
+            "weight": 20,
+            "score": 0,
+            "available": false,
+            "sources": [
+              "https://www.zonebourse.com/actualite-bourse/excessivement-sanctionne--ce785dded189f62d"
+            ]
+          },
+          {
+            "key": "underlying",
+            "weight": 5,
+            "score": 25,
+            "available": false,
+            "sources": [
+              "https://www.zonebourse.com/actualite-bourse/excessivement-sanctionne--ce785dded189f62d"
+            ]
+          },
+          {
+            "key": "timing",
+            "weight": 10,
+            "score": 100,
+            "available": true,
+            "sources": [
+              "https://www.zonebourse.com/actualite-bourse/excessivement-sanctionne--ce785dded189f62d"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "siemens-energy-ag-tv34v-20261006",
+      "asset": "SIEMENS ENERGY AG",
+      "productType": "Turbo",
+      "direction": "CALL",
+      "mnemo": "TV34V",
+      "isin": "DE000VY7GEB6",
+      "status": "open",
+      "recommendationStatus": "open",
+      "portfolioStatus": "not_held",
+      "entryPrice": 1.825,
+      "currentPrice": null,
+      "exitPrice": null,
+      "entryDate": "2026-10-06",
+      "exitDate": null,
+      "currency": "EUR",
+      "url": "https://www.zonebourse.com/actualite-bourse/rebond-technique-en-formation-ce785dd8df8ef72d",
+      "publishedAt": "2026-10-06T00:00+02:00",
+      "publishedAtPrecision": "date",
+      "detectedAt": "2026-10-12T17:12:22+02:00",
+      "lastSeenOpenAt": "2026-10-12T17:12:22+02:00",
+      "missingOpenCycles": 0,
+      "recommendationIdentity": "DE000VY7GEB6|TV34V|2026-10-06|zonebourse|recommendation",
+      "contentHash": "c680b6afb978199c07ebbba7557f296b5ce6ea3b98b607fc727b0220927cb672",
+      "mutationHistory": [],
+      "target": 167.0,
+      "stop": null,
+      "riskLevelsCurrency": "EUR",
+      "note": "Rebond technique en formation |. Prix d'entrée et ISIN à confirmer depuis la fiche article.",
+      "sourceConfidence": "medium",
+      "confidence": {
+        "kind": "data_quality",
+        "score": 66,
+        "coveragePct": 66,
+        "label": "Données partielles",
+        "operationallyUsable": false,
+        "quoteAgeMinutes": null,
+        "components": [
+          {
+            "key": "recommendation",
+            "weight": 20,
+            "score": 100,
+            "available": true,
+            "sources": [
+              "https://www.zonebourse.com/actualite-bourse/rebond-technique-en-formation-ce785dd8df8ef72d"
+            ]
+          },
+          {
+            "key": "productIdentity",
+            "weight": 15,
+            "score": 100,
+            "available": true,
+            "sources": [
+              "https://www.zonebourse.com/actualite-bourse/rebond-technique-en-formation-ce785dd8df8ef72d"
+            ]
+          },
+          {
+            "key": "tradePlan",
+            "weight": 30,
+            "score": 67,
+            "available": false,
+            "sources": [
+              "https://www.zonebourse.com/actualite-bourse/rebond-technique-en-formation-ce785dd8df8ef72d"
+            ]
+          },
+          {
+            "key": "marketQuote",
+            "weight": 20,
+            "score": 0,
+            "available": false,
+            "sources": [
+              "https://www.zonebourse.com/actualite-bourse/rebond-technique-en-formation-ce785dd8df8ef72d"
+            ]
+          },
+          {
+            "key": "underlying",
+            "weight": 5,
+            "score": 25,
+            "available": false,
+            "sources": [
+              "https://www.zonebourse.com/actualite-bourse/rebond-technique-en-formation-ce785dd8df8ef72d"
+            ]
+          },
+          {
+            "key": "timing",
+            "weight": 10,
+            "score": 100,
+            "available": true,
+            "sources": [
+              "https://www.zonebourse.com/actualite-bourse/rebond-technique-en-formation-ce785dd8df8ef72d"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "arcelormittal-qh67v-20261005",
+      "asset": "ARCELORMITTAL",
+      "productType": "Turbo",
+      "direction": "CALL",
+      "mnemo": "QH67V",
+      "isin": "DE000VY34X99",
+      "status": "open",
+      "recommendationStatus": "open",
+      "portfolioStatus": "not_held",
+      "entryPrice": 3.54,
+      "currentPrice": null,
+      "exitPrice": null,
+      "entryDate": "2026-10-05",
+      "exitDate": null,
+      "currency": "EUR",
+      "url": "https://www.zonebourse.com/actualite-bourse/a-proximite-d-une-zone-de-soutien-ce785dd8db89f122",
+      "publishedAt": "2026-10-05T00:00+02:00",
+      "publishedAtPrecision": "date",
+      "detectedAt": "2026-10-12T17:12:22+02:00",
+      "lastSeenOpenAt": "2026-10-12T17:12:22+02:00",
+      "missingOpenCycles": 0,
+      "recommendationIdentity": "DE000VY34X99|QH67V|2026-10-05|zonebourse|recommendation",
+      "contentHash": "4c2de8b3f12e35149cfcc1f17dc900fc261459e8f9976e1ce2a55b9b89b54dc0",
+      "mutationHistory": [],
+      "target": 62.6,
+      "stop": null,
+      "riskLevelsCurrency": "EUR",
+      "note": "A proximité d'une zone de soutien |. Prix d'entrée et ISIN à confirmer depuis la fiche article.",
+      "sourceConfidence": "medium",
+      "confidence": {
+        "kind": "data_quality",
+        "score": 66,
+        "coveragePct": 66,
+        "label": "Données partielles",
+        "operationallyUsable": false,
+        "quoteAgeMinutes": null,
+        "components": [
+          {
+            "key": "recommendation",
+            "weight": 20,
+            "score": 100,
+            "available": true,
+            "sources": [
+              "https://www.zonebourse.com/actualite-bourse/a-proximite-d-une-zone-de-soutien-ce785dd8db89f122"
+            ]
+          },
+          {
+            "key": "productIdentity",
+            "weight": 15,
+            "score": 100,
+            "available": true,
+            "sources": [
+              "https://www.zonebourse.com/actualite-bourse/a-proximite-d-une-zone-de-soutien-ce785dd8db89f122"
+            ]
+          },
+          {
+            "key": "tradePlan",
+            "weight": 30,
+            "score": 67,
+            "available": false,
+            "sources": [
+              "https://www.zonebourse.com/actualite-bourse/a-proximite-d-une-zone-de-soutien-ce785dd8db89f122"
+            ]
+          },
+          {
+            "key": "marketQuote",
+            "weight": 20,
+            "score": 0,
+            "available": false,
+            "sources": [
+              "https://www.zonebourse.com/actualite-bourse/a-proximite-d-une-zone-de-soutien-ce785dd8db89f122"
+            ]
+          },
+          {
+            "key": "underlying",
+            "weight": 5,
+            "score": 25,
+            "available": false,
+            "sources": [
+              "https://www.zonebourse.com/actualite-bourse/a-proximite-d-une-zone-de-soutien-ce785dd8db89f122"
+            ]
+          },
+          {
+            "key": "timing",
+            "weight": 10,
+            "score": 100,
+            "available": true,
+            "sources": [
+              "https://www.zonebourse.com/actualite-bourse/a-proximite-d-une-zone-de-soutien-ce785dd8db89f122"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "enel-s-p-a-l6web-20261005",
+      "asset": "ENEL S.P.A.",
+      "productType": "Turbo",
+      "direction": "CALL",
+      "mnemo": "L6WEB",
+      "isin": "FRBNPP091RP3",
+      "status": "open",
+      "recommendationStatus": "open",
+      "portfolioStatus": "not_held",
+      "entryPrice": 2.15,
+      "currentPrice": null,
+      "exitPrice": null,
+      "entryDate": "2026-10-05",
+      "exitDate": null,
+      "currency": "EUR",
+      "url": "https://www.zonebourse.com/actualite-bourse/achat-du-turbo-call-bnp-paribas-l6web-ce785dd8d98af420",
+      "publishedAt": "2026-10-05T00:00+02:00",
+      "publishedAtPrecision": "date",
+      "detectedAt": "2026-10-12T17:12:22+02:00",
+      "lastSeenOpenAt": "2026-10-12T17:12:22+02:00",
+      "missingOpenCycles": 0,
+      "recommendationIdentity": "FRBNPP091RP3|L6WEB|2026-10-05|zonebourse|recommendation",
+      "contentHash": "6c8c2aa531d48f60fbd59a8a8e8870ef68eae9b27afd51d2ba495bb7f4a48802",
+      "mutationHistory": [],
+      "target": 9.5,
+      "stop": null,
+      "riskLevelsCurrency": "EUR",
+      "note": "Achat du turbo CALL BNP Paribas L6WEB |. Prix d'entrée et ISIN à confirmer depuis la fiche article.",
+      "sourceConfidence": "medium",
+      "confidence": {
+        "kind": "data_quality",
+        "score": 66,
+        "coveragePct": 66,
+        "label": "Données partielles",
+        "operationallyUsable": false,
+        "quoteAgeMinutes": null,
+        "components": [
+          {
+            "key": "recommendation",
+            "weight": 20,
+            "score": 100,
+            "available": true,
+            "sources": [
+              "https://www.zonebourse.com/actualite-bourse/achat-du-turbo-call-bnp-paribas-l6web-ce785dd8d98af420"
+            ]
+          },
+          {
+            "key": "productIdentity",
+            "weight": 15,
+            "score": 100,
+            "available": true,
+            "sources": [
+              "https://www.zonebourse.com/actualite-bourse/achat-du-turbo-call-bnp-paribas-l6web-ce785dd8d98af420"
+            ]
+          },
+          {
+            "key": "tradePlan",
+            "weight": 30,
+            "score": 67,
+            "available": false,
+            "sources": [
+              "https://www.zonebourse.com/actualite-bourse/achat-du-turbo-call-bnp-paribas-l6web-ce785dd8d98af420"
+            ]
+          },
+          {
+            "key": "marketQuote",
+            "weight": 20,
+            "score": 0,
+            "available": false,
+            "sources": [
+              "https://www.zonebourse.com/actualite-bourse/achat-du-turbo-call-bnp-paribas-l6web-ce785dd8d98af420"
+            ]
+          },
+          {
+            "key": "underlying",
+            "weight": 5,
+            "score": 25,
+            "available": false,
+            "sources": [
+              "https://www.zonebourse.com/actualite-bourse/achat-du-turbo-call-bnp-paribas-l6web-ce785dd8d98af420"
+            ]
+          },
+          {
+            "key": "timing",
+            "weight": 10,
+            "score": 100,
+            "available": true,
+            "sources": [
+              "https://www.zonebourse.com/actualite-bourse/achat-du-turbo-call-bnp-paribas-l6web-ce785dd8d98af420"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "bmw-ag-dx29v-20261002",
+      "asset": "BMW AG",
+      "productType": "Turbo",
+      "direction": "CALL",
+      "mnemo": "DX29V",
+      "isin": "DE000BD7Z734",
+      "status": "open",
+      "recommendationStatus": "open",
+      "portfolioStatus": "not_held",
+      "entryPrice": 0.65,
+      "currentPrice": null,
+      "exitPrice": null,
+      "entryDate": "2026-10-02",
+      "exitDate": null,
+      "currency": "EUR",
+      "url": "https://www.zonebourse.com/actualite-bourse/des-niveaux-de-prix-interessants-ce785ddadf8cf122",
+      "publishedAt": "2026-10-02T00:00+02:00",
+      "publishedAtPrecision": "date",
+      "detectedAt": "2026-10-12T17:12:22+02:00",
+      "lastSeenOpenAt": "2026-10-12T17:12:22+02:00",
+      "missingOpenCycles": 0,
+      "recommendationIdentity": "DE000BD7Z734|DX29V|2026-10-02|zonebourse|recommendation",
+      "contentHash": "c235a0285a83b701cd9dba381460018b60fae515b5169ebfe14e4ff09d33b9d6",
+      "mutationHistory": [],
+      "target": 64.0,
+      "stop": null,
+      "riskLevelsCurrency": "EUR",
+      "note": "Des niveaux de prix intéressants |. Prix d'entrée et ISIN à confirmer depuis la fiche article.",
+      "sourceConfidence": "medium",
+      "confidence": {
+        "kind": "data_quality",
+        "score": 66,
+        "coveragePct": 66,
+        "label": "Données partielles",
+        "operationallyUsable": false,
+        "quoteAgeMinutes": null,
+        "components": [
+          {
+            "key": "recommendation",
+            "weight": 20,
+            "score": 100,
+            "available": true,
+            "sources": [
+              "https://www.zonebourse.com/actualite-bourse/des-niveaux-de-prix-interessants-ce785ddadf8cf122"
+            ]
+          },
+          {
+            "key": "productIdentity",
+            "weight": 15,
+            "score": 100,
+            "available": true,
+            "sources": [
+              "https://www.zonebourse.com/actualite-bourse/des-niveaux-de-prix-interessants-ce785ddadf8cf122"
+            ]
+          },
+          {
+            "key": "tradePlan",
+            "weight": 30,
+            "score": 67,
+            "available": false,
+            "sources": [
+              "https://www.zonebourse.com/actualite-bourse/des-niveaux-de-prix-interessants-ce785ddadf8cf122"
+            ]
+          },
+          {
+            "key": "marketQuote",
+            "weight": 20,
+            "score": 0,
+            "available": false,
+            "sources": [
+              "https://www.zonebourse.com/actualite-bourse/des-niveaux-de-prix-interessants-ce785ddadf8cf122"
+            ]
+          },
+          {
+            "key": "underlying",
+            "weight": 5,
+            "score": 25,
+            "available": false,
+            "sources": [
+              "https://www.zonebourse.com/actualite-bourse/des-niveaux-de-prix-interessants-ce785ddadf8cf122"
+            ]
+          },
+          {
+            "key": "timing",
+            "weight": 10,
+            "score": 100,
+            "available": true,
+            "sources": [
+              "https://www.zonebourse.com/actualite-bourse/des-niveaux-de-prix-interessants-ce785ddadf8cf122"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "airbus-se-lz77v-20261001",
+      "asset": "AIRBUS SE",
+      "productType": "Warrant",
+      "direction": "CALL",
+      "mnemo": "LZ77V",
+      "isin": "DE000VY0NXS1",
+      "status": "open",
+      "recommendationStatus": "open",
+      "portfolioStatus": "not_held",
+      "entryPrice": 1.66,
+      "currentPrice": null,
+      "exitPrice": null,
+      "entryDate": "2026-10-01",
+      "exitDate": null,
+      "currency": "EUR",
+      "url": "https://www.zonebourse.com/actualite-bourse/de-retour-sur-le-support-ce785ad3de8df620",
+      "publishedAt": "2026-10-01T00:00+02:00",
+      "publishedAtPrecision": "date",
+      "detectedAt": "2026-10-12T17:12:22+02:00",
+      "lastSeenOpenAt": "2026-10-12T17:12:22+02:00",
+      "missingOpenCycles": 0,
+      "recommendationIdentity": "DE000VY0NXS1|LZ77V|2026-10-01|zonebourse|recommendation",
+      "contentHash": "b7e0d0252dfc6e3b20ee7edaff22ee8abd56bf9daedb86fcdacf0fe43a6fc1ab",
+      "mutationHistory": [],
+      "target": 205.0,
+      "stop": null,
+      "riskLevelsCurrency": "EUR",
+      "note": "De retour sur le support |. Prix d'entrée et ISIN à confirmer depuis la fiche article.",
+      "sourceConfidence": "medium",
+      "confidence": {
+        "kind": "data_quality",
+        "score": 66,
+        "coveragePct": 66,
+        "label": "Données partielles",
+        "operationallyUsable": false,
+        "quoteAgeMinutes": null,
+        "components": [
+          {
+            "key": "recommendation",
+            "weight": 20,
+            "score": 100,
+            "available": true,
+            "sources": [
+              "https://www.zonebourse.com/actualite-bourse/de-retour-sur-le-support-ce785ad3de8df620"
+            ]
+          },
+          {
+            "key": "productIdentity",
+            "weight": 15,
+            "score": 100,
+            "available": true,
+            "sources": [
+              "https://www.zonebourse.com/actualite-bourse/de-retour-sur-le-support-ce785ad3de8df620"
+            ]
+          },
+          {
+            "key": "tradePlan",
+            "weight": 30,
+            "score": 67,
+            "available": false,
+            "sources": [
+              "https://www.zonebourse.com/actualite-bourse/de-retour-sur-le-support-ce785ad3de8df620"
+            ]
+          },
+          {
+            "key": "marketQuote",
+            "weight": 20,
+            "score": 0,
+            "available": false,
+            "sources": [
+              "https://www.zonebourse.com/actualite-bourse/de-retour-sur-le-support-ce785ad3de8df620"
+            ]
+          },
+          {
+            "key": "underlying",
+            "weight": 5,
+            "score": 25,
+            "available": false,
+            "sources": [
+              "https://www.zonebourse.com/actualite-bourse/de-retour-sur-le-support-ce785ad3de8df620"
+            ]
+          },
+          {
+            "key": "timing",
+            "weight": 10,
+            "score": 100,
+            "available": true,
+            "sources": [
+              "https://www.zonebourse.com/actualite-bourse/de-retour-sur-le-support-ce785ad3de8df620"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "renault-wb89v-20260929",
+      "asset": "RENAULT",
+      "productType": "Warrant",
+      "direction": "CALL",
+      "mnemo": "WB89V",
+      "isin": "DE000VY88SJ9",
+      "status": "open",
+      "recommendationStatus": "open",
+      "portfolioStatus": "not_held",
+      "entryPrice": 0.236,
+      "currentPrice": null,
+      "exitPrice": null,
+      "entryDate": "2026-09-29",
+      "exitDate": null,
+      "currency": "EUR",
+      "url": "https://www.zonebourse.com/actualite-bourse/une-reprise-a-anticiper-ce785adddd8ff42d",
+      "publishedAt": "2026-09-29T00:00+02:00",
+      "publishedAtPrecision": "date",
+      "detectedAt": "2026-10-12T17:12:22+02:00",
+      "lastSeenOpenAt": "2026-10-12T17:12:22+02:00",
+      "missingOpenCycles": 0,
+      "recommendationIdentity": "DE000VY88SJ9|WB89V|2026-09-29|zonebourse|recommendation",
+      "contentHash": "c5171770fcd9a6e6b34285ff228a5cd5a454cabd6a3e7d9e5b34a03336a1c8c0",
+      "mutationHistory": [],
+      "target": 28.6,
+      "stop": null,
+      "riskLevelsCurrency": "EUR",
+      "note": "Une reprise à anticiper |. Prix d'entrée et ISIN à confirmer depuis la fiche article.",
+      "sourceConfidence": "medium",
+      "confidence": {
+        "kind": "data_quality",
+        "score": 66,
+        "coveragePct": 66,
+        "label": "Données partielles",
+        "operationallyUsable": false,
+        "quoteAgeMinutes": null,
+        "components": [
+          {
+            "key": "recommendation",
+            "weight": 20,
+            "score": 100,
+            "available": true,
+            "sources": [
+              "https://www.zonebourse.com/actualite-bourse/une-reprise-a-anticiper-ce785adddd8ff42d"
+            ]
+          },
+          {
+            "key": "productIdentity",
+            "weight": 15,
+            "score": 100,
+            "available": true,
+            "sources": [
+              "https://www.zonebourse.com/actualite-bourse/une-reprise-a-anticiper-ce785adddd8ff42d"
+            ]
+          },
+          {
+            "key": "tradePlan",
+            "weight": 30,
+            "score": 67,
+            "available": false,
+            "sources": [
+              "https://www.zonebourse.com/actualite-bourse/une-reprise-a-anticiper-ce785adddd8ff42d"
+            ]
+          },
+          {
+            "key": "marketQuote",
+            "weight": 20,
+            "score": 0,
+            "available": false,
+            "sources": [
+              "https://www.zonebourse.com/actualite-bourse/une-reprise-a-anticiper-ce785adddd8ff42d"
+            ]
+          },
+          {
+            "key": "underlying",
+            "weight": 5,
+            "score": 25,
+            "available": false,
+            "sources": [
+              "https://www.zonebourse.com/actualite-bourse/une-reprise-a-anticiper-ce785adddd8ff42d"
+            ]
+          },
+          {
+            "key": "timing",
+            "weight": 10,
+            "score": 100,
+            "available": true,
+            "sources": [
+              "https://www.zonebourse.com/actualite-bourse/une-reprise-a-anticiper-ce785adddd8ff42d"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "safran-ge85v-20260929",
+      "asset": "SAFRAN",
+      "productType": "Turbo",
+      "direction": "CALL",
+      "mnemo": "GE85V",
+      "isin": "DE000VK7EXZ6",
+      "status": "open",
+      "recommendationStatus": "open",
+      "portfolioStatus": "not_held",
+      "entryPrice": 7.96,
+      "currentPrice": null,
+      "exitPrice": null,
+      "entryDate": "2026-09-29",
+      "exitDate": null,
+      "currency": "EUR",
+      "url": "https://www.zonebourse.com/actualite-bourse/achat-du-turbo-call-vontobel-ge85v-ce785addda8df423",
+      "publishedAt": "2026-09-29T00:00+02:00",
+      "publishedAtPrecision": "date",
+      "detectedAt": "2026-10-12T17:12:22+02:00",
+      "lastSeenOpenAt": "2026-10-12T17:12:22+02:00",
+      "missingOpenCycles": 0,
+      "recommendationIdentity": "DE000VK7EXZ6|GE85V|2026-09-29|zonebourse|recommendation",
+      "contentHash": "8f3889c5e56fff6e7c64535e9f3b24733d032690dcbc53e12e3e9d4b34550af0",
+      "mutationHistory": [],
+      "target": 363.6,
+      "stop": null,
+      "riskLevelsCurrency": "EUR",
+      "note": "Achat du turbo CALL Vontobel GE85V |. Prix d'entrée et ISIN à confirmer depuis la fiche article.",
+      "sourceConfidence": "medium",
+      "confidence": {
+        "kind": "data_quality",
+        "score": 66,
+        "coveragePct": 66,
+        "label": "Données partielles",
+        "operationallyUsable": false,
+        "quoteAgeMinutes": null,
+        "components": [
+          {
+            "key": "recommendation",
+            "weight": 20,
+            "score": 100,
+            "available": true,
+            "sources": [
+              "https://www.zonebourse.com/actualite-bourse/achat-du-turbo-call-vontobel-ge85v-ce785addda8df423"
+            ]
+          },
+          {
+            "key": "productIdentity",
+            "weight": 15,
+            "score": 100,
+            "available": true,
+            "sources": [
+              "https://www.zonebourse.com/actualite-bourse/achat-du-turbo-call-vontobel-ge85v-ce785addda8df423"
+            ]
+          },
+          {
+            "key": "tradePlan",
+            "weight": 30,
+            "score": 67,
+            "available": false,
+            "sources": [
+              "https://www.zonebourse.com/actualite-bourse/achat-du-turbo-call-vontobel-ge85v-ce785addda8df423"
+            ]
+          },
+          {
+            "key": "marketQuote",
+            "weight": 20,
+            "score": 0,
+            "available": false,
+            "sources": [
+              "https://www.zonebourse.com/actualite-bourse/achat-du-turbo-call-vontobel-ge85v-ce785addda8df423"
+            ]
+          },
+          {
+            "key": "underlying",
+            "weight": 5,
+            "score": 25,
+            "available": false,
+            "sources": [
+              "https://www.zonebourse.com/actualite-bourse/achat-du-turbo-call-vontobel-ge85v-ce785addda8df423"
+            ]
+          },
+          {
+            "key": "timing",
+            "weight": 10,
+            "score": 100,
+            "available": true,
+            "sources": [
+              "https://www.zonebourse.com/actualite-bourse/achat-du-turbo-call-vontobel-ge85v-ce785addda8df423"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "eur-usd-vv35v-20260925",
+      "asset": "EUR / USD",
+      "productType": "Warrant",
+      "direction": "CALL",
+      "mnemo": "VV35V",
+      "isin": "DE000VY879P1",
+      "status": "open",
+      "recommendationStatus": "open",
+      "portfolioStatus": "not_held",
+      "entryPrice": 2.08,
+      "currentPrice": null,
+      "exitPrice": null,
+      "entryDate": "2026-09-25",
+      "exitDate": null,
+      "currency": "EUR",
+      "url": "https://www.zonebourse.com/actualite-bourse/rebond-technique-attendu-ce785adfda81f227",
+      "publishedAt": "2026-09-25T00:00+02:00",
+      "publishedAtPrecision": "date",
+      "detectedAt": "2026-10-12T17:12:22+02:00",
+      "lastSeenOpenAt": "2026-10-12T17:12:22+02:00",
+      "missingOpenCycles": 0,
+      "recommendationIdentity": "DE000VY879P1|VV35V|2026-09-25|zonebourse|recommendation",
+      "contentHash": "19b82b8e9aa358fb6449b85f491bc21568fd7cfeea7882094c48010a7077c2b2",
+      "mutationHistory": [],
+      "target": 1.16,
+      "stop": 1.125,
+      "riskLevelsCurrency": "USD",
+      "note": "Rebond technique attendu |. Prix d'entrée et ISIN à confirmer depuis la fiche article.",
+      "sourceConfidence": "medium",
+      "confidence": {
+        "kind": "data_quality",
+        "score": 76,
+        "coveragePct": 76,
+        "label": "Données partielles",
+        "operationallyUsable": false,
+        "quoteAgeMinutes": null,
+        "components": [
+          {
+            "key": "recommendation",
+            "weight": 20,
+            "score": 100,
+            "available": true,
+            "sources": [
+              "https://www.zonebourse.com/actualite-bourse/rebond-technique-attendu-ce785adfda81f227"
+            ]
+          },
+          {
+            "key": "productIdentity",
+            "weight": 15,
+            "score": 100,
+            "available": true,
+            "sources": [
+              "https://www.zonebourse.com/actualite-bourse/rebond-technique-attendu-ce785adfda81f227"
+            ]
+          },
+          {
+            "key": "tradePlan",
+            "weight": 30,
+            "score": 100,
+            "available": true,
+            "sources": [
+              "https://www.zonebourse.com/actualite-bourse/rebond-technique-attendu-ce785adfda81f227"
+            ]
+          },
+          {
+            "key": "marketQuote",
+            "weight": 20,
+            "score": 0,
+            "available": false,
+            "sources": [
+              "https://www.zonebourse.com/actualite-bourse/rebond-technique-attendu-ce785adfda81f227"
+            ]
+          },
+          {
+            "key": "underlying",
+            "weight": 5,
+            "score": 25,
+            "available": false,
+            "sources": [
+              "https://www.zonebourse.com/actualite-bourse/rebond-technique-attendu-ce785adfda81f227"
+            ]
+          },
+          {
+            "key": "timing",
+            "weight": 10,
+            "score": 100,
+            "available": true,
+            "sources": [
+              "https://www.zonebourse.com/actualite-bourse/rebond-technique-attendu-ce785adfda81f227"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "micron-technology-inc-cjc0b-20260922",
+      "asset": "MICRON TECHNOLOGY, INC.",
+      "productType": "Turbo",
+      "direction": "CALL",
+      "mnemo": "CJC0B",
+      "isin": "FRBNPP11XF39",
+      "status": "open",
+      "recommendationStatus": "open",
+      "portfolioStatus": "not_held",
+      "entryPrice": 19.475,
+      "currentPrice": null,
+      "exitPrice": null,
+      "entryDate": "2026-09-22",
+      "exitDate": null,
+      "currency": "EUR",
+      "url": "https://www.zonebourse.com/actualite-bourse/des-niveaux-de-prix-interessants-ce785ad8dc80f623",
+      "publishedAt": "2026-09-22T00:00+02:00",
+      "publishedAtPrecision": "date",
+      "detectedAt": "2026-10-12T17:12:22+02:00",
+      "lastSeenOpenAt": "2026-10-12T17:12:22+02:00",
+      "missingOpenCycles": 0,
+      "recommendationIdentity": "FRBNPP11XF39|CJC0B|2026-09-22|zonebourse|recommendation",
+      "contentHash": "0eb2e2417692bc7f043412b09f643263efa120e1e364e106ff67536c32c843b8",
+      "mutationHistory": [],
+      "target": 1300.0,
+      "stop": 900.0,
+      "riskLevelsCurrency": "USD",
+      "note": "Des niveaux de prix intéressants |. Prix d'entrée et ISIN à confirmer depuis la fiche article.",
+      "sourceConfidence": "medium",
+      "confidence": {
+        "kind": "data_quality",
+        "score": 76,
+        "coveragePct": 76,
+        "label": "Données partielles",
+        "operationallyUsable": false,
+        "quoteAgeMinutes": null,
+        "components": [
+          {
+            "key": "recommendation",
+            "weight": 20,
+            "score": 100,
+            "available": true,
+            "sources": [
+              "https://www.zonebourse.com/actualite-bourse/des-niveaux-de-prix-interessants-ce785ad8dc80f623"
+            ]
+          },
+          {
+            "key": "productIdentity",
+            "weight": 15,
+            "score": 100,
+            "available": true,
+            "sources": [
+              "https://www.zonebourse.com/actualite-bourse/des-niveaux-de-prix-interessants-ce785ad8dc80f623"
+            ]
+          },
+          {
+            "key": "tradePlan",
+            "weight": 30,
+            "score": 100,
+            "available": true,
+            "sources": [
+              "https://www.zonebourse.com/actualite-bourse/des-niveaux-de-prix-interessants-ce785ad8dc80f623"
+            ]
+          },
+          {
+            "key": "marketQuote",
+            "weight": 20,
+            "score": 0,
+            "available": false,
+            "sources": [
+              "https://www.zonebourse.com/actualite-bourse/des-niveaux-de-prix-interessants-ce785ad8dc80f623"
+            ]
+          },
+          {
+            "key": "underlying",
+            "weight": 5,
+            "score": 25,
+            "available": false,
+            "sources": [
+              "https://www.zonebourse.com/actualite-bourse/des-niveaux-de-prix-interessants-ce785ad8dc80f623"
+            ]
+          },
+          {
+            "key": "timing",
+            "weight": 10,
+            "score": 100,
+            "available": true,
+            "sources": [
+              "https://www.zonebourse.com/actualite-bourse/des-niveaux-de-prix-interessants-ce785ad8dc80f623"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "leonardo-s-p-a-ac28v-20260922",
+      "asset": "LEONARDO S.P.A.",
+      "productType": "Turbo",
+      "direction": "CALL",
+      "mnemo": "AC28V",
+      "isin": "DE000VJ1XC91",
+      "status": "open",
+      "recommendationStatus": "open",
+      "portfolioStatus": "not_held",
+      "entryPrice": 1.16,
+      "currentPrice": null,
+      "exitPrice": null,
+      "entryDate": "2026-09-22",
+      "exitDate": null,
+      "currency": "EUR",
+      "url": "https://www.zonebourse.com/actualite-bourse/de-retour-sur-le-support-ce785ad8d88af72c",
+      "publishedAt": "2026-09-22T00:00+02:00",
+      "publishedAtPrecision": "date",
+      "detectedAt": "2026-10-12T17:12:22+02:00",
+      "lastSeenOpenAt": "2026-10-12T17:12:22+02:00",
+      "missingOpenCycles": 0,
+      "recommendationIdentity": "DE000VJ1XC91|AC28V|2026-09-22|zonebourse|recommendation",
+      "contentHash": "5169bfd4fba8cce82d62d2e784131580989e7d99fc004864c6a087379331c5fe",
+      "mutationHistory": [],
+      "target": 55.05,
+      "stop": null,
+      "riskLevelsCurrency": "EUR",
+      "note": "De retour sur le support |. Prix d'entrée et ISIN à confirmer depuis la fiche article.",
+      "sourceConfidence": "medium",
+      "confidence": {
+        "kind": "data_quality",
+        "score": 66,
+        "coveragePct": 66,
+        "label": "Données partielles",
+        "operationallyUsable": false,
+        "quoteAgeMinutes": null,
+        "components": [
+          {
+            "key": "recommendation",
+            "weight": 20,
+            "score": 100,
+            "available": true,
+            "sources": [
+              "https://www.zonebourse.com/actualite-bourse/de-retour-sur-le-support-ce785ad8d88af72c"
+            ]
+          },
+          {
+            "key": "productIdentity",
+            "weight": 15,
+            "score": 100,
+            "available": true,
+            "sources": [
+              "https://www.zonebourse.com/actualite-bourse/de-retour-sur-le-support-ce785ad8d88af72c"
+            ]
+          },
+          {
+            "key": "tradePlan",
+            "weight": 30,
+            "score": 67,
+            "available": false,
+            "sources": [
+              "https://www.zonebourse.com/actualite-bourse/de-retour-sur-le-support-ce785ad8d88af72c"
+            ]
+          },
+          {
+            "key": "marketQuote",
+            "weight": 20,
+            "score": 0,
+            "available": false,
+            "sources": [
+              "https://www.zonebourse.com/actualite-bourse/de-retour-sur-le-support-ce785ad8d88af72c"
+            ]
+          },
+          {
+            "key": "underlying",
+            "weight": 5,
+            "score": 25,
+            "available": false,
+            "sources": [
+              "https://www.zonebourse.com/actualite-bourse/de-retour-sur-le-support-ce785ad8d88af72c"
+            ]
+          },
+          {
+            "key": "timing",
+            "weight": 10,
+            "score": 100,
+            "available": true,
+            "sources": [
+              "https://www.zonebourse.com/actualite-bourse/de-retour-sur-le-support-ce785ad8d88af72c"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "unibail-rodamco-westfield-se-0ekyb-20260921",
+      "asset": "UNIBAIL-RODAMCO-WESTFIELD SE",
+      "productType": "Turbo",
+      "direction": "CALL",
+      "mnemo": "0EKYB",
+      "isin": "FRBNPP097G91",
+      "status": "open",
+      "recommendationStatus": "open",
+      "portfolioStatus": "not_held",
+      "entryPrice": 1.99,
+      "currentPrice": null,
+      "exitPrice": null,
+      "entryDate": "2026-09-21",
+      "exitDate": null,
+      "currency": "EUR",
+      "url": "https://www.zonebourse.com/actualite-bourse/une-reprise-a-anticiper-ce785adbdc8cfe25",
+      "publishedAt": "2026-09-21T00:00+02:00",
+      "publishedAtPrecision": "date",
+      "detectedAt": "2026-10-12T17:12:22+02:00",
+      "lastSeenOpenAt": "2026-10-12T17:12:22+02:00",
+      "missingOpenCycles": 0,
+      "recommendationIdentity": "FRBNPP097G91|0EKYB|2026-09-21|zonebourse|recommendation",
+      "contentHash": "d1362ae6ca93df2ea2cb18519366134baa54aff4c61d3c20aa646d2f1408d6a0",
+      "mutationHistory": [],
+      "target": 101.0,
+      "stop": null,
+      "riskLevelsCurrency": "EUR",
+      "note": "Une reprise à anticiper |. Prix d'entrée et ISIN à confirmer depuis la fiche article.",
+      "sourceConfidence": "medium",
+      "confidence": {
+        "kind": "data_quality",
+        "score": 66,
+        "coveragePct": 66,
+        "label": "Données partielles",
+        "operationallyUsable": false,
+        "quoteAgeMinutes": null,
+        "components": [
+          {
+            "key": "recommendation",
+            "weight": 20,
+            "score": 100,
+            "available": true,
+            "sources": [
+              "https://www.zonebourse.com/actualite-bourse/une-reprise-a-anticiper-ce785adbdc8cfe25"
+            ]
+          },
+          {
+            "key": "productIdentity",
+            "weight": 15,
+            "score": 100,
+            "available": true,
+            "sources": [
+              "https://www.zonebourse.com/actualite-bourse/une-reprise-a-anticiper-ce785adbdc8cfe25"
+            ]
+          },
+          {
+            "key": "tradePlan",
+            "weight": 30,
+            "score": 67,
+            "available": false,
+            "sources": [
+              "https://www.zonebourse.com/actualite-bourse/une-reprise-a-anticiper-ce785adbdc8cfe25"
+            ]
+          },
+          {
+            "key": "marketQuote",
+            "weight": 20,
+            "score": 0,
+            "available": false,
+            "sources": [
+              "https://www.zonebourse.com/actualite-bourse/une-reprise-a-anticiper-ce785adbdc8cfe25"
+            ]
+          },
+          {
+            "key": "underlying",
+            "weight": 5,
+            "score": 25,
+            "available": false,
+            "sources": [
+              "https://www.zonebourse.com/actualite-bourse/une-reprise-a-anticiper-ce785adbdc8cfe25"
+            ]
+          },
+          {
+            "key": "timing",
+            "weight": 10,
+            "score": 100,
+            "available": true,
+            "sources": [
+              "https://www.zonebourse.com/actualite-bourse/une-reprise-a-anticiper-ce785adbdc8cfe25"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "yara-international-asa-sp3ls-20260917",
+      "asset": "YARA INTERNATIONAL ASA",
+      "productType": "Turbo",
+      "direction": "CALL",
+      "mnemo": "SP3LS",
+      "isin": "DE000FE01AG1",
+      "status": "open",
+      "recommendationStatus": "open",
+      "portfolioStatus": "not_held",
+      "entryPrice": 1.405,
+      "currentPrice": null,
+      "exitPrice": null,
+      "entryDate": "2026-09-17",
+      "exitDate": null,
+      "currency": "EUR",
+      "url": "https://www.zonebourse.com/actualite-bourse/configuration-technique-interessante-ce785bd3dd80ff26",
+      "publishedAt": "2026-09-17T00:00+02:00",
+      "publishedAtPrecision": "date",
+      "detectedAt": "2026-10-12T17:12:22+02:00",
+      "lastSeenOpenAt": "2026-10-12T17:12:22+02:00",
+      "missingOpenCycles": 0,
+      "recommendationIdentity": "DE000FE01AG1|SP3LS|2026-09-17|zonebourse|recommendation",
+      "contentHash": "de554d11e3c95b97c319a2563c9f4e4b8a0acc1192d07d1d6053ff70f20d4ece",
+      "mutationHistory": [],
+      "target": 490.0,
+      "stop": null,
+      "riskLevelsCurrency": "EUR",
+      "note": "Configuration technique intéressante |. Prix d'entrée et ISIN à confirmer depuis la fiche article.",
+      "sourceConfidence": "medium",
+      "confidence": {
+        "kind": "data_quality",
+        "score": 66,
+        "coveragePct": 66,
+        "label": "Données partielles",
+        "operationallyUsable": false,
+        "quoteAgeMinutes": null,
+        "components": [
+          {
+            "key": "recommendation",
+            "weight": 20,
+            "score": 100,
+            "available": true,
+            "sources": [
+              "https://www.zonebourse.com/actualite-bourse/configuration-technique-interessante-ce785bd3dd80ff26"
+            ]
+          },
+          {
+            "key": "productIdentity",
+            "weight": 15,
+            "score": 100,
+            "available": true,
+            "sources": [
+              "https://www.zonebourse.com/actualite-bourse/configuration-technique-interessante-ce785bd3dd80ff26"
+            ]
+          },
+          {
+            "key": "tradePlan",
+            "weight": 30,
+            "score": 67,
+            "available": false,
+            "sources": [
+              "https://www.zonebourse.com/actualite-bourse/configuration-technique-interessante-ce785bd3dd80ff26"
+            ]
+          },
+          {
+            "key": "marketQuote",
+            "weight": 20,
+            "score": 0,
+            "available": false,
+            "sources": [
+              "https://www.zonebourse.com/actualite-bourse/configuration-technique-interessante-ce785bd3dd80ff26"
+            ]
+          },
+          {
+            "key": "underlying",
+            "weight": 5,
+            "score": 25,
+            "available": false,
+            "sources": [
+              "https://www.zonebourse.com/actualite-bourse/configuration-technique-interessante-ce785bd3dd80ff26"
+            ]
+          },
+          {
+            "key": "timing",
+            "weight": 10,
+            "score": 100,
+            "available": true,
+            "sources": [
+              "https://www.zonebourse.com/actualite-bourse/configuration-technique-interessante-ce785bd3dd80ff26"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "eiffage-s-a-6iwsb-20260917",
+      "asset": "EIFFAGE S.A.",
+      "productType": "Turbo",
+      "direction": "CALL",
+      "mnemo": "6IWSB",
+      "isin": "FRBNPP08EU04",
+      "status": "open",
+      "recommendationStatus": "open",
+      "portfolioStatus": "not_held",
+      "entryPrice": 1.04,
+      "currentPrice": null,
+      "exitPrice": null,
+      "entryDate": "2026-09-17",
+      "exitDate": null,
+      "currency": "EUR",
+      "url": "https://www.zonebourse.com/actualite-bourse/des-niveaux-de-prix-interessants-ce785bd3db8ff023",
+      "publishedAt": "2026-09-17T00:00+02:00",
+      "publishedAtPrecision": "date",
+      "detectedAt": "2026-10-12T17:12:22+02:00",
+      "lastSeenOpenAt": "2026-10-12T17:12:22+02:00",
+      "missingOpenCycles": 0,
+      "recommendationIdentity": "FRBNPP08EU04|6IWSB|2026-09-17|zonebourse|recommendation",
+      "contentHash": "9ca4a73bd986af01349a6fd302b41457e01b9ce33f9c7fffc7a3e5c2a12d4f94",
+      "mutationHistory": [],
+      "target": 118.0,
+      "stop": null,
+      "riskLevelsCurrency": "EUR",
+      "note": "Des niveaux de prix intéressants |. Prix d'entrée et ISIN à confirmer depuis la fiche article.",
+      "sourceConfidence": "medium",
+      "confidence": {
+        "kind": "data_quality",
+        "score": 66,
+        "coveragePct": 66,
+        "label": "Données partielles",
+        "operationallyUsable": false,
+        "quoteAgeMinutes": null,
+        "components": [
+          {
+            "key": "recommendation",
+            "weight": 20,
+            "score": 100,
+            "available": true,
+            "sources": [
+              "https://www.zonebourse.com/actualite-bourse/des-niveaux-de-prix-interessants-ce785bd3db8ff023"
+            ]
+          },
+          {
+            "key": "productIdentity",
+            "weight": 15,
+            "score": 100,
+            "available": true,
+            "sources": [
+              "https://www.zonebourse.com/actualite-bourse/des-niveaux-de-prix-interessants-ce785bd3db8ff023"
+            ]
+          },
+          {
+            "key": "tradePlan",
+            "weight": 30,
+            "score": 67,
+            "available": false,
+            "sources": [
+              "https://www.zonebourse.com/actualite-bourse/des-niveaux-de-prix-interessants-ce785bd3db8ff023"
+            ]
+          },
+          {
+            "key": "marketQuote",
+            "weight": 20,
+            "score": 0,
+            "available": false,
+            "sources": [
+              "https://www.zonebourse.com/actualite-bourse/des-niveaux-de-prix-interessants-ce785bd3db8ff023"
+            ]
+          },
+          {
+            "key": "underlying",
+            "weight": 5,
+            "score": 25,
+            "available": false,
+            "sources": [
+              "https://www.zonebourse.com/actualite-bourse/des-niveaux-de-prix-interessants-ce785bd3db8ff023"
+            ]
+          },
+          {
+            "key": "timing",
+            "weight": 10,
+            "score": 100,
+            "available": true,
+            "sources": [
+              "https://www.zonebourse.com/actualite-bourse/des-niveaux-de-prix-interessants-ce785bd3db8ff023"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "axa-8k2wb-20260917",
+      "asset": "AXA",
+      "productType": "Turbo",
+      "direction": "CALL",
+      "mnemo": "8K2WB",
+      "isin": null,
+      "status": "open",
+      "recommendationStatus": "open",
+      "portfolioStatus": "not_held",
+      "entryPrice": null,
+      "currentPrice": null,
+      "exitPrice": null,
+      "entryDate": "2026-09-17",
+      "exitDate": null,
+      "currency": "EUR",
+      "url": "https://www.zonebourse.com/actualite-bourse/une-zone-support-en-renfort-ce785bd3db8df525",
+      "publishedAt": "2026-09-17T00:00+02:00",
+      "publishedAtPrecision": "date",
+      "detectedAt": "2026-10-12T17:12:22+02:00",
+      "lastSeenOpenAt": "2026-10-12T17:12:22+02:00",
+      "missingOpenCycles": 0,
+      "recommendationIdentity": "|8K2WB|2026-09-17|zonebourse|recommendation",
+      "contentHash": "ed96571ede9a51f2b89542c2f9a0323385e30779d74dd89a1d156c266092433c",
+      "mutationHistory": [],
+      "target": null,
+      "stop": null,
+      "riskLevelsCurrency": null,
+      "note": "Une zone support en renfort |. Prix d'entrée et ISIN à confirmer depuis la fiche article.",
+      "sourceConfidence": "medium",
+      "confidence": {
+        "kind": "data_quality",
+        "score": 30,
+        "coveragePct": 30,
+        "label": "Données insuffisantes",
+        "operationallyUsable": false,
+        "quoteAgeMinutes": null,
+        "components": [
+          {
+            "key": "recommendation",
+            "weight": 20,
+            "score": 100,
+            "available": true,
+            "sources": [
+              "https://www.zonebourse.com/actualite-bourse/une-zone-support-en-renfort-ce785bd3db8df525"
+            ]
+          },
+          {
+            "key": "productIdentity",
+            "weight": 15,
+            "score": 0,
+            "available": false,
+            "sources": [
+              "https://www.zonebourse.com/actualite-bourse/une-zone-support-en-renfort-ce785bd3db8df525"
+            ]
+          },
+          {
+            "key": "tradePlan",
+            "weight": 30,
+            "score": 0,
+            "available": false,
+            "sources": [
+              "https://www.zonebourse.com/actualite-bourse/une-zone-support-en-renfort-ce785bd3db8df525"
+            ]
+          },
+          {
+            "key": "marketQuote",
+            "weight": 20,
+            "score": 0,
+            "available": false,
+            "sources": [
+              "https://www.zonebourse.com/actualite-bourse/une-zone-support-en-renfort-ce785bd3db8df525"
+            ]
+          },
+          {
+            "key": "underlying",
+            "weight": 5,
+            "score": 0,
+            "available": false,
+            "sources": [
+              "https://www.zonebourse.com/actualite-bourse/une-zone-support-en-renfort-ce785bd3db8df525"
+            ]
+          },
+          {
+            "key": "timing",
+            "weight": 10,
+            "score": 100,
+            "available": true,
+            "sources": [
+              "https://www.zonebourse.com/actualite-bourse/une-zone-support-en-renfort-ce785bd3db8df525"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "aeroports-de-paris-4ti4b-20260916",
+      "asset": "AÉROPORTS DE PARIS",
+      "productType": "Turbo",
+      "direction": "PUT",
+      "mnemo": "4TI4B",
+      "isin": null,
+      "status": "open",
+      "recommendationStatus": "open",
+      "portfolioStatus": "not_held",
+      "entryPrice": null,
+      "currentPrice": null,
+      "exitPrice": null,
+      "entryDate": "2026-09-16",
+      "exitDate": null,
+      "currency": "EUR",
+      "url": "https://www.zonebourse.com/actualite-bourse/achat-du-turbo-put-bnp-paribas-4ti4b-ce785bd2df8efe20",
+      "publishedAt": "2026-09-16T00:00+02:00",
+      "publishedAtPrecision": "date",
+      "detectedAt": "2026-10-12T17:12:22+02:00",
+      "lastSeenOpenAt": "2026-10-12T17:12:22+02:00",
+      "missingOpenCycles": 0,
+      "recommendationIdentity": "|4TI4B|2026-09-16|zonebourse|recommendation",
+      "contentHash": "f80b8e73359c0b3bb49f91ca9e7e25083e3b918f76d0888f55e001c07d222e8b",
+      "mutationHistory": [],
+      "target": null,
+      "stop": null,
+      "riskLevelsCurrency": null,
+      "note": "Achat du turbo PUT BNP Paribas 4TI4B |. Prix d'entrée et ISIN à confirmer depuis la fiche article.",
+      "sourceConfidence": "medium",
+      "confidence": {
+        "kind": "data_quality",
+        "score": 30,
+        "coveragePct": 30,
+        "label": "Données insuffisantes",
+        "operationallyUsable": false,
+        "quoteAgeMinutes": null,
+        "components": [
+          {
+            "key": "recommendation",
+            "weight": 20,
+            "score": 100,
+            "available": true,
+            "sources": [
+              "https://www.zonebourse.com/actualite-bourse/achat-du-turbo-put-bnp-paribas-4ti4b-ce785bd2df8efe20"
+            ]
+          },
+          {
+            "key": "productIdentity",
+            "weight": 15,
+            "score": 0,
+            "available": false,
+            "sources": [
+              "https://www.zonebourse.com/actualite-bourse/achat-du-turbo-put-bnp-paribas-4ti4b-ce785bd2df8efe20"
+            ]
+          },
+          {
+            "key": "tradePlan",
+            "weight": 30,
+            "score": 0,
+            "available": false,
+            "sources": [
+              "https://www.zonebourse.com/actualite-bourse/achat-du-turbo-put-bnp-paribas-4ti4b-ce785bd2df8efe20"
+            ]
+          },
+          {
+            "key": "marketQuote",
+            "weight": 20,
+            "score": 0,
+            "available": false,
+            "sources": [
+              "https://www.zonebourse.com/actualite-bourse/achat-du-turbo-put-bnp-paribas-4ti4b-ce785bd2df8efe20"
+            ]
+          },
+          {
+            "key": "underlying",
+            "weight": 5,
+            "score": 0,
+            "available": false,
+            "sources": [
+              "https://www.zonebourse.com/actualite-bourse/achat-du-turbo-put-bnp-paribas-4ti4b-ce785bd2df8efe20"
+            ]
+          },
+          {
+            "key": "timing",
+            "weight": 10,
+            "score": 100,
+            "available": true,
+            "sources": [
+              "https://www.zonebourse.com/actualite-bourse/achat-du-turbo-put-bnp-paribas-4ti4b-ce785bd2df8efe20"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "philips-nv-y11tb-20260916",
+      "asset": "PHILIPS NV",
+      "productType": "Turbo",
+      "direction": "CALL",
+      "mnemo": "Y11TB",
+      "isin": null,
+      "status": "open",
+      "recommendationStatus": "open",
+      "portfolioStatus": "not_held",
+      "entryPrice": null,
+      "currentPrice": null,
+      "exitPrice": null,
+      "entryDate": "2026-09-16",
+      "exitDate": null,
+      "currency": "EUR",
+      "url": "https://www.zonebourse.com/actualite-bourse/une-zone-support-en-renfort-ce785bd2db80f321",
+      "publishedAt": "2026-09-16T00:00+02:00",
+      "publishedAtPrecision": "date",
+      "detectedAt": "2026-10-12T17:12:22+02:00",
+      "lastSeenOpenAt": "2026-10-12T17:12:22+02:00",
+      "missingOpenCycles": 0,
+      "recommendationIdentity": "|Y11TB|2026-09-16|zonebourse|recommendation",
+      "contentHash": "891fc7f0a472a7f7348067ee0979984e8e30674db6d603acbfa6ce0c63e0d2f3",
+      "mutationHistory": [],
+      "target": null,
+      "stop": null,
+      "riskLevelsCurrency": null,
+      "note": "Une zone support en renfort |. Prix d'entrée et ISIN à confirmer depuis la fiche article.",
+      "sourceConfidence": "medium",
+      "confidence": {
+        "kind": "data_quality",
+        "score": 30,
+        "coveragePct": 30,
+        "label": "Données insuffisantes",
+        "operationallyUsable": false,
+        "quoteAgeMinutes": null,
+        "components": [
+          {
+            "key": "recommendation",
+            "weight": 20,
+            "score": 100,
+            "available": true,
+            "sources": [
+              "https://www.zonebourse.com/actualite-bourse/une-zone-support-en-renfort-ce785bd2db80f321"
+            ]
+          },
+          {
+            "key": "productIdentity",
+            "weight": 15,
+            "score": 0,
+            "available": false,
+            "sources": [
+              "https://www.zonebourse.com/actualite-bourse/une-zone-support-en-renfort-ce785bd2db80f321"
+            ]
+          },
+          {
+            "key": "tradePlan",
+            "weight": 30,
+            "score": 0,
+            "available": false,
+            "sources": [
+              "https://www.zonebourse.com/actualite-bourse/une-zone-support-en-renfort-ce785bd2db80f321"
+            ]
+          },
+          {
+            "key": "marketQuote",
+            "weight": 20,
+            "score": 0,
+            "available": false,
+            "sources": [
+              "https://www.zonebourse.com/actualite-bourse/une-zone-support-en-renfort-ce785bd2db80f321"
+            ]
+          },
+          {
+            "key": "underlying",
+            "weight": 5,
+            "score": 0,
+            "available": false,
+            "sources": [
+              "https://www.zonebourse.com/actualite-bourse/une-zone-support-en-renfort-ce785bd2db80f321"
+            ]
+          },
+          {
+            "key": "timing",
+            "weight": 10,
+            "score": 100,
+            "available": true,
+            "sources": [
+              "https://www.zonebourse.com/actualite-bourse/une-zone-support-en-renfort-ce785bd2db80f321"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "veolia-environnement-3pkjb-20260911",
+      "asset": "VEOLIA ENVIRONNEMENT",
+      "productType": "Turbo",
+      "direction": "CALL",
+      "mnemo": "3PKJB",
+      "isin": null,
+      "status": "open",
+      "recommendationStatus": "open",
+      "portfolioStatus": "not_held",
+      "entryPrice": null,
+      "currentPrice": null,
+      "exitPrice": null,
+      "entryDate": "2026-09-11",
+      "exitDate": null,
+      "currency": "EUR",
+      "url": "https://www.zonebourse.com/actualite-bourse/des-niveaux-de-prix-interessants-ce785bdfdb8ef423",
+      "publishedAt": "2026-09-11T00:00+02:00",
+      "publishedAtPrecision": "date",
+      "detectedAt": "2026-10-12T17:12:22+02:00",
+      "lastSeenOpenAt": "2026-10-12T17:12:22+02:00",
+      "missingOpenCycles": 0,
+      "recommendationIdentity": "|3PKJB|2026-09-11|zonebourse|recommendation",
+      "contentHash": "93f22bfcdc4fe94c63d1c43dd4ae3854017515816f7cecb89eeb341a1d5228ac",
+      "mutationHistory": [],
+      "target": null,
+      "stop": null,
+      "riskLevelsCurrency": null,
+      "note": "Des niveaux de prix intéressants |. Prix d'entrée et ISIN à confirmer depuis la fiche article.",
+      "sourceConfidence": "medium",
+      "confidence": {
+        "kind": "data_quality",
+        "score": 30,
+        "coveragePct": 30,
+        "label": "Données insuffisantes",
+        "operationallyUsable": false,
+        "quoteAgeMinutes": null,
+        "components": [
+          {
+            "key": "recommendation",
+            "weight": 20,
+            "score": 100,
+            "available": true,
+            "sources": [
+              "https://www.zonebourse.com/actualite-bourse/des-niveaux-de-prix-interessants-ce785bdfdb8ef423"
+            ]
+          },
+          {
+            "key": "productIdentity",
+            "weight": 15,
+            "score": 0,
+            "available": false,
+            "sources": [
+              "https://www.zonebourse.com/actualite-bourse/des-niveaux-de-prix-interessants-ce785bdfdb8ef423"
+            ]
+          },
+          {
+            "key": "tradePlan",
+            "weight": 30,
+            "score": 0,
+            "available": false,
+            "sources": [
+              "https://www.zonebourse.com/actualite-bourse/des-niveaux-de-prix-interessants-ce785bdfdb8ef423"
+            ]
+          },
+          {
+            "key": "marketQuote",
+            "weight": 20,
+            "score": 0,
+            "available": false,
+            "sources": [
+              "https://www.zonebourse.com/actualite-bourse/des-niveaux-de-prix-interessants-ce785bdfdb8ef423"
+            ]
+          },
+          {
+            "key": "underlying",
+            "weight": 5,
+            "score": 0,
+            "available": false,
+            "sources": [
+              "https://www.zonebourse.com/actualite-bourse/des-niveaux-de-prix-interessants-ce785bdfdb8ef423"
+            ]
+          },
+          {
+            "key": "timing",
+            "weight": 10,
+            "score": 100,
+            "available": true,
+            "sources": [
+              "https://www.zonebourse.com/actualite-bourse/des-niveaux-de-prix-interessants-ce785bdfdb8ef423"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "pernod-ricard-4ym3b-20260909",
+      "asset": "PERNOD RICARD",
+      "productType": "Turbo",
+      "direction": "CALL",
+      "mnemo": "4YM3B",
+      "isin": null,
+      "status": "open",
+      "recommendationStatus": "open",
+      "portfolioStatus": "not_held",
+      "entryPrice": null,
+      "currentPrice": null,
+      "exitPrice": null,
+      "entryDate": "2026-09-09",
+      "exitDate": null,
+      "currency": "EUR",
+      "url": "https://www.zonebourse.com/actualite-bourse/un-niveau-d-achat-ce785bd9dd80f625",
+      "publishedAt": "2026-09-09T00:00+02:00",
+      "publishedAtPrecision": "date",
+      "detectedAt": "2026-10-12T17:12:22+02:00",
+      "lastSeenOpenAt": "2026-10-12T17:12:22+02:00",
+      "missingOpenCycles": 0,
+      "recommendationIdentity": "|4YM3B|2026-09-09|zonebourse|recommendation",
+      "contentHash": "8a0565c2065ad50aa36b4cf0ca5c65ecc227c346e8f8afafd62e9ab0cf270df4",
+      "mutationHistory": [],
+      "target": null,
+      "stop": null,
+      "riskLevelsCurrency": null,
+      "note": "Un niveau d'achat |. Prix d'entrée et ISIN à confirmer depuis la fiche article.",
+      "sourceConfidence": "medium",
+      "confidence": {
+        "kind": "data_quality",
+        "score": 30,
+        "coveragePct": 30,
+        "label": "Données insuffisantes",
+        "operationallyUsable": false,
+        "quoteAgeMinutes": null,
+        "components": [
+          {
+            "key": "recommendation",
+            "weight": 20,
+            "score": 100,
+            "available": true,
+            "sources": [
+              "https://www.zonebourse.com/actualite-bourse/un-niveau-d-achat-ce785bd9dd80f625"
+            ]
+          },
+          {
+            "key": "productIdentity",
+            "weight": 15,
+            "score": 0,
+            "available": false,
+            "sources": [
+              "https://www.zonebourse.com/actualite-bourse/un-niveau-d-achat-ce785bd9dd80f625"
+            ]
+          },
+          {
+            "key": "tradePlan",
+            "weight": 30,
+            "score": 0,
+            "available": false,
+            "sources": [
+              "https://www.zonebourse.com/actualite-bourse/un-niveau-d-achat-ce785bd9dd80f625"
+            ]
+          },
+          {
+            "key": "marketQuote",
+            "weight": 20,
+            "score": 0,
+            "available": false,
+            "sources": [
+              "https://www.zonebourse.com/actualite-bourse/un-niveau-d-achat-ce785bd9dd80f625"
+            ]
+          },
+          {
+            "key": "underlying",
+            "weight": 5,
+            "score": 0,
+            "available": false,
+            "sources": [
+              "https://www.zonebourse.com/actualite-bourse/un-niveau-d-achat-ce785bd9dd80f625"
+            ]
+          },
+          {
+            "key": "timing",
+            "weight": 10,
+            "score": 100,
+            "available": true,
+            "sources": [
+              "https://www.zonebourse.com/actualite-bourse/un-niveau-d-achat-ce785bd9dd80f625"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "nexans-00q7b-20260908",
+      "asset": "NEXANS",
+      "productType": "Turbo",
+      "direction": "CALL",
+      "mnemo": "00Q7B",
+      "isin": null,
+      "status": "open",
+      "recommendationStatus": "open",
+      "portfolioStatus": "not_held",
+      "entryPrice": null,
+      "currentPrice": null,
+      "exitPrice": null,
+      "entryDate": "2026-09-08",
+      "exitDate": null,
+      "currency": "EUR",
+      "url": "https://www.zonebourse.com/actualite-bourse/de-retour-sur-le-support-ce785bd8da89f626",
+      "publishedAt": "2026-09-08T00:00+02:00",
+      "publishedAtPrecision": "date",
+      "detectedAt": "2026-10-12T17:12:22+02:00",
+      "lastSeenOpenAt": "2026-10-12T17:12:22+02:00",
+      "missingOpenCycles": 0,
+      "recommendationIdentity": "|00Q7B|2026-09-08|zonebourse|recommendation",
+      "contentHash": "9a1a66a8966d28310667e6bf8a133c9b80492f1b3ed7976c7d2dedc705e0562d",
+      "mutationHistory": [],
+      "target": null,
+      "stop": null,
+      "riskLevelsCurrency": null,
+      "note": "De retour sur le support |. Prix d'entrée et ISIN à confirmer depuis la fiche article.",
+      "sourceConfidence": "medium",
+      "confidence": {
+        "kind": "data_quality",
+        "score": 30,
+        "coveragePct": 30,
+        "label": "Données insuffisantes",
+        "operationallyUsable": false,
+        "quoteAgeMinutes": null,
+        "components": [
+          {
+            "key": "recommendation",
+            "weight": 20,
+            "score": 100,
+            "available": true,
+            "sources": [
+              "https://www.zonebourse.com/actualite-bourse/de-retour-sur-le-support-ce785bd8da89f626"
+            ]
+          },
+          {
+            "key": "productIdentity",
+            "weight": 15,
+            "score": 0,
+            "available": false,
+            "sources": [
+              "https://www.zonebourse.com/actualite-bourse/de-retour-sur-le-support-ce785bd8da89f626"
+            ]
+          },
+          {
+            "key": "tradePlan",
+            "weight": 30,
+            "score": 0,
+            "available": false,
+            "sources": [
+              "https://www.zonebourse.com/actualite-bourse/de-retour-sur-le-support-ce785bd8da89f626"
+            ]
+          },
+          {
+            "key": "marketQuote",
+            "weight": 20,
+            "score": 0,
+            "available": false,
+            "sources": [
+              "https://www.zonebourse.com/actualite-bourse/de-retour-sur-le-support-ce785bd8da89f626"
+            ]
+          },
+          {
+            "key": "underlying",
+            "weight": 5,
+            "score": 0,
+            "available": false,
+            "sources": [
+              "https://www.zonebourse.com/actualite-bourse/de-retour-sur-le-support-ce785bd8da89f626"
+            ]
+          },
+          {
+            "key": "timing",
+            "weight": 10,
+            "score": 100,
+            "available": true,
+            "sources": [
+              "https://www.zonebourse.com/actualite-bourse/de-retour-sur-le-support-ce785bd8da89f626"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "legrand-c22as-20260908",
+      "asset": "LEGRAND",
+      "productType": "Turbo",
+      "direction": "CALL",
+      "mnemo": "C22AS",
+      "isin": null,
+      "status": "open",
+      "recommendationStatus": "open",
+      "portfolioStatus": "not_held",
+      "entryPrice": null,
+      "currentPrice": null,
+      "exitPrice": null,
+      "entryDate": "2026-09-08",
+      "exitDate": null,
+      "currency": "EUR",
+      "url": "https://www.zonebourse.com/actualite-bourse/achat-du-turbo-call-societe-generale-c22as-ce785bd8db81f327",
+      "publishedAt": "2026-09-08T00:00+02:00",
+      "publishedAtPrecision": "date",
+      "detectedAt": "2026-10-12T17:12:22+02:00",
+      "lastSeenOpenAt": "2026-10-12T17:12:22+02:00",
+      "missingOpenCycles": 0,
+      "recommendationIdentity": "|C22AS|2026-09-08|zonebourse|recommendation",
+      "contentHash": "af6a71896ed2a7a31b0fd065b94d6a1526e586d247dec2df681c8d2731bfdf74",
+      "mutationHistory": [],
+      "target": null,
+      "stop": null,
+      "riskLevelsCurrency": null,
+      "note": "Achat du turbo CALL Société Générale C22AS |. Prix d'entrée et ISIN à confirmer depuis la fiche article.",
+      "sourceConfidence": "medium",
+      "confidence": {
+        "kind": "data_quality",
+        "score": 30,
+        "coveragePct": 30,
+        "label": "Données insuffisantes",
+        "operationallyUsable": false,
+        "quoteAgeMinutes": null,
+        "components": [
+          {
+            "key": "recommendation",
+            "weight": 20,
+            "score": 100,
+            "available": true,
+            "sources": [
+              "https://www.zonebourse.com/actualite-bourse/achat-du-turbo-call-societe-generale-c22as-ce785bd8db81f327"
+            ]
+          },
+          {
+            "key": "productIdentity",
+            "weight": 15,
+            "score": 0,
+            "available": false,
+            "sources": [
+              "https://www.zonebourse.com/actualite-bourse/achat-du-turbo-call-societe-generale-c22as-ce785bd8db81f327"
+            ]
+          },
+          {
+            "key": "tradePlan",
+            "weight": 30,
+            "score": 0,
+            "available": false,
+            "sources": [
+              "https://www.zonebourse.com/actualite-bourse/achat-du-turbo-call-societe-generale-c22as-ce785bd8db81f327"
+            ]
+          },
+          {
+            "key": "marketQuote",
+            "weight": 20,
+            "score": 0,
+            "available": false,
+            "sources": [
+              "https://www.zonebourse.com/actualite-bourse/achat-du-turbo-call-societe-generale-c22as-ce785bd8db81f327"
+            ]
+          },
+          {
+            "key": "underlying",
+            "weight": 5,
+            "score": 0,
+            "available": false,
+            "sources": [
+              "https://www.zonebourse.com/actualite-bourse/achat-du-turbo-call-societe-generale-c22as-ce785bd8db81f327"
+            ]
+          },
+          {
+            "key": "timing",
+            "weight": 10,
+            "score": 100,
+            "available": true,
+            "sources": [
+              "https://www.zonebourse.com/actualite-bourse/achat-du-turbo-call-societe-generale-c22as-ce785bd8db81f327"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "ferrari-n-v-g61es-20260904",
+      "asset": "FERRARI N.V.",
+      "productType": "Turbo",
+      "direction": "CALL",
+      "mnemo": "G61ES",
+      "isin": null,
+      "status": "open",
+      "recommendationStatus": "open",
+      "portfolioStatus": "not_held",
+      "entryPrice": null,
+      "currentPrice": null,
+      "exitPrice": null,
+      "entryDate": "2026-09-04",
+      "exitDate": null,
+      "currency": "EUR",
+      "url": "https://www.zonebourse.com/actualite-bourse/un-support-moyen-terme-a-exploiter-ce785bdadf8ef12d",
+      "publishedAt": "2026-09-04T00:00+02:00",
+      "publishedAtPrecision": "date",
+      "detectedAt": "2026-10-12T17:12:22+02:00",
+      "lastSeenOpenAt": "2026-10-12T17:12:22+02:00",
+      "missingOpenCycles": 0,
+      "recommendationIdentity": "|G61ES|2026-09-04|zonebourse|recommendation",
+      "contentHash": "b8f6f7bd2236af6052966a89986b5eb1eb6b73b61e23241fdea0154d03b1e558",
+      "mutationHistory": [],
+      "target": null,
+      "stop": null,
+      "riskLevelsCurrency": null,
+      "note": "Un support moyen terme à exploiter |. Prix d'entrée et ISIN à confirmer depuis la fiche article.",
+      "sourceConfidence": "medium",
+      "confidence": {
+        "kind": "data_quality",
+        "score": 30,
+        "coveragePct": 30,
+        "label": "Données insuffisantes",
+        "operationallyUsable": false,
+        "quoteAgeMinutes": null,
+        "components": [
+          {
+            "key": "recommendation",
+            "weight": 20,
+            "score": 100,
+            "available": true,
+            "sources": [
+              "https://www.zonebourse.com/actualite-bourse/un-support-moyen-terme-a-exploiter-ce785bdadf8ef12d"
+            ]
+          },
+          {
+            "key": "productIdentity",
+            "weight": 15,
+            "score": 0,
+            "available": false,
+            "sources": [
+              "https://www.zonebourse.com/actualite-bourse/un-support-moyen-terme-a-exploiter-ce785bdadf8ef12d"
+            ]
+          },
+          {
+            "key": "tradePlan",
+            "weight": 30,
+            "score": 0,
+            "available": false,
+            "sources": [
+              "https://www.zonebourse.com/actualite-bourse/un-support-moyen-terme-a-exploiter-ce785bdadf8ef12d"
+            ]
+          },
+          {
+            "key": "marketQuote",
+            "weight": 20,
+            "score": 0,
+            "available": false,
+            "sources": [
+              "https://www.zonebourse.com/actualite-bourse/un-support-moyen-terme-a-exploiter-ce785bdadf8ef12d"
+            ]
+          },
+          {
+            "key": "underlying",
+            "weight": 5,
+            "score": 0,
+            "available": false,
+            "sources": [
+              "https://www.zonebourse.com/actualite-bourse/un-support-moyen-terme-a-exploiter-ce785bdadf8ef12d"
+            ]
+          },
+          {
+            "key": "timing",
+            "weight": 10,
+            "score": 100,
+            "available": true,
+            "sources": [
+              "https://www.zonebourse.com/actualite-bourse/un-support-moyen-terme-a-exploiter-ce785bdadf8ef12d"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "air-france-klm-8dpyb-20260904",
+      "asset": "AIR FRANCE-KLM",
+      "productType": "Turbo",
+      "direction": "CALL",
+      "mnemo": "8DPYB",
+      "isin": null,
+      "status": "open",
+      "recommendationStatus": "open",
+      "portfolioStatus": "not_held",
+      "entryPrice": null,
+      "currentPrice": null,
+      "exitPrice": null,
+      "entryDate": "2026-09-04",
+      "exitDate": null,
+      "currency": "EUR",
+      "url": "https://www.zonebourse.com/actualite-bourse/les-cours-devraient-se-reprendre-ce785bdadf8cf124",
+      "publishedAt": "2026-09-04T00:00+02:00",
+      "publishedAtPrecision": "date",
+      "detectedAt": "2026-10-12T17:12:22+02:00",
+      "lastSeenOpenAt": "2026-10-12T17:12:22+02:00",
+      "missingOpenCycles": 0,
+      "recommendationIdentity": "|8DPYB|2026-09-04|zonebourse|recommendation",
+      "contentHash": "e1d7f1877a130f11951017ee3c517945c66aa26e40434f1919a1081d11b7ecbe",
+      "mutationHistory": [],
+      "target": null,
+      "stop": null,
+      "riskLevelsCurrency": null,
+      "note": "Les cours devraient se reprendre |. Prix d'entrée et ISIN à confirmer depuis la fiche article.",
+      "sourceConfidence": "medium",
+      "confidence": {
+        "kind": "data_quality",
+        "score": 30,
+        "coveragePct": 30,
+        "label": "Données insuffisantes",
+        "operationallyUsable": false,
+        "quoteAgeMinutes": null,
+        "components": [
+          {
+            "key": "recommendation",
+            "weight": 20,
+            "score": 100,
+            "available": true,
+            "sources": [
+              "https://www.zonebourse.com/actualite-bourse/les-cours-devraient-se-reprendre-ce785bdadf8cf124"
+            ]
+          },
+          {
+            "key": "productIdentity",
+            "weight": 15,
+            "score": 0,
+            "available": false,
+            "sources": [
+              "https://www.zonebourse.com/actualite-bourse/les-cours-devraient-se-reprendre-ce785bdadf8cf124"
+            ]
+          },
+          {
+            "key": "tradePlan",
+            "weight": 30,
+            "score": 0,
+            "available": false,
+            "sources": [
+              "https://www.zonebourse.com/actualite-bourse/les-cours-devraient-se-reprendre-ce785bdadf8cf124"
+            ]
+          },
+          {
+            "key": "marketQuote",
+            "weight": 20,
+            "score": 0,
+            "available": false,
+            "sources": [
+              "https://www.zonebourse.com/actualite-bourse/les-cours-devraient-se-reprendre-ce785bdadf8cf124"
+            ]
+          },
+          {
+            "key": "underlying",
+            "weight": 5,
+            "score": 0,
+            "available": false,
+            "sources": [
+              "https://www.zonebourse.com/actualite-bourse/les-cours-devraient-se-reprendre-ce785bdadf8cf124"
+            ]
+          },
+          {
+            "key": "timing",
+            "weight": 10,
+            "score": 100,
+            "available": true,
+            "sources": [
+              "https://www.zonebourse.com/actualite-bourse/les-cours-devraient-se-reprendre-ce785bdadf8cf124"
             ]
           }
         ]
