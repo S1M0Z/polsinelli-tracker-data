@@ -1,14 +1,14 @@
 {
   "meta": {
-    "generatedAt": "2026-10-12T17:12:22+02:00",
+    "generatedAt": "2026-10-13T16:03:59+02:00",
     "source": "Zonebourse / recommandations produits dérivés",
     "coverageStart": "2026-03-17",
     "mode": "scanned",
     "automaticSync": true,
     "openRecommendationCount": 25,
-    "lastPublicationCheckedAt": "2026-10-12T17:12:22+02:00",
+    "lastPublicationCheckedAt": "2026-10-13T16:03:59+02:00",
     "warning": "Les performances clôturées reprennent les prix d'entrée et de sortie publiés par Zonebourse. Elles excluent les frais, le spread et le slippage.",
-    "marketDataUpdatedAt": "2026-10-12T15:15:00+00:00",
+    "marketDataUpdatedAt": "2026-10-13T14:06:54+00:00",
     "analysts": [
       {
         "id": "laurent-polsinelli",
@@ -34,22 +34,23 @@
     "schemaVersion": 2,
     "sourceHealth": {
       "status": "degraded",
-      "attemptedAt": "2026-10-12T17:12:22+02:00",
-      "lastSuccessAt": "2026-10-12T17:12:22+02:00",
+      "attemptedAt": "2026-10-13T16:03:59+02:00",
+      "lastSuccessAt": "2026-10-13T16:03:59+02:00",
       "consecutiveFailures": 0,
       "errors": [
         "https://www.zonebourse.com/bourse/derives/recommandations/: aucune recommandation extraite",
         "https://ch.zonebourse.com/bourse/derives/recommandations/: aucune recommandation extraite",
-        "https://www.zonebourse.com/bourse/derives/recommandations/historique/: aucune recommandation extraite"
+        "https://www.zonebourse.com/bourse/derives/recommandations/historique/: aucune recommandation extraite",
+        "DM92V: IncompleteRead(0 bytes read)"
       ]
     },
     "marketDataHealth": {
       "status": "degraded",
-      "attemptedAt": "2026-10-12T15:15:00+00:00",
+      "attemptedAt": "2026-10-13T14:06:54+00:00",
       "quotesAdded": 6,
       "positionsUpdated": 6,
-      "skippedCount": 28,
-      "errorCount": 19,
+      "skippedCount": 20,
+      "errorCount": 28,
       "skipped": [
         "russell-2000-mu13v-20260807: valid ISIN required for Euronext",
         "gold-vu91v-20260807: valid ISIN required for Euronext",
@@ -70,12 +71,7 @@
         "bnp-paribas-bm99v-20260624: valid ISIN required for Euronext",
         "danone-s4tkb-20260624: valid ISIN required for Euronext",
         "axa-ao22v-20260622: valid ISIN required for Euronext",
-        "axa-8k2wb-20260917: valid ISIN required for Euronext",
-        "aeroports-de-paris-4ti4b-20260916: valid ISIN required for Euronext",
-        "philips-nv-y11tb-20260916: valid ISIN required for Euronext",
-        "veolia-environnement-3pkjb-20260911: valid ISIN required for Euronext",
-        "pernod-ricard-4ym3b-20260909: valid ISIN required for Euronext",
-        "nexans-00q7b-20260908: valid ISIN required for Euronext"
+        "air-france-klm-8dpyb-20260904: valid ISIN required for Euronext"
       ],
       "errors": [
         "totalenergies-lt07v-20260724 underlying: Euronext returned no confirmed underlying quote for FR0000120271-XPAR",
@@ -96,21 +92,26 @@
         "Browser HTTP 403 for https://live.euronext.com/en/product/structured-products/DE000VJ1XC91-XMLI",
         "Browser HTTP 403 for https://live.euronext.com/en/product/structured-products/FRBNPP097G91-XMLI",
         "Browser HTTP 403 for https://live.euronext.com/en/product/structured-products/DE000FE01AG1-XMLI",
-        "Browser HTTP 403 for https://live.euronext.com/en/product/structured-products/FRBNPP08EU04-XMLI"
+        "Browser HTTP 403 for https://live.euronext.com/en/product/structured-products/FRBNPP08EU04-XMLI",
+        "Browser HTTP 403 for https://live.euronext.com/en/product/structured-products/FRBNPP1115J9-XMLI",
+        "Browser HTTP 403 for https://live.euronext.com/en/product/structured-products/FRBNPP10B455-XMLI",
+        "Browser HTTP 403 for https://live.euronext.com/en/product/structured-products/FRBNPP08Y9L3-XMLI",
+        "Browser HTTP 403 for https://live.euronext.com/en/product/structured-products/FRBNPP051YO6-XMLI",
+        "Browser HTTP 403 for https://live.euronext.com/en/product/structured-products/FRBNPP10D006-XMLI",
+        "Browser HTTP 403 for https://live.euronext.com/en/product/structured-products/FRBNPP094LD6-XMLI"
       ],
       "consecutiveFailures": 0,
-      "lastSuccessAt": "2026-10-12T15:15:00+00:00"
+      "lastSuccessAt": "2026-10-13T14:06:54+00:00"
     },
     "articleEnrichmentQueue": [
-      "https://www.zonebourse.com/actualite-bourse/une-zone-support-en-renfort-ce785bd3db8df525",
-      "https://www.zonebourse.com/actualite-bourse/achat-du-turbo-put-bnp-paribas-4ti4b-ce785bd2df8efe20",
-      "https://www.zonebourse.com/actualite-bourse/une-zone-support-en-renfort-ce785bd2db80f321",
-      "https://www.zonebourse.com/actualite-bourse/des-niveaux-de-prix-interessants-ce785bdfdb8ef423",
-      "https://www.zonebourse.com/actualite-bourse/un-niveau-d-achat-ce785bd9dd80f625",
-      "https://www.zonebourse.com/actualite-bourse/de-retour-sur-le-support-ce785bd8da89f626",
-      "https://www.zonebourse.com/actualite-bourse/achat-du-turbo-call-societe-generale-c22as-ce785bd8db81f327",
-      "https://www.zonebourse.com/actualite-bourse/un-support-moyen-terme-a-exploiter-ce785bdadf8ef12d",
-      "https://www.zonebourse.com/actualite-bourse/les-cours-devraient-se-reprendre-ce785bdadf8cf124"
+      "https://www.zonebourse.com/actualite-bourse/excessivement-sanctionne--ce785dded189f62d",
+      "https://www.zonebourse.com/actualite-bourse/de-retour-sur-le-support-ce785ad3de8df620",
+      "https://www.zonebourse.com/actualite-bourse/une-reprise-a-anticiper-ce785adddd8ff42d",
+      "https://www.zonebourse.com/actualite-bourse/achat-du-turbo-call-vontobel-ge85v-ce785addda8df423",
+      "https://www.zonebourse.com/actualite-bourse/de-retour-sur-le-support-ce785ad8d88af72c",
+      "https://www.zonebourse.com/actualite-bourse/une-reprise-a-anticiper-ce785adbdc8cfe25",
+      "https://www.zonebourse.com/actualite-bourse/configuration-technique-interessante-ce785bd3dd80ff26",
+      "https://www.zonebourse.com/actualite-bourse/des-niveaux-de-prix-interessants-ce785bd3db8ff023"
     ]
   },
   "positions": [
@@ -148,11 +149,11 @@
       "isin": "DE000VY0NFK5",
       "status": "open",
       "entryPrice": 0.87,
-      "currentPrice": 0.485,
+      "currentPrice": 0.445,
       "exitPrice": null,
       "entryDate": "2026-07-24",
       "exitDate": null,
-      "quoteAt": "2026-10-12T15:00:00+00:00",
+      "quoteAt": "2026-10-13T14:04:00+00:00",
       "target": 70,
       "stop": 79.2,
       "underlyingThreshold": 75.94,
@@ -160,12 +161,12 @@
       "url": "https://www.zonebourse.com/actualite-bourse/correction-technique-en-vue-ce7f51dfda8df125",
       "note": "Correction technique anticipée vers 70 € après approche de la résistance à 77,60 €.",
       "sourceConfidence": "high",
-      "bid": 0.48,
-      "ask": 0.49,
+      "bid": 0.44,
+      "ask": 0.45,
       "marketDataProvider": "euronext",
       "marketDataSourceUrl": "https://live.euronext.com/en/product/structured-products/DE000VY0NFK5-XMLI",
-      "marketDataRetrievedAt": "2026-10-12T15:15:06+00:00",
-      "marketDataDelayMinutes": 15,
+      "marketDataRetrievedAt": "2026-10-13T14:07:01+00:00",
+      "marketDataDelayMinutes": 3,
       "recommendationStatus": "PENDING_RECONCILIATION",
       "portfolioStatus": "not_held",
       "mutationHistory": [
@@ -173,9 +174,14 @@
           "changedAt": "2026-10-12T17:12:22+02:00",
           "eventType": "missing_from_open_listing",
           "missingOpenCycles": 1
+        },
+        {
+          "changedAt": "2026-10-13T16:03:59+02:00",
+          "eventType": "missing_from_open_listing",
+          "missingOpenCycles": 2
         }
       ],
-      "missingOpenCycles": 1,
+      "missingOpenCycles": 2,
       "riskLevelsCurrency": "EUR",
       "timestampSource": "euronext_page",
       "marketStatus": "open",
@@ -187,7 +193,7 @@
         "coveragePct": 86,
         "label": "Données partielles",
         "operationallyUsable": false,
-        "quoteAgeMinutes": 15.88,
+        "quoteAgeMinutes": 3.81,
         "components": [
           {
             "key": "recommendation",
@@ -422,11 +428,11 @@
       "isin": "DE000VY3GDC5",
       "status": "open",
       "entryPrice": 1.24,
-      "currentPrice": 0.485,
+      "currentPrice": 0.445,
       "exitPrice": null,
       "entryDate": "2026-07-21",
       "exitDate": null,
-      "quoteAt": "2026-10-12T15:03:00+00:00",
+      "quoteAt": "2026-10-13T13:59:00+00:00",
       "target": 290,
       "stop": 342,
       "underlyingThreshold": 326.59,
@@ -434,12 +440,12 @@
       "url": "https://www.zonebourse.com/actualite-bourse/besoin-de-souffler-ce7f51d8d88eff21",
       "note": "Scénario de correction après zone de surachat.",
       "sourceConfidence": "high",
-      "bid": 0.48,
-      "ask": 0.49,
+      "bid": 0.44,
+      "ask": 0.45,
       "marketDataProvider": "euronext",
       "marketDataSourceUrl": "https://live.euronext.com/en/product/structured-products/DE000VY3GDC5-XMLI",
-      "marketDataRetrievedAt": "2026-10-12T15:15:17+00:00",
-      "marketDataDelayMinutes": 12,
+      "marketDataRetrievedAt": "2026-10-13T14:07:13+00:00",
+      "marketDataDelayMinutes": 8,
       "recommendationStatus": "PENDING_RECONCILIATION",
       "portfolioStatus": "not_held",
       "mutationHistory": [
@@ -447,9 +453,14 @@
           "changedAt": "2026-10-12T17:12:22+02:00",
           "eventType": "missing_from_open_listing",
           "missingOpenCycles": 1
+        },
+        {
+          "changedAt": "2026-10-13T16:03:59+02:00",
+          "eventType": "missing_from_open_listing",
+          "missingOpenCycles": 2
         }
       ],
-      "missingOpenCycles": 1,
+      "missingOpenCycles": 2,
       "riskLevelsCurrency": "USD",
       "timestampSource": "euronext_page",
       "marketStatus": "open",
@@ -461,7 +472,7 @@
         "coveragePct": 86,
         "label": "Données partielles",
         "operationallyUsable": false,
-        "quoteAgeMinutes": 12.88,
+        "quoteAgeMinutes": 8.81,
         "components": [
           {
             "key": "recommendation",
@@ -577,11 +588,11 @@
       "isin": "DE000VY3Z5D1",
       "status": "open",
       "entryPrice": 3.86,
-      "currentPrice": 3.435,
+      "currentPrice": 3.1950000000000003,
       "exitPrice": null,
       "entryDate": "2026-07-16",
       "exitDate": null,
-      "quoteAt": "2026-10-12T15:13:00+00:00",
+      "quoteAt": "2026-10-13T14:04:00+00:00",
       "target": 395,
       "stop": 430,
       "underlyingThreshold": 416.4,
@@ -589,12 +600,12 @@
       "url": "https://www.zonebourse.com/actualite-bourse/une-correction-technique-en-formation-ce7f5ed2de8ef427",
       "note": "Scénario baissier. L'intitulé et le scénario classent le produit en PUT malgré une incohérence de sens dans la fiche statique Zonebourse.",
       "sourceConfidence": "high",
-      "bid": 3.43,
-      "ask": 3.44,
+      "bid": 3.19,
+      "ask": 3.2,
       "marketDataProvider": "euronext",
       "marketDataSourceUrl": "https://live.euronext.com/en/product/structured-products/DE000VY3Z5D1-XMLI",
-      "marketDataRetrievedAt": "2026-10-12T15:15:22+00:00",
-      "marketDataDelayMinutes": 2,
+      "marketDataRetrievedAt": "2026-10-13T14:07:17+00:00",
+      "marketDataDelayMinutes": 3,
       "recommendationStatus": "PENDING_RECONCILIATION",
       "portfolioStatus": "not_held",
       "mutationHistory": [
@@ -602,9 +613,14 @@
           "changedAt": "2026-10-12T17:12:22+02:00",
           "eventType": "missing_from_open_listing",
           "missingOpenCycles": 1
+        },
+        {
+          "changedAt": "2026-10-13T16:03:59+02:00",
+          "eventType": "missing_from_open_listing",
+          "missingOpenCycles": 2
         }
       ],
-      "missingOpenCycles": 1,
+      "missingOpenCycles": 2,
       "riskLevelsCurrency": "EUR",
       "timestampSource": "euronext_page",
       "marketStatus": "open",
@@ -616,7 +632,7 @@
         "coveragePct": 86,
         "label": "Données partielles",
         "operationallyUsable": false,
-        "quoteAgeMinutes": 2.88,
+        "quoteAgeMinutes": 3.81,
         "components": [
           {
             "key": "recommendation",
@@ -684,11 +700,11 @@
       "isin": "DE000FE3FPS1",
       "status": "open",
       "entryPrice": 1.68,
-      "currentPrice": 1.3849999999999998,
+      "currentPrice": 1.415,
       "exitPrice": null,
       "entryDate": "2026-07-15",
       "exitDate": null,
-      "quoteAt": "2026-10-12T15:13:00+00:00",
+      "quoteAt": "2026-10-13T13:59:00+00:00",
       "target": 150,
       "stop": 124,
       "underlyingThreshold": 135.7,
@@ -696,12 +712,12 @@
       "url": "https://www.zonebourse.com/actualite-bourse/une-opportunite-a-court-terme-ce7f5eddd181f022",
       "note": "Rebond technique anticipé depuis une zone survendue.",
       "sourceConfidence": "high",
-      "bid": 1.38,
-      "ask": 1.39,
+      "bid": 1.41,
+      "ask": 1.42,
       "marketDataProvider": "euronext",
       "marketDataSourceUrl": "https://live.euronext.com/en/product/structured-products/DE000FE3FPS1-XMLI",
-      "marketDataRetrievedAt": "2026-10-12T15:15:27+00:00",
-      "marketDataDelayMinutes": 2,
+      "marketDataRetrievedAt": "2026-10-13T14:07:24+00:00",
+      "marketDataDelayMinutes": 8,
       "recommendationStatus": "PENDING_RECONCILIATION",
       "portfolioStatus": "not_held",
       "mutationHistory": [
@@ -709,9 +725,14 @@
           "changedAt": "2026-10-12T17:12:22+02:00",
           "eventType": "missing_from_open_listing",
           "missingOpenCycles": 1
+        },
+        {
+          "changedAt": "2026-10-13T16:03:59+02:00",
+          "eventType": "missing_from_open_listing",
+          "missingOpenCycles": 2
         }
       ],
-      "missingOpenCycles": 1,
+      "missingOpenCycles": 2,
       "riskLevelsCurrency": "EUR",
       "timestampSource": "euronext_page",
       "marketStatus": "open",
@@ -723,7 +744,7 @@
         "coveragePct": 86,
         "label": "Données partielles",
         "operationallyUsable": false,
-        "quoteAgeMinutes": 2.88,
+        "quoteAgeMinutes": 8.81,
         "components": [
           {
             "key": "recommendation",
@@ -791,11 +812,11 @@
       "isin": "NLBNPFR2CD04",
       "status": "open",
       "entryPrice": 3.06,
-      "currentPrice": 1.7349999999999999,
+      "currentPrice": 1.6150000000000002,
       "exitPrice": null,
       "entryDate": "2026-07-15",
       "exitDate": null,
-      "quoteAt": "2026-10-12T15:12:00+00:00",
+      "quoteAt": "2026-10-13T14:03:00+00:00",
       "target": 160.1,
       "stop": 132,
       "underlyingThreshold": 141.05,
@@ -803,12 +824,12 @@
       "url": "https://www.zonebourse.com/actualite-bourse/achat-du-warrant-call-bnp-paribas-3f7tb-ce7f5eddde81f72d",
       "note": "Relance de la dynamique haussière anticipée.",
       "sourceConfidence": "high",
-      "bid": 1.73,
-      "ask": 1.74,
+      "bid": 1.61,
+      "ask": 1.62,
       "marketDataProvider": "euronext",
       "marketDataSourceUrl": "https://live.euronext.com/en/product/structured-products/NLBNPFR2CD04-XMLI",
-      "marketDataRetrievedAt": "2026-10-12T15:15:39+00:00",
-      "marketDataDelayMinutes": 3,
+      "marketDataRetrievedAt": "2026-10-13T14:07:36+00:00",
+      "marketDataDelayMinutes": 4,
       "recommendationStatus": "PENDING_RECONCILIATION",
       "portfolioStatus": "not_held",
       "mutationHistory": [
@@ -816,9 +837,14 @@
           "changedAt": "2026-10-12T17:12:22+02:00",
           "eventType": "missing_from_open_listing",
           "missingOpenCycles": 1
+        },
+        {
+          "changedAt": "2026-10-13T16:03:59+02:00",
+          "eventType": "missing_from_open_listing",
+          "missingOpenCycles": 2
         }
       ],
-      "missingOpenCycles": 1,
+      "missingOpenCycles": 2,
       "riskLevelsCurrency": "EUR",
       "timestampSource": "euronext_page",
       "marketStatus": "open",
@@ -830,7 +856,7 @@
         "coveragePct": 86,
         "label": "Données partielles",
         "operationallyUsable": false,
-        "quoteAgeMinutes": 3.88,
+        "quoteAgeMinutes": 4.81,
         "components": [
           {
             "key": "recommendation",
@@ -1012,9 +1038,14 @@
           "changedAt": "2026-10-12T17:12:22+02:00",
           "eventType": "missing_from_open_listing",
           "missingOpenCycles": 1
+        },
+        {
+          "changedAt": "2026-10-13T16:03:59+02:00",
+          "eventType": "missing_from_open_listing",
+          "missingOpenCycles": 2
         }
       ],
-      "missingOpenCycles": 1,
+      "missingOpenCycles": 2,
       "riskLevelsCurrency": null,
       "confidence": {
         "kind": "data_quality",
@@ -1107,9 +1138,14 @@
           "changedAt": "2026-10-12T17:12:22+02:00",
           "eventType": "missing_from_open_listing",
           "missingOpenCycles": 1
+        },
+        {
+          "changedAt": "2026-10-13T16:03:59+02:00",
+          "eventType": "missing_from_open_listing",
+          "missingOpenCycles": 2
         }
       ],
-      "missingOpenCycles": 1,
+      "missingOpenCycles": 2,
       "riskLevelsCurrency": null,
       "confidence": {
         "kind": "data_quality",
@@ -1202,9 +1238,14 @@
           "changedAt": "2026-10-12T17:12:22+02:00",
           "eventType": "missing_from_open_listing",
           "missingOpenCycles": 1
+        },
+        {
+          "changedAt": "2026-10-13T16:03:59+02:00",
+          "eventType": "missing_from_open_listing",
+          "missingOpenCycles": 2
         }
       ],
-      "missingOpenCycles": 1,
+      "missingOpenCycles": 2,
       "riskLevelsCurrency": null,
       "confidence": {
         "kind": "data_quality",
@@ -1297,9 +1338,14 @@
           "changedAt": "2026-10-12T17:12:22+02:00",
           "eventType": "missing_from_open_listing",
           "missingOpenCycles": 1
+        },
+        {
+          "changedAt": "2026-10-13T16:03:59+02:00",
+          "eventType": "missing_from_open_listing",
+          "missingOpenCycles": 2
         }
       ],
-      "missingOpenCycles": 1,
+      "missingOpenCycles": 2,
       "riskLevelsCurrency": null,
       "confidence": {
         "kind": "data_quality",
@@ -1393,9 +1439,14 @@
           "changedAt": "2026-10-12T17:12:22+02:00",
           "eventType": "missing_from_open_listing",
           "missingOpenCycles": 1
+        },
+        {
+          "changedAt": "2026-10-13T16:03:59+02:00",
+          "eventType": "missing_from_open_listing",
+          "missingOpenCycles": 2
         }
       ],
-      "missingOpenCycles": 1,
+      "missingOpenCycles": 2,
       "riskLevelsCurrency": null,
       "confidence": {
         "kind": "data_quality",
@@ -1489,9 +1540,14 @@
           "changedAt": "2026-10-12T17:12:22+02:00",
           "eventType": "missing_from_open_listing",
           "missingOpenCycles": 1
+        },
+        {
+          "changedAt": "2026-10-13T16:03:59+02:00",
+          "eventType": "missing_from_open_listing",
+          "missingOpenCycles": 2
         }
       ],
-      "missingOpenCycles": 1,
+      "missingOpenCycles": 2,
       "riskLevelsCurrency": null,
       "confidence": {
         "kind": "data_quality",
@@ -1585,9 +1641,14 @@
           "changedAt": "2026-10-12T17:12:22+02:00",
           "eventType": "missing_from_open_listing",
           "missingOpenCycles": 1
+        },
+        {
+          "changedAt": "2026-10-13T16:03:59+02:00",
+          "eventType": "missing_from_open_listing",
+          "missingOpenCycles": 2
         }
       ],
-      "missingOpenCycles": 1,
+      "missingOpenCycles": 2,
       "riskLevelsCurrency": null,
       "confidence": {
         "kind": "data_quality",
@@ -1681,9 +1742,14 @@
           "changedAt": "2026-10-12T17:12:22+02:00",
           "eventType": "missing_from_open_listing",
           "missingOpenCycles": 1
+        },
+        {
+          "changedAt": "2026-10-13T16:03:59+02:00",
+          "eventType": "missing_from_open_listing",
+          "missingOpenCycles": 2
         }
       ],
-      "missingOpenCycles": 1,
+      "missingOpenCycles": 2,
       "riskLevelsCurrency": null,
       "confidence": {
         "kind": "data_quality",
@@ -1777,9 +1843,14 @@
           "changedAt": "2026-10-12T17:12:22+02:00",
           "eventType": "missing_from_open_listing",
           "missingOpenCycles": 1
+        },
+        {
+          "changedAt": "2026-10-13T16:03:59+02:00",
+          "eventType": "missing_from_open_listing",
+          "missingOpenCycles": 2
         }
       ],
-      "missingOpenCycles": 1,
+      "missingOpenCycles": 2,
       "riskLevelsCurrency": null,
       "confidence": {
         "kind": "data_quality",
@@ -1873,9 +1944,14 @@
           "changedAt": "2026-10-12T17:12:22+02:00",
           "eventType": "missing_from_open_listing",
           "missingOpenCycles": 1
+        },
+        {
+          "changedAt": "2026-10-13T16:03:59+02:00",
+          "eventType": "missing_from_open_listing",
+          "missingOpenCycles": 2
         }
       ],
-      "missingOpenCycles": 1,
+      "missingOpenCycles": 2,
       "riskLevelsCurrency": null,
       "confidence": {
         "kind": "data_quality",
@@ -1969,9 +2045,14 @@
           "changedAt": "2026-10-12T17:12:22+02:00",
           "eventType": "missing_from_open_listing",
           "missingOpenCycles": 1
+        },
+        {
+          "changedAt": "2026-10-13T16:03:59+02:00",
+          "eventType": "missing_from_open_listing",
+          "missingOpenCycles": 2
         }
       ],
-      "missingOpenCycles": 1,
+      "missingOpenCycles": 2,
       "riskLevelsCurrency": null,
       "confidence": {
         "kind": "data_quality",
@@ -2064,9 +2145,14 @@
           "changedAt": "2026-10-12T17:12:22+02:00",
           "eventType": "missing_from_open_listing",
           "missingOpenCycles": 1
+        },
+        {
+          "changedAt": "2026-10-13T16:03:59+02:00",
+          "eventType": "missing_from_open_listing",
+          "missingOpenCycles": 2
         }
       ],
-      "missingOpenCycles": 1,
+      "missingOpenCycles": 2,
       "riskLevelsCurrency": null,
       "confidence": {
         "kind": "data_quality",
@@ -2160,9 +2246,14 @@
           "changedAt": "2026-10-12T17:12:22+02:00",
           "eventType": "missing_from_open_listing",
           "missingOpenCycles": 1
+        },
+        {
+          "changedAt": "2026-10-13T16:03:59+02:00",
+          "eventType": "missing_from_open_listing",
+          "missingOpenCycles": 2
         }
       ],
-      "missingOpenCycles": 1,
+      "missingOpenCycles": 2,
       "riskLevelsCurrency": null,
       "confidence": {
         "kind": "data_quality",
@@ -2256,9 +2347,14 @@
           "changedAt": "2026-10-12T17:12:22+02:00",
           "eventType": "missing_from_open_listing",
           "missingOpenCycles": 1
+        },
+        {
+          "changedAt": "2026-10-13T16:03:59+02:00",
+          "eventType": "missing_from_open_listing",
+          "missingOpenCycles": 2
         }
       ],
-      "missingOpenCycles": 1,
+      "missingOpenCycles": 2,
       "riskLevelsCurrency": null,
       "confidence": {
         "kind": "data_quality",
@@ -2352,9 +2448,14 @@
           "changedAt": "2026-10-12T17:12:22+02:00",
           "eventType": "missing_from_open_listing",
           "missingOpenCycles": 1
+        },
+        {
+          "changedAt": "2026-10-13T16:03:59+02:00",
+          "eventType": "missing_from_open_listing",
+          "missingOpenCycles": 2
         }
       ],
-      "missingOpenCycles": 1,
+      "missingOpenCycles": 2,
       "riskLevelsCurrency": null,
       "confidence": {
         "kind": "data_quality",
@@ -2448,9 +2549,14 @@
           "changedAt": "2026-10-12T17:12:22+02:00",
           "eventType": "missing_from_open_listing",
           "missingOpenCycles": 1
+        },
+        {
+          "changedAt": "2026-10-13T16:03:59+02:00",
+          "eventType": "missing_from_open_listing",
+          "missingOpenCycles": 2
         }
       ],
-      "missingOpenCycles": 1,
+      "missingOpenCycles": 2,
       "riskLevelsCurrency": null,
       "confidence": {
         "kind": "data_quality",
@@ -2543,9 +2649,14 @@
           "changedAt": "2026-10-12T17:12:22+02:00",
           "eventType": "missing_from_open_listing",
           "missingOpenCycles": 1
+        },
+        {
+          "changedAt": "2026-10-13T16:03:59+02:00",
+          "eventType": "missing_from_open_listing",
+          "missingOpenCycles": 2
         }
       ],
-      "missingOpenCycles": 1,
+      "missingOpenCycles": 2,
       "riskLevelsCurrency": null,
       "confidence": {
         "kind": "data_quality",
@@ -2639,9 +2750,14 @@
           "changedAt": "2026-10-12T17:12:22+02:00",
           "eventType": "missing_from_open_listing",
           "missingOpenCycles": 1
+        },
+        {
+          "changedAt": "2026-10-13T16:03:59+02:00",
+          "eventType": "missing_from_open_listing",
+          "missingOpenCycles": 2
         }
       ],
-      "missingOpenCycles": 1,
+      "missingOpenCycles": 2,
       "riskLevelsCurrency": null,
       "confidence": {
         "kind": "data_quality",
@@ -2734,9 +2850,14 @@
           "changedAt": "2026-10-12T17:12:22+02:00",
           "eventType": "missing_from_open_listing",
           "missingOpenCycles": 1
+        },
+        {
+          "changedAt": "2026-10-13T16:03:59+02:00",
+          "eventType": "missing_from_open_listing",
+          "missingOpenCycles": 2
         }
       ],
-      "missingOpenCycles": 1,
+      "missingOpenCycles": 2,
       "riskLevelsCurrency": null,
       "confidence": {
         "kind": "data_quality",
@@ -2831,11 +2952,16 @@
           "changedAt": "2026-10-12T17:12:22+02:00",
           "eventType": "missing_from_open_listing",
           "missingOpenCycles": 1
+        },
+        {
+          "changedAt": "2026-10-13T16:03:59+02:00",
+          "eventType": "missing_from_open_listing",
+          "missingOpenCycles": 2
         }
       ],
-      "missingOpenCycles": 1,
+      "missingOpenCycles": 2,
       "riskLevelsCurrency": null,
-      "quoteAt": "2026-10-12T15:02:00+00:00",
+      "quoteAt": "2026-10-13T13:44:00+00:00",
       "bid": 0.024,
       "ask": 0.034,
       "timestampSource": "euronext_page",
@@ -2844,15 +2970,15 @@
       "quoteCurrency": "EUR",
       "marketDataProvider": "euronext",
       "marketDataSourceUrl": "https://live.euronext.com/en/product/structured-products/DE000VJ5FU71-XMLI",
-      "marketDataRetrievedAt": "2026-10-12T15:15:52+00:00",
-      "marketDataDelayMinutes": 13,
+      "marketDataRetrievedAt": "2026-10-13T14:07:48+00:00",
+      "marketDataDelayMinutes": 23,
       "confidence": {
         "kind": "data_quality",
         "score": 85,
         "coveragePct": 85,
         "label": "Données partielles",
         "operationallyUsable": false,
-        "quoteAgeMinutes": 13.88,
+        "quoteAgeMinutes": 23.81,
         "components": [
           {
             "key": "recommendation",
@@ -2931,7 +3057,7 @@
       "publishedAt": "2026-10-08T00:00+02:00",
       "publishedAtPrecision": "date",
       "detectedAt": "2026-10-12T17:12:22+02:00",
-      "lastSeenOpenAt": "2026-10-12T17:12:22+02:00",
+      "lastSeenOpenAt": "2026-10-13T16:03:59+02:00",
       "missingOpenCycles": 0,
       "recommendationIdentity": "FRBNPP114NX6|8TN9B|2026-10-08|zonebourse|recommendation",
       "contentHash": "4c8a148136a590b0ce2e46208358e7803f95340967b48a103fe752769c2a241a",
@@ -2940,7 +3066,7 @@
       "stop": null,
       "riskLevelsCurrency": "EUR",
       "note": "Rebond technique en formation |. Prix d'entrée et ISIN à confirmer depuis la fiche article.",
-      "sourceConfidence": "medium",
+      "sourceConfidence": "high",
       "confidence": {
         "kind": "data_quality",
         "score": 66,
@@ -3026,7 +3152,7 @@
       "publishedAt": "2026-10-08T00:00+02:00",
       "publishedAtPrecision": "date",
       "detectedAt": "2026-10-12T17:12:22+02:00",
-      "lastSeenOpenAt": "2026-10-12T17:12:22+02:00",
+      "lastSeenOpenAt": "2026-10-13T16:03:59+02:00",
       "missingOpenCycles": 0,
       "recommendationIdentity": "FRBNPP0808F8|FI3RB|2026-10-08|zonebourse|recommendation",
       "contentHash": "f26338aaf0a5405d92ae5505a85b81d2bba15cbed6774d2fc0b5a42c323855a4",
@@ -3035,7 +3161,7 @@
       "stop": null,
       "riskLevelsCurrency": "EUR",
       "note": "Un soutien à mettre à profit |. Prix d'entrée et ISIN à confirmer depuis la fiche article.",
-      "sourceConfidence": "medium",
+      "sourceConfidence": "high",
       "confidence": {
         "kind": "data_quality",
         "score": 66,
@@ -3121,11 +3247,17 @@
       "publishedAt": "2026-10-08T00:00+02:00",
       "publishedAtPrecision": "date",
       "detectedAt": "2026-10-12T17:12:22+02:00",
-      "lastSeenOpenAt": "2026-10-12T17:12:22+02:00",
+      "lastSeenOpenAt": "2026-10-13T16:03:59+02:00",
       "missingOpenCycles": 0,
-      "recommendationIdentity": "DE000BD7H8B3|DM92V|2026-10-08|zonebourse|recommendation",
-      "contentHash": "2ffd0a8de0349c157acd1f9b7c1033f4cfa69801e881767a4a4042c8cab3ecd5",
-      "mutationHistory": [],
+      "recommendationIdentity": "|DM92V|2026-10-08|zonebourse|recommendation",
+      "contentHash": "af687e9c2a139086b7552b9f5aa4c46bedd3c319491f1145555462cc819d2610",
+      "mutationHistory": [
+        {
+          "changedAt": "2026-10-13T16:03:59+02:00",
+          "previousHash": "2ffd0a8de0349c157acd1f9b7c1033f4cfa69801e881767a4a4042c8cab3ecd5",
+          "eventType": "modification"
+        }
+      ],
       "target": 1414.0,
       "stop": null,
       "riskLevelsCurrency": "EUR",
@@ -3216,7 +3348,7 @@
       "publishedAt": "2026-10-06T00:00+02:00",
       "publishedAtPrecision": "date",
       "detectedAt": "2026-10-12T17:12:22+02:00",
-      "lastSeenOpenAt": "2026-10-12T17:12:22+02:00",
+      "lastSeenOpenAt": "2026-10-13T16:03:59+02:00",
       "missingOpenCycles": 0,
       "recommendationIdentity": "DE000VY7GEB6|TV34V|2026-10-06|zonebourse|recommendation",
       "contentHash": "c680b6afb978199c07ebbba7557f296b5ce6ea3b98b607fc727b0220927cb672",
@@ -3225,7 +3357,7 @@
       "stop": null,
       "riskLevelsCurrency": "EUR",
       "note": "Rebond technique en formation |. Prix d'entrée et ISIN à confirmer depuis la fiche article.",
-      "sourceConfidence": "medium",
+      "sourceConfidence": "high",
       "confidence": {
         "kind": "data_quality",
         "score": 66,
@@ -3311,7 +3443,7 @@
       "publishedAt": "2026-10-05T00:00+02:00",
       "publishedAtPrecision": "date",
       "detectedAt": "2026-10-12T17:12:22+02:00",
-      "lastSeenOpenAt": "2026-10-12T17:12:22+02:00",
+      "lastSeenOpenAt": "2026-10-13T16:03:59+02:00",
       "missingOpenCycles": 0,
       "recommendationIdentity": "DE000VY34X99|QH67V|2026-10-05|zonebourse|recommendation",
       "contentHash": "4c2de8b3f12e35149cfcc1f17dc900fc261459e8f9976e1ce2a55b9b89b54dc0",
@@ -3320,7 +3452,7 @@
       "stop": null,
       "riskLevelsCurrency": "EUR",
       "note": "A proximité d'une zone de soutien |. Prix d'entrée et ISIN à confirmer depuis la fiche article.",
-      "sourceConfidence": "medium",
+      "sourceConfidence": "high",
       "confidence": {
         "kind": "data_quality",
         "score": 66,
@@ -3406,7 +3538,7 @@
       "publishedAt": "2026-10-05T00:00+02:00",
       "publishedAtPrecision": "date",
       "detectedAt": "2026-10-12T17:12:22+02:00",
-      "lastSeenOpenAt": "2026-10-12T17:12:22+02:00",
+      "lastSeenOpenAt": "2026-10-13T16:03:59+02:00",
       "missingOpenCycles": 0,
       "recommendationIdentity": "FRBNPP091RP3|L6WEB|2026-10-05|zonebourse|recommendation",
       "contentHash": "6c8c2aa531d48f60fbd59a8a8e8870ef68eae9b27afd51d2ba495bb7f4a48802",
@@ -3415,7 +3547,7 @@
       "stop": null,
       "riskLevelsCurrency": "EUR",
       "note": "Achat du turbo CALL BNP Paribas L6WEB |. Prix d'entrée et ISIN à confirmer depuis la fiche article.",
-      "sourceConfidence": "medium",
+      "sourceConfidence": "high",
       "confidence": {
         "kind": "data_quality",
         "score": 66,
@@ -3501,7 +3633,7 @@
       "publishedAt": "2026-10-02T00:00+02:00",
       "publishedAtPrecision": "date",
       "detectedAt": "2026-10-12T17:12:22+02:00",
-      "lastSeenOpenAt": "2026-10-12T17:12:22+02:00",
+      "lastSeenOpenAt": "2026-10-13T16:03:59+02:00",
       "missingOpenCycles": 0,
       "recommendationIdentity": "DE000BD7Z734|DX29V|2026-10-02|zonebourse|recommendation",
       "contentHash": "c235a0285a83b701cd9dba381460018b60fae515b5169ebfe14e4ff09d33b9d6",
@@ -3510,7 +3642,7 @@
       "stop": null,
       "riskLevelsCurrency": "EUR",
       "note": "Des niveaux de prix intéressants |. Prix d'entrée et ISIN à confirmer depuis la fiche article.",
-      "sourceConfidence": "medium",
+      "sourceConfidence": "high",
       "confidence": {
         "kind": "data_quality",
         "score": 66,
@@ -3596,11 +3728,17 @@
       "publishedAt": "2026-10-01T00:00+02:00",
       "publishedAtPrecision": "date",
       "detectedAt": "2026-10-12T17:12:22+02:00",
-      "lastSeenOpenAt": "2026-10-12T17:12:22+02:00",
+      "lastSeenOpenAt": "2026-10-13T16:03:59+02:00",
       "missingOpenCycles": 0,
-      "recommendationIdentity": "DE000VY0NXS1|LZ77V|2026-10-01|zonebourse|recommendation",
-      "contentHash": "b7e0d0252dfc6e3b20ee7edaff22ee8abd56bf9daedb86fcdacf0fe43a6fc1ab",
-      "mutationHistory": [],
+      "recommendationIdentity": "|LZ77V|2026-10-01|zonebourse|recommendation",
+      "contentHash": "4b374fa51fdaddf0a55a5f63cffed2718038ecead0eb1f4a5664d7c1b5ec309a",
+      "mutationHistory": [
+        {
+          "changedAt": "2026-10-13T16:03:59+02:00",
+          "previousHash": "b7e0d0252dfc6e3b20ee7edaff22ee8abd56bf9daedb86fcdacf0fe43a6fc1ab",
+          "eventType": "modification"
+        }
+      ],
       "target": 205.0,
       "stop": null,
       "riskLevelsCurrency": "EUR",
@@ -3691,11 +3829,17 @@
       "publishedAt": "2026-09-29T00:00+02:00",
       "publishedAtPrecision": "date",
       "detectedAt": "2026-10-12T17:12:22+02:00",
-      "lastSeenOpenAt": "2026-10-12T17:12:22+02:00",
+      "lastSeenOpenAt": "2026-10-13T16:03:59+02:00",
       "missingOpenCycles": 0,
-      "recommendationIdentity": "DE000VY88SJ9|WB89V|2026-09-29|zonebourse|recommendation",
-      "contentHash": "c5171770fcd9a6e6b34285ff228a5cd5a454cabd6a3e7d9e5b34a03336a1c8c0",
-      "mutationHistory": [],
+      "recommendationIdentity": "|WB89V|2026-09-29|zonebourse|recommendation",
+      "contentHash": "9ac6071ec43e19f332a5ac87b5ab576300edfc04843936f39a39d41b2fe17926",
+      "mutationHistory": [
+        {
+          "changedAt": "2026-10-13T16:03:59+02:00",
+          "previousHash": "c5171770fcd9a6e6b34285ff228a5cd5a454cabd6a3e7d9e5b34a03336a1c8c0",
+          "eventType": "modification"
+        }
+      ],
       "target": 28.6,
       "stop": null,
       "riskLevelsCurrency": "EUR",
@@ -3786,11 +3930,17 @@
       "publishedAt": "2026-09-29T00:00+02:00",
       "publishedAtPrecision": "date",
       "detectedAt": "2026-10-12T17:12:22+02:00",
-      "lastSeenOpenAt": "2026-10-12T17:12:22+02:00",
+      "lastSeenOpenAt": "2026-10-13T16:03:59+02:00",
       "missingOpenCycles": 0,
-      "recommendationIdentity": "DE000VK7EXZ6|GE85V|2026-09-29|zonebourse|recommendation",
-      "contentHash": "8f3889c5e56fff6e7c64535e9f3b24733d032690dcbc53e12e3e9d4b34550af0",
-      "mutationHistory": [],
+      "recommendationIdentity": "|GE85V|2026-09-29|zonebourse|recommendation",
+      "contentHash": "e02d30b0c84e796ffa77a72ed1e78d640929635cc15b7567af3350df1acae322",
+      "mutationHistory": [
+        {
+          "changedAt": "2026-10-13T16:03:59+02:00",
+          "previousHash": "8f3889c5e56fff6e7c64535e9f3b24733d032690dcbc53e12e3e9d4b34550af0",
+          "eventType": "modification"
+        }
+      ],
       "target": 363.6,
       "stop": null,
       "riskLevelsCurrency": "EUR",
@@ -3881,11 +4031,17 @@
       "publishedAt": "2026-09-25T00:00+02:00",
       "publishedAtPrecision": "date",
       "detectedAt": "2026-10-12T17:12:22+02:00",
-      "lastSeenOpenAt": "2026-10-12T17:12:22+02:00",
+      "lastSeenOpenAt": "2026-10-13T16:03:59+02:00",
       "missingOpenCycles": 0,
-      "recommendationIdentity": "DE000VY879P1|VV35V|2026-09-25|zonebourse|recommendation",
-      "contentHash": "19b82b8e9aa358fb6449b85f491bc21568fd7cfeea7882094c48010a7077c2b2",
-      "mutationHistory": [],
+      "recommendationIdentity": "|VV35V|2026-09-25|zonebourse|recommendation",
+      "contentHash": "55ab7547b0f4660be2be73b7cba4e4571f1a71e63c9eb4376ed0ed6e06007567",
+      "mutationHistory": [
+        {
+          "changedAt": "2026-10-13T16:03:59+02:00",
+          "previousHash": "19b82b8e9aa358fb6449b85f491bc21568fd7cfeea7882094c48010a7077c2b2",
+          "eventType": "modification"
+        }
+      ],
       "target": 1.16,
       "stop": 1.125,
       "riskLevelsCurrency": "USD",
@@ -3976,11 +4132,17 @@
       "publishedAt": "2026-09-22T00:00+02:00",
       "publishedAtPrecision": "date",
       "detectedAt": "2026-10-12T17:12:22+02:00",
-      "lastSeenOpenAt": "2026-10-12T17:12:22+02:00",
+      "lastSeenOpenAt": "2026-10-13T16:03:59+02:00",
       "missingOpenCycles": 0,
-      "recommendationIdentity": "FRBNPP11XF39|CJC0B|2026-09-22|zonebourse|recommendation",
-      "contentHash": "0eb2e2417692bc7f043412b09f643263efa120e1e364e106ff67536c32c843b8",
-      "mutationHistory": [],
+      "recommendationIdentity": "|CJC0B|2026-09-22|zonebourse|recommendation",
+      "contentHash": "4b601a1448f029e7022c54c4309aa4f18ef75ac7d63016534d0f3c0a3ff4d52d",
+      "mutationHistory": [
+        {
+          "changedAt": "2026-10-13T16:03:59+02:00",
+          "previousHash": "0eb2e2417692bc7f043412b09f643263efa120e1e364e106ff67536c32c843b8",
+          "eventType": "modification"
+        }
+      ],
       "target": 1300.0,
       "stop": 900.0,
       "riskLevelsCurrency": "USD",
@@ -4071,11 +4233,17 @@
       "publishedAt": "2026-09-22T00:00+02:00",
       "publishedAtPrecision": "date",
       "detectedAt": "2026-10-12T17:12:22+02:00",
-      "lastSeenOpenAt": "2026-10-12T17:12:22+02:00",
+      "lastSeenOpenAt": "2026-10-13T16:03:59+02:00",
       "missingOpenCycles": 0,
-      "recommendationIdentity": "DE000VJ1XC91|AC28V|2026-09-22|zonebourse|recommendation",
-      "contentHash": "5169bfd4fba8cce82d62d2e784131580989e7d99fc004864c6a087379331c5fe",
-      "mutationHistory": [],
+      "recommendationIdentity": "|AC28V|2026-09-22|zonebourse|recommendation",
+      "contentHash": "cb672f16e4424b7a44a3aed8ae55e9d192daeae4966d6ec3744aac52e42fd237",
+      "mutationHistory": [
+        {
+          "changedAt": "2026-10-13T16:03:59+02:00",
+          "previousHash": "5169bfd4fba8cce82d62d2e784131580989e7d99fc004864c6a087379331c5fe",
+          "eventType": "modification"
+        }
+      ],
       "target": 55.05,
       "stop": null,
       "riskLevelsCurrency": "EUR",
@@ -4166,11 +4334,17 @@
       "publishedAt": "2026-09-21T00:00+02:00",
       "publishedAtPrecision": "date",
       "detectedAt": "2026-10-12T17:12:22+02:00",
-      "lastSeenOpenAt": "2026-10-12T17:12:22+02:00",
+      "lastSeenOpenAt": "2026-10-13T16:03:59+02:00",
       "missingOpenCycles": 0,
-      "recommendationIdentity": "FRBNPP097G91|0EKYB|2026-09-21|zonebourse|recommendation",
-      "contentHash": "d1362ae6ca93df2ea2cb18519366134baa54aff4c61d3c20aa646d2f1408d6a0",
-      "mutationHistory": [],
+      "recommendationIdentity": "|0EKYB|2026-09-21|zonebourse|recommendation",
+      "contentHash": "a584107359b14799b30b7c4c57aa2f940c4338e6982ffd20f6df0a838b25c24c",
+      "mutationHistory": [
+        {
+          "changedAt": "2026-10-13T16:03:59+02:00",
+          "previousHash": "d1362ae6ca93df2ea2cb18519366134baa54aff4c61d3c20aa646d2f1408d6a0",
+          "eventType": "modification"
+        }
+      ],
       "target": 101.0,
       "stop": null,
       "riskLevelsCurrency": "EUR",
@@ -4261,11 +4435,17 @@
       "publishedAt": "2026-09-17T00:00+02:00",
       "publishedAtPrecision": "date",
       "detectedAt": "2026-10-12T17:12:22+02:00",
-      "lastSeenOpenAt": "2026-10-12T17:12:22+02:00",
+      "lastSeenOpenAt": "2026-10-13T16:03:59+02:00",
       "missingOpenCycles": 0,
-      "recommendationIdentity": "DE000FE01AG1|SP3LS|2026-09-17|zonebourse|recommendation",
-      "contentHash": "de554d11e3c95b97c319a2563c9f4e4b8a0acc1192d07d1d6053ff70f20d4ece",
-      "mutationHistory": [],
+      "recommendationIdentity": "|SP3LS|2026-09-17|zonebourse|recommendation",
+      "contentHash": "47832cdf41e209762c6f2a4f1d5ffc6af7be440079e4ac10bd4090ab8152abe7",
+      "mutationHistory": [
+        {
+          "changedAt": "2026-10-13T16:03:59+02:00",
+          "previousHash": "de554d11e3c95b97c319a2563c9f4e4b8a0acc1192d07d1d6053ff70f20d4ece",
+          "eventType": "modification"
+        }
+      ],
       "target": 490.0,
       "stop": null,
       "riskLevelsCurrency": "EUR",
@@ -4356,11 +4536,17 @@
       "publishedAt": "2026-09-17T00:00+02:00",
       "publishedAtPrecision": "date",
       "detectedAt": "2026-10-12T17:12:22+02:00",
-      "lastSeenOpenAt": "2026-10-12T17:12:22+02:00",
+      "lastSeenOpenAt": "2026-10-13T16:03:59+02:00",
       "missingOpenCycles": 0,
-      "recommendationIdentity": "FRBNPP08EU04|6IWSB|2026-09-17|zonebourse|recommendation",
-      "contentHash": "9ca4a73bd986af01349a6fd302b41457e01b9ce33f9c7fffc7a3e5c2a12d4f94",
-      "mutationHistory": [],
+      "recommendationIdentity": "|6IWSB|2026-09-17|zonebourse|recommendation",
+      "contentHash": "8e220257f07711f9df537f14213019a24d9123bd65f29fc5f06ad38931ef0c23",
+      "mutationHistory": [
+        {
+          "changedAt": "2026-10-13T16:03:59+02:00",
+          "previousHash": "9ca4a73bd986af01349a6fd302b41457e01b9ce33f9c7fffc7a3e5c2a12d4f94",
+          "eventType": "modification"
+        }
+      ],
       "target": 118.0,
       "stop": null,
       "riskLevelsCurrency": "EUR",
@@ -4437,11 +4623,11 @@
       "productType": "Turbo",
       "direction": "CALL",
       "mnemo": "8K2WB",
-      "isin": null,
+      "isin": "FRBNPP1115J9",
       "status": "open",
       "recommendationStatus": "open",
       "portfolioStatus": "not_held",
-      "entryPrice": null,
+      "entryPrice": 7.06,
       "currentPrice": null,
       "exitPrice": null,
       "entryDate": "2026-09-17",
@@ -4451,21 +4637,27 @@
       "publishedAt": "2026-09-17T00:00+02:00",
       "publishedAtPrecision": "date",
       "detectedAt": "2026-10-12T17:12:22+02:00",
-      "lastSeenOpenAt": "2026-10-12T17:12:22+02:00",
+      "lastSeenOpenAt": "2026-10-13T16:03:59+02:00",
       "missingOpenCycles": 0,
-      "recommendationIdentity": "|8K2WB|2026-09-17|zonebourse|recommendation",
-      "contentHash": "ed96571ede9a51f2b89542c2f9a0323385e30779d74dd89a1d156c266092433c",
-      "mutationHistory": [],
-      "target": null,
+      "recommendationIdentity": "FRBNPP1115J9|8K2WB|2026-09-17|zonebourse|recommendation",
+      "contentHash": "e981bea9bc4f59c50e972d0ce44925caf3cb52d1305709072edf328c1c0950e8",
+      "mutationHistory": [
+        {
+          "changedAt": "2026-10-13T16:03:59+02:00",
+          "previousHash": "ed96571ede9a51f2b89542c2f9a0323385e30779d74dd89a1d156c266092433c",
+          "eventType": "modification"
+        }
+      ],
+      "target": 49.0,
       "stop": null,
-      "riskLevelsCurrency": null,
+      "riskLevelsCurrency": "EUR",
       "note": "Une zone support en renfort |. Prix d'entrée et ISIN à confirmer depuis la fiche article.",
-      "sourceConfidence": "medium",
+      "sourceConfidence": "high",
       "confidence": {
         "kind": "data_quality",
-        "score": 30,
-        "coveragePct": 30,
-        "label": "Données insuffisantes",
+        "score": 66,
+        "coveragePct": 66,
+        "label": "Données partielles",
         "operationallyUsable": false,
         "quoteAgeMinutes": null,
         "components": [
@@ -4481,8 +4673,8 @@
           {
             "key": "productIdentity",
             "weight": 15,
-            "score": 0,
-            "available": false,
+            "score": 100,
+            "available": true,
             "sources": [
               "https://www.zonebourse.com/actualite-bourse/une-zone-support-en-renfort-ce785bd3db8df525"
             ]
@@ -4490,7 +4682,7 @@
           {
             "key": "tradePlan",
             "weight": 30,
-            "score": 0,
+            "score": 67,
             "available": false,
             "sources": [
               "https://www.zonebourse.com/actualite-bourse/une-zone-support-en-renfort-ce785bd3db8df525"
@@ -4508,7 +4700,7 @@
           {
             "key": "underlying",
             "weight": 5,
-            "score": 0,
+            "score": 25,
             "available": false,
             "sources": [
               "https://www.zonebourse.com/actualite-bourse/une-zone-support-en-renfort-ce785bd3db8df525"
@@ -4532,11 +4724,11 @@
       "productType": "Turbo",
       "direction": "PUT",
       "mnemo": "4TI4B",
-      "isin": null,
+      "isin": "FRBNPP10B455",
       "status": "open",
       "recommendationStatus": "open",
       "portfolioStatus": "not_held",
-      "entryPrice": null,
+      "entryPrice": 1.32,
       "currentPrice": null,
       "exitPrice": null,
       "entryDate": "2026-09-16",
@@ -4546,21 +4738,27 @@
       "publishedAt": "2026-09-16T00:00+02:00",
       "publishedAtPrecision": "date",
       "detectedAt": "2026-10-12T17:12:22+02:00",
-      "lastSeenOpenAt": "2026-10-12T17:12:22+02:00",
+      "lastSeenOpenAt": "2026-10-13T16:03:59+02:00",
       "missingOpenCycles": 0,
-      "recommendationIdentity": "|4TI4B|2026-09-16|zonebourse|recommendation",
-      "contentHash": "f80b8e73359c0b3bb49f91ca9e7e25083e3b918f76d0888f55e001c07d222e8b",
-      "mutationHistory": [],
-      "target": null,
+      "recommendationIdentity": "FRBNPP10B455|4TI4B|2026-09-16|zonebourse|recommendation",
+      "contentHash": "3b17d6d07c3a9b1f8354b9ad8c4ede576a0858f470a7202ac72f1737f219ca8f",
+      "mutationHistory": [
+        {
+          "changedAt": "2026-10-13T16:03:59+02:00",
+          "previousHash": "f80b8e73359c0b3bb49f91ca9e7e25083e3b918f76d0888f55e001c07d222e8b",
+          "eventType": "modification"
+        }
+      ],
+      "target": 100.0,
       "stop": null,
-      "riskLevelsCurrency": null,
+      "riskLevelsCurrency": "EUR",
       "note": "Achat du turbo PUT BNP Paribas 4TI4B |. Prix d'entrée et ISIN à confirmer depuis la fiche article.",
-      "sourceConfidence": "medium",
+      "sourceConfidence": "high",
       "confidence": {
         "kind": "data_quality",
-        "score": 30,
-        "coveragePct": 30,
-        "label": "Données insuffisantes",
+        "score": 66,
+        "coveragePct": 66,
+        "label": "Données partielles",
         "operationallyUsable": false,
         "quoteAgeMinutes": null,
         "components": [
@@ -4576,8 +4774,8 @@
           {
             "key": "productIdentity",
             "weight": 15,
-            "score": 0,
-            "available": false,
+            "score": 100,
+            "available": true,
             "sources": [
               "https://www.zonebourse.com/actualite-bourse/achat-du-turbo-put-bnp-paribas-4ti4b-ce785bd2df8efe20"
             ]
@@ -4585,7 +4783,7 @@
           {
             "key": "tradePlan",
             "weight": 30,
-            "score": 0,
+            "score": 67,
             "available": false,
             "sources": [
               "https://www.zonebourse.com/actualite-bourse/achat-du-turbo-put-bnp-paribas-4ti4b-ce785bd2df8efe20"
@@ -4603,7 +4801,7 @@
           {
             "key": "underlying",
             "weight": 5,
-            "score": 0,
+            "score": 25,
             "available": false,
             "sources": [
               "https://www.zonebourse.com/actualite-bourse/achat-du-turbo-put-bnp-paribas-4ti4b-ce785bd2df8efe20"
@@ -4627,11 +4825,11 @@
       "productType": "Turbo",
       "direction": "CALL",
       "mnemo": "Y11TB",
-      "isin": null,
+      "isin": "FRBNPP08Y9L3",
       "status": "open",
       "recommendationStatus": "open",
       "portfolioStatus": "not_held",
-      "entryPrice": null,
+      "entryPrice": 1.79,
       "currentPrice": null,
       "exitPrice": null,
       "entryDate": "2026-09-16",
@@ -4641,21 +4839,27 @@
       "publishedAt": "2026-09-16T00:00+02:00",
       "publishedAtPrecision": "date",
       "detectedAt": "2026-10-12T17:12:22+02:00",
-      "lastSeenOpenAt": "2026-10-12T17:12:22+02:00",
+      "lastSeenOpenAt": "2026-10-13T16:03:59+02:00",
       "missingOpenCycles": 0,
-      "recommendationIdentity": "|Y11TB|2026-09-16|zonebourse|recommendation",
-      "contentHash": "891fc7f0a472a7f7348067ee0979984e8e30674db6d603acbfa6ce0c63e0d2f3",
-      "mutationHistory": [],
-      "target": null,
+      "recommendationIdentity": "FRBNPP08Y9L3|Y11TB|2026-09-16|zonebourse|recommendation",
+      "contentHash": "f7a7bd5c158443591aa3393fef6a297c465f21b8c10b7c04dfd04d88fbb9a19c",
+      "mutationHistory": [
+        {
+          "changedAt": "2026-10-13T16:03:59+02:00",
+          "previousHash": "891fc7f0a472a7f7348067ee0979984e8e30674db6d603acbfa6ce0c63e0d2f3",
+          "eventType": "modification"
+        }
+      ],
+      "target": 23.3,
       "stop": null,
-      "riskLevelsCurrency": null,
+      "riskLevelsCurrency": "EUR",
       "note": "Une zone support en renfort |. Prix d'entrée et ISIN à confirmer depuis la fiche article.",
-      "sourceConfidence": "medium",
+      "sourceConfidence": "high",
       "confidence": {
         "kind": "data_quality",
-        "score": 30,
-        "coveragePct": 30,
-        "label": "Données insuffisantes",
+        "score": 66,
+        "coveragePct": 66,
+        "label": "Données partielles",
         "operationallyUsable": false,
         "quoteAgeMinutes": null,
         "components": [
@@ -4671,8 +4875,8 @@
           {
             "key": "productIdentity",
             "weight": 15,
-            "score": 0,
-            "available": false,
+            "score": 100,
+            "available": true,
             "sources": [
               "https://www.zonebourse.com/actualite-bourse/une-zone-support-en-renfort-ce785bd2db80f321"
             ]
@@ -4680,7 +4884,7 @@
           {
             "key": "tradePlan",
             "weight": 30,
-            "score": 0,
+            "score": 67,
             "available": false,
             "sources": [
               "https://www.zonebourse.com/actualite-bourse/une-zone-support-en-renfort-ce785bd2db80f321"
@@ -4698,7 +4902,7 @@
           {
             "key": "underlying",
             "weight": 5,
-            "score": 0,
+            "score": 25,
             "available": false,
             "sources": [
               "https://www.zonebourse.com/actualite-bourse/une-zone-support-en-renfort-ce785bd2db80f321"
@@ -4722,11 +4926,11 @@
       "productType": "Turbo",
       "direction": "CALL",
       "mnemo": "3PKJB",
-      "isin": null,
+      "isin": "FRBNPP051YO6",
       "status": "open",
       "recommendationStatus": "open",
       "portfolioStatus": "not_held",
-      "entryPrice": null,
+      "entryPrice": 1.59,
       "currentPrice": null,
       "exitPrice": null,
       "entryDate": "2026-09-11",
@@ -4736,21 +4940,27 @@
       "publishedAt": "2026-09-11T00:00+02:00",
       "publishedAtPrecision": "date",
       "detectedAt": "2026-10-12T17:12:22+02:00",
-      "lastSeenOpenAt": "2026-10-12T17:12:22+02:00",
+      "lastSeenOpenAt": "2026-10-13T16:03:59+02:00",
       "missingOpenCycles": 0,
-      "recommendationIdentity": "|3PKJB|2026-09-11|zonebourse|recommendation",
-      "contentHash": "93f22bfcdc4fe94c63d1c43dd4ae3854017515816f7cecb89eeb341a1d5228ac",
-      "mutationHistory": [],
-      "target": null,
+      "recommendationIdentity": "FRBNPP051YO6|3PKJB|2026-09-11|zonebourse|recommendation",
+      "contentHash": "fe0dfacbf9588ad76996747cf3c0fc6601beb74bd9a573a030c66ac6fa429325",
+      "mutationHistory": [
+        {
+          "changedAt": "2026-10-13T16:03:59+02:00",
+          "previousHash": "93f22bfcdc4fe94c63d1c43dd4ae3854017515816f7cecb89eeb341a1d5228ac",
+          "eventType": "modification"
+        }
+      ],
+      "target": 34.5,
       "stop": null,
-      "riskLevelsCurrency": null,
+      "riskLevelsCurrency": "EUR",
       "note": "Des niveaux de prix intéressants |. Prix d'entrée et ISIN à confirmer depuis la fiche article.",
-      "sourceConfidence": "medium",
+      "sourceConfidence": "high",
       "confidence": {
         "kind": "data_quality",
-        "score": 30,
-        "coveragePct": 30,
-        "label": "Données insuffisantes",
+        "score": 66,
+        "coveragePct": 66,
+        "label": "Données partielles",
         "operationallyUsable": false,
         "quoteAgeMinutes": null,
         "components": [
@@ -4766,8 +4976,8 @@
           {
             "key": "productIdentity",
             "weight": 15,
-            "score": 0,
-            "available": false,
+            "score": 100,
+            "available": true,
             "sources": [
               "https://www.zonebourse.com/actualite-bourse/des-niveaux-de-prix-interessants-ce785bdfdb8ef423"
             ]
@@ -4775,7 +4985,7 @@
           {
             "key": "tradePlan",
             "weight": 30,
-            "score": 0,
+            "score": 67,
             "available": false,
             "sources": [
               "https://www.zonebourse.com/actualite-bourse/des-niveaux-de-prix-interessants-ce785bdfdb8ef423"
@@ -4793,7 +5003,7 @@
           {
             "key": "underlying",
             "weight": 5,
-            "score": 0,
+            "score": 25,
             "available": false,
             "sources": [
               "https://www.zonebourse.com/actualite-bourse/des-niveaux-de-prix-interessants-ce785bdfdb8ef423"
@@ -4817,11 +5027,11 @@
       "productType": "Turbo",
       "direction": "CALL",
       "mnemo": "4YM3B",
-      "isin": null,
+      "isin": "FRBNPP10D006",
       "status": "open",
       "recommendationStatus": "open",
       "portfolioStatus": "not_held",
-      "entryPrice": null,
+      "entryPrice": 1.48,
       "currentPrice": null,
       "exitPrice": null,
       "entryDate": "2026-09-09",
@@ -4831,21 +5041,27 @@
       "publishedAt": "2026-09-09T00:00+02:00",
       "publishedAtPrecision": "date",
       "detectedAt": "2026-10-12T17:12:22+02:00",
-      "lastSeenOpenAt": "2026-10-12T17:12:22+02:00",
+      "lastSeenOpenAt": "2026-10-13T16:03:59+02:00",
       "missingOpenCycles": 0,
-      "recommendationIdentity": "|4YM3B|2026-09-09|zonebourse|recommendation",
-      "contentHash": "8a0565c2065ad50aa36b4cf0ca5c65ecc227c346e8f8afafd62e9ab0cf270df4",
-      "mutationHistory": [],
-      "target": null,
+      "recommendationIdentity": "FRBNPP10D006|4YM3B|2026-09-09|zonebourse|recommendation",
+      "contentHash": "2d5261bfd3cc05aff983ade58d252aead790c773e46b8447d5dbfacd84e07776",
+      "mutationHistory": [
+        {
+          "changedAt": "2026-10-13T16:03:59+02:00",
+          "previousHash": "8a0565c2065ad50aa36b4cf0ca5c65ecc227c346e8f8afafd62e9ab0cf270df4",
+          "eventType": "modification"
+        }
+      ],
+      "target": 66.0,
       "stop": null,
-      "riskLevelsCurrency": null,
+      "riskLevelsCurrency": "EUR",
       "note": "Un niveau d'achat |. Prix d'entrée et ISIN à confirmer depuis la fiche article.",
-      "sourceConfidence": "medium",
+      "sourceConfidence": "high",
       "confidence": {
         "kind": "data_quality",
-        "score": 30,
-        "coveragePct": 30,
-        "label": "Données insuffisantes",
+        "score": 66,
+        "coveragePct": 66,
+        "label": "Données partielles",
         "operationallyUsable": false,
         "quoteAgeMinutes": null,
         "components": [
@@ -4861,8 +5077,8 @@
           {
             "key": "productIdentity",
             "weight": 15,
-            "score": 0,
-            "available": false,
+            "score": 100,
+            "available": true,
             "sources": [
               "https://www.zonebourse.com/actualite-bourse/un-niveau-d-achat-ce785bd9dd80f625"
             ]
@@ -4870,7 +5086,7 @@
           {
             "key": "tradePlan",
             "weight": 30,
-            "score": 0,
+            "score": 67,
             "available": false,
             "sources": [
               "https://www.zonebourse.com/actualite-bourse/un-niveau-d-achat-ce785bd9dd80f625"
@@ -4888,7 +5104,7 @@
           {
             "key": "underlying",
             "weight": 5,
-            "score": 0,
+            "score": 25,
             "available": false,
             "sources": [
               "https://www.zonebourse.com/actualite-bourse/un-niveau-d-achat-ce785bd9dd80f625"
@@ -4912,11 +5128,11 @@
       "productType": "Turbo",
       "direction": "CALL",
       "mnemo": "00Q7B",
-      "isin": null,
+      "isin": "FRBNPP094LD6",
       "status": "open",
       "recommendationStatus": "open",
       "portfolioStatus": "not_held",
-      "entryPrice": null,
+      "entryPrice": 4.14,
       "currentPrice": null,
       "exitPrice": null,
       "entryDate": "2026-09-08",
@@ -4926,21 +5142,27 @@
       "publishedAt": "2026-09-08T00:00+02:00",
       "publishedAtPrecision": "date",
       "detectedAt": "2026-10-12T17:12:22+02:00",
-      "lastSeenOpenAt": "2026-10-12T17:12:22+02:00",
+      "lastSeenOpenAt": "2026-10-13T16:03:59+02:00",
       "missingOpenCycles": 0,
-      "recommendationIdentity": "|00Q7B|2026-09-08|zonebourse|recommendation",
-      "contentHash": "9a1a66a8966d28310667e6bf8a133c9b80492f1b3ed7976c7d2dedc705e0562d",
-      "mutationHistory": [],
-      "target": null,
+      "recommendationIdentity": "FRBNPP094LD6|00Q7B|2026-09-08|zonebourse|recommendation",
+      "contentHash": "6dcc094e605d83d0247ada37dd1e954f0eada4018e86c3bc47adbc4e285f2ade",
+      "mutationHistory": [
+        {
+          "changedAt": "2026-10-13T16:03:59+02:00",
+          "previousHash": "9a1a66a8966d28310667e6bf8a133c9b80492f1b3ed7976c7d2dedc705e0562d",
+          "eventType": "modification"
+        }
+      ],
+      "target": 160.0,
       "stop": null,
-      "riskLevelsCurrency": null,
+      "riskLevelsCurrency": "EUR",
       "note": "De retour sur le support |. Prix d'entrée et ISIN à confirmer depuis la fiche article.",
-      "sourceConfidence": "medium",
+      "sourceConfidence": "high",
       "confidence": {
         "kind": "data_quality",
-        "score": 30,
-        "coveragePct": 30,
-        "label": "Données insuffisantes",
+        "score": 66,
+        "coveragePct": 66,
+        "label": "Données partielles",
         "operationallyUsable": false,
         "quoteAgeMinutes": null,
         "components": [
@@ -4956,8 +5178,8 @@
           {
             "key": "productIdentity",
             "weight": 15,
-            "score": 0,
-            "available": false,
+            "score": 100,
+            "available": true,
             "sources": [
               "https://www.zonebourse.com/actualite-bourse/de-retour-sur-le-support-ce785bd8da89f626"
             ]
@@ -4965,7 +5187,7 @@
           {
             "key": "tradePlan",
             "weight": 30,
-            "score": 0,
+            "score": 67,
             "available": false,
             "sources": [
               "https://www.zonebourse.com/actualite-bourse/de-retour-sur-le-support-ce785bd8da89f626"
@@ -4983,7 +5205,7 @@
           {
             "key": "underlying",
             "weight": 5,
-            "score": 0,
+            "score": 25,
             "available": false,
             "sources": [
               "https://www.zonebourse.com/actualite-bourse/de-retour-sur-le-support-ce785bd8da89f626"
@@ -5007,11 +5229,11 @@
       "productType": "Turbo",
       "direction": "CALL",
       "mnemo": "C22AS",
-      "isin": null,
+      "isin": "DE000FA7ABY5",
       "status": "open",
       "recommendationStatus": "open",
       "portfolioStatus": "not_held",
-      "entryPrice": null,
+      "entryPrice": 2.445,
       "currentPrice": null,
       "exitPrice": null,
       "entryDate": "2026-09-08",
@@ -5021,21 +5243,27 @@
       "publishedAt": "2026-09-08T00:00+02:00",
       "publishedAtPrecision": "date",
       "detectedAt": "2026-10-12T17:12:22+02:00",
-      "lastSeenOpenAt": "2026-10-12T17:12:22+02:00",
+      "lastSeenOpenAt": "2026-10-13T16:03:59+02:00",
       "missingOpenCycles": 0,
-      "recommendationIdentity": "|C22AS|2026-09-08|zonebourse|recommendation",
-      "contentHash": "af6a71896ed2a7a31b0fd065b94d6a1526e586d247dec2df681c8d2731bfdf74",
-      "mutationHistory": [],
-      "target": null,
+      "recommendationIdentity": "DE000FA7ABY5|C22AS|2026-09-08|zonebourse|recommendation",
+      "contentHash": "d5a9259d41a08e2a0cc94e69f176e453502a1a207988201e4f38f4676bcf1251",
+      "mutationHistory": [
+        {
+          "changedAt": "2026-10-13T16:03:59+02:00",
+          "previousHash": "af6a71896ed2a7a31b0fd065b94d6a1526e586d247dec2df681c8d2731bfdf74",
+          "eventType": "modification"
+        }
+      ],
+      "target": 155.0,
       "stop": null,
-      "riskLevelsCurrency": null,
+      "riskLevelsCurrency": "EUR",
       "note": "Achat du turbo CALL Société Générale C22AS |. Prix d'entrée et ISIN à confirmer depuis la fiche article.",
-      "sourceConfidence": "medium",
+      "sourceConfidence": "high",
       "confidence": {
         "kind": "data_quality",
-        "score": 30,
-        "coveragePct": 30,
-        "label": "Données insuffisantes",
+        "score": 66,
+        "coveragePct": 66,
+        "label": "Données partielles",
         "operationallyUsable": false,
         "quoteAgeMinutes": null,
         "components": [
@@ -5051,8 +5279,8 @@
           {
             "key": "productIdentity",
             "weight": 15,
-            "score": 0,
-            "available": false,
+            "score": 100,
+            "available": true,
             "sources": [
               "https://www.zonebourse.com/actualite-bourse/achat-du-turbo-call-societe-generale-c22as-ce785bd8db81f327"
             ]
@@ -5060,7 +5288,7 @@
           {
             "key": "tradePlan",
             "weight": 30,
-            "score": 0,
+            "score": 67,
             "available": false,
             "sources": [
               "https://www.zonebourse.com/actualite-bourse/achat-du-turbo-call-societe-generale-c22as-ce785bd8db81f327"
@@ -5078,7 +5306,7 @@
           {
             "key": "underlying",
             "weight": 5,
-            "score": 0,
+            "score": 25,
             "available": false,
             "sources": [
               "https://www.zonebourse.com/actualite-bourse/achat-du-turbo-call-societe-generale-c22as-ce785bd8db81f327"
@@ -5102,11 +5330,11 @@
       "productType": "Turbo",
       "direction": "CALL",
       "mnemo": "G61ES",
-      "isin": null,
+      "isin": "DE000FG0GT77",
       "status": "open",
       "recommendationStatus": "open",
       "portfolioStatus": "not_held",
-      "entryPrice": null,
+      "entryPrice": 3.41,
       "currentPrice": null,
       "exitPrice": null,
       "entryDate": "2026-09-04",
@@ -5116,21 +5344,27 @@
       "publishedAt": "2026-09-04T00:00+02:00",
       "publishedAtPrecision": "date",
       "detectedAt": "2026-10-12T17:12:22+02:00",
-      "lastSeenOpenAt": "2026-10-12T17:12:22+02:00",
+      "lastSeenOpenAt": "2026-10-13T16:03:59+02:00",
       "missingOpenCycles": 0,
-      "recommendationIdentity": "|G61ES|2026-09-04|zonebourse|recommendation",
-      "contentHash": "b8f6f7bd2236af6052966a89986b5eb1eb6b73b61e23241fdea0154d03b1e558",
-      "mutationHistory": [],
-      "target": null,
+      "recommendationIdentity": "DE000FG0GT77|G61ES|2026-09-04|zonebourse|recommendation",
+      "contentHash": "42693974a881d8ea2ea9af8f743ded4e080c61b4ac54f98eb5e600e884a315e5",
+      "mutationHistory": [
+        {
+          "changedAt": "2026-10-13T16:03:59+02:00",
+          "previousHash": "b8f6f7bd2236af6052966a89986b5eb1eb6b73b61e23241fdea0154d03b1e558",
+          "eventType": "modification"
+        }
+      ],
+      "target": 388.0,
       "stop": null,
-      "riskLevelsCurrency": null,
+      "riskLevelsCurrency": "EUR",
       "note": "Un support moyen terme à exploiter |. Prix d'entrée et ISIN à confirmer depuis la fiche article.",
-      "sourceConfidence": "medium",
+      "sourceConfidence": "high",
       "confidence": {
         "kind": "data_quality",
-        "score": 30,
-        "coveragePct": 30,
-        "label": "Données insuffisantes",
+        "score": 66,
+        "coveragePct": 66,
+        "label": "Données partielles",
         "operationallyUsable": false,
         "quoteAgeMinutes": null,
         "components": [
@@ -5146,8 +5380,8 @@
           {
             "key": "productIdentity",
             "weight": 15,
-            "score": 0,
-            "available": false,
+            "score": 100,
+            "available": true,
             "sources": [
               "https://www.zonebourse.com/actualite-bourse/un-support-moyen-terme-a-exploiter-ce785bdadf8ef12d"
             ]
@@ -5155,7 +5389,7 @@
           {
             "key": "tradePlan",
             "weight": 30,
-            "score": 0,
+            "score": 67,
             "available": false,
             "sources": [
               "https://www.zonebourse.com/actualite-bourse/un-support-moyen-terme-a-exploiter-ce785bdadf8ef12d"
@@ -5173,7 +5407,7 @@
           {
             "key": "underlying",
             "weight": 5,
-            "score": 0,
+            "score": 25,
             "available": false,
             "sources": [
               "https://www.zonebourse.com/actualite-bourse/un-support-moyen-terme-a-exploiter-ce785bdadf8ef12d"
@@ -5199,7 +5433,7 @@
       "mnemo": "8DPYB",
       "isin": null,
       "status": "open",
-      "recommendationStatus": "open",
+      "recommendationStatus": "PENDING_RECONCILIATION",
       "portfolioStatus": "not_held",
       "entryPrice": null,
       "currentPrice": null,
@@ -5212,10 +5446,16 @@
       "publishedAtPrecision": "date",
       "detectedAt": "2026-10-12T17:12:22+02:00",
       "lastSeenOpenAt": "2026-10-12T17:12:22+02:00",
-      "missingOpenCycles": 0,
+      "missingOpenCycles": 1,
       "recommendationIdentity": "|8DPYB|2026-09-04|zonebourse|recommendation",
       "contentHash": "e1d7f1877a130f11951017ee3c517945c66aa26e40434f1919a1081d11b7ecbe",
-      "mutationHistory": [],
+      "mutationHistory": [
+        {
+          "changedAt": "2026-10-13T16:03:59+02:00",
+          "eventType": "missing_from_open_listing",
+          "missingOpenCycles": 1
+        }
+      ],
       "target": null,
       "stop": null,
       "riskLevelsCurrency": null,
@@ -5281,6 +5521,101 @@
             "available": true,
             "sources": [
               "https://www.zonebourse.com/actualite-bourse/les-cours-devraient-se-reprendre-ce785bdadf8cf124"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "vallourec-2rrub-20261013",
+      "asset": "VALLOUREC",
+      "productType": "Turbo",
+      "direction": "CALL",
+      "mnemo": "2RRUB",
+      "isin": "FRBNPP09RFR9",
+      "status": "open",
+      "recommendationStatus": "open",
+      "portfolioStatus": "not_held",
+      "entryPrice": 0.48,
+      "currentPrice": null,
+      "exitPrice": null,
+      "entryDate": "2026-10-13",
+      "exitDate": null,
+      "currency": "EUR",
+      "url": "https://www.zonebourse.com/actualite-bourse/rebond-technique-en-formation-ce785ddddc88f42d",
+      "publishedAt": "2026-10-13T10:49+02:00",
+      "publishedAtPrecision": "minute",
+      "detectedAt": "2026-10-13T16:03:59+02:00",
+      "lastSeenOpenAt": "2026-10-13T16:03:59+02:00",
+      "missingOpenCycles": 0,
+      "recommendationIdentity": "FRBNPP09RFR9|2RRUB|2026-10-13|zonebourse|recommendation",
+      "contentHash": "978ccc3d724e3f2421253a356e3389e8755199dfe3261a8751c7524a53e964f9",
+      "mutationHistory": [],
+      "target": 20.8,
+      "stop": null,
+      "riskLevelsCurrency": "EUR",
+      "note": "Rebond technique en cours |. Prix d'entrée et ISIN à confirmer depuis la fiche article.",
+      "sourceConfidence": "medium",
+      "confidence": {
+        "kind": "data_quality",
+        "score": 66,
+        "coveragePct": 66,
+        "label": "Données partielles",
+        "operationallyUsable": false,
+        "quoteAgeMinutes": null,
+        "components": [
+          {
+            "key": "recommendation",
+            "weight": 20,
+            "score": 100,
+            "available": true,
+            "sources": [
+              "https://www.zonebourse.com/actualite-bourse/rebond-technique-en-formation-ce785ddddc88f42d"
+            ]
+          },
+          {
+            "key": "productIdentity",
+            "weight": 15,
+            "score": 100,
+            "available": true,
+            "sources": [
+              "https://www.zonebourse.com/actualite-bourse/rebond-technique-en-formation-ce785ddddc88f42d"
+            ]
+          },
+          {
+            "key": "tradePlan",
+            "weight": 30,
+            "score": 67,
+            "available": false,
+            "sources": [
+              "https://www.zonebourse.com/actualite-bourse/rebond-technique-en-formation-ce785ddddc88f42d"
+            ]
+          },
+          {
+            "key": "marketQuote",
+            "weight": 20,
+            "score": 0,
+            "available": false,
+            "sources": [
+              "https://www.zonebourse.com/actualite-bourse/rebond-technique-en-formation-ce785ddddc88f42d"
+            ]
+          },
+          {
+            "key": "underlying",
+            "weight": 5,
+            "score": 25,
+            "available": false,
+            "sources": [
+              "https://www.zonebourse.com/actualite-bourse/rebond-technique-en-formation-ce785ddddc88f42d"
+            ]
+          },
+          {
+            "key": "timing",
+            "weight": 10,
+            "score": 100,
+            "available": true,
+            "sources": [
+              "https://www.zonebourse.com/actualite-bourse/rebond-technique-en-formation-ce785ddddc88f42d"
             ]
           }
         ]

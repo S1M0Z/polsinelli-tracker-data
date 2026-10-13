@@ -1,7 +1,7 @@
 {
   "meta": {
     "version": 2,
-    "updatedAt": "2026-10-12T15:15:00+00:00",
+    "updatedAt": "2026-10-13T14:06:54+00:00",
     "description": "Market-data provider configuration. Euronext Live is active; Saxo remains available as an optional fallback."
   },
   "provider": "euronext",
@@ -215,6 +215,78 @@
         "underlyingSource": "unresolved",
         "description": "EIFFAGE S.A. Turbo",
         "resolvedAt": "2026-10-12T15:15:00+00:00"
+      },
+      "axa-8k2wb-20260917": {
+        "assetType": "StructuredProduct",
+        "symbol": "FRBNPP1115J9-XMLI",
+        "mic": "XMLI",
+        "underlyingSource": "unresolved",
+        "description": "AXA Turbo",
+        "resolvedAt": "2026-10-13T14:06:54+00:00"
+      },
+      "aeroports-de-paris-4ti4b-20260916": {
+        "assetType": "StructuredProduct",
+        "symbol": "FRBNPP10B455-XMLI",
+        "mic": "XMLI",
+        "underlyingSource": "unresolved",
+        "description": "AÉROPORTS DE PARIS Turbo",
+        "resolvedAt": "2026-10-13T14:06:54+00:00"
+      },
+      "philips-nv-y11tb-20260916": {
+        "assetType": "StructuredProduct",
+        "symbol": "FRBNPP08Y9L3-XMLI",
+        "mic": "XMLI",
+        "underlyingSource": "unresolved",
+        "description": "PHILIPS NV Turbo",
+        "resolvedAt": "2026-10-13T14:06:54+00:00"
+      },
+      "veolia-environnement-3pkjb-20260911": {
+        "assetType": "StructuredProduct",
+        "symbol": "FRBNPP051YO6-XMLI",
+        "mic": "XMLI",
+        "underlyingSource": "unresolved",
+        "description": "VEOLIA ENVIRONNEMENT Turbo",
+        "resolvedAt": "2026-10-13T14:06:54+00:00"
+      },
+      "pernod-ricard-4ym3b-20260909": {
+        "assetType": "StructuredProduct",
+        "symbol": "FRBNPP10D006-XMLI",
+        "mic": "XMLI",
+        "underlyingSource": "unresolved",
+        "description": "PERNOD RICARD Turbo",
+        "resolvedAt": "2026-10-13T14:06:54+00:00"
+      },
+      "nexans-00q7b-20260908": {
+        "assetType": "StructuredProduct",
+        "symbol": "FRBNPP094LD6-XMLI",
+        "mic": "XMLI",
+        "underlyingSource": "unresolved",
+        "description": "NEXANS Turbo",
+        "resolvedAt": "2026-10-13T14:06:54+00:00"
+      },
+      "legrand-c22as-20260908": {
+        "assetType": "StructuredProduct",
+        "symbol": "DE000FA7ABY5-XMLI",
+        "mic": "XMLI",
+        "underlyingSource": "unresolved",
+        "description": "LEGRAND Turbo",
+        "resolvedAt": "2026-10-13T14:06:54+00:00"
+      },
+      "ferrari-n-v-g61es-20260904": {
+        "assetType": "StructuredProduct",
+        "symbol": "DE000FG0GT77-XMLI",
+        "mic": "XMLI",
+        "underlyingSource": "unresolved",
+        "description": "FERRARI N.V. Turbo",
+        "resolvedAt": "2026-10-13T14:06:54+00:00"
+      },
+      "vallourec-2rrub-20261013": {
+        "assetType": "StructuredProduct",
+        "symbol": "FRBNPP09RFR9-XMLI",
+        "mic": "XMLI",
+        "underlyingSource": "unresolved",
+        "description": "VALLOUREC Turbo",
+        "resolvedAt": "2026-10-13T14:06:54+00:00"
       }
     }
   },
