@@ -1,7 +1,7 @@
 {
   "meta": {
     "version": 2,
-    "updatedAt": "2026-10-15T15:42:00+00:00",
+    "updatedAt": "2026-10-15T19:30:53+00:00",
     "description": "Market-data provider configuration. Euronext Live is active; Saxo remains available as an optional fallback."
   },
   "provider": "euronext",
@@ -303,6 +303,38 @@
         "underlyingSource": "unresolved",
         "description": "AYVENS Turbo",
         "resolvedAt": "2026-10-15T15:42:00+00:00"
+      },
+      "air-france-klm-8dpyb-20260904": {
+        "assetType": "StructuredProduct",
+        "symbol": "FRBNPP10YSW6-XMLI",
+        "mic": "XMLI",
+        "underlyingSource": "unresolved",
+        "description": "AIR FRANCE-KLM Turbo",
+        "resolvedAt": "2026-10-15T19:30:53+00:00"
+      },
+      "stellantis-n-v-vt93v-20260902": {
+        "assetType": "StructuredProduct",
+        "symbol": "DE000VY83RN4-XMLI",
+        "mic": "XMLI",
+        "underlyingSource": "unresolved",
+        "description": "STELLANTIS N.V. Warrant",
+        "resolvedAt": "2026-10-15T19:30:53+00:00"
+      },
+      "derichebourg-4g68s-20260828": {
+        "assetType": "StructuredProduct",
+        "symbol": "DE000FG17882-XMLI",
+        "mic": "XMLI",
+        "underlyingSource": "unresolved",
+        "description": "DERICHEBOURG Turbo",
+        "resolvedAt": "2026-10-15T19:30:53+00:00"
+      },
+      "vinci-xa10v-20260827": {
+        "assetType": "StructuredProduct",
+        "symbol": "DE000VY9ZZZ6-XMLI",
+        "mic": "XMLI",
+        "underlyingSource": "unresolved",
+        "description": "VINCI Warrant",
+        "resolvedAt": "2026-10-15T19:30:53+00:00"
       }
     }
   },
