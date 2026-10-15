@@ -1,7 +1,7 @@
 {
   "meta": {
     "version": 2,
-    "updatedAt": "2026-10-14T20:12:10+00:00",
+    "updatedAt": "2026-10-15T15:42:00+00:00",
     "description": "Market-data provider configuration. Euronext Live is active; Saxo remains available as an optional fallback."
   },
   "provider": "euronext",
@@ -295,6 +295,14 @@
         "underlyingSource": "unresolved",
         "description": "ORANGE Warrant",
         "resolvedAt": "2026-10-14T11:44:33+00:00"
+      },
+      "ayvens-438es-20261015": {
+        "assetType": "StructuredProduct",
+        "symbol": "DE000SX78TS7-XMLI",
+        "mic": "XMLI",
+        "underlyingSource": "unresolved",
+        "description": "AYVENS Turbo",
+        "resolvedAt": "2026-10-15T15:42:00+00:00"
       }
     }
   },
