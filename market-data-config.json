@@ -1,7 +1,7 @@
 {
   "meta": {
     "version": 2,
-    "updatedAt": "2026-10-19T12:59:48+00:00",
+    "updatedAt": "2026-10-19T19:19:00+00:00",
     "description": "Market-data provider configuration. Euronext Live is active; Saxo remains available as an optional fallback."
   },
   "provider": "euronext",
@@ -343,6 +343,14 @@
         "underlyingSource": "unresolved",
         "description": "SPIE SA Turbo",
         "resolvedAt": "2026-10-16T11:18:08+00:00"
+      },
+      "lvmh-ij10v-20260824": {
+        "assetType": "StructuredProduct",
+        "symbol": "DE000VJ72631-XMLI",
+        "mic": "XMLI",
+        "underlyingSource": "unresolved",
+        "description": "LVMH Turbo",
+        "resolvedAt": "2026-10-19T19:19:00+00:00"
       }
     }
   },
