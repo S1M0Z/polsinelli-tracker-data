@@ -1,7 +1,7 @@
 {
   "meta": {
     "version": 2,
-    "updatedAt": "2026-10-19T19:19:00+00:00",
+    "updatedAt": "2026-10-20T11:27:12+00:00",
     "description": "Market-data provider configuration. Euronext Live is active; Saxo remains available as an optional fallback."
   },
   "provider": "euronext",
@@ -351,6 +351,14 @@
         "underlyingSource": "unresolved",
         "description": "LVMH Turbo",
         "resolvedAt": "2026-10-19T19:19:00+00:00"
+      },
+      "engie-cz49v-20261020": {
+        "assetType": "StructuredProduct",
+        "symbol": "DE000BD5DQK1-XMLI",
+        "mic": "XMLI",
+        "underlyingSource": "unresolved",
+        "description": "ENGIE Warrant",
+        "resolvedAt": "2026-10-20T11:27:12+00:00"
       }
     }
   },
