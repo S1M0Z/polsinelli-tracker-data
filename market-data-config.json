@@ -1,7 +1,7 @@
 {
   "meta": {
     "version": 2,
-    "updatedAt": "2026-10-21T20:18:29+00:00",
+    "updatedAt": "2026-10-22T11:43:08+00:00",
     "description": "Market-data provider configuration. Euronext Live is active; Saxo remains available as an optional fallback."
   },
   "provider": "euronext",
@@ -391,6 +391,14 @@
         "underlyingSource": "unresolved",
         "description": "BMW AG Turbo",
         "resolvedAt": "2026-10-21T16:10:44+00:00"
+      },
+      "hermes-international-dm92v-20261022": {
+        "assetType": "StructuredProduct",
+        "symbol": "DE000BD7H8B3-XMLI",
+        "mic": "XMLI",
+        "underlyingSource": "unresolved",
+        "description": "HERMÈS INTERNATIONAL Warrant",
+        "resolvedAt": "2026-10-22T11:43:08+00:00"
       }
     }
   },
