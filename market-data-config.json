@@ -1,7 +1,7 @@
 {
   "meta": {
     "version": 2,
-    "updatedAt": "2026-10-26T12:51:26+00:00",
+    "updatedAt": "2026-10-26T18:55:53+00:00",
     "description": "Market-data provider configuration. Euronext Live is active; Saxo remains available as an optional fallback."
   },
   "provider": "euronext",
@@ -407,6 +407,14 @@
         "underlyingSource": "unresolved",
         "description": "APPLE INC. Warrant",
         "resolvedAt": "2026-10-22T16:10:18+00:00"
+      },
+      "microsoft-corporation-du61v-20261019": {
+        "assetType": "StructuredProduct",
+        "symbol": "DE000BD7UXW2-XMLI",
+        "mic": "XMLI",
+        "underlyingSource": "unresolved",
+        "description": "MICROSOFT CORPORATION Turbo",
+        "resolvedAt": "2026-10-26T18:55:53+00:00"
       }
     }
   },
