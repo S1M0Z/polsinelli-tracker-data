@@ -1,7 +1,7 @@
 {
   "meta": {
     "version": 2,
-    "updatedAt": "2026-10-26T18:55:53+00:00",
+    "updatedAt": "2026-10-27T12:04:02+00:00",
     "description": "Market-data provider configuration. Euronext Live is active; Saxo remains available as an optional fallback."
   },
   "provider": "euronext",
@@ -415,6 +415,14 @@
         "underlyingSource": "unresolved",
         "description": "MICROSOFT CORPORATION Turbo",
         "resolvedAt": "2026-10-26T18:55:53+00:00"
+      },
+      "klepierre-t6qsb-20261027": {
+        "assetType": "StructuredProduct",
+        "symbol": "FRBNPP08CSJ3-XMLI",
+        "mic": "XMLI",
+        "underlyingSource": "unresolved",
+        "description": "KLÉPIERRE Turbo",
+        "resolvedAt": "2026-10-27T12:04:02+00:00"
       }
     }
   },
