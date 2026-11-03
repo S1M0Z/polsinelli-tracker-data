@@ -1,7 +1,7 @@
 {
   "meta": {
     "version": 2,
-    "updatedAt": "2026-11-02T23:15:54+00:00",
+    "updatedAt": "2026-11-03T14:05:05+00:00",
     "description": "Market-data provider configuration. Euronext Live is active; Saxo remains available as an optional fallback."
   },
   "provider": "euronext",
@@ -431,6 +431,30 @@
         "underlyingSource": "unresolved",
         "description": "BUREAU VERITAS SA Turbo",
         "resolvedAt": "2026-11-02T15:39:54+00:00"
+      },
+      "schneider-electric-se-lu15v-20261103": {
+        "assetType": "StructuredProduct",
+        "symbol": "DE000VY0NJF7-XMLI",
+        "mic": "XMLI",
+        "underlyingSource": "unresolved",
+        "description": "SCHNEIDER ELECTRIC SE Warrant",
+        "resolvedAt": "2026-11-03T14:05:05+00:00"
+      },
+      "kering-gd22v-20261103": {
+        "assetType": "StructuredProduct",
+        "symbol": "DE000BE1D6B5-XMLI",
+        "mic": "XMLI",
+        "underlyingSource": "unresolved",
+        "description": "KERING Warrant",
+        "resolvedAt": "2026-11-03T14:05:05+00:00"
+      },
+      "merck-kgaa-1s22s-20261103": {
+        "assetType": "StructuredProduct",
+        "symbol": "DE000FG0VC10-XMLI",
+        "mic": "XMLI",
+        "underlyingSource": "unresolved",
+        "description": "MERCK KGAA Turbo",
+        "resolvedAt": "2026-11-03T14:05:05+00:00"
       }
     }
   },
