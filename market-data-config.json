@@ -1,7 +1,7 @@
 {
   "meta": {
     "version": 2,
-    "updatedAt": "2026-11-03T20:32:19+00:00",
+    "updatedAt": "2026-11-04T14:23:55+00:00",
     "description": "Market-data provider configuration. Euronext Live is active; Saxo remains available as an optional fallback."
   },
   "provider": "euronext",
@@ -455,6 +455,14 @@
         "underlyingSource": "unresolved",
         "description": "MERCK KGAA Turbo",
         "resolvedAt": "2026-11-03T14:05:05+00:00"
+      },
+      "cac-40-ei42v-20261104": {
+        "assetType": "StructuredProduct",
+        "symbol": "DE000BD8PUK1-XMLI",
+        "mic": "XMLI",
+        "underlyingSource": "unresolved",
+        "description": "CAC 40 Warrant",
+        "resolvedAt": "2026-11-04T14:23:55+00:00"
       }
     }
   },
