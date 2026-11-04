@@ -1,7 +1,7 @@
 {
   "meta": {
     "version": 2,
-    "updatedAt": "2026-11-04T14:23:55+00:00",
+    "updatedAt": "2026-11-04T20:54:20+00:00",
     "description": "Market-data provider configuration. Euronext Live is active; Saxo remains available as an optional fallback."
   },
   "provider": "euronext",
@@ -463,6 +463,14 @@
         "underlyingSource": "unresolved",
         "description": "CAC 40 Warrant",
         "resolvedAt": "2026-11-04T14:23:55+00:00"
+      },
+      "anheuser-busch-inbev-sa-nv-qi08v-20261104": {
+        "assetType": "StructuredProduct",
+        "symbol": "DE000VY34ZD1-XMLI",
+        "mic": "XMLI",
+        "underlyingSource": "unresolved",
+        "description": "ANHEUSER-BUSCH INBEV SA/NV Turbo",
+        "resolvedAt": "2026-11-04T20:54:20+00:00"
       }
     }
   },

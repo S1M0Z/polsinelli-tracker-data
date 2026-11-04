@@ -1,24 +1,24 @@
 {
   "meta": {
-    "generatedAt": "2026-11-04T14:24:58.745638+00:00",
+    "generatedAt": "2026-11-04T20:55:20.628646+00:00",
     "engineVersion": "1.2.0",
-    "sourceGeneratedAt": "2026-11-04T15:20:16+01:00",
+    "sourceGeneratedAt": "2026-11-04T21:51:18+01:00",
     "purpose": "Conservative decision support; not an automated order system.",
     "freshness": {
       "watch": {
-        "at": "2026-11-04T15:20:16+01:00",
-        "ageMinutes": 4.71
+        "at": "2026-11-04T21:51:18+01:00",
+        "ageMinutes": 4.04
       },
       "positions": {
-        "at": "2026-11-04T15:20:16+01:00",
-        "ageMinutes": 4.71
+        "at": "2026-11-04T21:51:18+01:00",
+        "ageMinutes": 4.04
       },
       "quotes": {
-        "at": "2026-11-04T14:21:00+00:00",
-        "ageMinutes": 3.98
+        "at": "2026-11-04T20:41:00+00:00",
+        "ageMinutes": 14.34
       },
       "calculation": {
-        "at": "2026-11-04T14:24:58.745638+00:00",
+        "at": "2026-11-04T20:55:20.628646+00:00",
         "ageMinutes": 0.0
       }
     }
@@ -40,15 +40,15 @@
     "maxModelStakePerPositionEur": 50.0
   },
   "summary": {
-    "positionCount": 86,
-    "openCount": 72,
+    "positionCount": 88,
+    "openCount": 74,
     "closedCount": 14,
     "actionableCount": 0,
     "committedOpenCount": 0,
     "availablePositionSlots": 3,
     "decisionCounts": {
-      "DATA_INCOMPLETE": 6,
-      "STALE_QUOTE": 66
+      "STALE_QUOTE": 73,
+      "DATA_INCOMPLETE": 1
     },
     "systemVerdict": "SYSTEM_STALE"
   },
@@ -78,13 +78,14 @@
         "isIndicative": false
       },
       "markToMarketReturnPct": -63.7931,
-      "decision": "DATA_INCOMPLETE",
+      "decision": "STALE_QUOTE",
       "reasons": [
+        "stale_quote",
         "missing_publication_time",
         "missing_risk_levels"
       ],
       "diagnostics": {
-        "quoteAgeMinutes": 8.98,
+        "quoteAgeMinutes": 399.34,
         "spreadPct": 3.1746,
         "priceDriftPct": -63.2184,
         "detectionLatencySeconds": null,
@@ -118,13 +119,14 @@
         "isIndicative": false
       },
       "markToMarketReturnPct": -63.3065,
-      "decision": "DATA_INCOMPLETE",
+      "decision": "STALE_QUOTE",
       "reasons": [
+        "stale_quote",
         "missing_detection_timestamps",
         "missing_risk_levels"
       ],
       "diagnostics": {
-        "quoteAgeMinutes": 16.98,
+        "quoteAgeMinutes": 407.34,
         "spreadPct": 2.1978,
         "priceDriftPct": -62.9032,
         "detectionLatencySeconds": null,
@@ -158,13 +160,14 @@
         "isIndicative": false
       },
       "markToMarketReturnPct": -56.6062,
-      "decision": "DATA_INCOMPLETE",
+      "decision": "STALE_QUOTE",
       "reasons": [
+        "stale_quote",
         "missing_detection_timestamps",
         "missing_risk_levels"
       ],
       "diagnostics": {
-        "quoteAgeMinutes": 3.98,
+        "quoteAgeMinutes": 394.34,
         "spreadPct": 0.597,
         "priceDriftPct": -56.4767,
         "detectionLatencySeconds": null,
@@ -181,9 +184,9 @@
       "mnemo": "325KS",
       "entryPrice": 1.68,
       "market": {
-        "currentPrice": 0.745,
-        "quoteAt": "2026-11-04T14:16:00+00:00",
-        "bid": 0.74,
+        "currentPrice": 0.73,
+        "quoteAt": "2026-11-04T19:46:00+00:00",
+        "bid": 0.71,
         "ask": 0.75,
         "underlyingPrice": null,
         "underlyingQuoteAt": null,
@@ -194,18 +197,21 @@
         "publishedAt": null,
         "publishedAtPrecision": "minute",
         "timestampSource": "euronext_page",
-        "marketStatus": "open",
+        "marketStatus": "closed",
         "isIndicative": false
       },
-      "markToMarketReturnPct": -55.6548,
-      "decision": "DATA_INCOMPLETE",
+      "markToMarketReturnPct": -56.5476,
+      "decision": "STALE_QUOTE",
       "reasons": [
+        "market_not_confirmed_open",
+        "stale_quote",
+        "spread_too_wide",
         "missing_detection_timestamps",
         "missing_risk_levels"
       ],
       "diagnostics": {
-        "quoteAgeMinutes": 8.98,
-        "spreadPct": 1.3423,
+        "quoteAgeMinutes": 69.34,
+        "spreadPct": 5.4795,
         "priceDriftPct": -55.3571,
         "detectionLatencySeconds": null,
         "rewardRiskRatio": null
@@ -221,10 +227,10 @@
       "mnemo": "3F7TB",
       "entryPrice": 3.06,
       "market": {
-        "currentPrice": 0.685,
-        "quoteAt": "2026-11-04T14:20:00+00:00",
-        "bid": 0.68,
-        "ask": 0.69,
+        "currentPrice": 0.535,
+        "quoteAt": "2026-11-04T20:41:00+00:00",
+        "bid": 0.52,
+        "ask": 0.55,
         "underlyingPrice": null,
         "underlyingQuoteAt": null,
         "quoteCurrency": "EUR",
@@ -234,19 +240,21 @@
         "publishedAt": null,
         "publishedAtPrecision": "minute",
         "timestampSource": "euronext_page",
-        "marketStatus": "open",
+        "marketStatus": "closed",
         "isIndicative": false
       },
-      "markToMarketReturnPct": -77.6144,
+      "markToMarketReturnPct": -82.5163,
       "decision": "DATA_INCOMPLETE",
       "reasons": [
+        "market_not_confirmed_open",
+        "spread_too_wide",
         "missing_detection_timestamps",
         "missing_risk_levels"
       ],
       "diagnostics": {
-        "quoteAgeMinutes": 4.98,
-        "spreadPct": 1.4599,
-        "priceDriftPct": -77.451,
+        "quoteAgeMinutes": 14.34,
+        "spreadPct": 5.6075,
+        "priceDriftPct": -82.0261,
         "detectionLatencySeconds": null,
         "rewardRiskRatio": null
       },
@@ -1171,14 +1179,15 @@
         "isIndicative": false
       },
       "markToMarketReturnPct": -98.0597,
-      "decision": "DATA_INCOMPLETE",
+      "decision": "STALE_QUOTE",
       "reasons": [
+        "stale_quote",
         "spread_too_wide",
         "missing_detection_timestamps",
         "missing_risk_levels"
       ],
       "diagnostics": {
-        "quoteAgeMinutes": 8.98,
+        "quoteAgeMinutes": 399.34,
         "spreadPct": 66.6667,
         "priceDriftPct": -97.0149,
         "detectionLatencySeconds": null,
@@ -1220,7 +1229,7 @@
         "missing_risk_levels"
       ],
       "diagnostics": {
-        "quoteAgeMinutes": 13054.98,
+        "quoteAgeMinutes": 13445.34,
         "spreadPct": 0.3617,
         "priceDriftPct": 21.4912,
         "detectionLatencySeconds": null,
@@ -3390,6 +3399,100 @@
       },
       "maxModelStakeEur": 50.0,
       "sourceUrl": "https://www.zonebourse.com/actualite-bourse/achat-du-warrant-put-vontobel-ei42v-ce785fdfda80f720"
+    },
+    {
+      "positionId": "anheuser-busch-inbev-sa-nv-qi08v-20261104",
+      "asset": "ANHEUSER-BUSCH INBEV SA/NV",
+      "productType": "Turbo",
+      "direction": "CALL",
+      "mnemo": "QI08V",
+      "entryPrice": 1.42,
+      "market": {
+        "currentPrice": null,
+        "quoteAt": null,
+        "bid": null,
+        "ask": null,
+        "underlyingPrice": null,
+        "underlyingQuoteAt": null,
+        "quoteCurrency": null,
+        "underlyingCurrency": null,
+        "publicationPrice": 1.42,
+        "detectedAt": "2026-11-04T21:51:18+01:00",
+        "publishedAt": "2026-11-04T16:11+01:00",
+        "publishedAtPrecision": "minute",
+        "timestampSource": null,
+        "marketStatus": "unknown",
+        "isIndicative": true
+      },
+      "markToMarketReturnPct": null,
+      "decision": "STALE_QUOTE",
+      "reasons": [
+        "market_not_confirmed_open",
+        "missing_quote_timestamp",
+        "unconfirmed_market_timestamp",
+        "indicative_quote",
+        "missing_current_price",
+        "missing_bid_ask",
+        "missing_publication_price",
+        "detection_too_slow",
+        "missing_risk_levels"
+      ],
+      "diagnostics": {
+        "quoteAgeMinutes": null,
+        "spreadPct": null,
+        "priceDriftPct": null,
+        "detectionLatencySeconds": 20418.0,
+        "rewardRiskRatio": null
+      },
+      "maxModelStakeEur": 50.0,
+      "sourceUrl": "https://www.zonebourse.com/actualite-bourse/a-proximite-d-une-zone-de-soutien-ce785fdfdd81f325"
+    },
+    {
+      "positionId": "bouygues-sa-d3o7b-20261104",
+      "asset": "BOUYGUES SA",
+      "productType": "Turbo",
+      "direction": "CALL",
+      "mnemo": "D3O7B",
+      "entryPrice": null,
+      "market": {
+        "currentPrice": null,
+        "quoteAt": null,
+        "bid": null,
+        "ask": null,
+        "underlyingPrice": null,
+        "underlyingQuoteAt": null,
+        "quoteCurrency": null,
+        "underlyingCurrency": null,
+        "publicationPrice": null,
+        "detectedAt": "2026-11-04T21:51:18+01:00",
+        "publishedAt": "2026-11-04T15:59+01:00",
+        "publishedAtPrecision": "minute",
+        "timestampSource": null,
+        "marketStatus": "unknown",
+        "isIndicative": true
+      },
+      "markToMarketReturnPct": null,
+      "decision": "STALE_QUOTE",
+      "reasons": [
+        "market_not_confirmed_open",
+        "missing_quote_timestamp",
+        "unconfirmed_market_timestamp",
+        "indicative_quote",
+        "missing_current_price",
+        "missing_bid_ask",
+        "missing_publication_price",
+        "detection_too_slow",
+        "missing_risk_levels"
+      ],
+      "diagnostics": {
+        "quoteAgeMinutes": null,
+        "spreadPct": null,
+        "priceDriftPct": null,
+        "detectionLatencySeconds": 21138.0,
+        "rewardRiskRatio": null
+      },
+      "maxModelStakeEur": 50.0,
+      "sourceUrl": "https://www.zonebourse.com/actualite-bourse/timing-opportun-pour-revenir-a-l-achat-ce785fdfdd8ffe27"
     }
   ],
   "portfolio": {
