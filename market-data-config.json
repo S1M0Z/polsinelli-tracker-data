@@ -1,7 +1,7 @@
 {
   "meta": {
     "version": 2,
-    "updatedAt": "2026-11-05T14:34:04+00:00",
+    "updatedAt": "2026-11-05T21:15:12+00:00",
     "description": "Market-data provider configuration. Euronext Live is active; Saxo remains available as an optional fallback."
   },
   "provider": "euronext",
@@ -479,6 +479,14 @@
         "underlyingSource": "unresolved",
         "description": "BOUYGUES SA Turbo",
         "resolvedAt": "2026-11-05T14:34:04+00:00"
+      },
+      "pernod-ricard-32w3b-20261105": {
+        "assetType": "StructuredProduct",
+        "symbol": "FRBNPP09UVK5-XMLI",
+        "mic": "XMLI",
+        "underlyingSource": "unresolved",
+        "description": "PERNOD RICARD Turbo",
+        "resolvedAt": "2026-11-05T21:15:12+00:00"
       }
     }
   },
