@@ -1,7 +1,7 @@
 {
   "meta": {
     "version": 2,
-    "updatedAt": "2026-11-04T20:54:20+00:00",
+    "updatedAt": "2026-11-05T14:34:04+00:00",
     "description": "Market-data provider configuration. Euronext Live is active; Saxo remains available as an optional fallback."
   },
   "provider": "euronext",
@@ -471,6 +471,14 @@
         "underlyingSource": "unresolved",
         "description": "ANHEUSER-BUSCH INBEV SA/NV Turbo",
         "resolvedAt": "2026-11-04T20:54:20+00:00"
+      },
+      "bouygues-sa-d3o7b-20261104": {
+        "assetType": "StructuredProduct",
+        "symbol": "FRBNPP123AB0-XMLI",
+        "mic": "XMLI",
+        "underlyingSource": "unresolved",
+        "description": "BOUYGUES SA Turbo",
+        "resolvedAt": "2026-11-05T14:34:04+00:00"
       }
     }
   },
