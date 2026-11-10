@@ -1,24 +1,24 @@
 {
   "meta": {
-    "generatedAt": "2026-11-09T16:02:03.149499+00:00",
+    "generatedAt": "2026-11-10T00:15:15.712639+00:00",
     "engineVersion": "1.2.0",
-    "sourceGeneratedAt": "2026-11-06T15:09:17+01:00",
+    "sourceGeneratedAt": "2026-11-10T01:09:35+01:00",
     "purpose": "Conservative decision support; not an automated order system.",
     "freshness": {
       "watch": {
-        "at": "2026-11-06T15:09:17+01:00",
-        "ageMinutes": 4432.77
+        "at": "2026-11-10T01:09:35+01:00",
+        "ageMinutes": 5.68
       },
       "positions": {
-        "at": "2026-11-06T15:09:17+01:00",
-        "ageMinutes": 4432.77
+        "at": "2026-11-10T01:09:35+01:00",
+        "ageMinutes": 5.68
       },
       "quotes": {
         "at": "2026-11-09T15:57:00+00:00",
-        "ageMinutes": 5.05
+        "ageMinutes": 498.26
       },
       "calculation": {
-        "at": "2026-11-09T16:02:03.149499+00:00",
+        "at": "2026-11-10T00:15:15.712639+00:00",
         "ageMinutes": 0.0
       }
     }
@@ -40,17 +40,16 @@
     "maxModelStakePerPositionEur": 50.0
   },
   "summary": {
-    "positionCount": 90,
-    "openCount": 76,
+    "positionCount": 93,
+    "openCount": 79,
     "closedCount": 14,
     "actionableCount": 0,
     "committedOpenCount": 0,
     "availablePositionSlots": 3,
     "decisionCounts": {
-      "STALE_QUOTE": 72,
-      "DATA_INCOMPLETE": 4
+      "STALE_QUOTE": 79
     },
-    "systemVerdict": "DATA_PIPELINE_UNAVAILABLE"
+    "systemVerdict": "SYSTEM_STALE"
   },
   "openPositions": [
     {
@@ -85,7 +84,7 @@
         "missing_risk_levels"
       ],
       "diagnostics": {
-        "quoteAgeMinutes": 34.3,
+        "quoteAgeMinutes": 527.51,
         "spreadPct": 2.2472,
         "priceDriftPct": -48.2759,
         "detectionLatencySeconds": null,
@@ -126,7 +125,7 @@
         "missing_risk_levels"
       ],
       "diagnostics": {
-        "quoteAgeMinutes": 33.05,
+        "quoteAgeMinutes": 526.26,
         "spreadPct": 2.5316,
         "priceDriftPct": -67.7419,
         "detectionLatencySeconds": null,
@@ -160,13 +159,14 @@
         "isIndicative": false
       },
       "markToMarketReturnPct": -58.6788,
-      "decision": "DATA_INCOMPLETE",
+      "decision": "STALE_QUOTE",
       "reasons": [
+        "stale_quote",
         "missing_detection_timestamps",
         "missing_risk_levels"
       ],
       "diagnostics": {
-        "quoteAgeMinutes": 5.05,
+        "quoteAgeMinutes": 498.26,
         "spreadPct": 0.627,
         "priceDriftPct": -58.5492,
         "detectionLatencySeconds": null,
@@ -200,13 +200,14 @@
         "isIndicative": false
       },
       "markToMarketReturnPct": -34.2262,
-      "decision": "DATA_INCOMPLETE",
+      "decision": "STALE_QUOTE",
       "reasons": [
+        "stale_quote",
         "missing_detection_timestamps",
         "missing_risk_levels"
       ],
       "diagnostics": {
-        "quoteAgeMinutes": 5.05,
+        "quoteAgeMinutes": 498.26,
         "spreadPct": 0.905,
         "priceDriftPct": -33.9286,
         "detectionLatencySeconds": null,
@@ -240,13 +241,14 @@
         "isIndicative": false
       },
       "markToMarketReturnPct": -73.0392,
-      "decision": "DATA_INCOMPLETE",
+      "decision": "STALE_QUOTE",
       "reasons": [
+        "stale_quote",
         "missing_detection_timestamps",
         "missing_risk_levels"
       ],
       "diagnostics": {
-        "quoteAgeMinutes": 10.05,
+        "quoteAgeMinutes": 503.26,
         "spreadPct": 1.2121,
         "priceDriftPct": -72.8758,
         "detectionLatencySeconds": null,
@@ -1173,14 +1175,15 @@
         "isIndicative": false
       },
       "markToMarketReturnPct": -98.6567,
-      "decision": "DATA_INCOMPLETE",
+      "decision": "STALE_QUOTE",
       "reasons": [
+        "stale_quote",
         "spread_too_wide",
         "missing_detection_timestamps",
         "missing_risk_levels"
       ],
       "diagnostics": {
-        "quoteAgeMinutes": 20.05,
+        "quoteAgeMinutes": 513.26,
         "spreadPct": 90.9091,
         "priceDriftPct": -97.6119,
         "detectionLatencySeconds": null,
@@ -1222,7 +1225,7 @@
         "missing_risk_levels"
       ],
       "diagnostics": {
-        "quoteAgeMinutes": 20352.05,
+        "quoteAgeMinutes": 20845.26,
         "spreadPct": 0.3617,
         "priceDriftPct": 21.4912,
         "detectionLatencySeconds": null,
@@ -3580,6 +3583,147 @@
       },
       "maxModelStakeEur": 50.0,
       "sourceUrl": "https://www.zonebourse.com/actualite-bourse/le-titre-devrait-amorcer-une-reprise-technique-ce7859d3d081fe21"
+    },
+    {
+      "positionId": "societe-generale-vz42v-20261109",
+      "asset": "SOCIÉTÉ GÉNÉRALE",
+      "productType": "Turbo",
+      "direction": "CALL",
+      "mnemo": "VZ42V",
+      "entryPrice": 5.68,
+      "market": {
+        "currentPrice": null,
+        "quoteAt": null,
+        "bid": null,
+        "ask": null,
+        "underlyingPrice": null,
+        "underlyingQuoteAt": null,
+        "quoteCurrency": null,
+        "underlyingCurrency": null,
+        "publicationPrice": 5.68,
+        "detectedAt": "2026-11-10T01:09:35+01:00",
+        "publishedAt": "2026-11-09T00:00+01:00",
+        "publishedAtPrecision": "date",
+        "timestampSource": null,
+        "marketStatus": "unknown",
+        "isIndicative": true
+      },
+      "markToMarketReturnPct": null,
+      "decision": "STALE_QUOTE",
+      "reasons": [
+        "market_not_confirmed_open",
+        "missing_quote_timestamp",
+        "unconfirmed_market_timestamp",
+        "indicative_quote",
+        "missing_current_price",
+        "missing_bid_ask",
+        "missing_publication_price",
+        "missing_publication_time",
+        "missing_risk_levels"
+      ],
+      "diagnostics": {
+        "quoteAgeMinutes": null,
+        "spreadPct": null,
+        "priceDriftPct": null,
+        "detectionLatencySeconds": null,
+        "rewardRiskRatio": null
+      },
+      "maxModelStakeEur": 50.0,
+      "sourceUrl": "https://www.zonebourse.com/actualite-bourse/un-niveau-d-achat-ce785fd3df89f423"
+    },
+    {
+      "positionId": "alphabet-inc-qa13v-20261109",
+      "asset": "ALPHABET INC.",
+      "productType": "Turbo",
+      "direction": "CALL",
+      "mnemo": "QA13V",
+      "entryPrice": 0.425,
+      "market": {
+        "currentPrice": null,
+        "quoteAt": null,
+        "bid": null,
+        "ask": null,
+        "underlyingPrice": null,
+        "underlyingQuoteAt": null,
+        "quoteCurrency": null,
+        "underlyingCurrency": null,
+        "publicationPrice": 0.425,
+        "detectedAt": "2026-11-10T01:09:35+01:00",
+        "publishedAt": "2026-11-09T00:00+01:00",
+        "publishedAtPrecision": "date",
+        "timestampSource": null,
+        "marketStatus": "unknown",
+        "isIndicative": true
+      },
+      "markToMarketReturnPct": null,
+      "decision": "STALE_QUOTE",
+      "reasons": [
+        "market_not_confirmed_open",
+        "missing_quote_timestamp",
+        "unconfirmed_market_timestamp",
+        "indicative_quote",
+        "missing_current_price",
+        "missing_bid_ask",
+        "missing_publication_price",
+        "missing_publication_time",
+        "missing_risk_levels"
+      ],
+      "diagnostics": {
+        "quoteAgeMinutes": null,
+        "spreadPct": null,
+        "priceDriftPct": null,
+        "detectionLatencySeconds": null,
+        "rewardRiskRatio": null
+      },
+      "maxModelStakeEur": 50.0,
+      "sourceUrl": "https://www.zonebourse.com/actualite-bourse/achat-du-turbo-call-vontobel-qa13v-ce785fd3dc81f222"
+    },
+    {
+      "positionId": "airbus-se-ml34v-20261109",
+      "asset": "AIRBUS SE",
+      "productType": "Turbo",
+      "direction": "CALL",
+      "mnemo": "ML34V",
+      "entryPrice": 3.74,
+      "market": {
+        "currentPrice": null,
+        "quoteAt": null,
+        "bid": null,
+        "ask": null,
+        "underlyingPrice": null,
+        "underlyingQuoteAt": null,
+        "quoteCurrency": null,
+        "underlyingCurrency": null,
+        "publicationPrice": 3.74,
+        "detectedAt": "2026-11-10T01:09:35+01:00",
+        "publishedAt": "2026-11-09T00:00+01:00",
+        "publishedAtPrecision": "date",
+        "timestampSource": null,
+        "marketStatus": "unknown",
+        "isIndicative": true
+      },
+      "markToMarketReturnPct": null,
+      "decision": "STALE_QUOTE",
+      "reasons": [
+        "market_not_confirmed_open",
+        "missing_quote_timestamp",
+        "unconfirmed_market_timestamp",
+        "indicative_quote",
+        "missing_current_price",
+        "missing_bid_ask",
+        "missing_publication_price",
+        "missing_publication_time",
+        "missing_risk_levels"
+      ],
+      "diagnostics": {
+        "quoteAgeMinutes": null,
+        "spreadPct": null,
+        "priceDriftPct": null,
+        "detectionLatencySeconds": null,
+        "rewardRiskRatio": null
+      },
+      "maxModelStakeEur": 50.0,
+      "sourceUrl": "https://www.zonebourse.com/actualite-bourse/un-niveau-d-achat-ce785fd3dc8ff621"
     }
   ],
   "portfolio": {

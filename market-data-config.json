@@ -1,7 +1,7 @@
 {
   "meta": {
     "version": 2,
-    "updatedAt": "2026-11-09T16:01:08+00:00",
+    "updatedAt": "2026-11-10T00:14:07+00:00",
     "description": "Market-data provider configuration. Euronext Live is active; Saxo remains available as an optional fallback."
   },
   "provider": "euronext",
@@ -487,6 +487,30 @@
         "underlyingSource": "unresolved",
         "description": "PERNOD RICARD Turbo",
         "resolvedAt": "2026-11-05T21:15:12+00:00"
+      },
+      "societe-generale-vz42v-20261109": {
+        "assetType": "StructuredProduct",
+        "symbol": "DE000VH7U1H7-XMLI",
+        "mic": "XMLI",
+        "underlyingSource": "unresolved",
+        "description": "SOCIÉTÉ GÉNÉRALE Turbo",
+        "resolvedAt": "2026-11-10T00:14:07+00:00"
+      },
+      "alphabet-inc-qa13v-20261109": {
+        "assetType": "StructuredProduct",
+        "symbol": "DE000VH2WQ81-XMLI",
+        "mic": "XMLI",
+        "underlyingSource": "unresolved",
+        "description": "ALPHABET INC. Turbo",
+        "resolvedAt": "2026-11-10T00:14:07+00:00"
+      },
+      "airbus-se-ml34v-20261109": {
+        "assetType": "StructuredProduct",
+        "symbol": "DE000VY0ZSW7-XMLI",
+        "mic": "XMLI",
+        "underlyingSource": "unresolved",
+        "description": "AIRBUS SE Turbo",
+        "resolvedAt": "2026-11-10T00:14:07+00:00"
       }
     }
   },

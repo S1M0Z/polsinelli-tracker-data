@@ -1,14 +1,14 @@
 {
   "meta": {
-    "generatedAt": "2026-11-06T15:09:17+01:00",
+    "generatedAt": "2026-11-10T01:09:35+01:00",
     "source": "Zonebourse / recommandations produits dérivés",
     "coverageStart": "2026-03-17",
     "mode": "scanned",
     "automaticSync": true,
     "openRecommendationCount": 25,
-    "lastPublicationCheckedAt": "2026-11-06T15:09:17+01:00",
+    "lastPublicationCheckedAt": "2026-11-10T01:09:35+01:00",
     "warning": "Les performances clôturées reprennent les prix d'entrée et de sortie publiés par Zonebourse. Elles excluent les frais, le spread et le slippage.",
-    "marketDataUpdatedAt": "2026-11-09T16:01:08+00:00",
+    "marketDataUpdatedAt": "2026-11-10T00:14:07+00:00",
     "analysts": [
       {
         "id": "laurent-polsinelli",
@@ -33,26 +33,23 @@
     },
     "schemaVersion": 2,
     "sourceHealth": {
-      "status": "source_unavailable",
-      "attemptedAt": "2026-11-09T17:00:42+01:00",
-      "lastSuccessAt": "2026-11-06T15:09:17+01:00",
-      "consecutiveFailures": 2,
+      "status": "degraded",
+      "attemptedAt": "2026-11-10T01:09:35+01:00",
+      "lastSuccessAt": "2026-11-10T01:09:35+01:00",
+      "consecutiveFailures": 0,
       "errors": [
         "https://www.zonebourse.com/bourse/derives/recommandations/: aucune recommandation extraite",
         "https://ch.zonebourse.com/bourse/derives/recommandations/: aucune recommandation extraite",
-        "https://www.zonebourse.com/bourse/derives/recommandations/historique/: aucune recommandation extraite",
-        "https://r.jina.ai/http://www.zonebourse.com/bourse/derives/recommandations/: IncompleteRead(27650 bytes read)",
-        "https://www.zonebourse.com/bourse/derives/: aucune recommandation extraite",
-        "https://ch.zonebourse.com/bourse/derives/: aucune recommandation extraite"
+        "https://www.zonebourse.com/bourse/derives/recommandations/historique/: aucune recommandation extraite"
       ]
     },
     "marketDataHealth": {
-      "status": "degraded",
-      "attemptedAt": "2026-11-09T16:01:08+00:00",
-      "quotesAdded": 6,
-      "positionsUpdated": 6,
+      "status": "source_unavailable",
+      "attemptedAt": "2026-11-10T00:14:07+00:00",
+      "quotesAdded": 0,
+      "positionsUpdated": 0,
       "skippedCount": 20,
-      "errorCount": 53,
+      "errorCount": 59,
       "skipped": [
         "russell-2000-mu13v-20260807: valid ISIN required for Euronext",
         "gold-vu91v-20260807: valid ISIN required for Euronext",
@@ -76,9 +73,12 @@
         "engie-vx12v-20260821: valid ISIN required for Euronext"
       ],
       "errors": [
-        "totalenergies-lt07v-20260724 underlying: Euronext returned no confirmed underlying quote for FR0000120271-XPAR",
-        "nexans-325ks-20260715 underlying: Euronext returned no confirmed underlying quote for FR0000044448-XPAR",
-        "legrand-3f7tb-20260715 underlying: Euronext returned no confirmed underlying quote for FR0010307819-XPAR",
+        "Euronext product page has no usable bid/ask for DE000VY0NFK5-XMLI (product=True, labels=False)",
+        "Euronext product page has no usable bid/ask for DE000VY3GDC5-XMLI (product=True, labels=False)",
+        "Euronext product page has no usable bid/ask for DE000VY3Z5D1-XMLI (product=True, labels=False)",
+        "Euronext product page has no usable bid/ask for DE000FE3FPS1-XMLI (product=True, labels=False)",
+        "Euronext product page has no usable bid/ask for NLBNPFR2CD04-XMLI (product=True, labels=False)",
+        "Euronext product page has no usable bid/ask for DE000VJ5FU71-XMLI (product=True, labels=True)",
         "Euronext product page has no usable bid/ask for FRBNPP114NX6-XMLI (product=True, labels=False)",
         "Browser HTTP 403 for https://live.euronext.com/en/product/structured-products/FRBNPP0808F8-XMLI",
         "Browser HTTP 403 for https://live.euronext.com/en/product/structured-products/DE000BD7H8B3-XMLI",
@@ -97,20 +97,17 @@
         "Browser HTTP 403 for https://live.euronext.com/en/product/structured-products/FRBNPP08EU04-XMLI",
         "Browser HTTP 403 for https://live.euronext.com/en/product/structured-products/FRBNPP1115J9-XMLI",
         "Browser HTTP 403 for https://live.euronext.com/en/product/structured-products/FRBNPP10B455-XMLI",
-        "Browser HTTP 403 for https://live.euronext.com/en/product/structured-products/FRBNPP08Y9L3-XMLI",
-        "Browser HTTP 403 for https://live.euronext.com/en/product/structured-products/FRBNPP051YO6-XMLI",
-        "Browser HTTP 403 for https://live.euronext.com/en/product/structured-products/FRBNPP10D006-XMLI",
-        "Browser HTTP 403 for https://live.euronext.com/en/product/structured-products/FRBNPP094LD6-XMLI"
+        "Browser HTTP 403 for https://live.euronext.com/en/product/structured-products/FRBNPP08Y9L3-XMLI"
       ],
-      "consecutiveFailures": 0,
+      "consecutiveFailures": 1,
       "lastSuccessAt": "2026-11-09T16:01:08+00:00"
     },
     "articleEnrichmentQueue": [
-      "https://www.zonebourse.com/actualite-bourse/des-niveaux-de-prix-interessants-ce785bd3db8ff023",
-      "https://www.zonebourse.com/actualite-bourse/achat-du-turbo-put-bnp-paribas-4ti4b-ce785bd2df8efe20",
-      "https://www.zonebourse.com/actualite-bourse/achat-du-warrant-call-vontobel-xa10v-ce7858dedb8df622",
-      "https://www.zonebourse.com/actualite-bourse/une-opportunite-moyen-terme--ce7858dbd981f521",
-      "https://www.zonebourse.com/actualite-bourse/le-titre-devrait-amorcer-une-reprise-technique-ce7859d3d081fe21"
+      "https://www.zonebourse.com/actualite-bourse/de-retour-sur-le-support-ce785ad8d88af72c",
+      "https://www.zonebourse.com/actualite-bourse/une-reprise-a-anticiper-ce785adbdc8cfe25",
+      "https://www.zonebourse.com/actualite-bourse/de-retour-sur-le-support-ce785bd8da89f626",
+      "https://www.zonebourse.com/actualite-bourse/un-support-moyen-terme-a-exploiter-ce7858d2d080f727",
+      "https://www.zonebourse.com/actualite-bourse/un-niveau-d-achat-ce7858dfdd88f525"
     ]
   },
   "positions": [
@@ -227,7 +224,7 @@
         "coveragePct": 96,
         "label": "Données partielles",
         "operationallyUsable": false,
-        "quoteAgeMinutes": 34.3,
+        "quoteAgeMinutes": 527.51,
         "components": [
           {
             "key": "recommendation",
@@ -287,7 +284,7 @@
       },
       "contentHash": "7959ba90ee45e6d1ed25712446e7090ed759756d80d7c560cff89498e542efa8",
       "recommendationIdentity": "|LT07V|2026-10-16|zonebourse|recommendation",
-      "lastSeenOpenAt": "2026-11-06T15:09:17+01:00",
+      "lastSeenOpenAt": "2026-11-10T01:09:35+01:00",
       "publishedAt": "2026-10-16T10:31+02:00",
       "publishedAtPrecision": "date",
       "detectedAt": "2026-10-16T13:13:51+02:00"
@@ -718,9 +715,14 @@
           "changedAt": "2026-11-06T15:09:17+01:00",
           "eventType": "missing_from_open_listing",
           "missingOpenCycles": 46
+        },
+        {
+          "changedAt": "2026-11-10T01:09:35+01:00",
+          "eventType": "missing_from_open_listing",
+          "missingOpenCycles": 47
         }
       ],
-      "missingOpenCycles": 46,
+      "missingOpenCycles": 47,
       "riskLevelsCurrency": "USD",
       "timestampSource": "euronext_page",
       "marketStatus": "open",
@@ -732,7 +734,7 @@
         "coveragePct": 86,
         "label": "Données partielles",
         "operationallyUsable": false,
-        "quoteAgeMinutes": 33.05,
+        "quoteAgeMinutes": 526.26,
         "components": [
           {
             "key": "recommendation",
@@ -1098,9 +1100,14 @@
           "changedAt": "2026-11-06T15:09:17+01:00",
           "eventType": "missing_from_open_listing",
           "missingOpenCycles": 46
+        },
+        {
+          "changedAt": "2026-11-10T01:09:35+01:00",
+          "eventType": "missing_from_open_listing",
+          "missingOpenCycles": 47
         }
       ],
-      "missingOpenCycles": 46,
+      "missingOpenCycles": 47,
       "riskLevelsCurrency": "EUR",
       "timestampSource": "euronext_page",
       "marketStatus": "open",
@@ -1112,7 +1119,7 @@
         "coveragePct": 86,
         "label": "Données partielles",
         "operationallyUsable": false,
-        "quoteAgeMinutes": 5.05,
+        "quoteAgeMinutes": 498.26,
         "components": [
           {
             "key": "recommendation",
@@ -1430,9 +1437,14 @@
           "changedAt": "2026-11-06T15:09:17+01:00",
           "eventType": "missing_from_open_listing",
           "missingOpenCycles": 46
+        },
+        {
+          "changedAt": "2026-11-10T01:09:35+01:00",
+          "eventType": "missing_from_open_listing",
+          "missingOpenCycles": 47
         }
       ],
-      "missingOpenCycles": 46,
+      "missingOpenCycles": 47,
       "riskLevelsCurrency": "EUR",
       "timestampSource": "euronext_page",
       "marketStatus": "open",
@@ -1444,7 +1456,7 @@
         "coveragePct": 86,
         "label": "Données partielles",
         "operationallyUsable": false,
-        "quoteAgeMinutes": 5.05,
+        "quoteAgeMinutes": 498.26,
         "components": [
           {
             "key": "recommendation",
@@ -1762,9 +1774,14 @@
           "changedAt": "2026-11-06T15:09:17+01:00",
           "eventType": "missing_from_open_listing",
           "missingOpenCycles": 46
+        },
+        {
+          "changedAt": "2026-11-10T01:09:35+01:00",
+          "eventType": "missing_from_open_listing",
+          "missingOpenCycles": 47
         }
       ],
-      "missingOpenCycles": 46,
+      "missingOpenCycles": 47,
       "riskLevelsCurrency": "EUR",
       "timestampSource": "euronext_page",
       "marketStatus": "open",
@@ -1776,7 +1793,7 @@
         "coveragePct": 86,
         "label": "Données partielles",
         "operationallyUsable": false,
-        "quoteAgeMinutes": 10.05,
+        "quoteAgeMinutes": 503.26,
         "components": [
           {
             "key": "recommendation",
@@ -2183,9 +2200,14 @@
           "changedAt": "2026-11-06T15:09:17+01:00",
           "eventType": "missing_from_open_listing",
           "missingOpenCycles": 46
+        },
+        {
+          "changedAt": "2026-11-10T01:09:35+01:00",
+          "eventType": "missing_from_open_listing",
+          "missingOpenCycles": 47
         }
       ],
-      "missingOpenCycles": 46,
+      "missingOpenCycles": 47,
       "riskLevelsCurrency": null,
       "confidence": {
         "kind": "data_quality",
@@ -2503,9 +2525,14 @@
           "changedAt": "2026-11-06T15:09:17+01:00",
           "eventType": "missing_from_open_listing",
           "missingOpenCycles": 46
+        },
+        {
+          "changedAt": "2026-11-10T01:09:35+01:00",
+          "eventType": "missing_from_open_listing",
+          "missingOpenCycles": 47
         }
       ],
-      "missingOpenCycles": 46,
+      "missingOpenCycles": 47,
       "riskLevelsCurrency": null,
       "confidence": {
         "kind": "data_quality",
@@ -2823,9 +2850,14 @@
           "changedAt": "2026-11-06T15:09:17+01:00",
           "eventType": "missing_from_open_listing",
           "missingOpenCycles": 46
+        },
+        {
+          "changedAt": "2026-11-10T01:09:35+01:00",
+          "eventType": "missing_from_open_listing",
+          "missingOpenCycles": 47
         }
       ],
-      "missingOpenCycles": 46,
+      "missingOpenCycles": 47,
       "riskLevelsCurrency": null,
       "confidence": {
         "kind": "data_quality",
@@ -3143,9 +3175,14 @@
           "changedAt": "2026-11-06T15:09:17+01:00",
           "eventType": "missing_from_open_listing",
           "missingOpenCycles": 46
+        },
+        {
+          "changedAt": "2026-11-10T01:09:35+01:00",
+          "eventType": "missing_from_open_listing",
+          "missingOpenCycles": 47
         }
       ],
-      "missingOpenCycles": 46,
+      "missingOpenCycles": 47,
       "riskLevelsCurrency": null,
       "confidence": {
         "kind": "data_quality",
@@ -3464,9 +3501,14 @@
           "changedAt": "2026-11-06T15:09:17+01:00",
           "eventType": "missing_from_open_listing",
           "missingOpenCycles": 46
+        },
+        {
+          "changedAt": "2026-11-10T01:09:35+01:00",
+          "eventType": "missing_from_open_listing",
+          "missingOpenCycles": 47
         }
       ],
-      "missingOpenCycles": 46,
+      "missingOpenCycles": 47,
       "riskLevelsCurrency": null,
       "confidence": {
         "kind": "data_quality",
@@ -3785,9 +3827,14 @@
           "changedAt": "2026-11-06T15:09:17+01:00",
           "eventType": "missing_from_open_listing",
           "missingOpenCycles": 46
+        },
+        {
+          "changedAt": "2026-11-10T01:09:35+01:00",
+          "eventType": "missing_from_open_listing",
+          "missingOpenCycles": 47
         }
       ],
-      "missingOpenCycles": 46,
+      "missingOpenCycles": 47,
       "riskLevelsCurrency": null,
       "confidence": {
         "kind": "data_quality",
@@ -4106,9 +4153,14 @@
           "changedAt": "2026-11-06T15:09:17+01:00",
           "eventType": "missing_from_open_listing",
           "missingOpenCycles": 46
+        },
+        {
+          "changedAt": "2026-11-10T01:09:35+01:00",
+          "eventType": "missing_from_open_listing",
+          "missingOpenCycles": 47
         }
       ],
-      "missingOpenCycles": 46,
+      "missingOpenCycles": 47,
       "riskLevelsCurrency": null,
       "confidence": {
         "kind": "data_quality",
@@ -4427,9 +4479,14 @@
           "changedAt": "2026-11-06T15:09:17+01:00",
           "eventType": "missing_from_open_listing",
           "missingOpenCycles": 46
+        },
+        {
+          "changedAt": "2026-11-10T01:09:35+01:00",
+          "eventType": "missing_from_open_listing",
+          "missingOpenCycles": 47
         }
       ],
-      "missingOpenCycles": 46,
+      "missingOpenCycles": 47,
       "riskLevelsCurrency": null,
       "confidence": {
         "kind": "data_quality",
@@ -4748,9 +4805,14 @@
           "changedAt": "2026-11-06T15:09:17+01:00",
           "eventType": "missing_from_open_listing",
           "missingOpenCycles": 46
+        },
+        {
+          "changedAt": "2026-11-10T01:09:35+01:00",
+          "eventType": "missing_from_open_listing",
+          "missingOpenCycles": 47
         }
       ],
-      "missingOpenCycles": 46,
+      "missingOpenCycles": 47,
       "riskLevelsCurrency": null,
       "confidence": {
         "kind": "data_quality",
@@ -5069,9 +5131,14 @@
           "changedAt": "2026-11-06T15:09:17+01:00",
           "eventType": "missing_from_open_listing",
           "missingOpenCycles": 46
+        },
+        {
+          "changedAt": "2026-11-10T01:09:35+01:00",
+          "eventType": "missing_from_open_listing",
+          "missingOpenCycles": 47
         }
       ],
-      "missingOpenCycles": 46,
+      "missingOpenCycles": 47,
       "riskLevelsCurrency": null,
       "confidence": {
         "kind": "data_quality",
@@ -5390,9 +5457,14 @@
           "changedAt": "2026-11-06T15:09:17+01:00",
           "eventType": "missing_from_open_listing",
           "missingOpenCycles": 46
+        },
+        {
+          "changedAt": "2026-11-10T01:09:35+01:00",
+          "eventType": "missing_from_open_listing",
+          "missingOpenCycles": 47
         }
       ],
-      "missingOpenCycles": 46,
+      "missingOpenCycles": 47,
       "riskLevelsCurrency": null,
       "confidence": {
         "kind": "data_quality",
@@ -5710,9 +5782,14 @@
           "changedAt": "2026-11-06T15:09:17+01:00",
           "eventType": "missing_from_open_listing",
           "missingOpenCycles": 46
+        },
+        {
+          "changedAt": "2026-11-10T01:09:35+01:00",
+          "eventType": "missing_from_open_listing",
+          "missingOpenCycles": 47
         }
       ],
-      "missingOpenCycles": 46,
+      "missingOpenCycles": 47,
       "riskLevelsCurrency": null,
       "confidence": {
         "kind": "data_quality",
@@ -6031,9 +6108,14 @@
           "changedAt": "2026-11-06T15:09:17+01:00",
           "eventType": "missing_from_open_listing",
           "missingOpenCycles": 46
+        },
+        {
+          "changedAt": "2026-11-10T01:09:35+01:00",
+          "eventType": "missing_from_open_listing",
+          "missingOpenCycles": 47
         }
       ],
-      "missingOpenCycles": 46,
+      "missingOpenCycles": 47,
       "riskLevelsCurrency": null,
       "confidence": {
         "kind": "data_quality",
@@ -6352,9 +6434,14 @@
           "changedAt": "2026-11-06T15:09:17+01:00",
           "eventType": "missing_from_open_listing",
           "missingOpenCycles": 46
+        },
+        {
+          "changedAt": "2026-11-10T01:09:35+01:00",
+          "eventType": "missing_from_open_listing",
+          "missingOpenCycles": 47
         }
       ],
-      "missingOpenCycles": 46,
+      "missingOpenCycles": 47,
       "riskLevelsCurrency": null,
       "confidence": {
         "kind": "data_quality",
@@ -6673,9 +6760,14 @@
           "changedAt": "2026-11-06T15:09:17+01:00",
           "eventType": "missing_from_open_listing",
           "missingOpenCycles": 46
+        },
+        {
+          "changedAt": "2026-11-10T01:09:35+01:00",
+          "eventType": "missing_from_open_listing",
+          "missingOpenCycles": 47
         }
       ],
-      "missingOpenCycles": 46,
+      "missingOpenCycles": 47,
       "riskLevelsCurrency": null,
       "confidence": {
         "kind": "data_quality",
@@ -6994,9 +7086,14 @@
           "changedAt": "2026-11-06T15:09:17+01:00",
           "eventType": "missing_from_open_listing",
           "missingOpenCycles": 46
+        },
+        {
+          "changedAt": "2026-11-10T01:09:35+01:00",
+          "eventType": "missing_from_open_listing",
+          "missingOpenCycles": 47
         }
       ],
-      "missingOpenCycles": 46,
+      "missingOpenCycles": 47,
       "riskLevelsCurrency": null,
       "confidence": {
         "kind": "data_quality",
@@ -7314,9 +7411,14 @@
           "changedAt": "2026-11-06T15:09:17+01:00",
           "eventType": "missing_from_open_listing",
           "missingOpenCycles": 46
+        },
+        {
+          "changedAt": "2026-11-10T01:09:35+01:00",
+          "eventType": "missing_from_open_listing",
+          "missingOpenCycles": 47
         }
       ],
-      "missingOpenCycles": 46,
+      "missingOpenCycles": 47,
       "riskLevelsCurrency": null,
       "confidence": {
         "kind": "data_quality",
@@ -7635,9 +7737,14 @@
           "changedAt": "2026-11-06T15:09:17+01:00",
           "eventType": "missing_from_open_listing",
           "missingOpenCycles": 46
+        },
+        {
+          "changedAt": "2026-11-10T01:09:35+01:00",
+          "eventType": "missing_from_open_listing",
+          "missingOpenCycles": 47
         }
       ],
-      "missingOpenCycles": 46,
+      "missingOpenCycles": 47,
       "riskLevelsCurrency": null,
       "confidence": {
         "kind": "data_quality",
@@ -7955,9 +8062,14 @@
           "changedAt": "2026-11-06T15:09:17+01:00",
           "eventType": "missing_from_open_listing",
           "missingOpenCycles": 46
+        },
+        {
+          "changedAt": "2026-11-10T01:09:35+01:00",
+          "eventType": "missing_from_open_listing",
+          "missingOpenCycles": 47
         }
       ],
-      "missingOpenCycles": 46,
+      "missingOpenCycles": 47,
       "riskLevelsCurrency": null,
       "confidence": {
         "kind": "data_quality",
@@ -8277,9 +8389,14 @@
           "changedAt": "2026-11-06T15:09:17+01:00",
           "eventType": "missing_from_open_listing",
           "missingOpenCycles": 46
+        },
+        {
+          "changedAt": "2026-11-10T01:09:35+01:00",
+          "eventType": "missing_from_open_listing",
+          "missingOpenCycles": 47
         }
       ],
-      "missingOpenCycles": 46,
+      "missingOpenCycles": 47,
       "riskLevelsCurrency": null,
       "quoteAt": "2026-11-09T15:42:00+00:00",
       "bid": 0.006,
@@ -8298,7 +8415,7 @@
         "coveragePct": 85,
         "label": "Données partielles",
         "operationallyUsable": false,
-        "quoteAgeMinutes": 20.05,
+        "quoteAgeMinutes": 513.26,
         "components": [
           {
             "key": "recommendation",
@@ -8378,7 +8495,7 @@
       "publishedAtPrecision": "date",
       "detectedAt": "2026-10-12T17:12:22+02:00",
       "lastSeenOpenAt": "2026-10-14T22:09:42+02:00",
-      "missingOpenCycles": 40,
+      "missingOpenCycles": 41,
       "recommendationIdentity": "FRBNPP114NX6|8TN9B|2026-10-08|zonebourse|recommendation",
       "contentHash": "4c8a148136a590b0ce2e46208358e7803f95340967b48a103fe752769c2a241a",
       "mutationHistory": [
@@ -8581,6 +8698,11 @@
           "changedAt": "2026-11-06T15:09:17+01:00",
           "eventType": "missing_from_open_listing",
           "missingOpenCycles": 40
+        },
+        {
+          "changedAt": "2026-11-10T01:09:35+01:00",
+          "eventType": "missing_from_open_listing",
+          "missingOpenCycles": 41
         }
       ],
       "target": 104.0,
@@ -8594,7 +8716,7 @@
         "coveragePct": 86,
         "label": "Données partielles",
         "operationallyUsable": false,
-        "quoteAgeMinutes": 20352.05,
+        "quoteAgeMinutes": 20845.26,
         "components": [
           {
             "key": "recommendation",
@@ -8685,7 +8807,7 @@
       "publishedAtPrecision": "date",
       "detectedAt": "2026-10-12T17:12:22+02:00",
       "lastSeenOpenAt": "2026-10-14T22:09:42+02:00",
-      "missingOpenCycles": 40,
+      "missingOpenCycles": 41,
       "recommendationIdentity": "FRBNPP0808F8|FI3RB|2026-10-08|zonebourse|recommendation",
       "contentHash": "f26338aaf0a5405d92ae5505a85b81d2bba15cbed6774d2fc0b5a42c323855a4",
       "mutationHistory": [
@@ -8888,6 +9010,11 @@
           "changedAt": "2026-11-06T15:09:17+01:00",
           "eventType": "missing_from_open_listing",
           "missingOpenCycles": 40
+        },
+        {
+          "changedAt": "2026-11-10T01:09:35+01:00",
+          "eventType": "missing_from_open_listing",
+          "missingOpenCycles": 41
         }
       ],
       "target": 300.0,
@@ -8981,7 +9108,7 @@
       "publishedAtPrecision": "date",
       "detectedAt": "2026-10-12T17:12:22+02:00",
       "lastSeenOpenAt": "2026-10-21T13:39:05+02:00",
-      "missingOpenCycles": 30,
+      "missingOpenCycles": 31,
       "recommendationIdentity": "DE000BD7H8B3|DM92V|2026-10-08|zonebourse|recommendation",
       "contentHash": "2ffd0a8de0349c157acd1f9b7c1033f4cfa69801e881767a4a4042c8cab3ecd5",
       "mutationHistory": [
@@ -9144,6 +9271,11 @@
           "changedAt": "2026-11-06T15:09:17+01:00",
           "eventType": "missing_from_open_listing",
           "missingOpenCycles": 30
+        },
+        {
+          "changedAt": "2026-11-10T01:09:35+01:00",
+          "eventType": "missing_from_open_listing",
+          "missingOpenCycles": 31
         }
       ],
       "target": 1414.0,
@@ -9237,7 +9369,7 @@
       "publishedAtPrecision": "date",
       "detectedAt": "2026-10-12T17:12:22+02:00",
       "lastSeenOpenAt": "2026-11-05T22:11:52+01:00",
-      "missingOpenCycles": 1,
+      "missingOpenCycles": 2,
       "recommendationIdentity": "DE000VY7GEB6|TV34V|2026-10-06|zonebourse|recommendation",
       "contentHash": "c680b6afb978199c07ebbba7557f296b5ce6ea3b98b607fc727b0220927cb672",
       "mutationHistory": [
@@ -9245,6 +9377,11 @@
           "changedAt": "2026-11-06T15:09:17+01:00",
           "eventType": "missing_from_open_listing",
           "missingOpenCycles": 1
+        },
+        {
+          "changedAt": "2026-11-10T01:09:35+01:00",
+          "eventType": "missing_from_open_listing",
+          "missingOpenCycles": 2
         }
       ],
       "target": 167.0,
@@ -9337,14 +9474,19 @@
       "publishedAt": "2026-10-05T00:00+02:00",
       "publishedAtPrecision": "date",
       "detectedAt": "2026-10-12T17:12:22+02:00",
-      "lastSeenOpenAt": "2026-11-06T15:09:17+01:00",
+      "lastSeenOpenAt": "2026-11-10T01:09:35+01:00",
       "missingOpenCycles": 0,
-      "recommendationIdentity": "|QH67V|2026-10-05|zonebourse|recommendation",
-      "contentHash": "3a5497648a9c3c97c0d47518b76382a3865ba6a66f4dbcf155bad41d8be17d7d",
+      "recommendationIdentity": "DE000VY34X99|QH67V|2026-10-05|zonebourse|recommendation",
+      "contentHash": "4c2de8b3f12e35149cfcc1f17dc900fc261459e8f9976e1ce2a55b9b89b54dc0",
       "mutationHistory": [
         {
           "changedAt": "2026-11-06T15:09:17+01:00",
           "previousHash": "4c2de8b3f12e35149cfcc1f17dc900fc261459e8f9976e1ce2a55b9b89b54dc0",
+          "eventType": "modification"
+        },
+        {
+          "changedAt": "2026-11-10T01:09:35+01:00",
+          "previousHash": "3a5497648a9c3c97c0d47518b76382a3865ba6a66f4dbcf155bad41d8be17d7d",
           "eventType": "modification"
         }
       ],
@@ -9439,7 +9581,7 @@
       "publishedAtPrecision": "date",
       "detectedAt": "2026-10-12T17:12:22+02:00",
       "lastSeenOpenAt": "2026-10-14T22:09:42+02:00",
-      "missingOpenCycles": 40,
+      "missingOpenCycles": 41,
       "recommendationIdentity": "FRBNPP091RP3|L6WEB|2026-10-05|zonebourse|recommendation",
       "contentHash": "6c8c2aa531d48f60fbd59a8a8e8870ef68eae9b27afd51d2ba495bb7f4a48802",
       "mutationHistory": [
@@ -9642,6 +9784,11 @@
           "changedAt": "2026-11-06T15:09:17+01:00",
           "eventType": "missing_from_open_listing",
           "missingOpenCycles": 40
+        },
+        {
+          "changedAt": "2026-11-10T01:09:35+01:00",
+          "eventType": "missing_from_open_listing",
+          "missingOpenCycles": 41
         }
       ],
       "target": 9.5,
@@ -9735,7 +9882,7 @@
       "publishedAtPrecision": "date",
       "detectedAt": "2026-10-12T17:12:22+02:00",
       "lastSeenOpenAt": "2026-11-03T00:12:37+01:00",
-      "missingOpenCycles": 7,
+      "missingOpenCycles": 8,
       "recommendationIdentity": "DE000BD7Z734|DX29V|2026-10-02|zonebourse|recommendation",
       "contentHash": "c235a0285a83b701cd9dba381460018b60fae515b5169ebfe14e4ff09d33b9d6",
       "mutationHistory": [
@@ -9773,6 +9920,11 @@
           "changedAt": "2026-11-06T15:09:17+01:00",
           "eventType": "missing_from_open_listing",
           "missingOpenCycles": 7
+        },
+        {
+          "changedAt": "2026-11-10T01:09:35+01:00",
+          "eventType": "missing_from_open_listing",
+          "missingOpenCycles": 8
         }
       ],
       "target": 64.0,
@@ -9866,7 +10018,7 @@
       "publishedAtPrecision": "date",
       "detectedAt": "2026-10-12T17:12:22+02:00",
       "lastSeenOpenAt": "2026-10-15T21:28:40+02:00",
-      "missingOpenCycles": 38,
+      "missingOpenCycles": 39,
       "recommendationIdentity": "DE000VY0NXS1|LZ77V|2026-10-01|zonebourse|recommendation",
       "contentHash": "b7e0d0252dfc6e3b20ee7edaff22ee8abd56bf9daedb86fcdacf0fe43a6fc1ab",
       "mutationHistory": [
@@ -10079,6 +10231,11 @@
           "changedAt": "2026-11-06T15:09:17+01:00",
           "eventType": "missing_from_open_listing",
           "missingOpenCycles": 38
+        },
+        {
+          "changedAt": "2026-11-10T01:09:35+01:00",
+          "eventType": "missing_from_open_listing",
+          "missingOpenCycles": 39
         }
       ],
       "target": 205.0,
@@ -10172,7 +10329,7 @@
       "publishedAtPrecision": "date",
       "detectedAt": "2026-10-12T17:12:22+02:00",
       "lastSeenOpenAt": "2026-11-04T15:20:16+01:00",
-      "missingOpenCycles": 4,
+      "missingOpenCycles": 5,
       "recommendationIdentity": "DE000VY88SJ9|WB89V|2026-09-29|zonebourse|recommendation",
       "contentHash": "c5171770fcd9a6e6b34285ff228a5cd5a454cabd6a3e7d9e5b34a03336a1c8c0",
       "mutationHistory": [
@@ -10235,6 +10392,11 @@
           "changedAt": "2026-11-06T15:09:17+01:00",
           "eventType": "missing_from_open_listing",
           "missingOpenCycles": 4
+        },
+        {
+          "changedAt": "2026-11-10T01:09:35+01:00",
+          "eventType": "missing_from_open_listing",
+          "missingOpenCycles": 5
         }
       ],
       "target": 28.6,
@@ -10327,7 +10489,7 @@
       "publishedAt": "2026-09-29T00:00+02:00",
       "publishedAtPrecision": "date",
       "detectedAt": "2026-10-12T17:12:22+02:00",
-      "lastSeenOpenAt": "2026-11-06T15:09:17+01:00",
+      "lastSeenOpenAt": "2026-11-10T01:09:35+01:00",
       "missingOpenCycles": 0,
       "recommendationIdentity": "DE000VK7EXZ6|GE85V|2026-09-29|zonebourse|recommendation",
       "contentHash": "8f3889c5e56fff6e7c64535e9f3b24733d032690dcbc53e12e3e9d4b34550af0",
@@ -10543,7 +10705,7 @@
       "publishedAt": "2026-09-25T00:00+02:00",
       "publishedAtPrecision": "date",
       "detectedAt": "2026-10-12T17:12:22+02:00",
-      "lastSeenOpenAt": "2026-11-06T15:09:17+01:00",
+      "lastSeenOpenAt": "2026-11-10T01:09:35+01:00",
       "missingOpenCycles": 0,
       "recommendationIdentity": "|VV35V|2026-09-25|zonebourse|recommendation",
       "contentHash": "55ab7547b0f4660be2be73b7cba4e4571f1a71e63c9eb4376ed0ed6e06007567",
@@ -10645,7 +10807,7 @@
       "publishedAtPrecision": "date",
       "detectedAt": "2026-10-12T17:12:22+02:00",
       "lastSeenOpenAt": "2026-10-15T21:28:40+02:00",
-      "missingOpenCycles": 38,
+      "missingOpenCycles": 39,
       "recommendationIdentity": "|CJC0B|2026-09-22|zonebourse|recommendation",
       "contentHash": "4b601a1448f029e7022c54c4309aa4f18ef75ac7d63016534d0f3c0a3ff4d52d",
       "mutationHistory": [
@@ -10843,6 +11005,11 @@
           "changedAt": "2026-11-06T15:09:17+01:00",
           "eventType": "missing_from_open_listing",
           "missingOpenCycles": 38
+        },
+        {
+          "changedAt": "2026-11-10T01:09:35+01:00",
+          "eventType": "missing_from_open_listing",
+          "missingOpenCycles": 39
         }
       ],
       "target": 1300.0,
@@ -10935,10 +11102,10 @@
       "publishedAt": "2026-09-22T00:00+02:00",
       "publishedAtPrecision": "date",
       "detectedAt": "2026-10-12T17:12:22+02:00",
-      "lastSeenOpenAt": "2026-11-06T15:09:17+01:00",
+      "lastSeenOpenAt": "2026-11-10T01:09:35+01:00",
       "missingOpenCycles": 0,
-      "recommendationIdentity": "DE000VJ1XC91|AC28V|2026-09-22|zonebourse|recommendation",
-      "contentHash": "5169bfd4fba8cce82d62d2e784131580989e7d99fc004864c6a087379331c5fe",
+      "recommendationIdentity": "|AC28V|2026-09-22|zonebourse|recommendation",
+      "contentHash": "cb672f16e4424b7a44a3aed8ae55e9d192daeae4966d6ec3744aac52e42fd237",
       "mutationHistory": [
         {
           "changedAt": "2026-10-13T16:03:59+02:00",
@@ -11119,6 +11286,11 @@
           "changedAt": "2026-11-06T15:09:17+01:00",
           "previousHash": "cb672f16e4424b7a44a3aed8ae55e9d192daeae4966d6ec3744aac52e42fd237",
           "eventType": "modification"
+        },
+        {
+          "changedAt": "2026-11-10T01:09:35+01:00",
+          "previousHash": "5169bfd4fba8cce82d62d2e784131580989e7d99fc004864c6a087379331c5fe",
+          "eventType": "modification"
         }
       ],
       "target": 55.05,
@@ -11211,10 +11383,10 @@
       "publishedAt": "2026-09-21T00:00+02:00",
       "publishedAtPrecision": "date",
       "detectedAt": "2026-10-12T17:12:22+02:00",
-      "lastSeenOpenAt": "2026-11-06T15:09:17+01:00",
+      "lastSeenOpenAt": "2026-11-10T01:09:35+01:00",
       "missingOpenCycles": 0,
-      "recommendationIdentity": "FRBNPP097G91|0EKYB|2026-09-21|zonebourse|recommendation",
-      "contentHash": "d1362ae6ca93df2ea2cb18519366134baa54aff4c61d3c20aa646d2f1408d6a0",
+      "recommendationIdentity": "|0EKYB|2026-09-21|zonebourse|recommendation",
+      "contentHash": "a584107359b14799b30b7c4c57aa2f940c4338e6982ffd20f6df0a838b25c24c",
       "mutationHistory": [
         {
           "changedAt": "2026-10-13T16:03:59+02:00",
@@ -11405,6 +11577,11 @@
           "changedAt": "2026-11-05T22:11:52+01:00",
           "previousHash": "a584107359b14799b30b7c4c57aa2f940c4338e6982ffd20f6df0a838b25c24c",
           "eventType": "modification"
+        },
+        {
+          "changedAt": "2026-11-10T01:09:35+01:00",
+          "previousHash": "d1362ae6ca93df2ea2cb18519366134baa54aff4c61d3c20aa646d2f1408d6a0",
+          "eventType": "modification"
         }
       ],
       "target": 101.0,
@@ -11498,7 +11675,7 @@
       "publishedAtPrecision": "date",
       "detectedAt": "2026-10-12T17:12:22+02:00",
       "lastSeenOpenAt": "2026-10-23T21:55:52+02:00",
-      "missingOpenCycles": 22,
+      "missingOpenCycles": 23,
       "recommendationIdentity": "DE000FE01AG1|SP3LS|2026-09-17|zonebourse|recommendation",
       "contentHash": "de554d11e3c95b97c319a2563c9f4e4b8a0acc1192d07d1d6053ff70f20d4ece",
       "mutationHistory": [
@@ -11721,6 +11898,11 @@
           "changedAt": "2026-11-06T15:09:17+01:00",
           "eventType": "missing_from_open_listing",
           "missingOpenCycles": 22
+        },
+        {
+          "changedAt": "2026-11-10T01:09:35+01:00",
+          "eventType": "missing_from_open_listing",
+          "missingOpenCycles": 23
         }
       ],
       "target": 490.0,
@@ -11813,10 +11995,10 @@
       "publishedAt": "2026-09-17T00:00+02:00",
       "publishedAtPrecision": "date",
       "detectedAt": "2026-10-12T17:12:22+02:00",
-      "lastSeenOpenAt": "2026-11-06T15:09:17+01:00",
+      "lastSeenOpenAt": "2026-11-10T01:09:35+01:00",
       "missingOpenCycles": 0,
-      "recommendationIdentity": "|6IWSB|2026-09-17|zonebourse|recommendation",
-      "contentHash": "8e220257f07711f9df537f14213019a24d9123bd65f29fc5f06ad38931ef0c23",
+      "recommendationIdentity": "FRBNPP08EU04|6IWSB|2026-09-17|zonebourse|recommendation",
+      "contentHash": "9ca4a73bd986af01349a6fd302b41457e01b9ce33f9c7fffc7a3e5c2a12d4f94",
       "mutationHistory": [
         {
           "changedAt": "2026-10-13T16:03:59+02:00",
@@ -12032,6 +12214,11 @@
           "changedAt": "2026-11-06T15:09:17+01:00",
           "previousHash": "9ca4a73bd986af01349a6fd302b41457e01b9ce33f9c7fffc7a3e5c2a12d4f94",
           "eventType": "modification"
+        },
+        {
+          "changedAt": "2026-11-10T01:09:35+01:00",
+          "previousHash": "8e220257f07711f9df537f14213019a24d9123bd65f29fc5f06ad38931ef0c23",
+          "eventType": "modification"
         }
       ],
       "target": 118.0,
@@ -12125,7 +12312,7 @@
       "publishedAtPrecision": "date",
       "detectedAt": "2026-10-12T17:12:22+02:00",
       "lastSeenOpenAt": "2026-11-04T21:51:18+01:00",
-      "missingOpenCycles": 3,
+      "missingOpenCycles": 4,
       "recommendationIdentity": "FRBNPP1115J9|8K2WB|2026-09-17|zonebourse|recommendation",
       "contentHash": "e981bea9bc4f59c50e972d0ce44925caf3cb52d1305709072edf328c1c0950e8",
       "mutationHistory": [
@@ -12338,6 +12525,11 @@
           "changedAt": "2026-11-06T15:09:17+01:00",
           "eventType": "missing_from_open_listing",
           "missingOpenCycles": 3
+        },
+        {
+          "changedAt": "2026-11-10T01:09:35+01:00",
+          "eventType": "missing_from_open_listing",
+          "missingOpenCycles": 4
         }
       ],
       "target": 49.0,
@@ -12430,10 +12622,10 @@
       "publishedAt": "2026-09-16T00:00+02:00",
       "publishedAtPrecision": "date",
       "detectedAt": "2026-10-12T17:12:22+02:00",
-      "lastSeenOpenAt": "2026-11-06T15:09:17+01:00",
+      "lastSeenOpenAt": "2026-11-10T01:09:35+01:00",
       "missingOpenCycles": 0,
-      "recommendationIdentity": "|4TI4B|2026-09-16|zonebourse|recommendation",
-      "contentHash": "f80b8e73359c0b3bb49f91ca9e7e25083e3b918f76d0888f55e001c07d222e8b",
+      "recommendationIdentity": "FRBNPP10B455|4TI4B|2026-09-16|zonebourse|recommendation",
+      "contentHash": "3b17d6d07c3a9b1f8354b9ad8c4ede576a0858f470a7202ac72f1737f219ca8f",
       "mutationHistory": [
         {
           "changedAt": "2026-10-13T16:03:59+02:00",
@@ -12654,6 +12846,11 @@
           "changedAt": "2026-11-06T15:09:17+01:00",
           "previousHash": "3b17d6d07c3a9b1f8354b9ad8c4ede576a0858f470a7202ac72f1737f219ca8f",
           "eventType": "modification"
+        },
+        {
+          "changedAt": "2026-11-10T01:09:35+01:00",
+          "previousHash": "f80b8e73359c0b3bb49f91ca9e7e25083e3b918f76d0888f55e001c07d222e8b",
+          "eventType": "modification"
         }
       ],
       "target": 100.0,
@@ -12747,7 +12944,7 @@
       "publishedAtPrecision": "date",
       "detectedAt": "2026-10-12T17:12:22+02:00",
       "lastSeenOpenAt": "2026-10-14T22:09:42+02:00",
-      "missingOpenCycles": 40,
+      "missingOpenCycles": 41,
       "recommendationIdentity": "FRBNPP08Y9L3|Y11TB|2026-09-16|zonebourse|recommendation",
       "contentHash": "f7a7bd5c158443591aa3393fef6a297c465f21b8c10b7c04dfd04d88fbb9a19c",
       "mutationHistory": [
@@ -12975,6 +13172,11 @@
           "changedAt": "2026-11-06T15:09:17+01:00",
           "eventType": "missing_from_open_listing",
           "missingOpenCycles": 40
+        },
+        {
+          "changedAt": "2026-11-10T01:09:35+01:00",
+          "eventType": "missing_from_open_listing",
+          "missingOpenCycles": 41
         }
       ],
       "target": 23.3,
@@ -13068,7 +13270,7 @@
       "publishedAtPrecision": "date",
       "detectedAt": "2026-10-12T17:12:22+02:00",
       "lastSeenOpenAt": "2026-11-03T00:12:37+01:00",
-      "missingOpenCycles": 7,
+      "missingOpenCycles": 8,
       "recommendationIdentity": "FRBNPP051YO6|3PKJB|2026-09-11|zonebourse|recommendation",
       "contentHash": "fe0dfacbf9588ad76996747cf3c0fc6601beb74bd9a573a030c66ac6fa429325",
       "mutationHistory": [
@@ -13291,6 +13493,11 @@
           "changedAt": "2026-11-06T15:09:17+01:00",
           "eventType": "missing_from_open_listing",
           "missingOpenCycles": 7
+        },
+        {
+          "changedAt": "2026-11-10T01:09:35+01:00",
+          "eventType": "missing_from_open_listing",
+          "missingOpenCycles": 8
         }
       ],
       "target": 34.5,
@@ -13384,7 +13591,7 @@
       "publishedAtPrecision": "date",
       "detectedAt": "2026-10-12T17:12:22+02:00",
       "lastSeenOpenAt": "2026-10-13T16:03:59+02:00",
-      "missingOpenCycles": 44,
+      "missingOpenCycles": 45,
       "recommendationIdentity": "FRBNPP10D006|4YM3B|2026-09-09|zonebourse|recommendation",
       "contentHash": "2d5261bfd3cc05aff983ade58d252aead790c773e46b8447d5dbfacd84e07776",
       "mutationHistory": [
@@ -13612,6 +13819,11 @@
           "changedAt": "2026-11-06T15:09:17+01:00",
           "eventType": "missing_from_open_listing",
           "missingOpenCycles": 44
+        },
+        {
+          "changedAt": "2026-11-10T01:09:35+01:00",
+          "eventType": "missing_from_open_listing",
+          "missingOpenCycles": 45
         }
       ],
       "target": 66.0,
@@ -13704,10 +13916,10 @@
       "publishedAt": "2026-09-08T00:00+02:00",
       "publishedAtPrecision": "date",
       "detectedAt": "2026-10-12T17:12:22+02:00",
-      "lastSeenOpenAt": "2026-11-06T15:09:17+01:00",
+      "lastSeenOpenAt": "2026-11-10T01:09:35+01:00",
       "missingOpenCycles": 0,
-      "recommendationIdentity": "FRBNPP094LD6|00Q7B|2026-09-08|zonebourse|recommendation",
-      "contentHash": "6dcc094e605d83d0247ada37dd1e954f0eada4018e86c3bc47adbc4e285f2ade",
+      "recommendationIdentity": "|00Q7B|2026-09-08|zonebourse|recommendation",
+      "contentHash": "9a1a66a8966d28310667e6bf8a133c9b80492f1b3ed7976c7d2dedc705e0562d",
       "mutationHistory": [
         {
           "changedAt": "2026-10-13T16:03:59+02:00",
@@ -13933,6 +14145,11 @@
           "changedAt": "2026-11-06T15:09:17+01:00",
           "previousHash": "9a1a66a8966d28310667e6bf8a133c9b80492f1b3ed7976c7d2dedc705e0562d",
           "eventType": "modification"
+        },
+        {
+          "changedAt": "2026-11-10T01:09:35+01:00",
+          "previousHash": "6dcc094e605d83d0247ada37dd1e954f0eada4018e86c3bc47adbc4e285f2ade",
+          "eventType": "modification"
         }
       ],
       "target": 160.0,
@@ -14026,7 +14243,7 @@
       "publishedAtPrecision": "date",
       "detectedAt": "2026-10-12T17:12:22+02:00",
       "lastSeenOpenAt": "2026-10-16T20:58:44+02:00",
-      "missingOpenCycles": 36,
+      "missingOpenCycles": 37,
       "recommendationIdentity": "DE000FA7ABY5|C22AS|2026-09-08|zonebourse|recommendation",
       "contentHash": "d5a9259d41a08e2a0cc94e69f176e453502a1a207988201e4f38f4676bcf1251",
       "mutationHistory": [
@@ -14254,6 +14471,11 @@
           "changedAt": "2026-11-06T15:09:17+01:00",
           "eventType": "missing_from_open_listing",
           "missingOpenCycles": 36
+        },
+        {
+          "changedAt": "2026-11-10T01:09:35+01:00",
+          "eventType": "missing_from_open_listing",
+          "missingOpenCycles": 37
         }
       ],
       "target": 155.0,
@@ -14347,7 +14569,7 @@
       "publishedAtPrecision": "date",
       "detectedAt": "2026-10-12T17:12:22+02:00",
       "lastSeenOpenAt": "2026-11-04T15:20:16+01:00",
-      "missingOpenCycles": 4,
+      "missingOpenCycles": 5,
       "recommendationIdentity": "DE000FG0GT77|G61ES|2026-09-04|zonebourse|recommendation",
       "contentHash": "42693974a881d8ea2ea9af8f743ded4e080c61b4ac54f98eb5e600e884a315e5",
       "mutationHistory": [
@@ -14565,6 +14787,11 @@
           "changedAt": "2026-11-06T15:09:17+01:00",
           "eventType": "missing_from_open_listing",
           "missingOpenCycles": 4
+        },
+        {
+          "changedAt": "2026-11-10T01:09:35+01:00",
+          "eventType": "missing_from_open_listing",
+          "missingOpenCycles": 5
         }
       ],
       "target": 388.0,
@@ -14658,7 +14885,7 @@
       "publishedAtPrecision": "date",
       "detectedAt": "2026-10-12T17:12:22+02:00",
       "lastSeenOpenAt": "2026-11-04T21:51:18+01:00",
-      "missingOpenCycles": 3,
+      "missingOpenCycles": 4,
       "recommendationIdentity": "FRBNPP10YSW6|8DPYB|2026-09-04|zonebourse|recommendation",
       "contentHash": "4031a67888ef1fe0610fbbd5b9079c7e405ef35a3ec0cb395e0173e9586b2b63",
       "mutationHistory": [
@@ -14876,6 +15103,11 @@
           "changedAt": "2026-11-06T15:09:17+01:00",
           "eventType": "missing_from_open_listing",
           "missingOpenCycles": 3
+        },
+        {
+          "changedAt": "2026-11-10T01:09:35+01:00",
+          "eventType": "missing_from_open_listing",
+          "missingOpenCycles": 4
         }
       ],
       "target": 13.5,
@@ -14968,7 +15200,7 @@
       "publishedAt": "2026-10-13T10:49+02:00",
       "publishedAtPrecision": "date",
       "detectedAt": "2026-10-13T16:03:59+02:00",
-      "lastSeenOpenAt": "2026-11-06T15:09:17+01:00",
+      "lastSeenOpenAt": "2026-11-10T01:09:35+01:00",
       "missingOpenCycles": 0,
       "recommendationIdentity": "FRBNPP09RFR9|2RRUB|2026-10-13|zonebourse|recommendation",
       "contentHash": "ac21666786f08c212ece1996a0fdaf71821c9287ae08442a325247f38023006f",
@@ -15070,7 +15302,7 @@
       "publishedAtPrecision": "minute",
       "detectedAt": "2026-10-14T13:41:55+02:00",
       "lastSeenOpenAt": "2026-10-14T22:09:42+02:00",
-      "missingOpenCycles": 40,
+      "missingOpenCycles": 41,
       "recommendationIdentity": "DE000BD7U081|DV83V|2026-10-14|zonebourse|recommendation",
       "contentHash": "c5d564a27c618ad871cd78101a8c9c98185e99d34b3a989768e2ad2b3e462bfd",
       "mutationHistory": [
@@ -15273,6 +15505,11 @@
           "changedAt": "2026-11-06T15:09:17+01:00",
           "eventType": "missing_from_open_listing",
           "missingOpenCycles": 40
+        },
+        {
+          "changedAt": "2026-11-10T01:09:35+01:00",
+          "eventType": "missing_from_open_listing",
+          "missingOpenCycles": 41
         }
       ],
       "target": 15.0,
@@ -15366,7 +15603,7 @@
       "publishedAtPrecision": "date",
       "detectedAt": "2026-10-15T17:38:46+02:00",
       "lastSeenOpenAt": "2026-11-04T21:51:18+01:00",
-      "missingOpenCycles": 3,
+      "missingOpenCycles": 4,
       "recommendationIdentity": "DE000SX78TS7|438ES|2026-10-15|zonebourse|recommendation",
       "contentHash": "27cfb1195acd0b3f93eb7bb3e83331f6a5126cfa3ecca596a3255011ec693d9f",
       "mutationHistory": [
@@ -15389,6 +15626,11 @@
           "changedAt": "2026-11-06T15:09:17+01:00",
           "eventType": "missing_from_open_listing",
           "missingOpenCycles": 3
+        },
+        {
+          "changedAt": "2026-11-10T01:09:35+01:00",
+          "eventType": "missing_from_open_listing",
+          "missingOpenCycles": 4
         }
       ],
       "target": 10.3,
@@ -15481,10 +15723,10 @@
       "publishedAt": "2026-09-02T00:00+02:00",
       "publishedAtPrecision": "date",
       "detectedAt": "2026-10-15T17:38:46+02:00",
-      "lastSeenOpenAt": "2026-11-06T15:09:17+01:00",
+      "lastSeenOpenAt": "2026-11-10T01:09:35+01:00",
       "missingOpenCycles": 0,
-      "recommendationIdentity": "DE000VY83RN4|VT93V|2026-09-02|zonebourse|recommendation",
-      "contentHash": "e9dc06300f88d9c1df1e7c27b4424056a78e1709a667a69e4871da50e47d6bd6",
+      "recommendationIdentity": "|VT93V|2026-09-02|zonebourse|recommendation",
+      "contentHash": "55ced168bd169ab5633eb56eeb1a6451db22a0bd18bdccce4c0553b39d7bc8c1",
       "mutationHistory": [
         {
           "changedAt": "2026-10-15T21:28:40+02:00",
@@ -15675,6 +15917,11 @@
           "changedAt": "2026-11-06T15:09:17+01:00",
           "previousHash": "55ced168bd169ab5633eb56eeb1a6451db22a0bd18bdccce4c0553b39d7bc8c1",
           "eventType": "modification"
+        },
+        {
+          "changedAt": "2026-11-10T01:09:35+01:00",
+          "previousHash": "e9dc06300f88d9c1df1e7c27b4424056a78e1709a667a69e4871da50e47d6bd6",
+          "eventType": "modification"
         }
       ],
       "target": 5.3,
@@ -15767,10 +16014,10 @@
       "publishedAt": "2026-08-28T00:00+02:00",
       "publishedAtPrecision": "date",
       "detectedAt": "2026-10-15T17:38:46+02:00",
-      "lastSeenOpenAt": "2026-11-06T15:09:17+01:00",
+      "lastSeenOpenAt": "2026-11-10T01:09:35+01:00",
       "missingOpenCycles": 0,
-      "recommendationIdentity": "DE000FG17882|4G68S|2026-08-28|zonebourse|recommendation",
-      "contentHash": "6ad87a378c2397d16204b57cba306a8f66595a45380c69c092a4dab24cc66608",
+      "recommendationIdentity": "|4G68S|2026-08-28|zonebourse|recommendation",
+      "contentHash": "5302b4539f19b4704c65a0d9015cdee4b32315d3342bd0f96cd687cadf93f6f1",
       "mutationHistory": [
         {
           "changedAt": "2026-10-15T21:28:40+02:00",
@@ -15961,6 +16208,11 @@
           "changedAt": "2026-11-06T15:09:17+01:00",
           "previousHash": "5302b4539f19b4704c65a0d9015cdee4b32315d3342bd0f96cd687cadf93f6f1",
           "eventType": "modification"
+        },
+        {
+          "changedAt": "2026-11-10T01:09:35+01:00",
+          "previousHash": "6ad87a378c2397d16204b57cba306a8f66595a45380c69c092a4dab24cc66608",
+          "eventType": "modification"
         }
       ],
       "target": 10.5,
@@ -16041,7 +16293,7 @@
       "mnemo": "XA10V",
       "isin": "DE000VY9ZZZ6",
       "status": "open",
-      "recommendationStatus": "open",
+      "recommendationStatus": "PENDING_RECONCILIATION",
       "portfolioStatus": "not_held",
       "entryPrice": 0.83,
       "currentPrice": null,
@@ -16054,7 +16306,7 @@
       "publishedAtPrecision": "date",
       "detectedAt": "2026-10-15T17:38:46+02:00",
       "lastSeenOpenAt": "2026-11-06T15:09:17+01:00",
-      "missingOpenCycles": 0,
+      "missingOpenCycles": 1,
       "recommendationIdentity": "|XA10V|2026-08-27|zonebourse|recommendation",
       "contentHash": "64dd2528af98550670ac8f7f0c02c36714f43ccd3dd2b418d26d4593ba05b8e2",
       "mutationHistory": [
@@ -16247,6 +16499,11 @@
           "changedAt": "2026-11-06T15:09:17+01:00",
           "previousHash": "2035a9aeb7ec1d09e05275105718349f72e2e63b37600d9e7903b2b47509f0bb",
           "eventType": "modification"
+        },
+        {
+          "changedAt": "2026-11-10T01:09:35+01:00",
+          "eventType": "missing_from_open_listing",
+          "missingOpenCycles": 1
         }
       ],
       "target": 128.0,
@@ -16340,7 +16597,7 @@
       "publishedAtPrecision": "date",
       "detectedAt": "2026-10-16T13:13:51+02:00",
       "lastSeenOpenAt": "2026-10-29T19:41:01+01:00",
-      "missingOpenCycles": 12,
+      "missingOpenCycles": 13,
       "recommendationIdentity": "FRBNPP08ACY0|6YKSB|2026-10-16|zonebourse|recommendation",
       "contentHash": "7bbc61abb36b2296e5c561d43a016cdbf94cc8c89f13fe7c2ab97a686802035a",
       "mutationHistory": [
@@ -16408,6 +16665,11 @@
           "changedAt": "2026-11-06T15:09:17+01:00",
           "eventType": "missing_from_open_listing",
           "missingOpenCycles": 12
+        },
+        {
+          "changedAt": "2026-11-10T01:09:35+01:00",
+          "eventType": "missing_from_open_listing",
+          "missingOpenCycles": 13
         }
       ],
       "target": 46.5,
@@ -16488,7 +16750,7 @@
       "mnemo": "IJ10V",
       "isin": "DE000VJ72631",
       "status": "open",
-      "recommendationStatus": "open",
+      "recommendationStatus": "PENDING_RECONCILIATION",
       "portfolioStatus": "not_held",
       "entryPrice": 2.43,
       "currentPrice": null,
@@ -16501,7 +16763,7 @@
       "publishedAtPrecision": "date",
       "detectedAt": "2026-10-19T14:56:58+02:00",
       "lastSeenOpenAt": "2026-11-06T15:09:17+01:00",
-      "missingOpenCycles": 0,
+      "missingOpenCycles": 1,
       "recommendationIdentity": "|IJ10V|2026-08-24|zonebourse|recommendation",
       "contentHash": "667c66b4b9df072799c553d9e3975021aa77806a4c39d67fdc9484a2a683226e",
       "mutationHistory": [
@@ -16669,6 +16931,11 @@
           "changedAt": "2026-11-05T15:30:46+01:00",
           "previousHash": "d69359f498ef1e22a12a73a45c96b950d9fcd2924ab0b32b9bc9605a0bf9ea5d",
           "eventType": "modification"
+        },
+        {
+          "changedAt": "2026-11-10T01:09:35+01:00",
+          "eventType": "missing_from_open_listing",
+          "missingOpenCycles": 1
         }
       ],
       "target": 500.0,
@@ -16762,7 +17029,7 @@
       "publishedAtPrecision": "date",
       "detectedAt": "2026-10-20T13:24:30+02:00",
       "lastSeenOpenAt": "2026-10-28T23:48:32+01:00",
-      "missingOpenCycles": 14,
+      "missingOpenCycles": 15,
       "recommendationIdentity": "DE000BD5DQK1|CZ49V|2026-10-20|zonebourse|recommendation",
       "contentHash": "2686cfd6d43a5fc177da6aea2bd5af56f4d35b5cc3be91be85a0189e5b2cd257",
       "mutationHistory": [
@@ -16840,6 +17107,11 @@
           "changedAt": "2026-11-06T15:09:17+01:00",
           "eventType": "missing_from_open_listing",
           "missingOpenCycles": 14
+        },
+        {
+          "changedAt": "2026-11-10T01:09:35+01:00",
+          "eventType": "missing_from_open_listing",
+          "missingOpenCycles": 15
         }
       ],
       "target": 25.5,
@@ -16933,7 +17205,7 @@
       "publishedAtPrecision": "date",
       "detectedAt": "2026-10-21T13:39:05+02:00",
       "lastSeenOpenAt": "2026-11-03T15:01:42+01:00",
-      "missingOpenCycles": 6,
+      "missingOpenCycles": 7,
       "recommendationIdentity": "|DE52V|2026-10-21|zonebourse|recommendation",
       "contentHash": "65d57a606b4007863c19af032bd6313f8750a63e06928a3207fe1b0bf3e71757",
       "mutationHistory": [
@@ -16976,6 +17248,11 @@
           "changedAt": "2026-11-06T15:09:17+01:00",
           "eventType": "missing_from_open_listing",
           "missingOpenCycles": 6
+        },
+        {
+          "changedAt": "2026-11-10T01:09:35+01:00",
+          "eventType": "missing_from_open_listing",
+          "missingOpenCycles": 7
         }
       ],
       "target": 90.0,
@@ -17068,7 +17345,7 @@
       "publishedAt": "2026-10-21T09:29+02:00",
       "publishedAtPrecision": "date",
       "detectedAt": "2026-10-21T13:39:05+02:00",
-      "lastSeenOpenAt": "2026-11-06T15:09:17+01:00",
+      "lastSeenOpenAt": "2026-11-10T01:09:35+01:00",
       "missingOpenCycles": 0,
       "recommendationIdentity": "|VV20V|2026-10-21|zonebourse|recommendation",
       "contentHash": "40b697e6ba295e430bbff69824bfc9079ae60c8e8fca2df055ce5602188e703a",
@@ -17175,7 +17452,7 @@
       "publishedAtPrecision": "date",
       "detectedAt": "2026-10-21T13:39:05+02:00",
       "lastSeenOpenAt": "2026-10-30T23:28:30+01:00",
-      "missingOpenCycles": 9,
+      "missingOpenCycles": 10,
       "recommendationIdentity": "FRBNPP10UYI1|7TTWB|2026-10-21|zonebourse|recommendation",
       "contentHash": "18d4d2da12e0a7d98c7a19331bfa6a7eb3df5af9f7cc6421afada0593e465807",
       "mutationHistory": [
@@ -17228,6 +17505,11 @@
           "changedAt": "2026-11-06T15:09:17+01:00",
           "eventType": "missing_from_open_listing",
           "missingOpenCycles": 9
+        },
+        {
+          "changedAt": "2026-11-10T01:09:35+01:00",
+          "eventType": "missing_from_open_listing",
+          "missingOpenCycles": 10
         }
       ],
       "target": 72.8,
@@ -17321,7 +17603,7 @@
       "publishedAtPrecision": "date",
       "detectedAt": "2026-10-21T18:08:24+02:00",
       "lastSeenOpenAt": "2026-11-04T15:20:16+01:00",
-      "missingOpenCycles": 4,
+      "missingOpenCycles": 5,
       "recommendationIdentity": "DE000VY97520|UP57V|2026-10-21|zonebourse|recommendation",
       "contentHash": "b2f27dde9d9ff608a87abb165b60f7c829dffdcf5f448a67ac42030bc4987396",
       "mutationHistory": [
@@ -17349,6 +17631,11 @@
           "changedAt": "2026-11-06T15:09:17+01:00",
           "eventType": "missing_from_open_listing",
           "missingOpenCycles": 4
+        },
+        {
+          "changedAt": "2026-11-10T01:09:35+01:00",
+          "eventType": "missing_from_open_listing",
+          "missingOpenCycles": 5
         }
       ],
       "target": 66.0,
@@ -17442,7 +17729,7 @@
       "publishedAtPrecision": "date",
       "detectedAt": "2026-10-22T13:40:03+02:00",
       "lastSeenOpenAt": "2026-10-30T23:28:30+01:00",
-      "missingOpenCycles": 9,
+      "missingOpenCycles": 10,
       "recommendationIdentity": "DE000BD7H8B3|DM92V|2026-10-22|zonebourse|recommendation",
       "contentHash": "9465592f4131cc46483047f85c1b88264f2545c0dca604f9226d701772f66c62",
       "mutationHistory": [
@@ -17495,6 +17782,11 @@
           "changedAt": "2026-11-06T15:09:17+01:00",
           "eventType": "missing_from_open_listing",
           "missingOpenCycles": 9
+        },
+        {
+          "changedAt": "2026-11-10T01:09:35+01:00",
+          "eventType": "missing_from_open_listing",
+          "missingOpenCycles": 10
         }
       ],
       "target": 1400.0,
@@ -17588,7 +17880,7 @@
       "publishedAtPrecision": "date",
       "detectedAt": "2026-10-22T18:06:43+02:00",
       "lastSeenOpenAt": "2026-11-03T00:12:37+01:00",
-      "missingOpenCycles": 7,
+      "missingOpenCycles": 8,
       "recommendationIdentity": "|XV70V|2026-10-22|zonebourse|recommendation",
       "contentHash": "fdeec6f8cbf85a9c7b70bf8f132204253528526052991841330034bb36ccab8d",
       "mutationHistory": [
@@ -17636,6 +17928,11 @@
           "changedAt": "2026-11-06T15:09:17+01:00",
           "eventType": "missing_from_open_listing",
           "missingOpenCycles": 7
+        },
+        {
+          "changedAt": "2026-11-10T01:09:35+01:00",
+          "eventType": "missing_from_open_listing",
+          "missingOpenCycles": 8
         }
       ],
       "target": 310.0,
@@ -17728,7 +18025,7 @@
       "publishedAt": "2026-10-19T00:00+02:00",
       "publishedAtPrecision": "date",
       "detectedAt": "2026-10-26T19:53:43+01:00",
-      "lastSeenOpenAt": "2026-11-06T15:09:17+01:00",
+      "lastSeenOpenAt": "2026-11-10T01:09:35+01:00",
       "missingOpenCycles": 0,
       "recommendationIdentity": "|DU61V|2026-10-19|zonebourse|recommendation",
       "contentHash": "718a1af8c70b0a9af3a0ffad944b1bd2289d44cf653a5cff7a6655feacefc68d",
@@ -17829,10 +18126,10 @@
       "publishedAt": "2026-10-27T12:00+01:00",
       "publishedAtPrecision": "date",
       "detectedAt": "2026-10-27T13:00:48+01:00",
-      "lastSeenOpenAt": "2026-11-06T15:09:17+01:00",
+      "lastSeenOpenAt": "2026-11-10T01:09:35+01:00",
       "missingOpenCycles": 0,
-      "recommendationIdentity": "|T6QSB|2026-10-27|zonebourse|recommendation",
-      "contentHash": "88c0f8a8457183299fdf553fc91f9ad80933327f3f651558b8c155719bce87b0",
+      "recommendationIdentity": "FRBNPP08CSJ3|T6QSB|2026-10-27|zonebourse|recommendation",
+      "contentHash": "3b8a74f592fdba5c4bda3a2112a4711b26e4e674bf48dd99b4c1dc5165dd6c27",
       "mutationHistory": [
         {
           "changedAt": "2026-10-28T13:40:57+01:00",
@@ -17842,6 +18139,11 @@
         {
           "changedAt": "2026-11-06T15:09:17+01:00",
           "previousHash": "3b8a74f592fdba5c4bda3a2112a4711b26e4e674bf48dd99b4c1dc5165dd6c27",
+          "eventType": "modification"
+        },
+        {
+          "changedAt": "2026-11-10T01:09:35+01:00",
+          "previousHash": "88c0f8a8457183299fdf553fc91f9ad80933327f3f651558b8c155719bce87b0",
           "eventType": "modification"
         }
       ],
@@ -17935,7 +18237,7 @@
       "publishedAt": "2026-11-02T14:15+01:00",
       "publishedAtPrecision": "date",
       "detectedAt": "2026-11-02T16:36:31+01:00",
-      "lastSeenOpenAt": "2026-11-06T15:09:17+01:00",
+      "lastSeenOpenAt": "2026-11-10T01:09:35+01:00",
       "missingOpenCycles": 0,
       "recommendationIdentity": "FRBNPP11WCC4|CFA8B|2026-11-02|zonebourse|recommendation",
       "contentHash": "a24ec573193229d857790d44d193e86207ea8d2c05dcfd9c7601f53f79f59a1f",
@@ -18036,7 +18338,7 @@
       "publishedAt": "2026-11-03T11:44+01:00",
       "publishedAtPrecision": "date",
       "detectedAt": "2026-11-03T15:01:42+01:00",
-      "lastSeenOpenAt": "2026-11-06T15:09:17+01:00",
+      "lastSeenOpenAt": "2026-11-10T01:09:35+01:00",
       "missingOpenCycles": 0,
       "recommendationIdentity": "DE000VY0NJF7|LU15V|2026-11-03|zonebourse|recommendation",
       "contentHash": "014b72ecc011e9fadac68c9048313d29f9f62bcf1d688ec00fe9e5f93caba049",
@@ -18138,7 +18440,7 @@
       "publishedAtPrecision": "minute",
       "detectedAt": "2026-11-03T15:01:42+01:00",
       "lastSeenOpenAt": "2026-11-03T21:28:57+01:00",
-      "missingOpenCycles": 5,
+      "missingOpenCycles": 6,
       "recommendationIdentity": "DE000BE1D6B5|GD22V|2026-11-03|zonebourse|recommendation",
       "contentHash": "ee698a178afecd8f3504bb6fe7b272156b8047947fa7c69b8fdc11061864f93e",
       "mutationHistory": [
@@ -18166,6 +18468,11 @@
           "changedAt": "2026-11-06T15:09:17+01:00",
           "eventType": "missing_from_open_listing",
           "missingOpenCycles": 5
+        },
+        {
+          "changedAt": "2026-11-10T01:09:35+01:00",
+          "eventType": "missing_from_open_listing",
+          "missingOpenCycles": 6
         }
       ],
       "target": 203.0,
@@ -18258,7 +18565,7 @@
       "publishedAt": "2026-11-03T09:06+01:00",
       "publishedAtPrecision": "date",
       "detectedAt": "2026-11-03T15:01:42+01:00",
-      "lastSeenOpenAt": "2026-11-06T15:09:17+01:00",
+      "lastSeenOpenAt": "2026-11-10T01:09:35+01:00",
       "missingOpenCycles": 0,
       "recommendationIdentity": "DE000FG0VC10|1S22S|2026-11-03|zonebourse|recommendation",
       "contentHash": "ed83482c1af2a1669530e25650c9c712b5900dd1c7dbc651e66e37795eaa58d8",
@@ -18359,7 +18666,7 @@
       "publishedAt": "2026-11-04T15:00+01:00",
       "publishedAtPrecision": "date",
       "detectedAt": "2026-11-04T15:20:16+01:00",
-      "lastSeenOpenAt": "2026-11-06T15:09:17+01:00",
+      "lastSeenOpenAt": "2026-11-10T01:09:35+01:00",
       "missingOpenCycles": 0,
       "recommendationIdentity": "DE000BD8PUK1|EI42V|2026-11-04|zonebourse|recommendation",
       "contentHash": "7f8eec95cf8915285e39927ef930b3876675ce0160551575e4cac20849a3f729",
@@ -18460,7 +18767,7 @@
       "publishedAt": "2026-11-04T16:11+01:00",
       "publishedAtPrecision": "date",
       "detectedAt": "2026-11-04T21:51:18+01:00",
-      "lastSeenOpenAt": "2026-11-06T15:09:17+01:00",
+      "lastSeenOpenAt": "2026-11-10T01:09:35+01:00",
       "missingOpenCycles": 0,
       "recommendationIdentity": "DE000VY34ZD1|QI08V|2026-11-04|zonebourse|recommendation",
       "contentHash": "9f152bed7b7b7e453562e1a81fb57b1513792caea19b73cd16e93eab2872a13c",
@@ -18561,7 +18868,7 @@
       "publishedAt": "2026-11-04T15:59+01:00",
       "publishedAtPrecision": "date",
       "detectedAt": "2026-11-04T21:51:18+01:00",
-      "lastSeenOpenAt": "2026-11-06T15:09:17+01:00",
+      "lastSeenOpenAt": "2026-11-10T01:09:35+01:00",
       "missingOpenCycles": 0,
       "recommendationIdentity": "FRBNPP123AB0|D3O7B|2026-11-04|zonebourse|recommendation",
       "contentHash": "41d4d84b7c8fd34415ef005476905fd9ec82740b2fe2378e0479f33ecd5d4612",
@@ -18662,7 +18969,7 @@
       "publishedAt": "2026-11-05T10:43+01:00",
       "publishedAtPrecision": "date",
       "detectedAt": "2026-11-05T15:30:46+01:00",
-      "lastSeenOpenAt": "2026-11-06T15:09:17+01:00",
+      "lastSeenOpenAt": "2026-11-10T01:09:35+01:00",
       "missingOpenCycles": 0,
       "recommendationIdentity": "FRBNPP09UVK5|32W3B|2026-11-05|zonebourse|recommendation",
       "contentHash": "407f4fce4dbf3eb77ee5b8bdfad1025d9c6e55302cb4346c683fc4ab32d16e46",
@@ -18756,7 +19063,7 @@
       "mnemo": "VX12V",
       "isin": null,
       "status": "open",
-      "recommendationStatus": "open",
+      "recommendationStatus": "PENDING_RECONCILIATION",
       "portfolioStatus": "not_held",
       "entryPrice": null,
       "currentPrice": null,
@@ -18769,10 +19076,16 @@
       "publishedAtPrecision": "date",
       "detectedAt": "2026-11-06T15:09:17+01:00",
       "lastSeenOpenAt": "2026-11-06T15:09:17+01:00",
-      "missingOpenCycles": 0,
+      "missingOpenCycles": 1,
       "recommendationIdentity": "|VX12V|2026-08-21|zonebourse|recommendation",
       "contentHash": "d766a198c250845aad370005e0af5d2c3a9c609c52a45cb5fca34726d974e154",
-      "mutationHistory": [],
+      "mutationHistory": [
+        {
+          "changedAt": "2026-11-10T01:09:35+01:00",
+          "eventType": "missing_from_open_listing",
+          "missingOpenCycles": 1
+        }
+      ],
       "target": null,
       "stop": null,
       "riskLevelsCurrency": null,
@@ -18838,6 +19151,291 @@
             "available": true,
             "sources": [
               "https://www.zonebourse.com/actualite-bourse/le-titre-devrait-amorcer-une-reprise-technique-ce7859d3d081fe21"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "societe-generale-vz42v-20261109",
+      "asset": "SOCIÉTÉ GÉNÉRALE",
+      "productType": "Turbo",
+      "direction": "CALL",
+      "mnemo": "VZ42V",
+      "isin": "DE000VH7U1H7",
+      "status": "open",
+      "recommendationStatus": "open",
+      "portfolioStatus": "not_held",
+      "entryPrice": 5.68,
+      "currentPrice": null,
+      "exitPrice": null,
+      "entryDate": "2026-11-09",
+      "exitDate": null,
+      "currency": "EUR",
+      "url": "https://www.zonebourse.com/actualite-bourse/un-niveau-d-achat-ce785fd3df89f423",
+      "publishedAt": "2026-11-09T00:00+01:00",
+      "publishedAtPrecision": "date",
+      "detectedAt": "2026-11-10T01:09:35+01:00",
+      "lastSeenOpenAt": "2026-11-10T01:09:35+01:00",
+      "missingOpenCycles": 0,
+      "recommendationIdentity": "DE000VH7U1H7|VZ42V|2026-11-09|zonebourse|recommendation",
+      "contentHash": "607f74a20985d8c973abcbf266c9c9e082cdff21cfa9469de692fc19dd44c0e1",
+      "mutationHistory": [],
+      "target": 76.0,
+      "stop": null,
+      "riskLevelsCurrency": "EUR",
+      "note": "Un niveau d'achat |. Prix d'entrée et ISIN à confirmer depuis la fiche article.",
+      "sourceConfidence": "medium",
+      "confidence": {
+        "kind": "data_quality",
+        "score": 66,
+        "coveragePct": 66,
+        "label": "Données partielles",
+        "operationallyUsable": false,
+        "quoteAgeMinutes": null,
+        "components": [
+          {
+            "key": "recommendation",
+            "weight": 20,
+            "score": 100,
+            "available": true,
+            "sources": [
+              "https://www.zonebourse.com/actualite-bourse/un-niveau-d-achat-ce785fd3df89f423"
+            ]
+          },
+          {
+            "key": "productIdentity",
+            "weight": 15,
+            "score": 100,
+            "available": true,
+            "sources": [
+              "https://www.zonebourse.com/actualite-bourse/un-niveau-d-achat-ce785fd3df89f423"
+            ]
+          },
+          {
+            "key": "tradePlan",
+            "weight": 30,
+            "score": 67,
+            "available": false,
+            "sources": [
+              "https://www.zonebourse.com/actualite-bourse/un-niveau-d-achat-ce785fd3df89f423"
+            ]
+          },
+          {
+            "key": "marketQuote",
+            "weight": 20,
+            "score": 0,
+            "available": false,
+            "sources": [
+              "https://www.zonebourse.com/actualite-bourse/un-niveau-d-achat-ce785fd3df89f423"
+            ]
+          },
+          {
+            "key": "underlying",
+            "weight": 5,
+            "score": 25,
+            "available": false,
+            "sources": [
+              "https://www.zonebourse.com/actualite-bourse/un-niveau-d-achat-ce785fd3df89f423"
+            ]
+          },
+          {
+            "key": "timing",
+            "weight": 10,
+            "score": 100,
+            "available": true,
+            "sources": [
+              "https://www.zonebourse.com/actualite-bourse/un-niveau-d-achat-ce785fd3df89f423"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "alphabet-inc-qa13v-20261109",
+      "asset": "ALPHABET INC.",
+      "productType": "Turbo",
+      "direction": "CALL",
+      "mnemo": "QA13V",
+      "isin": "DE000VH2WQ81",
+      "status": "open",
+      "recommendationStatus": "open",
+      "portfolioStatus": "not_held",
+      "entryPrice": 0.425,
+      "currentPrice": null,
+      "exitPrice": null,
+      "entryDate": "2026-11-09",
+      "exitDate": null,
+      "currency": "EUR",
+      "url": "https://www.zonebourse.com/actualite-bourse/achat-du-turbo-call-vontobel-qa13v-ce785fd3dc81f222",
+      "publishedAt": "2026-11-09T00:00+01:00",
+      "publishedAtPrecision": "date",
+      "detectedAt": "2026-11-10T01:09:35+01:00",
+      "lastSeenOpenAt": "2026-11-10T01:09:35+01:00",
+      "missingOpenCycles": 0,
+      "recommendationIdentity": "DE000VH2WQ81|QA13V|2026-11-09|zonebourse|recommendation",
+      "contentHash": "74d6e424d888aef095495bad2297071ad7cd6302e5aa848d39fa3fe008023ae6",
+      "mutationHistory": [],
+      "target": 339.0,
+      "stop": 273.0,
+      "riskLevelsCurrency": "USD",
+      "note": "Achat du turbo CALL Vontobel QA13V |. Prix d'entrée et ISIN à confirmer depuis la fiche article.",
+      "sourceConfidence": "medium",
+      "confidence": {
+        "kind": "data_quality",
+        "score": 76,
+        "coveragePct": 76,
+        "label": "Données partielles",
+        "operationallyUsable": false,
+        "quoteAgeMinutes": null,
+        "components": [
+          {
+            "key": "recommendation",
+            "weight": 20,
+            "score": 100,
+            "available": true,
+            "sources": [
+              "https://www.zonebourse.com/actualite-bourse/achat-du-turbo-call-vontobel-qa13v-ce785fd3dc81f222"
+            ]
+          },
+          {
+            "key": "productIdentity",
+            "weight": 15,
+            "score": 100,
+            "available": true,
+            "sources": [
+              "https://www.zonebourse.com/actualite-bourse/achat-du-turbo-call-vontobel-qa13v-ce785fd3dc81f222"
+            ]
+          },
+          {
+            "key": "tradePlan",
+            "weight": 30,
+            "score": 100,
+            "available": true,
+            "sources": [
+              "https://www.zonebourse.com/actualite-bourse/achat-du-turbo-call-vontobel-qa13v-ce785fd3dc81f222"
+            ]
+          },
+          {
+            "key": "marketQuote",
+            "weight": 20,
+            "score": 0,
+            "available": false,
+            "sources": [
+              "https://www.zonebourse.com/actualite-bourse/achat-du-turbo-call-vontobel-qa13v-ce785fd3dc81f222"
+            ]
+          },
+          {
+            "key": "underlying",
+            "weight": 5,
+            "score": 25,
+            "available": false,
+            "sources": [
+              "https://www.zonebourse.com/actualite-bourse/achat-du-turbo-call-vontobel-qa13v-ce785fd3dc81f222"
+            ]
+          },
+          {
+            "key": "timing",
+            "weight": 10,
+            "score": 100,
+            "available": true,
+            "sources": [
+              "https://www.zonebourse.com/actualite-bourse/achat-du-turbo-call-vontobel-qa13v-ce785fd3dc81f222"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "airbus-se-ml34v-20261109",
+      "asset": "AIRBUS SE",
+      "productType": "Turbo",
+      "direction": "CALL",
+      "mnemo": "ML34V",
+      "isin": "DE000VY0ZSW7",
+      "status": "open",
+      "recommendationStatus": "open",
+      "portfolioStatus": "not_held",
+      "entryPrice": 3.74,
+      "currentPrice": null,
+      "exitPrice": null,
+      "entryDate": "2026-11-09",
+      "exitDate": null,
+      "currency": "EUR",
+      "url": "https://www.zonebourse.com/actualite-bourse/un-niveau-d-achat-ce785fd3dc8ff621",
+      "publishedAt": "2026-11-09T00:00+01:00",
+      "publishedAtPrecision": "date",
+      "detectedAt": "2026-11-10T01:09:35+01:00",
+      "lastSeenOpenAt": "2026-11-10T01:09:35+01:00",
+      "missingOpenCycles": 0,
+      "recommendationIdentity": "DE000VY0ZSW7|ML34V|2026-11-09|zonebourse|recommendation",
+      "contentHash": "5b7f4d832b218767607af30ca6cebe0b7474103fff997226876ecaccd0c34308",
+      "mutationHistory": [],
+      "target": 228.0,
+      "stop": null,
+      "riskLevelsCurrency": "EUR",
+      "note": "Un niveau d'achat |. Prix d'entrée et ISIN à confirmer depuis la fiche article.",
+      "sourceConfidence": "medium",
+      "confidence": {
+        "kind": "data_quality",
+        "score": 66,
+        "coveragePct": 66,
+        "label": "Données partielles",
+        "operationallyUsable": false,
+        "quoteAgeMinutes": null,
+        "components": [
+          {
+            "key": "recommendation",
+            "weight": 20,
+            "score": 100,
+            "available": true,
+            "sources": [
+              "https://www.zonebourse.com/actualite-bourse/un-niveau-d-achat-ce785fd3dc8ff621"
+            ]
+          },
+          {
+            "key": "productIdentity",
+            "weight": 15,
+            "score": 100,
+            "available": true,
+            "sources": [
+              "https://www.zonebourse.com/actualite-bourse/un-niveau-d-achat-ce785fd3dc8ff621"
+            ]
+          },
+          {
+            "key": "tradePlan",
+            "weight": 30,
+            "score": 67,
+            "available": false,
+            "sources": [
+              "https://www.zonebourse.com/actualite-bourse/un-niveau-d-achat-ce785fd3dc8ff621"
+            ]
+          },
+          {
+            "key": "marketQuote",
+            "weight": 20,
+            "score": 0,
+            "available": false,
+            "sources": [
+              "https://www.zonebourse.com/actualite-bourse/un-niveau-d-achat-ce785fd3dc8ff621"
+            ]
+          },
+          {
+            "key": "underlying",
+            "weight": 5,
+            "score": 25,
+            "available": false,
+            "sources": [
+              "https://www.zonebourse.com/actualite-bourse/un-niveau-d-achat-ce785fd3dc8ff621"
+            ]
+          },
+          {
+            "key": "timing",
+            "weight": 10,
+            "score": 100,
+            "available": true,
+            "sources": [
+              "https://www.zonebourse.com/actualite-bourse/un-niveau-d-achat-ce785fd3dc8ff621"
             ]
           }
         ]
